@@ -19,10 +19,14 @@ addr = [0 for x in range(32)]
 
 
 ################################################
-def list_to_bin(bin_1B[c_cnt]):
+def list_to_bin(list):
+	print('list_to_bin Function')
 	num = 0
-	for b in bin_1B[c_cnt]:
+
+	for b in list:
 		num = 2*num + b
+	print(bin(num))
+	print('Funciton DONE')
 	return bin(num)
 ################################################
 def newByte():
@@ -33,7 +37,7 @@ def newByte():
 		c_cnt = 0
 		newLine()
 	else:
-		c_cnt = c_cnt + 1:
+		c_cnt = c_cnt + 1
 ################################################
 def newLine():
 	global r_cnt, hex_4B, bin_1B
@@ -43,40 +47,40 @@ def newLine():
 	for i in range(4):
 		hex_4B[i][1] = data_packet[r_cnt*9+2*i+1]
 		hex_4B[i][0] = data_packet[r_cnt*9+2*i]
-		# print('hex_4B[',i,']: ',hex_4B[i])
-		# print(hex_4B[i][0],hex_4B[i][1])
+		print('hex_4B[',i,']: ',hex_4B[i])
+		print(hex_4B[i][0],hex_4B[i][1])
 	
 	for i in range(4):
 		dec[0] = int(hex_4B[i][0],16)	
 		dec[1] = int(hex_4B[i][1],16)
 
-		# print(bin(dec[0]), bin(dec[1]))
-		# print('cnt:',len(bin(dec[0])),len(bin(dec[1])))
+		print(bin(dec[0]), bin(dec[1]))
+		print('cnt:',len(bin(dec[0])),len(bin(dec[1])))
 		cnt0 = len(bin(dec[0]))
 		cnt1 = len(bin(dec[1]))
 
 		if cnt0 == 6:
 			for j in range(4):
-				bin_1B[i][j] = str(bin(dec[0]))[2+j]
+				bin_1B[i][j] = int( str(bin(dec[0]))[2+j] )
 		else:
 			for j in range(6-cnt0):
 				bin_1B[i][j] = 0
 			for j in range(cnt0-2):
-				bin_1B[i][6-cnt0+j] = str(bin(dec[0]))[2+j]
+				bin_1B[i][6-cnt0+j] = int( str(bin(dec[0]))[2+j] )
 			
 		if cnt1 == 6:
 			for j in range(4):
-				bin_1B[i][4+j] = str(bin(dec[1]))[2+j]
+				bin_1B[i][4+j] = int( str(bin(dec[1]))[2+j] )
 		else:
 			for j in range(6-cnt1):
 				bin_1B[i][4+j] = 0
 			for j in range(cnt1-2):
-				bin_1B[i][6-cnt1+4+j] = str(bin(dec[1]))[2+j]
+				bin_1B[i][6-cnt1+4+j] = int( str(bin(dec[1]))[2+j] )
 	
-		# print(bin_1B[i])
+		print(bin_1B[i])
 
 
-	# print('Function END')
+	print('Function END')
 	r_cnt = r_cnt + 1
 ################################################
 def Async():
@@ -132,7 +136,7 @@ def Isync():
 	newByte()
 	print('Isync DONE','\n')
 ################################################
-def	BranchAddr()
+def	BranchAddr():
 	global c_cnt, bin_1B, CPU_state, addr
 	counter = 0
 	print('BranchAddr Function')
@@ -231,21 +235,23 @@ def	BranchAddr()
 newLine()
 c_cnt = 0
 for i in range(4):
-	print('total loop working')
+	print('total loop working \n\n')
 	
 	if list_to_bin(bin_1B[c_cnt]) == 0b00000000:
 		Async()
+		print('no Async \n')
 		
 	elif list_to_bin(bin_1B[c_cnt]) == 0b00001000:
 		Isync()
+		print('no Async \n')
 		
-	elif bin_1B[7] == 1:
+	elif bin_1B[c_cnt][7] == 1:
+		print('inside branch addr loop \n')
 		BranchAddr()
 		
 	print('\n','**** NO MATCH ****','\n')
 		
 print('\n\n\n', 'for loop done')
-
 
 
 
