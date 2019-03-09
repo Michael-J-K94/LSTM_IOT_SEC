@@ -223,14 +223,22 @@ def	BranchAddr():
 				for j in range(6):
 					addr[j] = bin_1B[c_cnt][6-j]
 					
-				print('addr:',addr_to_hex(addr))			 
-				counter = counter + 1
+				print('addr:',addr_to_hex(addr))		
+				
+				if bin_1B[c_cnt][0] == 1:
+					counter = counter + 1
+				else:
+					break
 			elif counter < 4:
 				for j in range(7):
 					addr[7*(counter-1)+6+j] = bin_1B[c_cnt][7-j]
 				
-				print('addr:',addr_to_hex(addr))			 
-				counter = counter + 1
+				print('addr:',addr_to_hex(addr))	
+
+				if bin_1B[c_cnt][0] == 1:
+					counter = counter + 1
+				else:
+					break
 			elif counter == 4:
 				# print('counter == 4')
 				addr[31] = bin_1B[c_cnt][3]
@@ -260,7 +268,16 @@ def	BranchAddr():
 	# print('BranchAddr DONE')
 
 	newByte()
-
+################################################
+def Atom():
+	global c_cnt, bin_1B, CPU_state, addr
+	counter = 0
+	
+	if Synched == 0:
+		print('?',end='')
+	print('Atom')
+	
+	newByte()
 ################################################
 print('\n\n\n ***** STARTING MAIN FUNCTION ***** \n')
 
@@ -277,9 +294,11 @@ for i in range(4):
 		Isync()
 		
 	elif bin_1B[c_cnt][7] == 1:
-		print(' BRANCH ADDRESS')
+		print('** BRANCH ADDRESS')
 		BranchAddr()
-		
+	
+	elif (bin_1B[c_cnt][0] == 1 && bin_1B[c_cnt][7] == 0):
+		print('** ATOM')
 		
 print('\n\n\n', 'for loop done')
 
