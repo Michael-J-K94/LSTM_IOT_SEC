@@ -223,8 +223,12 @@ def	BranchAddr():
 				for j in range(6):
 					addr[j] = bin_1B[c_cnt][6-j]
 					
+<<<<<<< HEAD
 				print('addr:',addr_to_hex(addr))		
 				
+=======
+				print('addr:',addr_to_hex(addr))
+>>>>>>> 845b690a5c3275c6f3b8e757868ff77300274c01
 				if bin_1B[c_cnt][0] == 1:
 					counter = counter + 1
 				else:
@@ -233,8 +237,12 @@ def	BranchAddr():
 				for j in range(7):
 					addr[7*(counter-1)+6+j] = bin_1B[c_cnt][7-j]
 				
+<<<<<<< HEAD
 				print('addr:',addr_to_hex(addr))	
 
+=======
+				print('addr:',addr_to_hex(addr))
+>>>>>>> 845b690a5c3275c6f3b8e757868ff77300274c01
 				if bin_1B[c_cnt][0] == 1:
 					counter = counter + 1
 				else:
