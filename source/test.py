@@ -53,19 +53,19 @@ def newLine():
 	global r_cnt, hex_4B, bin_1B
 	dec = [0]*2
 	print('New Line Function')
-	
+	print('r_cnt:',r_cnt,' , '8byte hex:',data_packet[r_cnt*9:r_cnt*9+8]')
 	for i in range(4):
 		hex_4B[i][1] = data_packet[r_cnt*9+2*i+1]
 		hex_4B[i][0] = data_packet[r_cnt*9+2*i]
-		print('hex_4B[',i,']: ',hex_4B[i])
-		print(hex_4B[i][0],hex_4B[i][1])
+		print('hex_4B[',i,']: ',hex_4B[i],end='')
+		# print(hex_4B[i][0],hex_4B[i][1])
 	
 	for i in range(4):
 		dec[0] = int(hex_4B[i][0],16)	
 		dec[1] = int(hex_4B[i][1],16)
 
-		print(bin(dec[0]), bin(dec[1]))
-		print('cnt:',len(bin(dec[0])),len(bin(dec[1])))
+		# print(bin(dec[0]), bin(dec[1]))
+		# print('cnt:',len(bin(dec[0])),len(bin(dec[1])))
 		cnt0 = len(bin(dec[0]))
 		cnt1 = len(bin(dec[1]))
 
@@ -90,7 +90,7 @@ def newLine():
 		print(bin_1B[i])
 
 
-	print('Function END')
+	print('Function END \n')
 	r_cnt = r_cnt + 1
 ################################################
 def Async():
@@ -249,18 +249,18 @@ def	BranchAddr():
 	print('BranchAddr DONE')		
 
 ################################################
+print('\n\n\n ***** STARTING MAIN FUNCTION ***** \n')
+
 newLine()
 c_cnt = 0
 for i in range(4):
-	print('total loop working \n\n')
+	print('*** INSIDE MAIN LOOP *** \n\n')
 	
 	if list_to_bin(bin_1B[c_cnt]) == 0b00000000:
 		Async()
-		print('no Async \n')
 		
 	elif list_to_bin(bin_1B[c_cnt]) == 0b00001000:
 		Isync()
-		print('no Async \n')
 		
 	elif bin_1B[c_cnt][7] == 1:
 		print('inside branch addr loop \n')
