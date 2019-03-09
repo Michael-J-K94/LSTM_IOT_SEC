@@ -104,13 +104,11 @@ def Async():
 	
 	while True:
 		##CHECKING FOR LAST ROW
-		if bin_1B[c_cnt] == [1,0,0,0,0,0,0,0,0]: 
-			break
+		if list_to_bin(bin_1B[c_cnt]) == '0b10000000': 
+			Synched = 1
+			print('Async DONE \n')
+			return ## MIND THE FACT THAT THIS IS NOT 'break', BUT 'return'
 		newByte()
-			
-	newByte()
-	Synched = 1
-	print('Async DONE','\n')
 ################################################		
 def Isync():
 	global c_cnt, bin_1B, CPU_state, addr
@@ -147,8 +145,8 @@ def Isync():
 				break
 		newByte()
 			
-	newByte()
 	print('Isync DONE','\n')
+	newByte()
 ################################################
 def	BranchAddr():
 	global c_cnt, bin_1B, CPU_state, addr
@@ -272,7 +270,7 @@ def Atom():
 	
 	if Synched == 0:
 		print('?',end='')
-	print('Atom')
+	print('Atom\n')
 	
 	newByte()
 ################################################
@@ -281,22 +279,36 @@ print('\n\n\n ***** STARTING MAIN FUNCTION ***** \n')
 newLine()
 c_cnt = 0
 print(list_to_bin(bin_1B[c_cnt]), '(',hex_4B[c_cnt],')')
-for i in range(4):
+
+
+async_number = [0,0]
+
+for i in range(899):
 	# print('*** INSIDE MAIN LOOP *** \n\n')
-	
-	if list_to_bin(bin_1B[c_cnt]) == 0b00000000:
+
+	if list_to_bin(bin_1B[c_cnt]) == '0b0':
+		async_number = [r_cnt,c_cnt]
+		print('\n\n\n\n\n\n\n\n\n\n\n\n\n *************** ASYNC FOUND ****************** \n\n\n\n\n\n\n\n\n')
 		Async()
 		
-	elif list_to_bin(bin_1B[c_cnt]) == 0b00001000:
+	elif list_to_bin(bin_1B[c_cnt]) == '0b1000':
 		Isync()
 		
 	elif bin_1B[c_cnt][7] == 1:
 		print('** BRANCH ADDRESS')
 		BranchAddr()
 	
-	elif (bin_1B[c_cnt][0] == 1 && bin_1B[c_cnt][7] == 0):
+	elif (bin_1B[c_cnt][0] == 1 and bin_1B[c_cnt][7] == 0):
 		print('** ATOM')
-		
+		Atom()
+	else:
+		print('WTF ?????')
+
+if Synched == 1:
+	print('Async Happened')
+else:
+	print('Async NOT Happened')
+print('async_number:',async_number)
 print('\n\n\n', 'for loop done')
 
 
