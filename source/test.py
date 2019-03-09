@@ -154,9 +154,9 @@ def	BranchAddr():
 					addr[7*(counter-1)+8+j] = bin_1B[c_cnt][7-j]
 				counter = counter + 1
 			elif counter == 4:
-				addr[31] = bin_1B[5]
-				addr[30] = bin_1B[6]
-				addr[29] = bin_1B[7]
+				addr[31] = bin_1B[c_cnt][5]
+				addr[30] = bin_1B[c_cnt][6]
+				addr[29] = bin_1B[c_cnt][7]
 				if bin_1B[1] == 1:
 					counter = counter + 1
 				else:
@@ -183,10 +183,10 @@ def	BranchAddr():
 					addr[7*(counter-1)+7+j] = bin_1B[c_cnt][7-j]
 				counter = counter + 1
 			elif counter == 4:
-				addr[31] = bin_1B[4]
-				addr[30] = bin_1B[5]
-				addr[29] = bin_1B[6]
-				addr[28] = bin_1B[7]
+				addr[31] = bin_1B[c_cnt][4]
+				addr[30] = bin_1B[c_cnt][5]
+				addr[29] = bin_1B[c_cnt][6]
+				addr[28] = bin_1B[c_cnt][7]
 				if bin_1B[1] == 1:
 					counter = counter + 1
 				else:
@@ -211,11 +211,11 @@ def	BranchAddr():
 					addr[7*(counter-1)+6+j] = bin_1B[c_cnt][7-j]
 				counter = counter + 1
 			elif counter == 4:
-				addr[31] = bin_1B[3]
-				addr[30] = bin_1B[4]
-				addr[29] = bin_1B[5]
-				addr[28] = bin_1B[6]
-				addr[27] = bin_1B[7]				
+				addr[31] = bin_1B[c_cnt][3]
+				addr[30] = bin_1B[c_cnt][4]
+				addr[29] = bin_1B[c_cnt][5]
+				addr[28] = bin_1B[c_cnt][6]
+				addr[27] = bin_1B[c_cnt][7]				
 				if bin_1B[1] == 1:
 					counter = counter + 1
 				else:
