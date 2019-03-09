@@ -19,6 +19,16 @@ addr = [0 for x in range(32)]
 
 
 ################################################
+def addr_to_hex(list):
+	addr_temp = [0 for x in range(32)]
+	for k in range(32):
+		addr_temp[k] = addr[31-k]
+
+	temp = list_to_bin(addr_temp)
+	
+	print('addr_to_hex DONE')
+	print('return:', hex( int(temp,2) ) )
+	return hex( int(temp,2) )
 def list_to_bin(list):
 	print('list_to_bin Function')
 	num = 0
@@ -198,9 +208,12 @@ def	BranchAddr():
 					break
 			elif counter == 6:
 				break
+
+			newByte()
 	
 		##JAZELLE STATE
 		elif CPU_state == 2:
+			print('JAZELLE STATE, counter:',counter)
 		
 			if counter == 0:
 				for j in range(6):
@@ -211,6 +224,7 @@ def	BranchAddr():
 					addr[7*(counter-1)+6+j] = bin_1B[c_cnt][7-j]
 				counter = counter + 1
 			elif counter == 4:
+				print('counter == 4')
 				addr[31] = bin_1B[c_cnt][3]
 				addr[30] = bin_1B[c_cnt][4]
 				addr[29] = bin_1B[c_cnt][5]
@@ -227,7 +241,10 @@ def	BranchAddr():
 					break
 			elif counter == 6:
 				break
-				
+			
+			newByte()
+	
+	print('addr:',addr_to_hex(addr), '\n')			 
 	newByte()
 	print('BranchAddr DONE')		
 
