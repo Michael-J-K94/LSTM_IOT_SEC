@@ -26,17 +26,17 @@ def addr_to_hex(list):
 
 	temp = list_to_bin(addr_temp)
 	
-	print('addr_to_hex DONE')
-	print('return:', hex( int(temp,2) ) )
+	# print('addr_to_hex DONE')
+	# print('return:', hex( int(temp,2) ) )
 	return hex( int(temp,2) )
 def list_to_bin(list):
-	print('list_to_bin Function')
+	# print('list_to_bin Function')
 	num = 0
 
 	for b in list:
 		num = 2*num + b
-	print(bin(num))
-	print('Funciton DONE')
+	# print(bin(num))
+	# print('Funciton DONE')
 	return bin(num)
 ################################################
 def newByte():
@@ -48,18 +48,22 @@ def newByte():
 		newLine()
 	else:
 		c_cnt = c_cnt + 1
+
+	print(list_to_bin(bin_1B[c_cnt]), '(',hex_4B[c_cnt],')')
 ################################################
 def newLine():
 	global r_cnt, hex_4B, bin_1B
 	dec = [0]*2
-	print('New Line Function')
-	print('r_cnt:',r_cnt,' , '8byte hex:',data_packet[r_cnt*9:r_cnt*9+8]')
+	# print('New Line Function')
+	# print('r_cnt:',r_cnt,' 8byte hex:',data_packet[r_cnt*9:r_cnt*9+8])
 	for i in range(4):
 		hex_4B[i][1] = data_packet[r_cnt*9+2*i+1]
 		hex_4B[i][0] = data_packet[r_cnt*9+2*i]
-		print('hex_4B[',i,']: ',hex_4B[i],end='')
+	 	# print(hex_4B[i],end='')
 		# print(hex_4B[i][0],hex_4B[i][1])
-	
+
+	# print('\n',end='')
+
 	for i in range(4):
 		dec[0] = int(hex_4B[i][0],16)	
 		dec[1] = int(hex_4B[i][1],16)
@@ -87,10 +91,10 @@ def newLine():
 			for j in range(cnt1-2):
 				bin_1B[i][6-cnt1+4+j] = int( str(bin(dec[1]))[2+j] )
 	
-		print(bin_1B[i])
+		# print(bin_1B[i],end='')
 
 
-	print('Function END \n')
+	# print('\nNEW LINE Function END \n')
 	r_cnt = r_cnt + 1
 ################################################
 def Async():
@@ -149,7 +153,7 @@ def Isync():
 def	BranchAddr():
 	global c_cnt, bin_1B, CPU_state, addr
 	counter = 0
-	print('BranchAddr Function')
+	# print('BranchAddr Function')
 	
 	while True:
 		##ARM STATE
@@ -213,23 +217,28 @@ def	BranchAddr():
 	
 		##JAZELLE STATE
 		elif CPU_state == 2:
-			print('JAZELLE STATE, counter:',counter)
+			# print('JAZELLE STATE, counter:',counter)
 		
 			if counter == 0:
 				for j in range(6):
 					addr[j] = bin_1B[c_cnt][6-j]
+					
+				print('addr:',addr_to_hex(addr))			 
 				counter = counter + 1
 			elif counter < 4:
 				for j in range(7):
 					addr[7*(counter-1)+6+j] = bin_1B[c_cnt][7-j]
+				
+				print('addr:',addr_to_hex(addr))			 
 				counter = counter + 1
 			elif counter == 4:
-				print('counter == 4')
+				# print('counter == 4')
 				addr[31] = bin_1B[c_cnt][3]
 				addr[30] = bin_1B[c_cnt][4]
 				addr[29] = bin_1B[c_cnt][5]
 				addr[28] = bin_1B[c_cnt][6]
-				addr[27] = bin_1B[c_cnt][7]				
+				addr[27] = bin_1B[c_cnt][7]
+				print('addr:',addr_to_hex(addr))			 
 				if bin_1B[1] == 1:
 					counter = counter + 1
 				else:
@@ -244,17 +253,22 @@ def	BranchAddr():
 			
 			newByte()
 	
-	print('addr:',addr_to_hex(addr), '\n')			 
+	if Synched == 0:
+		print('?',end='')
+
+	print('Branch',addr_to_hex(addr),'CPU_state:',CPU_state,'\n')	
+	# print('BranchAddr DONE')
+
 	newByte()
-	print('BranchAddr DONE')		
 
 ################################################
 print('\n\n\n ***** STARTING MAIN FUNCTION ***** \n')
 
 newLine()
 c_cnt = 0
+print(list_to_bin(bin_1B[c_cnt]), '(',hex_4B[c_cnt],')')
 for i in range(4):
-	print('*** INSIDE MAIN LOOP *** \n\n')
+	# print('*** INSIDE MAIN LOOP *** \n\n')
 	
 	if list_to_bin(bin_1B[c_cnt]) == 0b00000000:
 		Async()
@@ -263,10 +277,9 @@ for i in range(4):
 		Isync()
 		
 	elif bin_1B[c_cnt][7] == 1:
-		print('inside branch addr loop \n')
+		print(' BRANCH ADDRESS')
 		BranchAddr()
 		
-	print('\n','**** NO MATCH ****','\n')
 		
 print('\n\n\n', 'for loop done')
 
