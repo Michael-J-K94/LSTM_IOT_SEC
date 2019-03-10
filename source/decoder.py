@@ -1,12 +1,12 @@
 
-d_file = open('first_etb_align.txt')
+d_file = open('second_etb_align.txt')
 data_packet = d_file.read()
 
 print(data_packet[0:72])
 
 
 ################################################
-CPU_state = 2
+CPU_state = 1
 Synched = 0
 
 hex_4B = [[0 for x in range(2)] for y in range(4)]
@@ -33,11 +33,17 @@ def num_to_CPUstate(x):
 		return 'wrong input'
 
 def addr_to_hex(list):
-	addr_temp = list
-	for k in range(len(list)):
-		addr_temp[k] = list[len(list)-1-k]
-
+	size = len(list)
+	addr_temp = [0 for x in range(size)]
+	# print('\n\n\naddr_temp:',addr_temp)
+	# print('length:',size,len(addr_temp))
+	# print('list now:',list)
+	for k in range(size):
+		addr_temp[k] = list[size-1-k]
+		# print('list[',size-1-k,']:',list[size-1-k])
+	# print('addr_temp after for:',addr_temp)
 	temp = list_to_bin(addr_temp)
+	# print('temp:',temp)
 	
 	# print('addr_to_hex DONE')
 	# print('return:', hex( int(temp,2) ) )
@@ -50,6 +56,7 @@ def list_to_bin(list):
 		num = 2*num + b
 	# print(bin(num))
 	# print('Funciton DONE')
+	# print('num:',num,'bin(num):',bin(num))
 	return bin(num)
 ################################################
 def newByte():
@@ -312,10 +319,10 @@ def	BranchAddr():
 	if Synched == 0:
 		print('?',end='')
 
-	print('Branch',addr_to_hex(addr),end='')
+	print('Branch',addr_to_hex(addr),end=' ')
 	if exceptioned == 1:
-		print('Exception data',addr_to_hex(exception),end='')
-	print('CPU_state:',CPU_state,'\n')	
+		print('Exception data',addr_to_hex(exception),end=' ')
+	print(num_to_CPUstate(CPU_state),'\n')	
 	# print('BranchAddr DONE')
 
 	newByte()
@@ -404,7 +411,7 @@ waypoint_number = [[0,0] for x in range(30)]
 wp_idx = 0
 async_number = [0,0]
 
-for i in range(1200):
+for i in range(20):
 	# print('*** INSIDE MAIN LOOP *** \n\n')
 
 	if list_to_bin(bin_1B[c_cnt]) == '0b0':
