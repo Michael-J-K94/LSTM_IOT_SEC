@@ -33,9 +33,9 @@ def num_to_CPUstate(x):
 		return 'wrong input'
 
 def addr_to_hex(list):
-	addr_temp = [0 for x in range(32)]
-	for k in range(32):
-		addr_temp[k] = list[31-k]
+	addr_temp = list
+	for k in range(len(list)):
+		addr_temp[k] = list[len(list)-1-k]
 
 	temp = list_to_bin(addr_temp)
 	
