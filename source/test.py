@@ -16,13 +16,26 @@ r_cnt = 0
 c_cnt = 0
 
 addr = [0 for x in range(32)]
+wp_addr = [0 for x in range(32)]
+context = [0 for x in range(32)]
+exception = [0 for x in range(9)]
 
 
 ################################################
+def num_to_CPUstate(x):
+	if x == 0:
+		return 'ARM'
+	elif x == 1:
+		return 'Thumb'
+	elif x == 2:
+		return 'Jakelle'
+	else:
+		return 'wrong input'
+
 def addr_to_hex(list):
 	addr_temp = [0 for x in range(32)]
 	for k in range(32):
-		addr_temp[k] = addr[31-k]
+		addr_temp[k] = list[31-k]
 
 	temp = list_to_bin(addr_temp)
 	
@@ -100,20 +113,17 @@ def newLine():
 def Async():
 	global c_cnt, bin_1B, Synched
 	counter = 0
-	print('Async Function')
 	
 	while True:
 		##CHECKING FOR LAST ROW
 		if list_to_bin(bin_1B[c_cnt]) == '0b10000000': 
 			Synched = 1
-			print('Async DONE \n')
 			return ## MIND THE FACT THAT THIS IS NOT 'break', BUT 'return'
 		newByte()
 ################################################		
 def Isync():
 	global c_cnt, bin_1B, CPU_state, addr
 	counter = 0
-	print('Isync Function')
 	
 	while True:
 		##HEADER
@@ -123,11 +133,13 @@ def Isync():
 		elif counter < 5:		
 			if counter == 1:
 				for j in range(7):
-					addr[j] = bin_1B[c_cnt][7-j]
+					addr[j+1] = bin_1B[c_cnt][6-j]
+
 				if bin_1B[c_cnt][7] == 0:
 					CPU_state = 0 #ARM STATE
 				else:
-					CPU_state = 1 #THUMB STATE		
+					CPU_state = 1 #THUMB STATE
+
 				counter = counter + 1	
 			else:
 				for j in range(8):
@@ -139,18 +151,26 @@ def Isync():
 		##CONTEXT
 		elif counter < 10:
 			for j in range(8):
-				addr[(counter-6)*8+j] = bin_1B[c_cnt][7-j]
+				context[8*(counter-6)+j] = bin_1B[c_cnt][7-j]
+			print('(context: ',addr_to_hex(context),')')
 			counter = counter + 1
-			if counter == 9:
+
+			if counter == 10:
 				break
+
+
 		newByte()
-			
-	print('Isync DONE','\n')
+	
+	if Synched == 0:
+		print('?',end='')
+	
+	print('Isync  Context:',addr_to_hex(context),'Addr:',addr_to_hex(addr),num_to_CPUstate(CPU_state),'\n')
 	newByte()
 ################################################
 def	BranchAddr():
 	global c_cnt, bin_1B, CPU_state, addr
 	counter = 0
+	exceptioned = 0
 	# print('BranchAddr Function')
 	
 	while True:
@@ -160,25 +180,39 @@ def	BranchAddr():
 			if counter == 0:
 				for j in range(6):
 					addr[2+j] = bin_1B[c_cnt][6-j]
-				counter = counter + 1
+				print('addr:',addr_to_hex(addr))		
+				if bin_1B[c_cnt][0] == 1:
+					counter = counter + 1
+				else:
+					break
 			elif counter < 4:
 				for j in range(7):
 					addr[7*(counter-1)+8+j] = bin_1B[c_cnt][7-j]
-				counter = counter + 1
+				print('addr:',addr_to_hex(addr))
+				if bin_1B[c_cnt][0] == 1:
+					counter = counter + 1
+				else:
+					break
 			elif counter == 4:
 				addr[31] = bin_1B[c_cnt][5]
 				addr[30] = bin_1B[c_cnt][6]
 				addr[29] = bin_1B[c_cnt][7]
-				if bin_1B[1] == 1:
+				print('addr',addr_to_hex(addr))
+				if bin_1B[c_cnt][1] == 1:
 					counter = counter + 1
 				else:
 					break
 			elif counter == 5:
-				if bin_1B[0] == 1:
+				exceptioned = 1
+				if bin_1B[c_cnt][0] == 1:
+					for j in range(4):
+						exception[j] = bin_1B[c_cnt][6-j]
 					counter = counter + 1
 				else:
 					break
 			elif counter == 6:
+				for j in range(5):
+					exception[4+j] = bin_1B[c_cnt][7-j]
 				break
 			
 			newByte()
@@ -189,26 +223,40 @@ def	BranchAddr():
 			if counter == 0:
 				for j in range(6):
 					addr[1+j] = bin_1B[c_cnt][6-j]
-				counter = counter + 1
+				print('addr',addr_to_hex(addr))
+				if bin_1B[c_cnt][0] == 1:
+					counter = counter + 1
+				else:
+				 	break
 			elif counter < 4:
 				for j in range(7):
 					addr[7*(counter-1)+7+j] = bin_1B[c_cnt][7-j]
-				counter = counter + 1
+				print('addr',addr_to_hex(addr))
+				if bin_1B[c_cnt][0] == 1:
+					counter = counter + 1
+				else:
+				 	break
 			elif counter == 4:
 				addr[31] = bin_1B[c_cnt][4]
 				addr[30] = bin_1B[c_cnt][5]
 				addr[29] = bin_1B[c_cnt][6]
 				addr[28] = bin_1B[c_cnt][7]
+				print('addr',addr_to_hex(addr))
 				if bin_1B[1] == 1:
 					counter = counter + 1
 				else:
 					break
 			elif counter == 5:
+				exceptioned = 1
 				if bin_1B[0] == 1:
+					for j in range(4):
+						exception[j] = bin_1B[c_cnt][6-j]
 					counter = counter + 1
 				else:
 					break
 			elif counter == 6:
+				for j in range(5):
+					exception[4+j] = bin_1B[c_cnt][7-j]
 				break
 
 			newByte()
@@ -247,11 +295,16 @@ def	BranchAddr():
 				else:
 					break
 			elif counter == 5:
+				exceptioned = 1
 				if bin_1B[0] == 1:
+					for j in range(4):
+						exception[j] = bin_1B[c_cnt][6-j]
 					counter = counter + 1
 				else:
 					break
 			elif counter == 6:
+				for j in range(5):
+					exception[j] = bin_1B[c_cnt][7-j]
 				break
 			
 			newByte()
@@ -259,7 +312,10 @@ def	BranchAddr():
 	if Synched == 0:
 		print('?',end='')
 
-	print('Branch',addr_to_hex(addr),'CPU_state:',CPU_state,'\n')	
+	print('Branch',addr_to_hex(addr),end='')
+	if exceptioned == 1:
+		print('Exception data',addr_to_hex(exception),end='')
+	print('CPU_state:',CPU_state,'\n')	
 	# print('BranchAddr DONE')
 
 	newByte()
@@ -274,24 +330,91 @@ def Atom():
 	
 	newByte()
 ################################################
+def Waypoint():
+	global c_cnt,bin_1B,CPU_state,addr
+	counter = 0
+	
+	while True:
+		## ARM STATE
+		if CPU_state == 0:
+			if counter == 0:
+				counter = counter + 1
+			elif counter == 1:
+				for j in range(6):
+					wp_addr[2+j] = bin_1B[c_cnt][6-j]
+				if bin_1B[c_cnt][0] == 0:
+					break
+				else:
+					counter = counter + 1
+			elif counter < 5:
+				for j in range(7):
+					wp_addr[7*(counter-2)+8+j] = bin_1B[c_cnt][7-j]
+				if bin_1B[c_cnt][0] == 0:
+					break
+				else:
+					counter = counter + 1
+			elif counter == 5:
+				for j in range(3):
+					wp_addr[29+j] = bin_1B[c_cnt][7-j]
+				if bin_1B[c_cnt][1] == 0:
+					break
+				else:
+					counter = counter + 1
+			elif counter == 6:
+				break
+		## Thumb State	
+		elif CPU_state == 1:
+			if counter == 0:
+				counter = counter + 1
+			elif counter == 1:
+				for j in range(6):
+					wp_addr[j] = bin_1B[c_cnt][6-j]
+				if bin_1B[c_cnt][0] == 0:
+					break
+				else:
+					counter = counter + 1
+			elif counter < 5:
+				for j in range(7):
+					wp_addr[7*(counter-1) + j] = bin_1B[c_cnt][7-j]
+				if bin_1B[c_cnt][0] == 0:
+					break
+				else:
+					counter = counter + 1
+			elif counter == 5:
+				for j in range(4):
+					wp_addr[28+j] = bin_1B[c_cnt][7-j]
+				if bin_1B[c_cnt][1] == 0:
+					break
+				else:
+					counter = counter + 1
+			elif counter == 6:
+				break
+			  
+		newByte()
+	print('Waypoint',addr_to_hex(wp_addr),num_to_CPUstate(CPU_state))
+	newByte()
+################################################
 print('\n\n\n ***** STARTING MAIN FUNCTION ***** \n')
 
 newLine()
 c_cnt = 0
 print(list_to_bin(bin_1B[c_cnt]), '(',hex_4B[c_cnt],')')
 
-
+waypoint_number = [[0,0] for x in range(30)]
+wp_idx = 0
 async_number = [0,0]
 
-for i in range(899):
+for i in range(1200):
 	# print('*** INSIDE MAIN LOOP *** \n\n')
 
 	if list_to_bin(bin_1B[c_cnt]) == '0b0':
 		async_number = [r_cnt,c_cnt]
 		print('\n\n\n\n\n\n\n\n\n\n\n\n\n *************** ASYNC FOUND ****************** \n\n\n\n\n\n\n\n\n')
+		print('** ASYNC')
 		Async()
 		
 	elif list_to_bin(bin_1B[c_cnt]) == '0b1000':
+		print('** ISYNC')
 		Isync()
 		
 	elif bin_1B[c_cnt][7] == 1:
@@ -301,6 +424,12 @@ for i in range(899):
 	elif (bin_1B[c_cnt][0] == 1 and bin_1B[c_cnt][7] == 0):
 		print('** ATOM')
 		Atom()
+	elif list_to_bin(bin_1B[c_cnt]) == '0b1110010':
+		waypoint_number[wp_idx][0] = r_cnt
+		waypoint_number[wp_idx][1] = c_cnt
+		wp_idx = wp_idx+1
+		print('** WAYPOINT UPDATE')
+		Waypoint()
 	else:
 		print('WTF ?????')
 
@@ -310,6 +439,7 @@ else:
 	print('Async NOT Happened')
 print('async_number:',async_number)
 print('\n\n\n', 'for loop done')
+print('waypoin_number:',waypoint_number)
 
 
 
