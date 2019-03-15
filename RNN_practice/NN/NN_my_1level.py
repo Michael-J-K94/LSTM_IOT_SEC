@@ -22,14 +22,15 @@ syn0 = 2*np.random.random((3,1))-1
 print('syn0:\n',syn0)
 #print('syn1:\n',syn1)
 
-for j in range(10000):
+for j in range(60000):
 	#forward
 	l0 = X
 	l1 = nonlin(np.dot(l0,syn0))
 
 	#error
 	l1_error = y-l1
-
+	if j%10000 == 0:
+		print( 'Error:', np.mean(np.abs(l1_error)) )
 	#multiply error with the slope of the sigmoid. at values in l1
 	l1_delta = l1_error*nonlin(l1,True)
 

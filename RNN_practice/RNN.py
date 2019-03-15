@@ -39,7 +39,7 @@ synapse_1_update = np.zeros_like(synapse_1)
 synapse_h_update = np.zeros_like(synapse_h)
 
 # training logic
-for j in range(1):
+for j in range(60000):
     
     # generate a simple addition problem (a + b = c)
     a_int = np.random.randint(largest_number/2) # int version
@@ -78,8 +78,8 @@ for j in range(1):
         layer_2_error = y - layer_2
         layer_2_deltas.append( (layer_2_error)*sigmoid_output_to_derivative(layer_2))
         overallError += np.abs(layer_2_error[0])
-        print('layer_2_error:',layer_2_error)
-        print('overallError:',overallError)
+        # print('layer_2_error:',layer_2_error)
+        # print('overallError:',overallError)
     
         # decode estimate so we can print it out
         d[binary_dim - position - 1] = np.round(layer_2[0][0])
@@ -90,29 +90,29 @@ for j in range(1):
     future_layer_1_delta = np.zeros(hidden_dim)
     
     for position in range(binary_dim):
-        print('\n\ninside BACK_PROP')
-        print('position:',position)
+        # print('\n\ninside BACK_PROP')
+        # print('position:',position)
         X = np.array([[a[position],b[position]]])
         layer_1 = layer_1_values[-position-1]
         prev_layer_1 = layer_1_values[-position-2]
-        print('X:',X)
-        print('layer_1_values:',layer_1_values)
-        print('layer_1:',layer_1)
-        print('prev_layer_1:',prev_layer_1)
+        # print('X:',X)
+        #print('layer_1_values:',layer_1_values)
+	#print('layer_1:',layer_1)
+        # print('prev_layer_1:',prev_layer_1)
 	
         
         # error at output layer
         layer_2_delta = layer_2_deltas[-position-1]
-        print('layer_2_deltas:',layer_2_deltas)
-        print('layer_2_delta:',layer_2_delta)
+        # print('layer_2_deltas:',layer_2_deltas)
+        # print('layer_2_delta:',layer_2_delta)
         # error at hidden layer
         layer_1_delta = (future_layer_1_delta.dot(synapse_h.T) + layer_2_delta.dot(synapse_1.T)) * sigmoid_output_to_derivative(layer_1)
-        print('synapse_h:',synapse_h)
-        print('layer_1_delta:',layer_1_delta)
-        print('future_layer_1_delta:',future_layer_1_delta)
+        # print('synapse_h:',synapse_h)
+        # print('layer_1_delta:',layer_1_delta)
+        #print('future_layer_1_delta:',future_layer_1_delta)
         # let's update all our weights so we can try again
         synapse_1_update += np.atleast_2d(layer_1).T.dot(layer_2_delta)
-        print('np.atleast_2d(layer1):',np.atleast_2d(layer_1))
+        # print('np.atleast_2d(layer1):',np.atleast_2d(layer_1))
         synapse_h_update += np.atleast_2d(prev_layer_1).T.dot(layer_1_delta)
         synapse_0_update += X.T.dot(layer_1_delta)
         
@@ -126,9 +126,8 @@ for j in range(1):
     synapse_0_update *= 0
     synapse_1_update *= 0
     synapse_h_update *= 0
-    print('\n\n')
     # print out progress
-    if(j % 1000 == 0):
+    if(j % 10000 == 0):
         print( "Error:" , str(overallError) )
         print( "Pred:" , str(d) )
         print( "True:" , str(c) )
@@ -136,6 +135,6 @@ for j in range(1):
         for index,x in enumerate(reversed(d)):
             out += x*pow(2,index)
         print( str(a_int) , " + " + str(b_int) , " = " , str(out) )
-        print( "------------" )
+        print( "------------\n\n" )
 
         
