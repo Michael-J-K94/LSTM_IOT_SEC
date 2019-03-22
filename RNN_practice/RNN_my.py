@@ -54,7 +54,7 @@ for j in range(100000):
 		Xt = np.array([ [a[binary_dim-position-1],b[binary_dim-position-1]] ])
 		output_label = np.array([ [c[binary_dim-position-1]] ]).T
 
-		ht = sigmoid( np.dot(Xt,Wxh) ) + np.dot(ht_prev[-1],Whh)
+		ht = sigmoid( np.dot(Xt,Wxh) + np.dot(ht_prev[-1],Whh) )
 		yt = sigmoid( np.dot(ht,Why) )
 		
 		yt_error = output_label - yt
@@ -64,10 +64,11 @@ for j in range(100000):
 		d[binary_dim - position - 1] = np.round(yt[0][0])
 
 		ht_prev.append(copy.deepcopy(ht))
-
+		if j <=2:
+			print('\n\n','j=',j,'\n',ht_prev);
 	future_dht = np.zeros(hidden_dim)
 	for position in range(binary_dim):
-		X = np.array([ [a[position],b[position]] ])
+		Xt = np.array([ [a[position],b[position]] ])
 		ht = ht_prev[-position-1]
 		ht_prev_capt = ht_prev[-position-2]
 
