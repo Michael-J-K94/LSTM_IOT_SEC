@@ -38,7 +38,7 @@ for j in range(100000):
 	a = int2binary[a_int]
 
 	b_int = np.random.randint( largest_num/2 )
-	b = int2binary[a_int]
+	b = int2binary[b_int]
 
 	c_int = a_int + b_int
 	c = int2binary[c_int]
@@ -56,9 +56,10 @@ for j in range(100000):
 
 		ht = sigmoid( np.dot(Xt,Wxh) ) + np.dot(ht_prev[-1],Whh)
 		yt = sigmoid( np.dot(ht,Why) )
-
-		dyt.append( (output_label - yt)*sigout_to_deriv(yt) )
-		overallError += np.abs( dyt[0] )
+		
+		yt_error = output_label - yt
+		dyt.append( (yt_error)*sigout_to_deriv(yt) )
+		overallError += np.abs( (yt_error)[0] )
 
 		d[binary_dim - position - 1] = np.round(yt[0][0])
 
@@ -75,22 +76,22 @@ for j in range(100000):
 
 		Why_update += np.atleast_2d(ht).T.dot(dyt_capt)
 		Whh_update += np.atleast_2d(ht_prev_capt).T.dot(dht)
-		Wxh_update += X.T.dot(dht)
+		Wxh_update += Xt.T.dot(dht)
 
 		future_dht = dht
 
 	Wxh += Wxh_update*alpha
-	Whh += Whh_update*alpha
 	Why += Why_update*alpha
+	Whh += Whh_update*alpha
 
 	Wxh_update *= 0
-	Whh_update *= 0
 	Why_update *= 0
+	Whh_update *= 0
 
 	if (j%10000 == 0):
-		print( 'Error:', overallError )
-		print( 'Pred:', d )
-		print( 'True:', c )
+		print( 'Error:', str(overallError) )
+		print( 'Pred:', str(d) )
+		print( 'True:', str(c) )
 		out = 0
 		for index,x in enumerate(reversed(d)):
 			out +=x*pow(2,index)
