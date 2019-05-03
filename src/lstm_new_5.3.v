@@ -1,5 +1,14 @@
-// This is a Top
-// Description:
+// This is a LSTM
+// Description: 
+
+// TODO: 
+/*
+	1. Sequence Order Check
+	2. Weight / Bias SRAM Allocation
+	3. Quantization
+	4. LUT instantiation
+*/
+
 // Author: Michael Kim
 
 module LSTM#(
@@ -44,7 +53,7 @@ module LSTM#(
 	input [511:0] iData,
 	
 	output reg oLstm_done,	// lstm done & ready to do next task. 
-	output reg [511:0] oBr_Ct,	
+	output reg [511:0] oBr_Ct,	// Wire actually
 	output reg [511:0] oBr_Ht,		
 )
 
@@ -206,20 +215,20 @@ module LSTM#(
 		else if(inpdt_mode == BR_type) begin
 			case(inpdt_X_select)
 				2'b11: begin
-					inpdt_X1 = iData[511:384];
-					inpdt_X2 = iData[511:384];					
+					inpdt_X1_temp = iData[511:384];
+					inpdt_X2_temp = iData[511:384];					
 				end
 				2'b10: begin
-					inpdt_X1 = iData[383:256];
-					inpdt_X2 = iData[383:256];					
+					inpdt_X1_temp = iData[383:256];
+					inpdt_X2_temp = iData[383:256];					
 				end
 				2'b01: begin
-					inpdt_X1 = iData[255:128];
-					inpdt_X2 = iData[255:128];					
+					inpdt_X1_temp = iData[255:128];
+					inpdt_X2_temp = iData[255:128];					
 				end
 				2'b00: begin
-					inpdt_X1 = iData[127:0];
-					inpdt_X2 = iData[127:0];					
+					inpdt_X1_temp = iData[127:0];
+					inpdt_X2_temp = iData[127:0];		
 				end
 			endcase
 		end
@@ -232,21 +241,23 @@ module LSTM#(
 // Brams //
 ///////////
 	BRAM_256x2048 WEIGHT_BRAM(
-		clka(),
-		rstna(),
-		wea(),
-		addra(),
-		dina(),
-		douta()	
+		clka(clk),
+		rstna(resetn),
+		ea(weight_bram_EN),
+		wea(weight_bram_WE),
+		addra(weight_bram_addr),
+		dina(weight_bram_Wdata),
+		douta(weight_bram_Rdata)	
 	);
 
 	BRAM_16x512 BIAS_BRAM(
-		clka(),
-		rstna(),
-		wea(),
-		addra(),
-		dina(),
-		douta()	
+		clka(clk),
+		rstna(resetn),
+		en(bias_bram_EN),
+		wea(bias_bram_WE),
+		addra(bias_bram_addr),
+		dina(bias_bram_Wdata),
+		douta(bias_bram_Rdata)	
 	);
 
 
@@ -289,27 +300,27 @@ module LSTM#(
 ////////'/////
 	always@(posedge clk or negedge resetn) begin
 		if(!resetn) begin
-			state <= IDLE;
+			lstm_state <= IDLE;
 			oLstm_done <= 1'b1;
 			oInit_done <= 1'b0;
 			counter <= 'd0;
 		end
 		else begin		
 		
-			case(state)
+			case(lstm_state)
 			
 				IDLE: begin
 					if(iInit_valid && !oInit_done) begin
-						state <= INITIALIZE_W_B;
+						lstm_state <= INITIALIZE_W_B;
 					end
 					else begin
 						if(iNext_valid) begin
 							if(iType == SYS_type) begin
-								state <= SYSTEM;
+								lstm_state <= SYSTEM;
 								oLstm_done <= 1'b0;
 							end
 							else if(iType == BR_type) begin
-								state <= BRANCH;
+								lstm_state <= BRANCH;
 								oLstm_done <= 1'b0;
 							end
 						end
@@ -318,7 +329,7 @@ module LSTM#(
 				
 				SYSTEM: begin
 					if(counter == 26) begin 
-						state <= IDLE;
+						lstm_state <= IDLE;
 						oLstm_done <= 1'b1;
 						counter <= 'd0;
 					end
@@ -329,7 +340,7 @@ module LSTM#(
 				
 				BRANCH: begin
 					if(counter == /* ???????? */ ) begin
-						state <= IDLE;
+						lstm_state <= IDLE;
 						oLstm_done <= 1'b1;
 						counter <= 'd0;
 					end
@@ -340,7 +351,7 @@ module LSTM#(
 
 				INITIALIZE_W_B: begin
 					if(!iInit_valid) begin
-						state <= IDLE;
+						lstm_state <= IDLE;
 						oInit_done <= 1'b1;
 						counter <= 'd0;
 					end
@@ -350,13 +361,13 @@ module LSTM#(
 				end
 
 				ERROR: begin
-					state <= ERROR;
+					lstm_state <= ERROR;
 					oLstm_done <= 1'b0;			
 					counter <= 'd0;							
 				end	
 
 				default: begin
-					state <= ERROR;			
+					lstm_state <= ERROR;			
 					oLstm_done <= 1'b0;			
 					counter <= 'd0;				
 				end
@@ -418,10 +429,9 @@ module LSTM#(
 				init_data_buff1 <= iInit_data;
 				init_data_buff2 <= init_data_buff1;
 			end
-			
-			
-			
-			case(state)
+
+			//** CTRL by lstm_state **//
+			case(lstm_state)
 			
 				IDLE: begin
 					if(iLoad_valid) begin
@@ -553,6 +563,17 @@ module LSTM#(
 					
 					
 					//**** 3. INPDT CTRL ****//
+					if(counter <= 1) begin
+						inpdt_EN <= 1'b0;
+					end
+					else if(2 <= counter%18) begin
+						inpdt_EN <= 1'b1;
+							
+					end
+					else if(counter%18 <= 1) begin
+						inpdt_EN <= 1'b0;
+						
+					end
 					
 					
 					//**** 4. Register CTRL ****//
@@ -654,12 +675,16 @@ module LSTM#(
 				iQ_calc_to_ht2[15:0] = oTanh_LUT2[7:0]*temp_regA_2[7:0];
 
 				iSigmoid_LUT1 = 'd0;
-				iSigmoid_LUT2 = 'd0;	TMQ_Ct_selectTMQ_Ct_select
+				iSigmoid_LUT2 = 'd0;
 				iTanh_LUT1 = Sys_Ct[TMQ_Ct_select];
 				iTanh_LUT2 = Sys_Ct[TMQ_Ct_select+1];					
 			end
+			B_BQS:
+			B_BQT:
+			B_MAQ:
+			B_TMQ:
 			
-			
+			default: 
 		
 		endcase
 	end
