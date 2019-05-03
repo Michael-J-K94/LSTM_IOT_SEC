@@ -10,7 +10,7 @@ module Top#(
 	input resetn,
 
 	input iBuff_on,
-	input [255:0] iBuff_data,
+	input [511:0] iBuff_data,
 	input iBuff_type,
 	input [PID_bit-1:0] iBuff_PID,
 	
@@ -19,7 +19,7 @@ module Top#(
 
 );
 
-	localparam IDLE = 4'd0, oPSB = 4'd1, oPSS = 4'd2, oPBB = 4'd3, oPBS = 4'd4, nPSB = 4'd5, nPSS = 4'd6, nPBB = 4'd7, nPBS = 4'd8, init_SYS = 4'd9, init_BR = 4'd10, done_BR = 3'd11, sit_ERR = 4'hf;
+	localparam IDLE = 4'd0, oPSB = 4'd1, oPSS = 4'd2, oPBB = 4'd3, oPBS = 4'd4, nPSB = 4'd5, nPSS = 4'd6, nPBB = 4'd7, nPBS = 4'd8, init_SYS = 4'd9, init_BR = 4'd10, done_BR = 4'd11, sit_ERR = 4'hf;
 	localparam PID_CHECK = 3'd1, LOAD_PCT = 3'd2, SAVE_PCT = 3'd3, CAL_CTXT = 3'd4, SYS_VALID = 3'd5, BR_VALID = 3'd6, top_ERR = 3'd7;
 	localparam SYS_type = 1'd0, BR_type = 1'd1;
 	
@@ -32,7 +32,7 @@ module Top#(
 	reg initial_case;
 	reg [3:0] situation;
 
-	reg [255:0] idata_is;		
+	reg [511:0] idata_is;		
 	reg type_is;
 	reg type_was;
 	reg [PID_bit-1:0] PID_is;
@@ -54,11 +54,11 @@ module Top#(
 	
 	reg next_input_valid;
 	reg lstm_Mode;
-	reg [255:0] lstm_data;
+	reg [511:0] lstm_data;
 
 	wire lstm_done;
-	wire [255:0] ct;
-	wire [255:0] ht;
+	wire [511:0] ct;
+	wire [511:0] ht;
 	
 	
 
@@ -269,29 +269,31 @@ module Top#(
 				end
 				
 				SAVE_PCT: begin
-					if(top_delay == 0) begin
-						PCT_EN <= 1'b1;
-						PCT_WE <= 1'b1;
-						PCT_addr <= PID_was;
-						PCT_write_data <= {br_cnt, br_done_flag, ct[63:0], ht[63:0]};
-						
-						top_delay <= top_delay + 1;
-					end
-					else if(top_delay == 1) begin
-						PCT_EN <= 1'b0;
-						PCT_WE <= 1'b0;
-						
-						case(situation) begin
-							oPBS: top_state <= CAL_CTXT;
-							nPSS: top_state <= LOAD_PCT;
-							nPBS: top_state <= LOAD_PCT;
-							default: begin
-								top_state <= top_ERR;
-								situation <= sit_ERR;
-							end
+					if(lstm_done == 1) begin
+						if(top_delay == 0) begin
+							PCT_EN <= 1'b1;
+							PCT_WE <= 1'b1;
+							PCT_addr <= PID_was;
+							PCT_write_data <= {br_cnt, br_done_flag, ct[63:0], ht[63:0]};
+							
+							top_delay <= top_delay + 1;
 						end
-						
-						top_delay <= 'd0;
+						else if(top_delay == 1) begin
+							PCT_EN <= 1'b0;
+							PCT_WE <= 1'b0;
+							
+							case(situation) begin
+								oPBS: top_state <= CAL_CTXT;
+								nPSS: top_state <= LOAD_PCT;
+								nPBS: top_state <= LOAD_PCT;
+								default: begin
+									top_state <= top_ERR;
+									situation <= sit_ERR;
+								end
+							end
+							
+							top_delay <= 'd0;
+						end
 					end
 				end
 				
