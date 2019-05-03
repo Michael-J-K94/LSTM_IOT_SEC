@@ -31,6 +31,10 @@ module LSTM#(
 	input clk,
 	input resetn,
 	
+	input iInit_valid,
+	input [7:0] iInit_data,
+	output oInit_done,
+	
 	input iLoad_valid,	// load ct/ht valid
 	input [511:0] iBr_Ct_load,
 	input [511:0] iBr_Ht_load,
@@ -44,22 +48,37 @@ module LSTM#(
 	output reg [511:0] oBr_Ht,		
 )
 
-	localparam IDLE = 2'd0, SYSTEM = 2'd1, BRANCH = 2'd2, ERROR = 2'd3;
+	localparam IDLE = 3'd0, SYSTEM = 3'd1, BRANCH = 3'd2, INITIALIZE_W_B = 3'd3, ERROR = 3'd4;
 	localparam SYS_type = 1'b0, BR_type = 1'b1; 	
+	localparam comb_IDLE = 5'd0, S_BQS = 5'd1, S_BQT = 5'd2, S_MAQ_BQS = 5'd3, S_TMQ = 5'd4, B_BQS = 5'd5, B_BQT = 5'd6, B_MAQ = 5'd7, B_TMQ = 5'd8;
+
+	integer i;
+
+// output oBr_Ct / oBr_Ht ALLOCATION
+	always@(*) begin
+		for(i=0; i<64; i++) begin
+			oBr_Ct[8*i+:8] = Br_Ct[i]	// ????????????????????????????????????????????????? Order OK ???
+			oBr_Ht[8*i+:8] = Br_Ht[i]		
+		end
+	end
+
 
 ////////
 //    //
 ////////
 	reg [1:0] lstm_state;
-	reg [10:0] counter;
+	reg [31:0] counter;
 
+	reg [7:0] init_data_buff1;
+	reg [7:0] init_data_buff2;	
 
 ////////
 //    //
 ////////
-	reg [63:0] Sys_Ct;
-	reg [63:0] Sys_Ht;
-
+	reg [7:0] Sys_Ct [0:7];
+	reg [7:0] Sys_Ht [0:7];
+	reg [7:0] Br_Ct [0:63];
+	reg [7:0] Br_Ht [0:63];
 
 	reg [15:0] temp_regA_1;
 	reg [15:0] temp_regB_1;
@@ -115,25 +134,52 @@ module LSTM#(
 //////////////////
 // Quantization //
 //////////////////
+	reg [23:0] iQ_bias_to_sig1;
+	reg [23:0] iQ_bias_to_sig2;	
+	reg [23:0] iQ_bias_to_tanh1;
+	reg [23:0] iQ_bias_to_tanh2;	
+	reg [16:0] iQ_add_to_ct1;
+	reg [16:0] iQ_add_to_ct2;	
+	reg [15:0] iQ_calc_to_ht1;
+	reg [15:0] iQ_calc_to_ht2;
+	
 	wire [7:0] oQ_bias_to_sig1;
 	wire [7:0] oQ_bias_to_sig2;	
-	
 	wire [7:0] oQ_bias_to_tanh1;
 	wire [7:0] oQ_bias_to_tanh2;	
-	
 	wire [7:0] oQ_add_to_ct1;
 	wire [7:0] oQ_add_to_ct2;	
-	
 	wire [7:0] oQ_calc_to_ht1;
 	wire [7:0] oQ_calc_to_ht2;
 
 //////////////////
 // Sig/Tanh LUT //
 //////////////////
-	wire [7:0] sigmoid_LUT_result1;
-	wire [7:0] sigmoid_LUT_result2;
-	wire [7:0] tanh_LUT_result1;
-	wire [7:0] tanh_LUT_result2;	
+	reg [7:0] iSigmoid_LUT1;
+	reg [7:0] iSigmoid_LUT2;	
+	reg [7:0] iTanh_LUT1;
+	reg [7:0] iTanh_LUT2;
+
+	wire [7:0] oSigmoid_LUT1;
+	wire [7:0] oSigmoid_LUT2;	
+	wire [7:0] oTanh_LUT1;
+	wire [7:0] oTanh_LUT2;
+
+	
+////////////////////////
+// Combinational CTRL //
+////////////////////////
+	reg [4:0] comb_ctrl;
+	reg [5:0] TMQ_Ct_select;
+
+	
+	
+// *****************************************************************************//	
+// *****************************************************************************//	
+//								Instantiation									//
+// *****************************************************************************//	
+// *****************************************************************************//
+	
 	
 //////////////////
 // LSTM Modules //
@@ -226,11 +272,16 @@ module LSTM#(
 // 2. Tanh LUT
 
 
-/////////////////////////////////////
-// INITIALIZATION of WEIGHT / BIAS //
-/////////////////////////////////////
 
 
+
+
+
+// *****************************************************************************//
+// *****************************************************************************//	
+//									FSM / CTRL									//
+// *****************************************************************************//	
+// *****************************************************************************//
 
 
 //////////////
@@ -240,7 +291,7 @@ module LSTM#(
 		if(!resetn) begin
 			state <= IDLE;
 			oLstm_done <= 1'b1;
-			
+			oInit_done <= 1'b0;
 			counter <= 'd0;
 		end
 		else begin		
@@ -248,20 +299,25 @@ module LSTM#(
 			case(state)
 			
 				IDLE: begin
-					if(iNext_valid) begin
-						if(iType == SYS_type) begin
-							state <= SYSTEM;
-							oLstm_done <= 1'b0;
-						end
-						else if(iType == BR_type) begin
-							state <= BRANCH;
-							oLstm_done <= 1'b0;
+					if(iInit_valid && !oInit_done) begin
+						state <= INITIALIZE_W_B;
+					end
+					else begin
+						if(iNext_valid) begin
+							if(iType == SYS_type) begin
+								state <= SYSTEM;
+								oLstm_done <= 1'b0;
+							end
+							else if(iType == BR_type) begin
+								state <= BRANCH;
+								oLstm_done <= 1'b0;
+							end
 						end
 					end
 				end
 				
 				SYSTEM: begin
-					if(counter == /* ???????? */ ) begin 
+					if(counter == 26) begin 
 						state <= IDLE;
 						oLstm_done <= 1'b1;
 						counter <= 'd0;
@@ -278,6 +334,17 @@ module LSTM#(
 						counter <= 'd0;
 					end
 					else begin					
+						counter <= counter + 1;
+					end
+				end
+
+				INITIALIZE_W_B: begin
+					if(!iInit_valid) begin
+						state <= IDLE;
+						oInit_done <= 1'b1;
+						counter <= 'd0;
+					end
+					else begin
 						counter <= counter + 1;
 					end
 				end
@@ -304,8 +371,11 @@ module LSTM#(
 	always@(posedge clk or negedge resetn) begin
 		if(!resetn) begin
 
-			oBr_Ct <= 'd0;
-			oBr_Ht <= 'd0;
+			init_data_buff1 <= 'd0;
+			init_data_buff2 <= 'd0;
+
+			Br_Ct <= 'd0;
+			Br_Ht <= 'd0;
 			Sys_Ct <= 'd0;
 			Sys_Ht <= 'd0;
 
@@ -336,28 +406,46 @@ module LSTM#(
 			bias_bram_Rdata <= 'd0;
 			bias_buffer <= 'd0;			
 		
+			comb_ctrl <= comb_IDLE;
+			TMQ_Ct_select <= 'd0;
 		end
 		else begin
 			
 			weight_buffer <= weight_bram_Rdata;
 			bias_buffer <= bias_bram_Rdata;
 			
+			if(iInit_valid) begin
+				init_data_buff1 <= iInit_data;
+				init_data_buff2 <= init_data_buff1;
+			end
+			
+			
+			
 			case(state)
+			
 				IDLE: begin
 					if(iLoad_valid) begin
-						oBr_Ct <= iBr_Ct_load;
-						oBr_Ht <= iBr_Ht_load;
+						for(i=0; i<64; i++) begin
+							Br_Ct[i] <= iBr_Ct_load[8*i+:8];
+							Br_Ht[i] <= iBr_Ht_load[8*i+:8];							
+						end
 					end
-				
 				end
-				INITIALIZE_W_B: begin
 				
+				INITIALIZE_W_B: begin	// ??????????????????????????????????????????????????????????? IMPLEMENTED Only for SYS Case.
 				
-				
+					if(counter <= 511) begin
+						weight_bram_Wdata[counter%4] init_data_buff2
+						
+
+
+
+					end				
 				end
+				
 				SYSTEM: begin
 				
-					//** 1. WEIGHT BRAM CTRL
+					//**** 1. WEIGHT BRAM CTRL ****//
 					if( (24 <= counter) && (counter <= 26) ) begin	// Exception.
 						weight_bram_EN <= 1'b0;
 					end
@@ -374,7 +462,7 @@ module LSTM#(
 						weight_bram_EN <= 1'b0;
 					end
 
-					//** 2. BIAS BRAM CTRL
+					//**** 2. BIAS BRAM CTRL ****//
 					if( (24 <= counter) && (counter <= 26) ) begin	// Exception
 						weight_bram_EN <= 1'b0;
 					end
@@ -391,59 +479,88 @@ module LSTM#(
 						bias_bram_EN <= 1'b0;
 					end
 
-					//** 3. INPDT CTRL
-					if( counter <= 26) begin	// Exception. Getting Last Ht.
+					//**** 3. INPDT CTRL ****//
+					if(counter == 26) begin	// Exception. Getting Last Ht.
 						inpdt_EN <= 1'b0;
 					end
 					else if( (2 <= counter%6) && (counter%6 <= 5) ) begin
 						inpdt_EN <= 1'b1;
-						inpdt_R_reg1 <= inpdt_R_wire1;	// ????????????????????????????????????????????????????? signed OK?
-						inpdt_R_reg2 <= inpdt_R_wire2;		
+						inpdt_R_reg1[22:0] <= inpdt_R_wire1[20:0];	// ????????????????????????????????????????????????????? signed OK?
+						inpdt_R_reg2[22:0] <= inpdt_R_wire2[20:0];		
 					end
 					else if( (0 <= counter%6) && (counter%6 <= 1) ) begin	// WAIT
 						inpdt_EN <= 1'b0;
 					end
 					
-					//** 4. Register CTRL
+					//**** 4. Register CTRL ****//
 					if( (0<=counter) && (counter<=2) ) begin
 						// Nothing
 					end
 					else if(counter%6 == 4) begin
-						temp_regA_1 <= sigmoid_LUT_result1;	// ?????????????????????????????????????????????????? signed OK?
-						temp_regA_2 <= sigmoid_LUT_result2;
+						temp_regA_1[7:0] <= oSigmoid_LUT1[7:0];	// ?????????????????????????????????????????????????? signed OK?
+						temp_regA_2[7:0] <= oSigmoid_LUT2[7:0];
 					end
 					else if(counter%6 == 5) begin
-						temp_regA_1 <= Sys_Ct[2*(counter/6)]*temp_regA_1;
-						temp_regA_2 <= Sys_Ct[2*(counter/6)+1]*temp_regA_2;
+						temp_regA_1[15:0] <= Sys_Ct[2*(counter/6)]*temp_regA_1;
+						temp_regA_2[15:0] <= Sys_Ct[2*(counter/6)+1]*temp_regA_2;
 						
-						temp_regB_1 <= sigmoid_LUT_result1;
-						temp_regB_2 <= sigmoid_LUT_result2;						
+						temp_regB_1[7:0] <= oSigmoid_LUT1[7:0];
+						temp_regB_2[7:0] <= oSigmoid_LUT2[7:0];						
 					end
 					else if(counter%6 == 0) begin
-						temp_regC_1 <= tanh_LUT_result1;
-						temp_regC_2 <= tanh_LUT_result2;						
+						temp_regC_1[7:0] <= oTanh_LUT1[7:0];
+						temp_regC_2[7:0] <= oTanh_LUT2[7:0];						
 					end
 					else if(counter%6 == 1) begin
-						temp_regA_1 <= sigmoid_LUT_result1;
-						temp_regA_2 <= sigmoid_LUT_result2;
+						temp_regA_1[7:0] <= oSigmoid_LUT1[7:0];
+						temp_regA_2[7:0] <= oSigmoid_LUT2[7:0];
 						
-						Sys_Ct[2*( (counter/6)-1 )] <= oQ_add_to_ct1;
-						Sys_Ct[2*( (counter/6)-1 )+1] <= oQ_add_to_ct2;						
+						Sys_Ct[2*( (counter/6)-1 )] <= oQ_add_to_ct1[7:0];
+						Sys_Ct[2*( (counter/6)-1 )+1] <= oQ_add_to_ct2[7:0];						
 					end
 					else if(counter%6 == 2) begin
-						Sys_Ht[2*( (counter/6)-1 )] <= oQ_calc_to_ht1;
-						Sys_Ht[2*( (counter/6)-1 )+1] <= oQ_calc_to_ht2;						
+						Sys_Ht[2*( (counter/6)-1 )] <= oQ_calc_to_ht1[7:0];
+						Sys_Ht[2*( (counter/6)-1 )+1] <= oQ_calc_to_ht2[7:0];						
 					end
 					
-					//** 5. Combinational CTRL
-					
-					
-					
-					
+					//**** 5. Combinational CTRL ****//
+					if(counter <= 2) begin
+						comb_ctrl <= comb_IDLE;
+					end
+					else if( (counter%6 == 3) || (counter%6 == 4)) begin
+						comb_ctrl <= BQS;
+					end
+					else if(counter%6 == 5) begin
+						comb_ctrl <= BQT;
+					end
+					else if(counter%6 == 0) begin
+						comb_ctrl <= MAQ_BQS;
+					end
+					else if(counter%6 == 1) begin
+						comb_ctrl <= TMQ;
+						TMQ_Ct_select <= (counter/6)-1;
+					end
+					else if(counter%6 == 2) begin
+						comb_ctrl <= comb_IDLE;
+					end
 				end
 			
 				BRANCH: begin
+					//**** 1. WEIGHT BRAM CTRL ****//
+					
+					
+					//**** 2. BIAS BRAM CTRL ****//
+					
+					
+					//**** 3. INPDT CTRL ****//
+					
+					
+					//**** 4. Register CTRL ****//
+					
 				
+					//**** 5. Combinational CTRL ****//					
+					
+					
 				end
 		
 		
@@ -457,13 +574,95 @@ module LSTM#(
 	end
 
 
-
-
-
 //////////////////////////////
 // Ctrl Combinational Logic //
 //////////////////////////////
+	always@(*) begin
+		case(comb_ctrl)
+			comb_IDLE: begin
+				iQ_bias_to_sig1 = 'd0;
+				iQ_bias_to_sig2 = 'd0;	
+				iQ_bias_to_tanh1 = 'd0;
+				iQ_bias_to_tanh2 = 'd0;	
+				iQ_add_to_ct1 = 'd0;
+				iQ_add_to_ct2 = 'd0;	
+				iQ_calc_to_ht1 = 'd0;
+				iQ_calc_to_ht2 = 'd0;
 
+				iSigmoid_LUT1 = 'd0;
+				iSigmoid_LUT2 = 'd0;	
+				iTanh_LUT1 = 'd0;
+				iTanh_LUT2 = 'd0;			
+			end
+		
+			S_BQS: begin
+				iQ_bias_to_sig1[23:0] = inpdt_R_reg1[22:0] + bias_bram_Rdata[15:8];	// ??????????????????????????????????????????????????? Signed ? 
+				iQ_bias_to_sig2[23:0] = inpdt_R_reg2[22:0] + bias_bram_Rdata[7:0];	
+				iQ_bias_to_tanh1 = 'd0;
+				iQ_bias_to_tanh2 = 'd0;	
+				iQ_add_to_ct1 = 'd0;
+				iQ_add_to_ct2 = 'd0;	
+				iQ_calc_to_ht1 = 'd0;
+				iQ_calc_to_ht2 = 'd0;
+
+				iSigmoid_LUT1[7:0] = oQ_bias_to_sig1[7:0];
+				iSigmoid_LUT2[7:0] = oQ_bias_to_sig2[7:0];	
+				iTanh_LUT1 = 'd0;
+				iTanh_LUT2 = 'd0;								
+			end
+			
+			S_BQT: begin
+				iQ_bias_to_sig1 = 'd0;
+				iQ_bias_to_sig2 = 'd0;	
+				iQ_bias_to_tanh1[23:0] = inpdt_R_reg1[22:0] + bias_bram_Rdata[15:8];
+				iQ_bias_to_tanh2[23:0] = inpdt_R_reg2[22:0] + bias_bram_Rdata[7:0];	
+				iQ_add_to_ct1 = 'd0;
+				iQ_add_to_ct2 = 'd0;	
+				iQ_calc_to_ht1 = 'd0;
+				iQ_calc_to_ht2 = 'd0;
+
+				iSigmoid_LUT1 = 'd0;
+				iSigmoid_LUT2 = 'd0;	
+				iTanh_LUT1 = oQ_bias_to_tanh1;
+				iTanh_LUT2 = oQ_bias_to_tanh2;						
+			end
+		
+			S_MAQ_BQS: begin
+				iQ_bias_to_sig1[23:0] = inpdt_R_reg1[22:0] + bias_bram_Rdata[15:8];
+				iQ_bias_to_sig2[23:0] = inpdt_R_reg2[22:0] + bias_bram_Rdata[7:0];	
+				iQ_bias_to_tanh1 = 'd0;
+				iQ_bias_to_tanh2 = 'd0;	
+				iQ_add_to_ct1[16:0] = (temp_regB_1[15:0]*temp_regC_1[15:0]) + temp_regA_1[15:0];
+				iQ_add_to_ct2[16:0] = (temp_regB_2[15:0]*temp_regC_2[15:0]) + temp_regA_2[15:0];	
+				iQ_calc_to_ht1 = 'd0;
+				iQ_calc_to_ht2 = 'd0;
+
+				iSigmoid_LUT1[7:0] = oQ_bias_to_sig1[7:0];
+				iSigmoid_LUT2[7:0] = oQ_bias_to_sig2[7:0];	
+				iTanh_LUT1 = 'd0;
+				iTanh_LUT2 = 'd0;					
+			end
+		
+			S_TMQ: begin
+				iQ_bias_to_sig1 = 'd0;
+				iQ_bias_to_sig2 = 'd0;	
+				iQ_bias_to_tanh1 = 'd0;
+				iQ_bias_to_tanh2 = 'd0;	
+				iQ_add_to_ct1 = 'd0;
+				iQ_add_to_ct2 = 'd0;	
+				iQ_calc_to_ht1[15:0] = oTanh_LUT1[7:0]*temp_regA_1[7:0];
+				iQ_calc_to_ht2[15:0] = oTanh_LUT2[7:0]*temp_regA_2[7:0];
+
+				iSigmoid_LUT1 = 'd0;
+				iSigmoid_LUT2 = 'd0;	TMQ_Ct_selectTMQ_Ct_select
+				iTanh_LUT1 = Sys_Ct[TMQ_Ct_select];
+				iTanh_LUT2 = Sys_Ct[TMQ_Ct_select+1];					
+			end
+			
+			
+		
+		endcase
+	end
 
 
 
