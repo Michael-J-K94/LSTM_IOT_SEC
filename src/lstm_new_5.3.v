@@ -5,35 +5,42 @@
 /*
 	1. Sequence Order Check
 	2. Weight / Bias SRAM Allocation
+	
 	3. Quantization
+	3-1. Bit Width
+	
 	4. LUT instantiation
+	5. INPDT input allocation
+	
+	6. Branch Counter CTRL
 */
+
 
 // Author: Michael Kim
 
 module LSTM#(
 
-	parameter SCALE_DATA = 10'd128,
-	parameter SCALE_STATE =  10'd128,
-	parameter SCALE_W = 10'd128,
-	parameter SCALE_B = 10'd256,
+	parameter SCALE_DATA = 10'd128,		// Xt, Ht
+	parameter SCALE_STATE =  10'd128,	// Ct
+	parameter SCALE_W = 8'd128,
+	parameter SCALE_B = 8'd256,
 
 	parameter ZERO_DATA = 10'd128,
 	parameter ZERO_STATE = 10'd128,
-	parameter ZERO_W = 10'd128,
-	parameter ZERO_B = 10'd0,
+	parameter ZERO_W = 8'd128,			// 9bit 
+	parameter ZERO_B = 8'd0,
 	
 	parameter SCALE_SIGMOID = 10'd24,
 	parameter SCALE_TANH = 10'd48,
 
-	parameter ZERO_SIGMOID = 10'd128,
-	parameter ZERO_TANH = 10'd128,
+	parameter ZERO_SIGMOID = 8'd128,
+	parameter ZERO_TANH = 8'd128,
 
 	parameter OUT_SCALE_SIGMOID = 10'd256,
 	parameter OUT_SCALE_TANH = 10'd128,
 
-	parameter OUT_ZERO_SIGMOID = 10'd0,
-	parameter OUT_ZERO_TANH = 10'd128
+	parameter OUT_ZERO_SIGMOID = 8'd0,
+	parameter OUT_ZERO_TANH = 8'd128
 	
 )
 (
@@ -89,19 +96,16 @@ module LSTM#(
 	reg [7:0] Br_Ct [0:63];
 	reg [7:0] Br_Ht [0:63];
 
-	reg [15:0] temp_regA_1;
-	reg [15:0] temp_regB_1;
-	reg [15:0] temp_regC_1;
+	reg [16:0] temp_regA_1;
+	reg [7:0] temp_regB_1;
+	reg [7:0] temp_regC_1;
 
-	reg [15:0] temp_regA_2;
-	reg [15:0] temp_regB_2;
-	reg [15:0] temp_regC_2;
+	reg [16:0] temp_regA_2;
+	reg [7:0] temp_regB_2;
+	reg [7:0] temp_regC_2;
 
-	reg [20:0] lstm_result_1;
-	reg [20:0] lstm_result_2;
-
-	reg signed [22:0] inpdt_R_reg1;	// ?????????????????????????????????????????????????????
-	reg signed [22:0] inpdt_R_reg2;	
+	reg [23:0] inpdt_R_reg1;		// Can Be Used as signed
+	reg [23:0] inpdt_R_reg2;	
 
 
 //////////////////
@@ -114,14 +118,14 @@ module LSTM#(
 	reg [127:0] inpdt_X2;
 	wire [127:0] inpdt_W1;
 	wire [127:0] inpdt_W2;
-	wire [20:0] inpdt_R_wire1;
+	wire [20:0] inpdt_R_wire1;		// Comes Out as Signed
 	wire [20:0] inpdt_R_wire2;
 
 
 /////////////////
 // Weight BRAM //
 /////////////////
-	reg [10:0] weight_bram_addr;
+	reg [10:0] weight_bram_addr;	
 	reg weight_bram_EN;
 	reg weight_bram_WE;
 	reg [255:0] weight_bram_Wdata;
@@ -143,23 +147,33 @@ module LSTM#(
 //////////////////
 // Quantization //
 //////////////////
-	reg [23:0] iQ_bias_to_sig1;
-	reg [23:0] iQ_bias_to_sig2;	
-	reg [23:0] iQ_bias_to_tanh1;
-	reg [23:0] iQ_bias_to_tanh2;	
-	reg [16:0] iQ_add_to_ct1;
-	reg [16:0] iQ_add_to_ct2;	
-	reg [15:0] iQ_calc_to_ht1;
-	reg [15:0] iQ_calc_to_ht2;
-	
-	wire [7:0] oQ_bias_to_sig1;
-	wire [7:0] oQ_bias_to_sig2;	
-	wire [7:0] oQ_bias_to_tanh1;
-	wire [7:0] oQ_bias_to_tanh2;	
+/***** Quantization MEANS Saturating & 8bit Quantizing (After scale/zero operation) *****//
+	reg [23:0] iQ_sum_to_sig1;		//
+	reg [23:0] iQ_sum_to_sig2;	
+	reg [23:0] iQ_sum_to_tanh1;
+	reg [23:0] iQ_sum_to_tanh2;	
+	reg [17:0] iQ_add_to_ct1;
+	reg [17:0] iQ_add_to_ct2;	
+	reg [16:0] iQ_mul_to_ht1;
+	reg [16:0] iQ_mul_to_ht2;
+		
+	wire [31:0] temp_sum_to_sig1;	
+	wire [31:0] temp_sum_to_sig2;
+	wire [31:0] temp_sum_to_tanh1;
+	wire [31:0] temp_sum_to_tanh2;
+	wire [31:0] temp_add_to_ct1;
+	wire [31:0] temp_add_to_ct2;	
+	wire [31:0] temp_mul_to_ht1;
+	wire [31:0] temp_mul_to_ht2;	
+		
+	wire [7:0] oQ_sum_to_sig1;
+	wire [7:0] oQ_sum_to_sig2;	
+	wire [7:0] oQ_sum_to_tanh1;
+	wire [7:0] oQ_sum_to_tanh2;	
 	wire [7:0] oQ_add_to_ct1;
 	wire [7:0] oQ_add_to_ct2;	
-	wire [7:0] oQ_calc_to_ht1;
-	wire [7:0] oQ_calc_to_ht2;
+	wire [7:0] oQ_mul_to_ht1;
+	wire [7:0] oQ_mul_to_ht2;
 
 //////////////////
 // Sig/Tanh LUT //
@@ -179,7 +193,8 @@ module LSTM#(
 // Combinational CTRL //
 ////////////////////////
 	reg [4:0] comb_ctrl;
-	reg [5:0] TMQ_Ct_select;
+	reg [5:0] inpdt_element_select;
+	reg [5:0] tanh_Ct_select;
 
 	
 	
@@ -206,33 +221,17 @@ module LSTM#(
 		iEn(inpdt_EN),
 		oResult(inpdt_R_wire2)
 	);
-
 	always@(*) begin
-		if(inpdt_mode == SYS_type) begin
-			inpdt_X1 = {iData[63:0],iData[63:0]};
-			inpdt_X2 = {iData[63:0],iData[63:0]};
+		if(lstm_state == SYSTEM) begin
+			inpdt_X1 = {iData[63:0] , Sys_Ht};		// ??????????????????????????????????????????????? ENDIAN
+			inpdt_X2 = {iData[63:0] , Sys_Ht};			
 		end
-		else if(inpdt_mode == BR_type) begin
-			case(inpdt_X_select)
-				2'b11: begin
-					inpdt_X1_temp = iData[511:384];
-					inpdt_X2_temp = iData[511:384];					
-				end
-				2'b10: begin
-					inpdt_X1_temp = iData[383:256];
-					inpdt_X2_temp = iData[383:256];					
-				end
-				2'b01: begin
-					inpdt_X1_temp = iData[255:128];
-					inpdt_X2_temp = iData[255:128];					
-				end
-				2'b00: begin
-					inpdt_X1_temp = iData[127:0];
-					inpdt_X2_temp = iData[127:0];		
-				end
-			endcase
-		end
+		else if(lstm_state == BRANCH) begin
+			inpdt_X1 = 
+			inpdt_X2 = 
+		end	
 	end
+	
 	assign inpdt_W1 = weight_buffer[255:128];
 	assign inpdt_W2 = weight_buffer[127:0];
 
@@ -265,11 +264,87 @@ module LSTM#(
 // Quantizations //
 //////////////////
 
-// 1. BiasADD_to_Sigmoid - Sys
+// 1. ADD_to_Sigmoid - SYSTEM
+	always@(*) begin
+		// Q_sum_to_sig1
+		$signed(temp_sum_to_sig1) = ( ($signed(iQ_sum_to_sig1)*SCALE_SIGMOID)/(SCALE_DATA*SCALE_W) 
+		+ (($signed({1'b0,bias_bram_Rdata[15:8]})-$signed({1'b0,ZERO_B}))*SCALE_SIGMOID)/SCALE_B + $signed({1'b0,ZERO_SIGMOID}) );
+		
+		if(temp_sum_to_sig1[31] == 1) begin
+			oQ_sum_to_sig1 = 8'd0;
+		end
+		else begin
+			if(|temp_sum_to_sig1[30:8] == 1) begin
+				oQ_sum_to_sig1 = 8'd255;
+			end
+			else begin
+				oQ_sum_to_sig1 = temp_sum_to_sig1[7:0];
+			end
+		end
+		
+		// Q_sum_to_sig2
+		$signed(temp_sum_to_sig2) = ( ($signed(iQ_sum_to_sig2)*SCALE_SIGMOID)/(SCALE_DATA*SCALE_W) 
+		+ (($signed({1'b0,bias_bram_Rdata[7:0]})-$signed({1'b0,ZERO_B}))*SCALE_SIGMOID)/SCALE_B + $signed({1'b0,ZERO_SIGMOID}) );	
+		
+		if(temp_sum_to_sig2[31] == 1) begin
+			oQ_sum_to_sig2 = 8'd0;
+		end
+		else begin
+			if(|temp_sum_to_sig2[30:8] == 1) begin
+				oQ_sum_to_sig2 = 8'd255;
+			end
+			else begin
+				oQ_sum_to_sig2 = temp_sum_to_sig2[7:0];
+			end
+		end		
+	end
 
 // 2. BiasADD_to_Tanh - Br
+	always@(*) begin
+		// Q_sum_to_sig1
+		$signed(temp_sum_to_tanh1) = ( ($signed(iQ_sum_to_tanh1)*SCALE_TANH)/(SCALE_DATA*SCALE_W) 
+		+ (($signed({1'b0,bias_bram_Rdata[15:8]})-$signed({1'b0,ZERO_B}))*SCALE_TANH)/SCALE_B + $signed({1'b0,ZERO_TANH}) );
+		
+		if(temp_sum_to_tanh1[31] == 1) begin
+			oQ_sum_to_tanh1 = 8'd0;
+		end
+		else begin
+			if(|temp_sum_to_tanh1[30:8] == 1) begin
+				oQ_sum_to_tanh1 = 8'd255;
+			end
+			else begin
+				oQ_sum_to_tanh1 = temp_sum_to_tanh1[7:0];
+			end
+		end
+		
+		// Q_sum_to_sig2
+		$signed(temp_sum_to_tanh2) = ( ($signed(iQ_sum_to_tanh2)*SCALE_TANH)/(SCALE_DATA*SCALE_W) 
+		+ (($signed({1'b0,bias_bram_Rdata[7:0]})-$signed({1'b0,ZERO_B}))*SCALE_TANH)/SCALE_B + $signed({1'b0,ZERO_TANH}) );	
+		
+		if(temp_sum_to_tanh2[31] == 1) begin
+			oQ_sum_to_tanh2 = 8'd0;
+		end
+		else begin
+			if(|temp_sum_to_tanh2[30:8] == 1) begin
+				oQ_sum_to_tanh2 = 8'd255;
+			end
+			else begin
+				oQ_sum_to_tanh2 = temp_sum_to_tanh2[7:0];
+			end
+		end		
+	end
 
 // 3. Add_to_Ct - 
+	always@(*) begin
+		// Q_add_to_ct
+		$signed(temp_add_to_ct1) = (          );
+	
+	
+	
+	end
+
+
+
 
 // 4. Calc_to_Ht - 
 
@@ -396,8 +471,6 @@ module LSTM#(
 			temp_regA_2 <= 'd0;
 			temp_regB_2 <= 'd0;
 			temp_regC_2 <= 'd0;
-			lstm_result_1 <= 'd0;
-			lstm_result_2 <= 'd0;
 			inpdt_R_reg1 <= 'd0;
 			inpdt_R_reg2 <= 'd0;				
 
@@ -418,7 +491,8 @@ module LSTM#(
 			bias_buffer <= 'd0;			
 		
 			comb_ctrl <= comb_IDLE;
-			TMQ_Ct_select <= 'd0;
+			inpdt_element_select <= 'd0;
+			tanh_Ct_select <= 'd0;
 		end
 		else begin
 			
@@ -442,7 +516,7 @@ module LSTM#(
 					end
 				end
 				
-				INITIALIZE_W_B: begin	// ??????????????????????????????????????????????????????????? IMPLEMENTED Only for SYS Case.
+				INITIALIZE_W_B: begin	// ??????????????????????????????????????????????????????????? IMPLEMENTED Only for SYSTEM Case.
 				
 					if(counter <= 511) begin
 						weight_bram_Wdata[counter%4] init_data_buff2
@@ -494,9 +568,7 @@ module LSTM#(
 						inpdt_EN <= 1'b0;
 					end
 					else if( (2 <= counter%6) && (counter%6 <= 5) ) begin
-						inpdt_EN <= 1'b1;
-						inpdt_R_reg1[22:0] <= inpdt_R_wire1[20:0];	// ????????????????????????????????????????????????????? signed OK?
-						inpdt_R_reg2[22:0] <= inpdt_R_wire2[20:0];		
+						inpdt_EN <= 1'b1;						
 					end
 					else if( (0 <= counter%6) && (counter%6 <= 1) ) begin	// WAIT
 						inpdt_EN <= 1'b0;
@@ -507,30 +579,45 @@ module LSTM#(
 						// Nothing
 					end
 					else if(counter%6 == 4) begin
-						temp_regA_1[7:0] <= oSigmoid_LUT1[7:0];	// ?????????????????????????????????????????????????? signed OK?
-						temp_regA_2[7:0] <= oSigmoid_LUT2[7:0];
+						temp_regA_1[7:0] <= oSigmoid_LUT1;	// Integer (temp_regA_1 is considered as signed)
+						temp_regA_2[7:0] <= oSigmoid_LUT2;
+						
+						$signed(inpdt_R_reg1) <= $signed(inpdt_R_wire1);	// inpdt_R_wire1 is Signed Value from INPDT.	
+						$signed(inpdt_R_reg2) <= $signed(inpdt_R_wire2);							
 					end
 					else if(counter%6 == 5) begin
-						temp_regA_1[15:0] <= Sys_Ct[2*(counter/6)]*temp_regA_1;
-						temp_regA_2[15:0] <= Sys_Ct[2*(counter/6)+1]*temp_regA_2;
+						$signed(temp_regA_1) <= ($signed({1'b0,Sys_Ct[2*(counter/6)]}) - $signed({1'b0,ZERO_STATE}))
+						*($signed({1'b0,temp_regA_1[7:0]}) - $signed({1'b0,OUT_ZERO_SIGMOID}));
+						$signed(temp_regA_2) <= ($signed({1'b0,Sys_Ct[2*(counter/6)+1]}) - $signed({1'b0,ZERO_STATE}))
+						*($signed({1'b0,temp_regA_2[7:0]}) - $signed({1'b0,OUT_ZERO_SIGMOID}));
 						
-						temp_regB_1[7:0] <= oSigmoid_LUT1[7:0];
-						temp_regB_2[7:0] <= oSigmoid_LUT2[7:0];						
+						temp_regB_1 <= oSigmoid_LUT1;
+						temp_regB_2 <= oSigmoid_LUT2;					
+
+						$signed(inpdt_R_reg1) <= $signed(inpdt_R_wire1);	
+						$signed(inpdt_R_reg2) <= $signed(inpdt_R_wire2);							
 					end
 					else if(counter%6 == 0) begin
-						temp_regC_1[7:0] <= oTanh_LUT1[7:0];
-						temp_regC_2[7:0] <= oTanh_LUT2[7:0];						
+						temp_regC_1 <= oTanh_LUT1;
+						temp_regC_2 <= oTanh_LUT2;	
+
+						$signed(inpdt_R_reg1) <= $signed(inpdt_R_wire1);	
+						$signed(inpdt_R_reg2) <= $signed(inpdt_R_wire2);							
 					end
 					else if(counter%6 == 1) begin
-						temp_regA_1[7:0] <= oSigmoid_LUT1[7:0];
-						temp_regA_2[7:0] <= oSigmoid_LUT2[7:0];
+						temp_regA_1[7:0] <= oSigmoid_LUT1;
+						temp_regA_2[7:0] <= oSigmoid_LUT2;
 						
 						Sys_Ct[2*( (counter/6)-1 )] <= oQ_add_to_ct1[7:0];
 						Sys_Ct[2*( (counter/6)-1 )+1] <= oQ_add_to_ct2[7:0];						
 					end
 					else if(counter%6 == 2) begin
-						Sys_Ht[2*( (counter/6)-1 )] <= oQ_calc_to_ht1[7:0];
-						Sys_Ht[2*( (counter/6)-1 )+1] <= oQ_calc_to_ht2[7:0];						
+						Sys_Ht[2*( (counter/6)-1 )] <= oQ_mul_to_ht1[7:0];
+						Sys_Ht[2*( (counter/6)-1 )+1] <= oQ_mul_to_ht2[7:0];						
+					end
+					else if(counter%6 == 3) begin
+						$signed(inpdt_R_reg1) <= $signed(inpdt_R_wire1);
+						$signed(inpdt_R_reg2) <= $signed(inpdt_R_wire2);							
 					end
 					
 					//**** 5. Combinational CTRL ****//
@@ -548,7 +635,7 @@ module LSTM#(
 					end
 					else if(counter%6 == 1) begin
 						comb_ctrl <= TMQ;
-						TMQ_Ct_select <= (counter/6)-1;
+						tanh_Ct_select <= (counter/6)-1;
 					end
 					else if(counter%6 == 2) begin
 						comb_ctrl <= comb_IDLE;
@@ -568,7 +655,7 @@ module LSTM#(
 					end
 					else if(2 <= counter%18) begin
 						inpdt_EN <= 1'b1;
-							
+						inpdt_element_select <= counter/18;
 					end
 					else if(counter%18 <= 1) begin
 						inpdt_EN <= 1'b0;
@@ -601,14 +688,14 @@ module LSTM#(
 	always@(*) begin
 		case(comb_ctrl)
 			comb_IDLE: begin
-				iQ_bias_to_sig1 = 'd0;
-				iQ_bias_to_sig2 = 'd0;	
-				iQ_bias_to_tanh1 = 'd0;
-				iQ_bias_to_tanh2 = 'd0;	
+				iQ_sum_to_sig1 = 'd0;
+				iQ_sum_to_sig2 = 'd0;	
+				iQ_sum_to_tanh1 = 'd0;
+				iQ_sum_to_tanh2 = 'd0;	
 				iQ_add_to_ct1 = 'd0;
 				iQ_add_to_ct2 = 'd0;	
-				iQ_calc_to_ht1 = 'd0;
-				iQ_calc_to_ht2 = 'd0;
+				iQ_mul_to_ht1 = 'd0;
+				iQ_mul_to_ht2 = 'd0;
 
 				iSigmoid_LUT1 = 'd0;
 				iSigmoid_LUT2 = 'd0;	
@@ -616,68 +703,70 @@ module LSTM#(
 				iTanh_LUT2 = 'd0;			
 			end
 		
-			S_BQS: begin
-				iQ_bias_to_sig1[23:0] = inpdt_R_reg1[22:0] + bias_bram_Rdata[15:8];	// ??????????????????????????????????????????????????? Signed ? 
-				iQ_bias_to_sig2[23:0] = inpdt_R_reg2[22:0] + bias_bram_Rdata[7:0];	
-				iQ_bias_to_tanh1 = 'd0;
-				iQ_bias_to_tanh2 = 'd0;	
+			S_BQS: begin	
+				iQ_sum_to_sig1 = inpdt_R_reg1;
+				iQ_sum_to_sig2 = inpdt_R_reg2;
+				iQ_sum_to_tanh1 = 'd0;
+				iQ_sum_to_tanh2 = 'd0;	
 				iQ_add_to_ct1 = 'd0;
 				iQ_add_to_ct2 = 'd0;	
-				iQ_calc_to_ht1 = 'd0;
-				iQ_calc_to_ht2 = 'd0;
+				iQ_mul_to_ht1 = 'd0;
+				iQ_mul_to_ht2 = 'd0;
 
-				iSigmoid_LUT1[7:0] = oQ_bias_to_sig1[7:0];
-				iSigmoid_LUT2[7:0] = oQ_bias_to_sig2[7:0];	
+				iSigmoid_LUT1 = oQ_sum_to_sig1;
+				iSigmoid_LUT2 = oQ_sum_to_sig2;	
 				iTanh_LUT1 = 'd0;
 				iTanh_LUT2 = 'd0;								
 			end
 			
 			S_BQT: begin
-				iQ_bias_to_sig1 = 'd0;
-				iQ_bias_to_sig2 = 'd0;	
-				iQ_bias_to_tanh1[23:0] = inpdt_R_reg1[22:0] + bias_bram_Rdata[15:8];
-				iQ_bias_to_tanh2[23:0] = inpdt_R_reg2[22:0] + bias_bram_Rdata[7:0];	
+				iQ_sum_to_sig1 = 'd0;
+				iQ_sum_to_sig2 = 'd0;					
+				iQ_sum_to_tanh1 = inpdt_R_reg1;
+				iQ_sum_to_tanh2 = inpdt_R_reg2;
 				iQ_add_to_ct1 = 'd0;
 				iQ_add_to_ct2 = 'd0;	
-				iQ_calc_to_ht1 = 'd0;
-				iQ_calc_to_ht2 = 'd0;
+				iQ_mul_to_ht1 = 'd0;
+				iQ_mul_to_ht2 = 'd0;
 
 				iSigmoid_LUT1 = 'd0;
 				iSigmoid_LUT2 = 'd0;	
-				iTanh_LUT1 = oQ_bias_to_tanh1;
-				iTanh_LUT2 = oQ_bias_to_tanh2;						
+				iTanh_LUT1 = oQ_sum_to_tanh1;
+				iTanh_LUT2 = oQ_sum_to_tanh2;						
 			end
 		
 			S_MAQ_BQS: begin
-				iQ_bias_to_sig1[23:0] = inpdt_R_reg1[22:0] + bias_bram_Rdata[15:8];
-				iQ_bias_to_sig2[23:0] = inpdt_R_reg2[22:0] + bias_bram_Rdata[7:0];	
-				iQ_bias_to_tanh1 = 'd0;
-				iQ_bias_to_tanh2 = 'd0;	
-				iQ_add_to_ct1[16:0] = (temp_regB_1[15:0]*temp_regC_1[15:0]) + temp_regA_1[15:0];
-				iQ_add_to_ct2[16:0] = (temp_regB_2[15:0]*temp_regC_2[15:0]) + temp_regA_2[15:0];	
-				iQ_calc_to_ht1 = 'd0;
-				iQ_calc_to_ht2 = 'd0;
+				iQ_sum_to_sig1 = inpdt_R_reg1;
+				iQ_sum_to_sig2 = inpdt_R_reg2;	
+				iQ_sum_to_tanh1 = 'd0;
+				iQ_sum_to_tanh2 = 'd0;	
+				iQ_add_to_ct1 = $signed({1'b0,temp_regB_1})*$signed({1'b0,temp_regC_1}) + $signed(temp_regA_1);
+				iQ_add_to_ct2 = $signed({1'b0,temp_regB_2})*$signed({1'b0,temp_regC_2}) + $signed(temp_regA_2);		
+				iQ_add_to_ct1 = $signed(temp_regA_1)/ + 
+				
+				iQ_mul_to_ht1 = 'd0;
+				iQ_mul_to_ht2 = 'd0;
 
-				iSigmoid_LUT1[7:0] = oQ_bias_to_sig1[7:0];
-				iSigmoid_LUT2[7:0] = oQ_bias_to_sig2[7:0];	
+				iSigmoid_LUT1[7:0] = oQ_sum_to_sig1[7:0];
+				iSigmoid_LUT2[7:0] = oQ_sum_to_sig2[7:0];	
 				iTanh_LUT1 = 'd0;
 				iTanh_LUT2 = 'd0;					
 			end
 		
 			S_TMQ: begin
-				iQ_bias_to_sig1 = 'd0;
-				iQ_bias_to_sig2 = 'd0;	
-				iQ_bias_to_tanh1 = 'd0;
-				iQ_bias_to_tanh2 = 'd0;	
+				iQ_sum_to_sig1 = 'd0;
+				iQ_sum_to_sig2 = 'd0;	
+				iQ_sum_to_tanh1 = 'd0;
+				iQ_sum_to_tanh2 = 'd0;	
 				iQ_add_to_ct1 = 'd0;
 				iQ_add_to_ct2 = 'd0;	
-				iQ_calc_to_ht1[15:0] = oTanh_LUT1[7:0]*temp_regA_1[7:0];
-				iQ_calc_to_ht2[15:0] = oTanh_LUT2[7:0]*temp_regA_2[7:0];
+				iQ_mul_to_ht1[15:0] = oTanh_LUT1[7:0]*temp_regA_1[7:0];
+				iQ_mul_to_ht2[15:0] = oTanh_LUT2[7:0]*temp_regA_2[7:0];
 
 				iSigmoid_LUT1 = 'd0;
 				iSigmoid_LUT2 = 'd0;
-				iTanh_LUT1 = Sys_Ct[TMQ_Ct_select];
-				iTanh_LUT2 = Sys_Ct[TMQ_Ct_select+1];					
+				iTanh_LUT1 = Sys_Ct[tanh_Ct_select];		
+				iTanh_LUT2 = Sys_Ct[tanh_Ct_select+1];					
 			end
 			B_BQS:
 			B_BQT:
