@@ -5,7 +5,7 @@
 module inpdt_16#(
 )
 (
-	input [127:0] iData_X,	// 16*8b
+	input [127:0] iData_XH,	// 16*8b
 	input [127:0] iData_W,	// 16*8b
 	
 	input iEn,				// for input blocking
@@ -13,14 +13,14 @@ module inpdt_16#(
 	output [20:0] oResult	// for output
 );
 
-	reg [7:0] data_Xtemp [15:0];
-	reg [7:0] data_Wtemp [15:0];
+	reg [7:0] data_XHtemp [0:15];
+	reg [7:0] data_Wtemp [0:15];
 
-	reg [16:0] mul_temp [15:0];
+	reg [16:0] mul_temp [0:15];
 	
-	reg [17:0] add_temp1 [7:0];
-	reg [18:0] add_temp2 [3:0];
-	reg [19:0] add_temp3 [1:0];
+	reg [17:0] add_temp1 [0:7];
+	reg [18:0] add_temp2 [0:3];
+	reg [19:0] add_temp3 [0:1];
 	reg [20:0] add_temp4;
 	
 	
@@ -29,35 +29,35 @@ module inpdt_16#(
 	always@(*) begin
 	
 		if(iEn) begin
-			for(i=0; i<16; i++) begin
-				data_Xtemp[i] = iData_X;
-				data_Wtemp[i] = iData_W;
+			for(i=0; i<16; i=i+1) begin
+				data_XHtemp[i] = iData_XH[128-8*(i+1)+:8];
+				data_Wtemp[i] = iData_W[128-8*(i+1)+:8];
 			end
 		end
 		else begin
-			for(i=0; i<16; i++) begin
-				data_Xtemp[i] = 'd0;
+			for(i=0; i<16; i=i+1) begin
+				data_XHtemp[i] = 'd0;
 				data_Wtemp[i] = 'd0;
 			end		
 		end
 	
-		for(i=0; i<16; i++) begin
-			mult_temp[i] = data_Xtemp[i]*data_Wtemp[i];
+		for(i=0; i<16; i=i+1) begin
+			mul_temp[i] = $signed({1'b0,data_XHtemp[i]})*$signed({1'b0,data_Wtemp[i]});
 		end
 		
-		for(i=0; i<8; i++) begin
-			add_temp1[i] = mult_temp[2*i] + mult_temp[2*i+1];
+		for(i=0; i<8; i=i+1) begin
+			add_temp1[i] = $signed(mul_temp[2*i]) + $signed(mul_temp[2*i+1]);
 		end
 		
-		for(i=0; i<4; i++) begin
-			add_temp2[i] = add_temp1[2*i] + add_temp1[2*i+1];
+		for(i=0; i<4; i=i+1) begin
+			add_temp2[i] = $signed(add_temp1[2*i]) + $signed(add_temp1[2*i+1]);
 		end
 
-		for(i=0; i<2; i++) begin
-			add_temp3[i] = add_temp2[2*i] + add_temp2[2*i+1];
+		for(i=0; i<2; i=i+1) begin
+			add_temp3[i] = $signed(add_temp2[2*i]) + $signed(add_temp2[2*i+1]);
 		end	
 		
-		add_temp4 = add_temp3[0] + add_temp[1];
+		add_temp4 = $signed(add_temp3[0]) + $signed(add_temp[1]);
 		
 	end
 
