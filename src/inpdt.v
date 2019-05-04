@@ -2,8 +2,7 @@
 // Description:
 // Author: Michael Kim
 
-module inpdt_16#(
-)
+module inpdt_16
 (
 	input [127:0] iData_XH,	// 16*8b
 	input [127:0] iData_W,	// 16*8b
@@ -57,7 +56,7 @@ module inpdt_16#(
 			add_temp3[i] = $signed(add_temp2[2*i]) + $signed(add_temp2[2*i+1]);
 		end	
 		
-		add_temp4 = $signed(add_temp3[0]) + $signed(add_temp[1]);
+		add_temp4 = $signed(add_temp3[0]) + $signed(add_temp3[1]);
 		
 	end
 

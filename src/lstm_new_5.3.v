@@ -224,17 +224,17 @@ module LSTM#(
 // LSTM Modules //
 //////////////////
 	inpdt_16 u_inpdt_1(
-		iData_X(inpdt_X1),
-		iData_W(inpdt_W1),
-		iEn(inpdt_EN),
-		oResult(inpdt_R_wire1)
+		.iData_XH(inpdt_X1),
+		.iData_W(inpdt_W1),
+		.iEn(inpdt_EN),
+		.oResult(inpdt_R_wire1)
 	);
 
 	inpdt_16 u_inpdt_2(
-		iData_X(inpdt_X2),
-		iData_W(inpdt_W2),
-		iEn(inpdt_EN),
-		oResult(inpdt_R_wire2)
+		.iData_XH(inpdt_X2),
+		.iData_W(inpdt_W2),
+		.iEn(inpdt_EN),
+		.oResult(inpdt_R_wire2)
 	);
 	always@(*) begin
 		if(lstm_state == SYSTEM) begin
@@ -248,9 +248,9 @@ module LSTM#(
 			end			
 		end
 		else if(lstm_state == BRANCH) begin
-			inpdt_X1 = iData[512-(inpdt_element_select+1)*128+:128];	// ???????????????????????????????????????????			
+			inpdt_X1[127:0] = iData[512-(inpdt_element_select+1)*128+:128];	// ???????????????????????????????????????????			
 			for(i=0; i<16; i=i+1) begin
-				inpdt_X2[512-(i+1)*8+:8] = Br_Ht[inpdt_element_select*16 + i];
+				inpdt_X2[128-(i+1)*8+:8] = Br_Ht[inpdt_element_select*16 + i];
 			end
 		end	
 	end
@@ -263,30 +263,30 @@ module LSTM#(
 // Brams //
 ///////////
 	BRAM_128x2048 WEIGHT_BRAM1(
-		clka(clk),
-		ena(weight_bram_EN),
-		wea(weight_bram_WE1),
-		addra(weight_bram_addr1),
-		dina(weight_bram_Wdata1),
-		douta(weight_bram_Rdata1)	
+		.clka(clk),
+		.ena(weight_bram_EN),
+		.wea(weight_bram_WE1),
+		.addra(weight_bram_addr1),
+		.dina(weight_bram_Wdata1),
+		.douta(weight_bram_Rdata1)	
 	);
 
 	BRAM_128x2048 WEIGHT_BRAM2(
-		clka(clk),
-		ena(weight_bram_EN),
-		wea(weight_bram_WE2),
-		addra(weight_bram_addr2),
-		dina(weight_bram_Wdata2),
-		douta(weight_bram_Rdata2)	
+		.clka(clk),
+		.ena(weight_bram_EN),
+		.wea(weight_bram_WE2),
+		.addra(weight_bram_addr2),
+		.dina(weight_bram_Wdata2),
+		.douta(weight_bram_Rdata2)	
 	);	
 	
 	BRAM_16x512 BIAS_BRAM(
-		clka(clk),
-		ena(bias_bram_EN),
-		wea(bias_bram_WE),
-		addra(bias_bram_addr),
-		dina(bias_bram_Wdata),
-		douta(bias_bram_Rdata)	
+		.clka(clk),
+		.ena(bias_bram_EN),
+		.wea(bias_bram_WE),
+		.addra(bias_bram_addr),
+		.dina(bias_bram_Wdata),
+		.douta(bias_bram_Rdata)	
 	);
 
 
@@ -825,6 +825,7 @@ module LSTM#(
 				end
 			
 				BRANCH: begin
+				
 					//**** 1. WEIGHT BRAM CTRL ****//
 					
 					
@@ -832,6 +833,7 @@ module LSTM#(
 					
 					
 					//**** 3. INPDT CTRL ****//
+					/*
 					if(counter <= 1) begin
 						inpdt_EN <= 1'b0;
 					end
@@ -843,14 +845,14 @@ module LSTM#(
 						inpdt_EN <= 1'b0;
 						
 					end
-					
+					*/
 					
 					//**** 4. Register CTRL ****//
 					
 				
 					//**** 5. Combinational CTRL ****//					
 					
-					
+				
 				end
 		
 		
