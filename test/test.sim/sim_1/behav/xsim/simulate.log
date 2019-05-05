@@ -1,0 +1,12 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+test          0 is passed
+
+test          1 is failed
+result is 0xffffffffffffffff
+answer is 0xaa6d8ea586b6b17d
+
+test          2 is failed
+result is 0xffffffffffffffff
+answer is 0x9d9a89a688d5cd7e
+

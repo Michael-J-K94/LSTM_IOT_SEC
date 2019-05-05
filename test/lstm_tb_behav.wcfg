@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="lstm_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="lstm_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="6276400000fs"></ZoomStartTime>
+      <ZoomEndTime time="6480800001fs"></ZoomEndTime>
+      <Cursor1Time time="6389800000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="235"></NameColumnWidth>
+      <ValueColumnWidth column_width="96"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="42" />
+   <wvobject fp_name="group245" type="group">
+      <obj_property name="label">TB</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lstm_tb/lstm_init" type="logic">
+         <obj_property name="ElementShortName">lstm_init</obj_property>
+         <obj_property name="ObjectShortName">lstm_init</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/lstm_enable" type="logic">
+         <obj_property name="ElementShortName">lstm_enable</obj_property>
+         <obj_property name="ObjectShortName">lstm_enable</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/lstm_done" type="logic">
+         <obj_property name="ElementShortName">lstm_done</obj_property>
+         <obj_property name="ObjectShortName">lstm_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/result" type="array">
+         <obj_property name="ElementShortName">result[63:0]</obj_property>
+         <obj_property name="ObjectShortName">result[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/lstm_param" type="array">
+         <obj_property name="ElementShortName">lstm_param[7:0]</obj_property>
+         <obj_property name="ObjectShortName">lstm_param[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/read_input" type="logic">
+         <obj_property name="ElementShortName">read_input</obj_property>
+         <obj_property name="ObjectShortName">read_input</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/read_output" type="logic">
+         <obj_property name="ElementShortName">read_output</obj_property>
+         <obj_property name="ObjectShortName">read_output</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/read_b" type="logic">
+         <obj_property name="ElementShortName">read_b</obj_property>
+         <obj_property name="ObjectShortName">read_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/read_w" type="logic">
+         <obj_property name="ElementShortName">read_w</obj_property>
+         <obj_property name="ObjectShortName">read_w</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/read_context" type="logic">
+         <obj_property name="ElementShortName">read_context</obj_property>
+         <obj_property name="ObjectShortName">read_context</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/b_data" type="array">
+         <obj_property name="ElementShortName">b_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">b_data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/context_data" type="array">
+         <obj_property name="ElementShortName">context_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">context_data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/input_data" type="array">
+         <obj_property name="ElementShortName">input_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">input_data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/w_data" type="array">
+         <obj_property name="ElementShortName">w_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">w_data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/output_data" type="array">
+         <obj_property name="ElementShortName">output_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">output_data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/ready_mem_weight" type="logic">
+         <obj_property name="ElementShortName">ready_mem_weight</obj_property>
+         <obj_property name="ObjectShortName">ready_mem_weight</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/ready_mem_context" type="logic">
+         <obj_property name="ElementShortName">ready_mem_context</obj_property>
+         <obj_property name="ObjectShortName">ready_mem_context</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/ready_mem_bias" type="logic">
+         <obj_property name="ElementShortName">ready_mem_bias</obj_property>
+         <obj_property name="ObjectShortName">ready_mem_bias</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/input_mem_address" type="array">
+         <obj_property name="ElementShortName">input_mem_address[15:0]</obj_property>
+         <obj_property name="ObjectShortName">input_mem_address[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/output_mem_address" type="array">
+         <obj_property name="ElementShortName">output_mem_address[15:0]</obj_property>
+         <obj_property name="ObjectShortName">output_mem_address[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/set_param" type="logic">
+         <obj_property name="ElementShortName">set_param</obj_property>
+         <obj_property name="ObjectShortName">set_param</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/input_buffer" type="array">
+         <obj_property name="ElementShortName">input_buffer[63:0]</obj_property>
+         <obj_property name="ObjectShortName">input_buffer[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/input_array" type="array">
+         <obj_property name="ElementShortName">input_array[9:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">input_array[9:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/output_array" type="array">
+         <obj_property name="ElementShortName">output_array[9:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">output_array[9:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/param_type" type="array">
+         <obj_property name="ElementShortName">param_type[2:0]</obj_property>
+         <obj_property name="ObjectShortName">param_type[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/input_counter" type="array">
+         <obj_property name="ElementShortName">input_counter[31:0]</obj_property>
+         <obj_property name="ObjectShortName">input_counter[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/output_counter" type="array">
+         <obj_property name="ElementShortName">output_counter[31:0]</obj_property>
+         <obj_property name="ObjectShortName">output_counter[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/k" type="array">
+         <obj_property name="ElementShortName">k[31:0]</obj_property>
+         <obj_property name="ObjectShortName">k[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/i" type="array">
+         <obj_property name="ElementShortName">i[3:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[3:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/syscall_w" type="array">
+         <obj_property name="ElementShortName">syscall_w[2:0]</obj_property>
+         <obj_property name="ObjectShortName">syscall_w[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/syscall_b" type="array">
+         <obj_property name="ElementShortName">syscall_b[2:0]</obj_property>
+         <obj_property name="ObjectShortName">syscall_b[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/syscall_context" type="array">
+         <obj_property name="ElementShortName">syscall_context[2:0]</obj_property>
+         <obj_property name="ObjectShortName">syscall_context[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/idle" type="array">
+         <obj_property name="ElementShortName">idle[2:0]</obj_property>
+         <obj_property name="ObjectShortName">idle[2:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider246">
+   </wvobject>
+   <wvobject fp_name="group150" type="group">
+      <obj_property name="label">INIT LSTM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lstm_tb/lstm_init" type="logic">
+         <obj_property name="ElementShortName">lstm_init</obj_property>
+         <obj_property name="ObjectShortName">lstm_init</obj_property>
+         <obj_property name="CustomSignalColor">#D2691E</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/lstm_param" type="array">
+         <obj_property name="ElementShortName">lstm_param[7:0]</obj_property>
+         <obj_property name="ObjectShortName">lstm_param[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#D2691E</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/clk_counter" type="array">
+         <obj_property name="ElementShortName">clk_counter[63:0]</obj_property>
+         <obj_property name="ObjectShortName">clk_counter[63:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/lstm_state" type="array">
+         <obj_property name="ElementShortName">lstm_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">lstm_state[1:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_EN" type="logic">
+         <obj_property name="ElementShortName">weight_bram_EN</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_EN</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_addr1" type="array">
+         <obj_property name="ElementShortName">weight_bram_addr1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_addr1[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_addr2" type="array">
+         <obj_property name="ElementShortName">weight_bram_addr2[10:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_addr2[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_WE1" type="logic">
+         <obj_property name="ElementShortName">weight_bram_WE1</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_WE1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_WE2" type="logic">
+         <obj_property name="ElementShortName">weight_bram_WE2</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_WE2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_Wdata1" type="array">
+         <obj_property name="ElementShortName">weight_bram_Wdata1[127:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_Wdata1[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_Wdata2" type="array">
+         <obj_property name="ElementShortName">weight_bram_Wdata2[127:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_Wdata2[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_addr" type="array">
+         <obj_property name="ElementShortName">bias_bram_addr[8:0]</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_addr[8:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_EN" type="logic">
+         <obj_property name="ElementShortName">bias_bram_EN</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_EN</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_WE" type="logic">
+         <obj_property name="ElementShortName">bias_bram_WE</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_WE</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_Wdata" type="array">
+         <obj_property name="ElementShortName">bias_bram_Wdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_Wdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/counter" type="array">
+         <obj_property name="ElementShortName">counter[31:0]</obj_property>
+         <obj_property name="ObjectShortName">counter[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/init_weight_buff" type="array">
+         <obj_property name="ElementShortName">init_weight_buff[0:15][7:0]</obj_property>
+         <obj_property name="ObjectShortName">init_weight_buff[0:15][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_buffer" type="array">
+         <obj_property name="ElementShortName">weight_buffer[255:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_buffer[255:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider419">
+   </wvobject>
+   <wvobject fp_name="group274" type="group">
+      <obj_property name="label">W1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/DOUT" type="array">
+         <obj_property name="ElementShortName">DOUT[127:0]</obj_property>
+         <obj_property name="ObjectShortName">DOUT[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/ADDR_captured" type="array">
+         <obj_property name="ElementShortName">ADDR_captured[10:0]</obj_property>
+         <obj_property name="ObjectShortName">ADDR_captured[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="group112" type="group">
+         <obj_property name="label">W BRAM1</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[0]" type="array">
+            <obj_property name="ElementShortName">[0][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[1]" type="array">
+            <obj_property name="ElementShortName">[1][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[2]" type="array">
+            <obj_property name="ElementShortName">[2][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[3]" type="array">
+            <obj_property name="ElementShortName">[3][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[4]" type="array">
+            <obj_property name="ElementShortName">[4][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[4][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[5]" type="array">
+            <obj_property name="ElementShortName">[5][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[5][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[6]" type="array">
+            <obj_property name="ElementShortName">[6][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[6][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[7]" type="array">
+            <obj_property name="ElementShortName">[7][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[7][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[8]" type="array">
+            <obj_property name="ElementShortName">[8][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[8][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[9]" type="array">
+            <obj_property name="ElementShortName">[9][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[9][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[10]" type="array">
+            <obj_property name="ElementShortName">[10][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[10][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[11]" type="array">
+            <obj_property name="ElementShortName">[11][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[11][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[12]" type="array">
+            <obj_property name="ElementShortName">[12][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[12][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[13]" type="array">
+            <obj_property name="ElementShortName">[13][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[13][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[14]" type="array">
+            <obj_property name="ElementShortName">[14][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[14][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[15]" type="array">
+            <obj_property name="ElementShortName">[15][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[15][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/counter" type="array">
+            <obj_property name="ElementShortName">counter[31:0]</obj_property>
+            <obj_property name="ObjectShortName">counter[31:0]</obj_property>
+            <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider282">
+   </wvobject>
+   <wvobject fp_name="group273" type="group">
+      <obj_property name="label">W2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_buffer" type="array">
+         <obj_property name="ElementShortName">weight_buffer[255:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_buffer[255:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_EN" type="logic">
+         <obj_property name="ElementShortName">weight_bram_EN</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_EN</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_addr1" type="array">
+         <obj_property name="ElementShortName">weight_bram_addr1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_addr1[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_addr2" type="array">
+         <obj_property name="ElementShortName">weight_bram_addr2[10:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_addr2[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/DOUT" type="array">
+         <obj_property name="ElementShortName">DOUT[127:0]</obj_property>
+         <obj_property name="ObjectShortName">DOUT[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/ADDR_captured" type="array">
+         <obj_property name="ElementShortName">ADDR_captured[10:0]</obj_property>
+         <obj_property name="ObjectShortName">ADDR_captured[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="group113" type="group">
+         <obj_property name="label">W BRAM2</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[0]" type="array">
+            <obj_property name="ElementShortName">[0][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[1]" type="array">
+            <obj_property name="ElementShortName">[1][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[2]" type="array">
+            <obj_property name="ElementShortName">[2][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[3]" type="array">
+            <obj_property name="ElementShortName">[3][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[4]" type="array">
+            <obj_property name="ElementShortName">[4][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[4][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[8]" type="array">
+            <obj_property name="ElementShortName">[8][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[8][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[5]" type="array">
+            <obj_property name="ElementShortName">[5][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[5][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[6]" type="array">
+            <obj_property name="ElementShortName">[6][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[6][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[7]" type="array">
+            <obj_property name="ElementShortName">[7][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[7][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[8]" type="array">
+            <obj_property name="ElementShortName">[8][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[8][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[9]" type="array">
+            <obj_property name="ElementShortName">[9][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[9][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[10]" type="array">
+            <obj_property name="ElementShortName">[10][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[10][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[11]" type="array">
+            <obj_property name="ElementShortName">[11][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[11][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[12]" type="array">
+            <obj_property name="ElementShortName">[12][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[12][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[13]" type="array">
+            <obj_property name="ElementShortName">[13][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[13][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[14]" type="array">
+            <obj_property name="ElementShortName">[14][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[14][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM2/mem[15]" type="array">
+            <obj_property name="ElementShortName">[15][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[15][127:0]</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider282">
+   </wvobject>
+   <wvobject fp_name="group149" type="group">
+      <obj_property name="label">B BRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[0]" type="array">
+         <obj_property name="ElementShortName">[0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[1]" type="array">
+         <obj_property name="ElementShortName">[1][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[2]" type="array">
+         <obj_property name="ElementShortName">[2][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[3]" type="array">
+         <obj_property name="ElementShortName">[3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[4]" type="array">
+         <obj_property name="ElementShortName">[4][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[5]" type="array">
+         <obj_property name="ElementShortName">[5][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[6]" type="array">
+         <obj_property name="ElementShortName">[6][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[7]" type="array">
+         <obj_property name="ElementShortName">[7][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[8]" type="array">
+         <obj_property name="ElementShortName">[8][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[9]" type="array">
+         <obj_property name="ElementShortName">[9][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[10]" type="array">
+         <obj_property name="ElementShortName">[10][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[11]" type="array">
+         <obj_property name="ElementShortName">[11][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[12]" type="array">
+         <obj_property name="ElementShortName">[12][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[13]" type="array">
+         <obj_property name="ElementShortName">[13][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[14]" type="array">
+         <obj_property name="ElementShortName">[14][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/BIAS_BRAM/mem[15]" type="array">
+         <obj_property name="ElementShortName">[15][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_addr" type="array">
+         <obj_property name="ElementShortName">bias_bram_addr[8:0]</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_addr[8:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_EN" type="logic">
+         <obj_property name="ElementShortName">bias_bram_EN</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_EN</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_WE" type="logic">
+         <obj_property name="ElementShortName">bias_bram_WE</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_WE</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_Wdata" type="array">
+         <obj_property name="ElementShortName">bias_bram_Wdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_Wdata[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider252">
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/resetn" type="logic">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iInit_valid" type="logic">
+      <obj_property name="ElementShortName">iInit_valid</obj_property>
+      <obj_property name="ObjectShortName">iInit_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iInit_data" type="array">
+      <obj_property name="ElementShortName">iInit_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">iInit_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iInit_type" type="array">
+      <obj_property name="ElementShortName">iInit_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">iInit_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/oInit_done" type="logic">
+      <obj_property name="ElementShortName">oInit_done</obj_property>
+      <obj_property name="ObjectShortName">oInit_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iLoad_valid" type="logic">
+      <obj_property name="ElementShortName">iLoad_valid</obj_property>
+      <obj_property name="ObjectShortName">iLoad_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iBr_Ct_load" type="array">
+      <obj_property name="ElementShortName">iBr_Ct_load[511:0]</obj_property>
+      <obj_property name="ObjectShortName">iBr_Ct_load[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iBr_Ht_load" type="array">
+      <obj_property name="ElementShortName">iBr_Ht_load[511:0]</obj_property>
+      <obj_property name="ObjectShortName">iBr_Ht_load[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iType" type="logic">
+      <obj_property name="ElementShortName">iType</obj_property>
+      <obj_property name="ObjectShortName">iType</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iData" type="array">
+      <obj_property name="ElementShortName">iData[511:0]</obj_property>
+      <obj_property name="ObjectShortName">iData[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/oLstm_done" type="logic">
+      <obj_property name="ElementShortName">oLstm_done</obj_property>
+      <obj_property name="ObjectShortName">oLstm_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iNext_valid" type="logic">
+      <obj_property name="ElementShortName">iNext_valid</obj_property>
+      <obj_property name="ObjectShortName">iNext_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/Sys_Ht" type="array">
+      <obj_property name="ElementShortName">Sys_Ht[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">Sys_Ht[0:7][7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/Sys_Ct" type="array">
+      <obj_property name="ElementShortName">Sys_Ct[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">Sys_Ct[0:7][7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/comb_ctrl" type="array">
+      <obj_property name="ElementShortName">comb_ctrl[4:0]</obj_property>
+      <obj_property name="ObjectShortName">comb_ctrl[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#008080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/lstm_state" type="array">
+      <obj_property name="ElementShortName">lstm_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">lstm_state[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/counter" type="array">
+      <obj_property name="ElementShortName">counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/inpdt_R_reg1" type="array">
+      <obj_property name="ElementShortName">inpdt_R_reg1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inpdt_R_reg1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/real_inpdt_sumBQS1" type="array">
+      <obj_property name="ElementShortName">real_inpdt_sumBQS1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">real_inpdt_sumBQS1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/real_biasBQS1" type="array">
+      <obj_property name="ElementShortName">real_biasBQS1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">real_biasBQS1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/unsat_BQS1" type="array">
+      <obj_property name="ElementShortName">unsat_BQS1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">unsat_BQS1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/sat_BQS1" type="array">
+      <obj_property name="ElementShortName">sat_BQS1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sat_BQS1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/iSigmoid_LUT1" type="array">
+      <obj_property name="ElementShortName">iSigmoid_LUT1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">iSigmoid_LUT1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/oSigmoid_LUT1" type="array">
+      <obj_property name="ElementShortName">oSigmoid_LUT1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">oSigmoid_LUT1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/temp_regA_1" type="array">
+      <obj_property name="ElementShortName">temp_regA_1[16:0]</obj_property>
+      <obj_property name="ObjectShortName">temp_regA_1[16:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/temp_regB_1" type="array">
+      <obj_property name="ElementShortName">temp_regB_1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">temp_regB_1[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/temp_regC_1" type="array">
+      <obj_property name="ElementShortName">temp_regC_1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">temp_regC_1[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/inpdt_R_reg1" type="array">
+      <obj_property name="ElementShortName">inpdt_R_reg1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inpdt_R_reg1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/real_inpdt_sumBQT1" type="array">
+      <obj_property name="ElementShortName">real_inpdt_sumBQT1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">real_inpdt_sumBQT1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/real_biasBQT1" type="array">
+      <obj_property name="ElementShortName">real_biasBQT1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">real_biasBQT1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/unsat_BQT1" type="array">
+      <obj_property name="ElementShortName">unsat_BQT1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">unsat_BQT1[31:0]</obj_property>
+   </wvobject>
+</wave_config>

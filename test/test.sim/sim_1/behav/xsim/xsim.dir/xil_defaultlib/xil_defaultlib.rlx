@@ -1,0 +1,20 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/SRAM_128x2048.v,1557032767,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/SRAM_16x512.v,,SRAM_128x2048,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/SRAM_16x512.v,1557032885,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/bias_memory.v,,SRAM_16x512,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/inpdt.v,1557043120,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/input_data_memory.v,,inpdt_16,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN_Cverifiable.v,1557075447,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/output_memory.v,,LSTM,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/sigmoid_LUT.v,1557028926,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/tanh_LUT.v,,sigmoid_LUT,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/tanh_LUT.v,1557028926,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/weight_memory.v,,tanh_LUT,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim/glbl.v,1544155480,verilog,,,,glbl,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/bias_memory.v,1556971252,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/context_memory.v,,bias_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/context_memory.v,1556971288,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/inpdt.v,,context_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/input_data_memory.v,1556971504,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN_Cverifiable.v,,input_data_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/lstm_tb.v,1557040327,verilog,,,,lstm_tb,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/output_memory.v,1556971548,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/sigmoid_LUT.v,,output_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/weight_memory.v,1556969798,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/lstm_tb.v,,weight_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/ip/BRAM_128x2048_1/sim/BRAM_128x2048.v,1557031670,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/bias_memory.v,,BRAM_128x2048,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/ip/BRAM_16x512_1/sim/BRAM_16x512.v,1557031692,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/ip/BRAM_128x2048_1/sim/BRAM_128x2048.v,,BRAM_16x512,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/new/top_lstm.v,1556976086,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/weight_memory.v,,top_lstm,,,,,,,,

@@ -4,16 +4,16 @@
 
 module inpdt_16
 (
-	input [127:0] iData_XH,	// 16*8b
-	input [127:0] iData_W,	// 16*8b
+	input [143:0] iData_XH,	// 16*8b
+	input [143:0] iData_W,	// 16*8b
 	
 	input iEn,				// for input blocking
 		
 	output [20:0] oResult	// for output
 );
 
-	reg [7:0] data_XHtemp [0:15];
-	reg [7:0] data_Wtemp [0:15];
+	reg [8:0] data_XHtemp [0:15];
+	reg [8:0] data_Wtemp [0:15];
 
 	reg [16:0] mul_temp [0:15];
 	
@@ -29,8 +29,8 @@ module inpdt_16
 	
 		if(iEn) begin
 			for(i=0; i<16; i=i+1) begin
-				data_XHtemp[i] = iData_XH[128-8*(i+1)+:8];
-				data_Wtemp[i] = iData_W[128-8*(i+1)+:8];
+				data_XHtemp[i] = iData_XH[144-9*(i+1)+:9];
+				data_Wtemp[i] = iData_W[144-9*(i+1)+:9];
 			end
 		end
 		else begin
@@ -41,7 +41,7 @@ module inpdt_16
 		end
 	
 		for(i=0; i<16; i=i+1) begin
-			mul_temp[i] = $signed({1'b0,data_XHtemp[i]})*$signed({1'b0,data_Wtemp[i]});
+			mul_temp[i] = $signed(data_XHtemp[i])*$signed(data_Wtemp[i]);
 		end
 		
 		for(i=0; i<8; i=i+1) begin
