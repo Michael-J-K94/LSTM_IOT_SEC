@@ -753,6 +753,9 @@ module LSTM#(
 						inpdt_R_reg2 <= $signed(inpdt_R_wire2);							
 					end
 					else if(counter%6 == 1) begin
+						temp_regA_1[16:8] <= 'd0;
+						temp_regA_2[16:8] <= 'd0;
+					
 						temp_regA_1[7:0] <= oSigmoid_LUT1;
 						temp_regA_2[7:0] <= oSigmoid_LUT2;
 						
@@ -761,11 +764,11 @@ module LSTM#(
 					end
 					else if(counter%6 == 2) begin
 						Sys_Ht_temp[2*( (counter/6)-1 )] <= sat_ht_TMQ1;
-						Sys_Ht_temp[2*( (counter/6)-1 )+1] <= sat_ht_TMQ1;	
+						Sys_Ht_temp[2*( (counter/6)-1 )+1] <= sat_ht_TMQ2;	
 						
 						if(counter == 26) begin
 							Sys_Ht[6] <= sat_ht_TMQ1;
-							Sys_Ht[7] <= sat_ht_TMQ1;
+							Sys_Ht[7] <= sat_ht_TMQ2;
 							for(i=0; i<6; i=i+1) begin
 								Sys_Ht[i] <= Sys_Ht_temp[i];
 							end
@@ -851,14 +854,14 @@ module LSTM#(
 		
 			S_BQS: begin
 				//real_inpdt_sumBQS1 = $signed( $signed(($signed(inpdt_R_reg1)*SCALE_SIGMOID))/(SCALE_W*SCALE_DATA) );
-				real_inpdt_sumBQS1 = $signed(inpdt_R_reg1)*SCALE_SIGMOID/(SCALE_W*SCALE_DATA);
-				real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*SCALE_SIGMOID)/(SCALE_B);
+				real_inpdt_sumBQS1 = $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
+				real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
 				unsat_BQS1 = $signed(real_inpdt_sumBQS1) + $signed(real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
 				iSigmoid_LUT1 = sat_BQS1;
 				
 				//real_inpdt_sumBQS2 = ($signed(inpdt_R_reg2)*SCALE_SIGMOID)/(SCALE_W*SCALE_DATA);
-				real_inpdt_sumBQS2 = $signed(inpdt_R_reg1)*( SCALE_SIGMOID/(SCALE_W*SCALE_DATA) );
-				real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*SCALE_SIGMOID)/(SCALE_B);
+				real_inpdt_sumBQS2 = $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
+				real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
 				unsat_BQS2 = $signed(real_inpdt_sumBQS2) + $signed(real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});
 				iSigmoid_LUT2 = sat_BQS2;		
 				
@@ -892,13 +895,13 @@ module LSTM#(
 			end
 		
 			S_BQT: begin
-				real_inpdt_sumBQT1 = ($signed(inpdt_R_reg1)*SCALE_TANH)/(SCALE_W*SCALE_DATA);
-				real_biasBQT1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*SCALE_TANH)/(SCALE_B);
+				real_inpdt_sumBQT1 =  $signed(inpdt_R_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA));
+				real_biasBQT1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
 				unsat_BQT1 = $signed(real_inpdt_sumBQT1) + $signed(real_biasBQT1) + $signed({1'b0,ZERO_TANH});
 				iTanh_LUT1 = sat_BQT1;
 				
-				real_inpdt_sumBQT2 = ($signed(inpdt_R_reg2)*SCALE_TANH)/(SCALE_W*SCALE_DATA);
-				real_biasBQT2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*SCALE_TANH)/(SCALE_B);
+				real_inpdt_sumBQT2 = $signed(inpdt_R_reg2)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA));
+				real_biasBQT2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
 				unsat_BQT2 = $signed(real_inpdt_sumBQT2) + $signed(real_biasBQT2) + $signed({1'b0,ZERO_TANH});
 				iTanh_LUT2 = sat_BQT2;		
 
@@ -933,26 +936,27 @@ module LSTM#(
 		
 			S_MAQ_BQS: begin
 				// BQS
-				real_inpdt_sumBQS1 = ($signed(inpdt_R_reg1)*SCALE_SIGMOID)/(SCALE_W*SCALE_DATA);
-				real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*SCALE_SIGMOID)/(SCALE_B);
+				
+				real_inpdt_sumBQS1 = $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
+				real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
 				unsat_BQS1 = $signed(real_inpdt_sumBQS1) + $signed(real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
 				iSigmoid_LUT1 = sat_BQS1;
 
-				real_inpdt_sumBQS2 = ($signed(inpdt_R_reg2)*SCALE_SIGMOID)/(SCALE_W*SCALE_DATA);
-				real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*SCALE_SIGMOID)/(SCALE_B);
+				real_inpdt_sumBQS2 = $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
+				real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
 				unsat_BQS2 = $signed(real_inpdt_sumBQS2) + $signed(real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});
 				iSigmoid_LUT2 = sat_BQS2;
 				
 				// MAQ
-				real_ctf_MAQ1 = $signed(temp_regA_1)/OUT_SCALE_SIGMOID;
+				real_ctf_MAQ1 = $signed(temp_regA_1)/$signed(OUT_SCALE_SIGMOID);
 				real_ig_MAQ1 = (($signed({1'b0,temp_regB_1})-$signed({1'b0,OUT_ZERO_SIGMOID})) * ($signed({1'b0,temp_regC_1})-$signed({1'b0,OUT_ZERO_TANH}))
-				*SCALE_STATE)/(OUT_SCALE_SIGMOID*OUT_SCALE_TANH);
+				*$signed(SCALE_STATE))/($signed(OUT_SCALE_SIGMOID)*$signed(OUT_SCALE_TANH));
 				real_sum_MAQ1 = $signed(real_ctf_MAQ1) + $signed(real_ig_MAQ1);
 				unsat_MAQ1 = $signed(real_sum_MAQ1) + $signed({1'b0,ZERO_STATE});
 				
-				real_ctf_MAQ2 = $signed(temp_regA_2)/OUT_SCALE_SIGMOID;
+				real_ctf_MAQ2 = $signed(temp_regA_2)/$signed(OUT_SCALE_SIGMOID);
 				real_ig_MAQ2 = (($signed({1'b0,temp_regB_2})-$signed({1'b0,OUT_ZERO_SIGMOID})) * ($signed({1'b0,temp_regC_2})-$signed({1'b0,OUT_ZERO_TANH}))
-				*SCALE_STATE)/(OUT_SCALE_SIGMOID*OUT_SCALE_TANH);
+				*$signed(SCALE_STATE))/($signed(OUT_SCALE_SIGMOID)*$signed(OUT_SCALE_TANH));
 				real_sum_MAQ2 = $signed(real_ctf_MAQ2) + $signed(real_ig_MAQ2);
 				unsat_MAQ2 = $signed(real_sum_MAQ2) + $signed({1'b0,ZERO_STATE});	
 
@@ -977,16 +981,16 @@ module LSTM#(
 			end
 		
 			S_TMQ: begin	
-				unsat_ct_TMQ1 = (($signed({1'b0,Sys_Ct[tanh_Ct_select]})-$signed({1'b0,ZERO_STATE}))*SCALE_TANH)/SCALE_STATE + $signed({1'b0,ZERO_TANH});			
+				unsat_ct_TMQ1 = (($signed({1'b0,Sys_Ct[2*tanh_Ct_select]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});			
 				iTanh_LUT1 = sat_ct_TMQ1;
 				unscale_ht_TMQ1 = ($signed({1'b0,temp_regA_1})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT1})-{1'b0,ZERO_TANH});
-				unsat_ht_TMQ1 = ($signed(unscale_ht_TMQ1)*SCALE_DATA)/(OUT_SCALE_TANH*OUT_SCALE_SIGMOID);
+				unsat_ht_TMQ1 = ($signed(unscale_ht_TMQ1)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
 				unsat_Z_ht_TMQ1 = $signed(unsat_ht_TMQ1) + $signed({1'b0,ZERO_DATA});
 				
-				unsat_ct_TMQ2 = (($signed({1'b0,Sys_Ct[tanh_Ct_select]})-$signed({1'b0,ZERO_STATE}))*SCALE_TANH)/SCALE_STATE + $signed({1'b0,ZERO_TANH});			
+				unsat_ct_TMQ2 = (($signed({1'b0,Sys_Ct[2*tanh_Ct_select+1]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});			
 				iTanh_LUT2 = sat_ct_TMQ2;
 				unscale_ht_TMQ2 = ($signed({1'b0,temp_regA_2})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT2})-{1'b0,ZERO_TANH});
-				unsat_ht_TMQ2 = ($signed(unscale_ht_TMQ2)*SCALE_DATA)/(OUT_SCALE_TANH*OUT_SCALE_SIGMOID);
+				unsat_ht_TMQ2 = ($signed(unscale_ht_TMQ2)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
 				unsat_Z_ht_TMQ2 = $signed(unsat_ht_TMQ2) + $signed({1'b0,ZERO_DATA});	
 
 				real_inpdt_sumBQS1 = 'd0; 

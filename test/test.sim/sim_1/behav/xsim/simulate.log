@@ -2,11 +2,22 @@ Vivado Simulator 2018.3
 Time resolution is 1 ps
 test          0 is passed
 
-test          1 is failed
-result is 0xffffffffffffffff
-answer is 0xaa6d8ea586b6b17d
+test          1 is passed
 
-test          2 is failed
-result is 0xffffffffffffffff
-answer is 0x9d9a89a688d5cd7e
+test          2 is passed
 
+test          3 is passed
+
+test          4 is passed
+
+test          5 is passed
+
+test          6 is passed
+
+test          7 is passed
+
+test          8 is passed
+
+test          9 is passed
+
+$finish called at time : 8835 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.srcs/sources_1/imports/lstm_8bit/lstm_tb.v" Line 241
