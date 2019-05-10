@@ -1,17 +1,17 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../../src/area_LSTM_cell/SRAM_128x2048.v" \
-"../../../../../src/area_LSTM_cell/SRAM_16x512.v" \
-"../../../../test.srcs/sources_1/imports/lstm_8bit/bias_memory.v" \
-"../../../../test.srcs/sources_1/imports/lstm_8bit/context_memory.v" \
-"../../../../../src/area_LSTM_cell/inpdt.v" \
-"../../../../test.srcs/sources_1/imports/lstm_8bit/input_data_memory.v" \
-"../../../../../src/area_LSTM_cell/lstm_5.5_SUN_Cverifiable.v" \
-"../../../../test.srcs/sources_1/imports/lstm_8bit/output_memory.v" \
-"../../../../../src/area_LSTM_cell/sigmoid_LUT.v" \
-"../../../../../src/area_LSTM_cell/tanh_LUT.v" \
-"../../../../test.srcs/sources_1/imports/lstm_8bit/weight_memory.v" \
-"../../../../test.srcs/sources_1/imports/lstm_8bit/lstm_tb.v" \
+"../../../../test.srcs/sources_1/ip/SRAM_16x512/sim/SRAM_16x512.v" \
+"../../../../test.srcs/sources_1/ip/SRAM_128x2048/sim/SRAM_128x2048.v" \
+"../../../../../src/tb/bias_memory.v" \
+"../../../../../src/tb/context_memory.v" \
+"../../../../../src/verilog/inpdt.v" \
+"../../../../../src/tb/input_data_memory.v" \
+"../../../../../src/verilog/lstm_5.10_branch_implementation.v" \
+"../../../../../src/tb/output_memory.v" \
+"../../../../../src/verilog/sigmoid_LUT.v" \
+"../../../../../src/verilog/tanh_LUT.v" \
+"../../../../../src/tb/weight_memory.v" \
+"../../../../../src/tb/lstm_tb.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

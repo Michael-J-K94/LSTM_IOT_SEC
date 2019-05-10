@@ -1,0 +1,76 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue May  7 16:58:57 2019
+# Process ID: 20328
+# Current directory: C:/Users/ECE/Desktop/LSTM_IOT_SEC/test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6200 C:\Users\ECE\Desktop\LSTM_IOT_SEC\test\test.xpr
+# Log file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/vivado.log
+# Journal file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/test\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg
+source lstm_tb.tcl
+run all
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+run all
+restart
+run 10 us
+run 10 us
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+restart
+run all
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+restart
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+restart
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+relaunch_sim
+run all
+relaunch_sim
+run all
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+close_sim

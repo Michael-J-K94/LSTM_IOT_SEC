@@ -52,8 +52,32 @@ module lstm_tb();
         syscall_b = 3'd1,
         syscall_context = 3'd2,
         idle = 3'd7;
-    
-    
+	
+	
+    LSTM UUT(
+		.clk(clk),
+		.resetn(reset_n),
+		
+		.iInit_valid(lstm_init),
+		.iInit_data(lstm_param),
+		.iInit_type(param_type),
+		
+		.iLoad_valid(1'b0),	// load ct/ht valid
+		.iBr_Ct_load('d100),
+		.iBr_Ht_load('d100),
+
+		.iNext_valid(lstm_enable),	// top valid & ready. 
+		.iType(1'b0),		//
+		.iData({448'd0,input_buffer}),
+		
+		.oLstm_done(lstm_done),	// lstm done & ready to do next task. 
+		// [511:0].oBr_Ct(),	// Wire actually
+		// [511:0].oBr_Ht(),
+		// [63:0].oSys_Ct(),
+		.oSys_Ht(result)
+	);
+	
+	/*
     top_lstm UUT(
             .lstm_init(lstm_init), // initialization_signal
             .lstm_enable(lstm_enable), // input_data(X_t) is ready
@@ -64,10 +88,11 @@ module lstm_tb();
             .rstn(reset_n),
             .syscall_X_data(input_buffer), // input_data(X_t)
             .lstm_param(lstm_param), // parameters(8bit)
-            /*debug port*/
+            // 
             .syscall_H_out(result) // output_data(H_t)
             );
-    
+    */
+	
     /*initialization*/
     initial begin
         clk = 0;
@@ -181,6 +206,7 @@ module lstm_tb();
         wait(set_param == 1);
         wait(lstm_done == 1);
         #`PERIOD
+
         if(input_counter < `DATA_SIZE) begin
             input_buffer = input_array[input_counter];
             input_counter = input_counter + 1;
