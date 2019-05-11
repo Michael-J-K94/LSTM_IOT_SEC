@@ -1,0 +1,9 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+$finish called at time : 362855 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_lstm_tb.v" Line 246

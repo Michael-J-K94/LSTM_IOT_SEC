@@ -1,1 +1,1 @@
--wto "8224dc01d95045b7a1ee04e9c69bfe41" --incr --debug "typical" --relax --mt "2" -L "blk_mem_gen_v8_4_2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "LSTM_behav" "xil_defaultlib.LSTM" "xil_defaultlib.glbl" -log "elaborate.log" 
+-wto "8224dc01d95045b7a1ee04e9c69bfe41" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "LSTM_behav" "xil_defaultlib.LSTM" "xil_defaultlib.glbl" -log "elaborate.log" 

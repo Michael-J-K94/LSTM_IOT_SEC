@@ -1,17 +1,17 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../test.srcs/sources_1/ip/SRAM_16x512/sim/SRAM_16x512.v" \
-"../../../../test.srcs/sources_1/ip/SRAM_128x2048/sim/SRAM_128x2048.v" \
-"../../../../../src/tb/bias_memory.v" \
-"../../../../../src/tb/context_memory.v" \
+"../../../../../src/verilog/SRAM_128x2048.v" \
+"../../../../../src/verilog/SRAM_16x512.v" \
+"../../../../../src/tb/syscall/bias_memory.v" \
+"../../../../../src/tb/syscall/context_memory.v" \
 "../../../../../src/verilog/inpdt.v" \
-"../../../../../src/tb/input_data_memory.v" \
-"../../../../../src/verilog/lstm_5.10_branch_implementation.v" \
-"../../../../../src/tb/output_memory.v" \
+"../../../../../src/tb/syscall/input_data_memory.v" \
+"../../../../../src/verilog/lstm_5.11_branch_implementation.v" \
+"../../../../../src/tb/syscall/output_memory.v" \
 "../../../../../src/verilog/sigmoid_LUT.v" \
 "../../../../../src/verilog/tanh_LUT.v" \
-"../../../../../src/tb/weight_memory.v" \
-"../../../../../src/tb/lstm_tb.v" \
+"../../../../../src/tb/syscall/weight_memory.v" \
+"../../../../../src/tb/syscall/lstm_tb.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

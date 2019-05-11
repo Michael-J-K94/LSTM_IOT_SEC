@@ -69,7 +69,7 @@ module LSTM#(
 );
 
 	localparam IDLE = 3'd0, SYSTEM = 3'd1, BRANCH = 3'd2, INITIALIZE_W_B = 3'd3, ERROR = 3'd4;
-	localparam SYS_type = 1'b0, BR_type = 1'b1; 	
+	localparam SYS_type = 1'b1, BR_type = 1'b0; 	
 	localparam comb_IDLE = 5'd0, S_BQS = 5'd1, S_BQT = 5'd2, S_MAQ_BQS = 5'd3, S_TMQ = 5'd4, B_BQS = 5'd5, B_BQT = 5'd6, B_MAQ = 5'd7, B_TMQ = 5'd8;
 	
 	localparam BR_W_ADDR = 11'd1024;
@@ -132,6 +132,7 @@ module LSTM#(
 // Weight BRAM //
 /////////////////
 	reg weight_bram_EN;
+	reg weight_bram_EN_buff;
 
 	reg [10:0] weight_bram_addr1;	
 	reg [10:0] weight_bram_addr2;	
@@ -148,8 +149,10 @@ module LSTM#(
 ///////////////
 // BIAS BRAM //
 ///////////////
-	reg [8:0] bias_bram_addr;
 	reg bias_bram_EN;
+	reg bias_bram_EN_buff;
+
+	reg [8:0] bias_bram_addr;
 	reg bias_bram_WE;
 	reg [15:0] bias_bram_Wdata;
 	wire [15:0] bias_bram_Rdata;
@@ -306,6 +309,7 @@ module LSTM#(
 ///////////
 // Brams //
 ///////////
+/*
 	SRAM_128x2048 WEIGHT_BRAM1(
 		.addra(weight_bram_addr1),
 		.clka(clk),
@@ -332,8 +336,8 @@ module LSTM#(
 		.ena(bias_bram_EN),
 		.wea(bias_bram_WE)	
 	);
+*/
 
-/*
 	SRAM_128x2048 WEIGHT_BRAM1(
 		.CLK(clk),
 		.EN_M(weight_bram_EN),
@@ -363,7 +367,7 @@ module LSTM#(
 		.DIN(bias_bram_Wdata),
 		.DOUT(bias_bram_Rdata)	
 	);
-*/
+
 
 
 //////////////////
@@ -512,7 +516,8 @@ module LSTM#(
 			inpdt_X_select <= 'd0;
 			inpdt_EN <= 'd0;
 
-			weight_bram_EN <= 'd0;			
+			weight_bram_EN <= 'd0;	
+			weight_bram_EN_buff <= 'd0;
 			weight_bram_addr1 <= 'd0;
 			weight_bram_addr2 <= 'd0;
 			weight_bram_WE1 <= 'd0;
@@ -521,8 +526,9 @@ module LSTM#(
 			weight_bram_Wdata2 <= 'd0;			
 			weight_buffer <= 'd0;
 
-			bias_bram_addr <= 'd0;
 			bias_bram_EN <= 'd0;
+			bias_bram_EN_buff <= 'd0;
+			bias_bram_addr <= 'd0;
 			bias_bram_WE <= 'd0;
 			bias_bram_Wdata <= 'd0;
 			bias_buffer <= 'd0;			
@@ -532,9 +538,11 @@ module LSTM#(
 			tanh_Ct_select <= 'd0;
 		end
 		else begin
+			weight_bram_EN_buff <= weight_bram_EN;
+			bias_bram_EN_buff <= bias_bram_EN;
 			
-			weight_buffer <= {weight_bram_Rdata1 , weight_bram_Rdata2};
-			bias_buffer <= bias_bram_Rdata;
+			/*if(weight_bram_EN_buff)*/ weight_buffer <= {weight_bram_Rdata1 , weight_bram_Rdata2};
+			/*if(bias_bram_EN_buff)*/ bias_buffer <= bias_bram_Rdata;
 			
 			if(iInit_valid) begin
 				init_data_buff1 <= iInit_data;

@@ -1,116 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xa7a12tcpg238-2I" LaunchTime="1557051984">
+<GenRun Id="synth_1" LaunchPart="xa7a12tcpg238-2I" LaunchTime="1557570357">
   <File Type="PA-TCL" Name="LSTM.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="LSTM_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="LSTM_reports.tcl"/>
   <File Type="RDS-RDS" Name="LSTM.vds"/>
+  <File Type="RDS-UTIL" Name="LSTM_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="LSTM_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="LSTM.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="LSTM_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="LSTM_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../src/area_LSTM_cell/SRAM_128x2048.v">
+    <File Path="$PPRDIR/../src/verilog/SRAM_128x2048.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../src/area_LSTM_cell/SRAM_16x512.v">
+    <File Path="$PPRDIR/../src/verilog/SRAM_16x512.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../src/area_LSTM_cell/inpdt.v">
+    <File Path="$PPRDIR/../src/verilog/inpdt.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../src/area_LSTM_cell/sigmoid_LUT.v">
+    <File Path="$PPRDIR/../src/verilog/sigmoid_LUT.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../src/area_LSTM_cell/tanh_LUT.v">
+    <File Path="$PPRDIR/../src/verilog/tanh_LUT.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../src/area_LSTM_cell/lstm_5.5_SUN.v">
+    <File Path="$PPRDIR/../src/verilog/lstm_5.11_branch_implementation.v">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/lstm_8bit/bias_memory.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../lstm_8bit/bias_memory.v"/>
-        <Attr Name="ImportTime" Val="1556966055"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/lstm_8bit/context_memory.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../lstm_8bit/context_memory.v"/>
-        <Attr Name="ImportTime" Val="1556966055"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/lstm_8bit/input_data_memory.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../lstm_8bit/input_data_memory.v"/>
-        <Attr Name="ImportTime" Val="1556966057"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/lstm_8bit/output_memory.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../lstm_8bit/output_memory.v"/>
-        <Attr Name="ImportTime" Val="1556966057"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/lstm_8bit/weight_memory.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../lstm_8bit/weight_memory.v"/>
-        <Attr Name="ImportTime" Val="1556966057"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/lstm_8bit/lstm_tb.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../lstm_8bit/lstm_tb.v"/>
-        <Attr Name="ImportTime" Val="1556966055"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/top_lstm.v">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -119,6 +56,7 @@
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="LSTM"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

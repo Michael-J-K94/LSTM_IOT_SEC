@@ -1,11 +1,11 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../test.srcs/sources_1/ip/SRAM_16x512/sim/SRAM_16x512.v" \
-"../../../../test.srcs/sources_1/ip/SRAM_128x2048/sim/SRAM_128x2048.v" \
+"../../../../../src/verilog/SRAM_128x2048.v" \
+"../../../../../src/verilog/SRAM_16x512.v" \
 "../../../../../src/verilog/inpdt.v" \
 "../../../../../src/verilog/sigmoid_LUT.v" \
 "../../../../../src/verilog/tanh_LUT.v" \
-"../../../../../src/verilog/lstm_5.5_SUN_Cverifiable.v" \
+"../../../../../src/verilog/lstm_5.11_branch_implementation.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

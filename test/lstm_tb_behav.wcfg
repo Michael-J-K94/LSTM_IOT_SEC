@@ -11,18 +11,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="8723138174fs"></ZoomStartTime>
-      <ZoomEndTime time="8857372366fs"></ZoomEndTime>
-      <Cursor1Time time="8835000000fs"></Cursor1Time>
+      <ZoomStartTime time="8757933334fs"></ZoomStartTime>
+      <ZoomEndTime time="8920333335fs"></ZoomEndTime>
+      <Cursor1Time time="8805000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="235"></NameColumnWidth>
-      <ValueColumnWidth column_width="178"></ValueColumnWidth>
+      <ValueColumnWidth column_width="158"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="32" />
+   <WVObjectSize size="38" />
    <wvobject fp_name="group245" type="group">
       <obj_property name="label">TB</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lstm_tb/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
       <wvobject fp_name="/lstm_tb/lstm_init" type="logic">
          <obj_property name="ElementShortName">lstm_init</obj_property>
          <obj_property name="ObjectShortName">lstm_init</obj_property>
@@ -271,6 +275,74 @@
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          </wvobject>
       </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[0]" type="array">
+         <obj_property name="ElementShortName">[0][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[1]" type="array">
+         <obj_property name="ElementShortName">[1][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[2]" type="array">
+         <obj_property name="ElementShortName">[2][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[3]" type="array">
+         <obj_property name="ElementShortName">[3][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[4]" type="array">
+         <obj_property name="ElementShortName">[4][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[5]" type="array">
+         <obj_property name="ElementShortName">[5][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[6]" type="array">
+         <obj_property name="ElementShortName">[6][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[7]" type="array">
+         <obj_property name="ElementShortName">[7][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[8]" type="array">
+         <obj_property name="ElementShortName">[8][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[9]" type="array">
+         <obj_property name="ElementShortName">[9][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[10]" type="array">
+         <obj_property name="ElementShortName">[10][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[11]" type="array">
+         <obj_property name="ElementShortName">[11][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[12]" type="array">
+         <obj_property name="ElementShortName">[12][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[13]" type="array">
+         <obj_property name="ElementShortName">[13][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[14]" type="array">
+         <obj_property name="ElementShortName">[14][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[15]" type="array">
+         <obj_property name="ElementShortName">[15][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/WEIGHT_BRAM1/mem[16]" type="array">
+         <obj_property name="ElementShortName">[16][127:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][127:0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="divider" fp_name="divider282">
    </wvobject>
@@ -377,6 +449,18 @@
       <obj_property name="ElementShortName">iData[511:0]</obj_property>
       <obj_property name="ObjectShortName">iData[511:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/lstm_enable" type="logic">
+      <obj_property name="ElementShortName">lstm_enable</obj_property>
+      <obj_property name="ObjectShortName">lstm_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/input_buffer" type="array">
+      <obj_property name="ElementShortName">input_buffer[63:0]</obj_property>
+      <obj_property name="ObjectShortName">input_buffer[63:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/lstm_tb/UUT/oLstm_done" type="logic">
       <obj_property name="ElementShortName">oLstm_done</obj_property>
       <obj_property name="ObjectShortName">oLstm_done</obj_property>
@@ -384,6 +468,12 @@
    <wvobject fp_name="/lstm_tb/UUT/iNext_valid" type="logic">
       <obj_property name="ElementShortName">iNext_valid</obj_property>
       <obj_property name="ObjectShortName">iNext_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb/UUT/Sys_Ht_temp" type="array">
+      <obj_property name="ElementShortName">Sys_Ht_temp[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">Sys_Ht_temp[0:7][7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/lstm_tb/UUT/Sys_Ht" type="array">
       <obj_property name="ElementShortName">Sys_Ht[0:7][7:0]</obj_property>
@@ -432,22 +522,6 @@
             <obj_property name="ElementShortName">inpdt_R_reg1[31:0]</obj_property>
             <obj_property name="ObjectShortName">inpdt_R_reg1[31:0]</obj_property>
          </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/real_inpdt_sumBQS1" type="array">
-            <obj_property name="ElementShortName">real_inpdt_sumBQS1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">real_inpdt_sumBQS1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/real_biasBQS1" type="array">
-            <obj_property name="ElementShortName">real_biasBQS1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">real_biasBQS1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/unsat_BQS1" type="array">
-            <obj_property name="ElementShortName">unsat_BQS1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">unsat_BQS1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/sat_BQS1" type="array">
-            <obj_property name="ElementShortName">sat_BQS1[7:0]</obj_property>
-            <obj_property name="ObjectShortName">sat_BQS1[7:0]</obj_property>
-         </wvobject>
          <wvobject fp_name="/lstm_tb/UUT/iSigmoid_LUT1" type="array">
             <obj_property name="ElementShortName">iSigmoid_LUT1[7:0]</obj_property>
             <obj_property name="ObjectShortName">iSigmoid_LUT1[7:0]</obj_property>
@@ -464,22 +538,6 @@
          <wvobject fp_name="/lstm_tb/UUT/inpdt_R_reg1" type="array">
             <obj_property name="ElementShortName">inpdt_R_reg1[31:0]</obj_property>
             <obj_property name="ObjectShortName">inpdt_R_reg1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/real_inpdt_sumBQS1" type="array">
-            <obj_property name="ElementShortName">real_inpdt_sumBQS1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">real_inpdt_sumBQS1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/real_biasBQS1" type="array">
-            <obj_property name="ElementShortName">real_biasBQS1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">real_biasBQS1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/unsat_BQS1" type="array">
-            <obj_property name="ElementShortName">unsat_BQS1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">unsat_BQS1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/sat_BQS1" type="array">
-            <obj_property name="ElementShortName">sat_BQS1[7:0]</obj_property>
-            <obj_property name="ObjectShortName">sat_BQS1[7:0]</obj_property>
          </wvobject>
          <wvobject fp_name="/lstm_tb/UUT/iSigmoid_LUT1" type="array">
             <obj_property name="ElementShortName">iSigmoid_LUT1[7:0]</obj_property>
@@ -498,22 +556,6 @@
             <obj_property name="ElementShortName">inpdt_R_reg1[31:0]</obj_property>
             <obj_property name="ObjectShortName">inpdt_R_reg1[31:0]</obj_property>
          </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/real_inpdt_sumBQT1" type="array">
-            <obj_property name="ElementShortName">real_inpdt_sumBQT1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">real_inpdt_sumBQT1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/real_biasBQT1" type="array">
-            <obj_property name="ElementShortName">real_biasBQT1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">real_biasBQT1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/unsat_BQT1" type="array">
-            <obj_property name="ElementShortName">unsat_BQT1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">unsat_BQT1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/sat_BQT1" type="array">
-            <obj_property name="ElementShortName">sat_BQT1[7:0]</obj_property>
-            <obj_property name="ObjectShortName">sat_BQT1[7:0]</obj_property>
-         </wvobject>
          <wvobject fp_name="/lstm_tb/UUT/iTanh_LUT1" type="array">
             <obj_property name="ElementShortName">iTanh_LUT1[7:0]</obj_property>
             <obj_property name="ObjectShortName">iTanh_LUT1[7:0]</obj_property>
@@ -530,22 +572,6 @@
          <wvobject fp_name="/lstm_tb/UUT/inpdt_R_reg1" type="array">
             <obj_property name="ElementShortName">inpdt_R_reg1[31:0]</obj_property>
             <obj_property name="ObjectShortName">inpdt_R_reg1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/real_inpdt_sumBQS1" type="array">
-            <obj_property name="ElementShortName">real_inpdt_sumBQS1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">real_inpdt_sumBQS1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/real_biasBQS1" type="array">
-            <obj_property name="ElementShortName">real_biasBQS1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">real_biasBQS1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/unsat_BQS1" type="array">
-            <obj_property name="ElementShortName">unsat_BQS1[31:0]</obj_property>
-            <obj_property name="ObjectShortName">unsat_BQS1[31:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb/UUT/sat_BQS1" type="array">
-            <obj_property name="ElementShortName">sat_BQS1[7:0]</obj_property>
-            <obj_property name="ObjectShortName">sat_BQS1[7:0]</obj_property>
          </wvobject>
          <wvobject fp_name="/lstm_tb/UUT/iSigmoid_LUT1" type="array">
             <obj_property name="ElementShortName">iSigmoid_LUT1[7:0]</obj_property>
@@ -583,74 +609,55 @@
    <wvobject fp_name="group217" type="group">
       <obj_property name="label">MAQ</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/lstm_tb/UUT/Sys_Ct" type="array">
          <obj_property name="ElementShortName">Sys_Ct[0:7][7:0]</obj_property>
          <obj_property name="ObjectShortName">Sys_Ct[0:7][7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/real_ctf_MAQ1" type="array">
-         <obj_property name="ElementShortName">real_ctf_MAQ1[31:0]</obj_property>
-         <obj_property name="ObjectShortName">real_ctf_MAQ1[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/real_ig_MAQ1" type="array">
-         <obj_property name="ElementShortName">real_ig_MAQ1[31:0]</obj_property>
-         <obj_property name="ObjectShortName">real_ig_MAQ1[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/real_sum_MAQ1" type="array">
-         <obj_property name="ElementShortName">real_sum_MAQ1[31:0]</obj_property>
-         <obj_property name="ObjectShortName">real_sum_MAQ1[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/unsat_MAQ1" type="array">
-         <obj_property name="ElementShortName">unsat_MAQ1[31:0]</obj_property>
-         <obj_property name="ObjectShortName">unsat_MAQ1[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/sat_MAQ1" type="array">
-         <obj_property name="ElementShortName">sat_MAQ1[7:0]</obj_property>
-         <obj_property name="ObjectShortName">sat_MAQ1[7:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group225" type="group">
       <obj_property name="label">TMQ</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/lstm_tb/UUT/tanh_Ct_select" type="array">
          <obj_property name="ElementShortName">tanh_Ct_select[5:0]</obj_property>
          <obj_property name="ObjectShortName">tanh_Ct_select[5:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/unsat_ct_TMQ1" type="array">
-         <obj_property name="ElementShortName">unsat_ct_TMQ1[31:0]</obj_property>
-         <obj_property name="ObjectShortName">unsat_ct_TMQ1[31:0]</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/S_unsat_ct_TMQ1" type="array">
+         <obj_property name="ElementShortName">S_unsat_ct_TMQ1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">S_unsat_ct_TMQ1[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/sat_ct_TMQ1" type="array">
-         <obj_property name="ElementShortName">sat_ct_TMQ1[7:0]</obj_property>
-         <obj_property name="ObjectShortName">sat_ct_TMQ1[7:0]</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/S_sat_ct_TMQ1" type="array">
+         <obj_property name="ElementShortName">S_sat_ct_TMQ1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">S_sat_ct_TMQ1[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/iTanh_LUT1" type="array">
+         <obj_property name="ElementShortName">iTanh_LUT1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">iTanh_LUT1[7:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/lstm_tb/UUT/oTanh_LUT1" type="array">
          <obj_property name="ElementShortName">oTanh_LUT1[7:0]</obj_property>
          <obj_property name="ObjectShortName">oTanh_LUT1[7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/unscale_ht_TMQ1" type="array">
-         <obj_property name="ElementShortName">unscale_ht_TMQ1[31:0]</obj_property>
-         <obj_property name="ObjectShortName">unscale_ht_TMQ1[31:0]</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/S_unscale_ht_TMQ1" type="array">
+         <obj_property name="ElementShortName">S_unscale_ht_TMQ1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">S_unscale_ht_TMQ1[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/unsat_ht_TMQ1" type="array">
-         <obj_property name="ElementShortName">unsat_ht_TMQ1[31:0]</obj_property>
-         <obj_property name="ObjectShortName">unsat_ht_TMQ1[31:0]</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/S_unsat_ht_TMQ1" type="array">
+         <obj_property name="ElementShortName">S_unsat_ht_TMQ1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">S_unsat_ht_TMQ1[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/unsat_Z_ht_TMQ1" type="array">
-         <obj_property name="ElementShortName">unsat_Z_ht_TMQ1[31:0]</obj_property>
-         <obj_property name="ObjectShortName">unsat_Z_ht_TMQ1[31:0]</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/S_unsat_Z_ht_TMQ1" type="array">
+         <obj_property name="ElementShortName">S_unsat_Z_ht_TMQ1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">S_unsat_Z_ht_TMQ1[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/lstm_tb/UUT/sat_ht_TMQ1" type="array">
-         <obj_property name="ElementShortName">sat_ht_TMQ1[7:0]</obj_property>
-         <obj_property name="ObjectShortName">sat_ht_TMQ1[7:0]</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/S_sat_ht_TMQ1" type="array">
+         <obj_property name="ElementShortName">S_sat_ht_TMQ1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">S_sat_ht_TMQ1[7:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group209" type="group">
       <obj_property name="label">temp_reg ABC</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/lstm_tb/UUT/temp_regA_1" type="array">
          <obj_property name="ElementShortName">temp_regA_1[16:0]</obj_property>
          <obj_property name="ObjectShortName">temp_regA_1[16:0]</obj_property>
@@ -668,6 +675,55 @@
          <obj_property name="ObjectShortName">temp_regC_1[7:0]</obj_property>
          <obj_property name="CustomSignalColor">#FFA500</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group293" type="group">
+      <obj_property name="label">bias</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_EN" type="logic">
+         <obj_property name="ElementShortName">bias_bram_EN</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_EN</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_addr" type="array">
+         <obj_property name="ElementShortName">bias_bram_addr[8:0]</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_addr[8:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_bram_Rdata" type="array">
+         <obj_property name="ElementShortName">bias_bram_Rdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">bias_bram_Rdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/bias_buffer" type="array">
+         <obj_property name="ElementShortName">bias_buffer[15:0]</obj_property>
+         <obj_property name="ObjectShortName">bias_buffer[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group298" type="group">
+      <obj_property name="label">weight</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_EN" type="logic">
+         <obj_property name="ElementShortName">weight_bram_EN</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_EN</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_addr1" type="array">
+         <obj_property name="ElementShortName">weight_bram_addr1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_addr1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_bram_Rdata1" type="array">
+         <obj_property name="ElementShortName">weight_bram_Rdata1[127:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_bram_Rdata1[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/weight_buffer" type="array">
+         <obj_property name="ElementShortName">weight_buffer[255:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_buffer[255:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/inpdt_W1" type="array">
+         <obj_property name="ElementShortName">inpdt_W1[143:0]</obj_property>
+         <obj_property name="ObjectShortName">inpdt_W1[143:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb/UUT/inpdt_EN" type="logic">
+         <obj_property name="ElementShortName">inpdt_EN</obj_property>
+         <obj_property name="ObjectShortName">inpdt_EN</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

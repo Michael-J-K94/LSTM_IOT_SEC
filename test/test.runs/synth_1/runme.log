@@ -14,11 +14,11 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xa7a12t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xa7a12t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7580 
+INFO: Helper process launched with PID 18388 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 434.027 ; gain = 100.188
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 432.750 ; gain = 98.871
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'LSTM' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:23]
+INFO: [Synth 8-6157] synthesizing module 'LSTM' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:23]
 	Parameter SCALE_DATA bound to: 10'b0010000000 
 	Parameter SCALE_STATE bound to: 10'b0010000000 
 	Parameter SCALE_W bound to: 10'b0010000000 
@@ -40,8 +40,8 @@ INFO: [Synth 8-6157] synthesizing module 'LSTM' [C:/Users/ECE/Desktop/LSTM_IOT_S
 	Parameter BRANCH bound to: 3'b010 
 	Parameter INITIALIZE_W_B bound to: 3'b011 
 	Parameter ERROR bound to: 3'b100 
-	Parameter SYS_type bound to: 1'b0 
-	Parameter BR_type bound to: 1'b1 
+	Parameter SYS_type bound to: 1'b1 
+	Parameter BR_type bound to: 1'b0 
 	Parameter comb_IDLE bound to: 5'b00000 
 	Parameter S_BQS bound to: 5'b00001 
 	Parameter S_BQT bound to: 5'b00010 
@@ -51,84 +51,155 @@ INFO: [Synth 8-6157] synthesizing module 'LSTM' [C:/Users/ECE/Desktop/LSTM_IOT_S
 	Parameter B_BQT bound to: 5'b00110 
 	Parameter B_MAQ bound to: 5'b00111 
 	Parameter B_TMQ bound to: 5'b01000 
-INFO: [Synth 8-6157] synthesizing module 'inpdt_16' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/inpdt.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'inpdt_16' (1#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/inpdt.v:5]
-INFO: [Synth 8-6157] synthesizing module 'SRAM_128x2048' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/SRAM_128x2048.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'SRAM_128x2048' (2#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/SRAM_128x2048.v:5]
-INFO: [Synth 8-6157] synthesizing module 'SRAM_16x512' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/SRAM_16x512.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'SRAM_16x512' (3#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/SRAM_16x512.v:5]
-INFO: [Synth 8-6157] synthesizing module 'sigmoid_LUT' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/sigmoid_LUT.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'sigmoid_LUT' (4#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/sigmoid_LUT.v:1]
-INFO: [Synth 8-6157] synthesizing module 'tanh_LUT' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/tanh_LUT.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'tanh_LUT' (5#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/tanh_LUT.v:1]
-WARNING: [Synth 8-151] case item 3'b100 is unreachable [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:589]
-INFO: [Synth 8-226] default block is never used [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:534]
-INFO: [Synth 8-226] default block is never used [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:669]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:735]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:761]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:793]
-WARNING: [Synth 8-6014] Unused sequential element init_data_buff1_reg was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:611]
-WARNING: [Synth 8-6014] Unused sequential element init_data_buff2_reg was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:612]
-WARNING: [Synth 8-6014] Unused sequential element inpdt_X_select_reg was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:636]
-WARNING: [Synth 8-6014] Unused sequential element bias_buffer_reg was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:652]
-INFO: [Synth 8-6155] done synthesizing module 'LSTM' (6#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:23]
+	Parameter BR_W_ADDR bound to: 11'b10000000000 
+	Parameter BR_B_ADDR bound to: 9'b000010000 
+INFO: [Synth 8-6157] synthesizing module 'inpdt_16' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'inpdt_16' (1#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v:5]
+INFO: [Synth 8-6157] synthesizing module 'SRAM_128x2048' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'SRAM_128x2048' (2#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v:5]
+INFO: [Synth 8-6157] synthesizing module 'SRAM_16x512' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'SRAM_16x512' (3#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v:5]
+INFO: [Synth 8-6157] synthesizing module 'sigmoid_LUT' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sigmoid_LUT' (4#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v:1]
+INFO: [Synth 8-6157] synthesizing module 'tanh_LUT' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'tanh_LUT' (5#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v:1]
+WARNING: [Synth 8-151] case item 3'b100 is unreachable [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:554]
+INFO: [Synth 8-226] default block is never used [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:500]
+INFO: [Synth 8-226] default block is never used [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:638]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:705]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:731]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:763]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:857]
+WARNING: [Synth 8-6014] Unused sequential element init_data_buff1_reg was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:576]
+WARNING: [Synth 8-6014] Unused sequential element init_data_buff2_reg was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:577]
+WARNING: [Synth 8-6014] Unused sequential element Br_Ht_temp_reg[63] was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:585]
+WARNING: [Synth 8-6014] Unused sequential element Sys_Ht_temp_reg[6] was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:590]
+WARNING: [Synth 8-6014] Unused sequential element Sys_Ht_temp_reg[7] was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:590]
+WARNING: [Synth 8-6014] Unused sequential element inpdt_X_select_reg was removed.  [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:602]
+INFO: [Synth 8-6155] done synthesizing module 'LSTM' (6#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:23]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 511.301 ; gain = 177.461
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 532.902 ; gain = 199.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 511.301 ; gain = 177.461
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 532.902 ; gain = 199.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xa7a12tcpg238-2I
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 511.301 ; gain = 177.461
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 532.902 ; gain = 199.023
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xa7a12tcpg238-2I
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:638]
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[8]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[9]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[10]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[11]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[12]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[13]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[14]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[15]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[16]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[17]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[18]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[19]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[20]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[21]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[22]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[23]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[24]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[25]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[26]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[27]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[28]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[29]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[30]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[31]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[32]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[33]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[34]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[35]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[36]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[37]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[38]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[39]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[40]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[41]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[42]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[43]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[44]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[45]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[46]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[47]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[48]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[49]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[50]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[51]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[52]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[53]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[54]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[55]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[56]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[57]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[58]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[59]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[60]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[61]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[62]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Br_Ct_reg[63]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "Sys_Ht" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "lstm_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "temp_regB_1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "temp_regC_1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "inpdt_R_reg1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "inpdt_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "inpdt_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "weight_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5544] ROM "weight_bram_EN" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "weight_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "weight_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "weight_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "weight_bram_addr1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "weight_bram_addr1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "weight_bram_addr1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "weight_bram_addr1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "weight_bram_addr1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "weight_bram_addr1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "weight_bram_addr2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "weight_bram_addr2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "weight_bram_addr2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "weight_bram_addr2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "weight_bram_WE1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "weight_bram_WE1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "weight_bram_WE1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "weight_bram_WE1" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5545] ROM "weight_bram_WE2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "weight_bram_Wdata2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "bias_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5544] ROM "bias_bram_EN" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5545] ROM "bias_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5587] ROM size for "iQ_sum_to_sig1" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Common 17-14] Message 'Synth 8-5545' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-6430] The Block RAM mem_reg may get memory collision error if read and write address collide. Use attribute (* rw_addr_collision= "yes" *) to avoid collision 
 INFO: [Synth 8-6430] The Block RAM mem_reg may get memory collision error if read and write address collide. Use attribute (* rw_addr_collision= "yes" *) to avoid collision 
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_add_to_ct2_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:989]
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_add_to_ct1_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:988]
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_mul_to_ht2_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:991]
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_mul_to_ht1_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:990]
-WARNING: [Synth 8-327] inferring latch for variable 'iTanh_LUT2_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:505]
-WARNING: [Synth 8-327] inferring latch for variable 'iSigmoid_LUT2_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:495]
-WARNING: [Synth 8-327] inferring latch for variable 'iTanh_LUT1_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:500]
-WARNING: [Synth 8-327] inferring latch for variable 'iSigmoid_LUT1_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:490]
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_ct_to_tanh2_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:993]
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_sum_to_tanh2_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:987]
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_sum_to_sig2_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:985]
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_ct_to_tanh1_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:992]
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_sum_to_tanh1_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:986]
-WARNING: [Synth 8-327] inferring latch for variable 'iQ_sum_to_sig1_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:321]
-WARNING: [Synth 8-327] inferring latch for variable 'inpdt_X2_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:246]
-WARNING: [Synth 8-327] inferring latch for variable 'inpdt_X1_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:239]
+WARNING: [Synth 8-327] inferring latch for variable 'inpdt_X2_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:313]
+WARNING: [Synth 8-327] inferring latch for variable 'inpdt_X1_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:306]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 620.363 ; gain = 286.523
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 637.918 ; gain = 304.039
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -142,69 +213,74 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 9     
-	   3 Input     32 Bit       Adders := 3     
-	   3 Input     31 Bit       Adders := 1     
-	   2 Input     26 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 29    
+	   3 Input     32 Bit       Adders := 6     
+	   4 Input     32 Bit       Adders := 2     
 	   2 Input     21 Bit       Adders := 2     
 	   2 Input     20 Bit       Adders := 4     
 	   2 Input     19 Bit       Adders := 8     
-	   2 Input     18 Bit       Adders := 18    
-	   2 Input     11 Bit       Adders := 8     
-	   2 Input      9 Bit       Adders := 20    
+	   2 Input     18 Bit       Adders := 16    
+	   2 Input     11 Bit       Adders := 12    
+	   2 Input      9 Bit       Adders := 182   
 	   2 Input      6 Bit       Adders := 1     
 +---Registers : 
 	              256 Bit    Registers := 1     
 	              128 Bit    Registers := 2     
-	               32 Bit    Registers := 1     
-	               24 Bit    Registers := 2     
+	               32 Bit    Registers := 3     
 	               17 Bit    Registers := 2     
-	               16 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
 	               11 Bit    Registers := 4     
 	                9 Bit    Registers := 2     
-	                8 Bit    Registers := 172   
-	                6 Bit    Registers := 2     
+	                8 Bit    Registers := 233   
+	                6 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 12    
+	                1 Bit    Registers := 13    
 +---Multipliers : 
-	                 8x32  Multipliers := 2     
 	                17x32  Multipliers := 2     
 	                 6x32  Multipliers := 2     
+	                 7x32  Multipliers := 5     
 +---RAMs : 
 	             256K Bit         RAMs := 2     
 	               8K Bit         RAMs := 1     
 +---Muxes : 
-	   3 Input    144 Bit        Muxes := 3     
+	   4 Input    144 Bit        Muxes := 2     
+	   2 Input    144 Bit        Muxes := 4     
 	   4 Input    128 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 9     
-	   4 Input     32 Bit        Muxes := 1     
-	  10 Input     32 Bit        Muxes := 6     
-	   4 Input     24 Bit        Muxes := 2     
-	   2 Input     24 Bit        Muxes := 4     
-	  10 Input     24 Bit        Muxes := 4     
-	   4 Input     17 Bit        Muxes := 3     
+	   2 Input     32 Bit        Muxes := 36    
+	   4 Input     32 Bit        Muxes := 3     
+	   3 Input     32 Bit        Muxes := 4     
+	   2 Input     27 Bit        Muxes := 2     
+	   5 Input     17 Bit        Muxes := 1     
+	   4 Input     17 Bit        Muxes := 5     
 	   2 Input     17 Bit        Muxes := 7     
+	   3 Input     17 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 5     
 	   4 Input     16 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 6     
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 31    
 	   4 Input     11 Bit        Muxes := 4     
-	   2 Input      9 Bit        Muxes := 67    
-	   4 Input      9 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 36    
-	   4 Input      8 Bit        Muxes := 20    
-	  10 Input      8 Bit        Muxes := 4     
-	   4 Input      6 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 72    
+	   4 Input      9 Bit        Muxes := 2     
+	   5 Input      9 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 148   
+	   2 Input      8 Bit        Muxes := 38    
+	  10 Input      8 Bit        Muxes := 3     
+	   5 Input      8 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 2     
 	   4 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   6 Input      4 Bit        Muxes := 1     
 	   6 Input      3 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 48    
-	   2 Input      1 Bit        Muxes := 42    
-	   5 Input      1 Bit        Muxes := 9     
-	   3 Input      1 Bit        Muxes := 4     
-	   6 Input      1 Bit        Muxes := 8     
-	  10 Input      1 Bit        Muxes := 2     
-	   7 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 169   
+	   2 Input      1 Bit        Muxes := 257   
+	   7 Input      1 Bit        Muxes := 3     
+	   6 Input      1 Bit        Muxes := 10    
+	  10 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 11    
+	   5 Input      1 Bit        Muxes := 11    
+	   8 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -215,63 +291,67 @@ Hierarchical RTL Component report
 Module LSTM 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 9     
-	   3 Input     32 Bit       Adders := 3     
-	   3 Input     31 Bit       Adders := 1     
-	   2 Input     26 Bit       Adders := 2     
-	   2 Input     18 Bit       Adders := 2     
-	   2 Input     11 Bit       Adders := 8     
-	   2 Input      9 Bit       Adders := 20    
+	   2 Input     32 Bit       Adders := 29    
+	   3 Input     32 Bit       Adders := 6     
+	   4 Input     32 Bit       Adders := 2     
+	   2 Input     11 Bit       Adders := 12    
+	   2 Input      9 Bit       Adders := 182   
 	   2 Input      6 Bit       Adders := 1     
 +---Registers : 
 	              256 Bit    Registers := 1     
 	              128 Bit    Registers := 2     
-	               32 Bit    Registers := 1     
-	               24 Bit    Registers := 2     
+	               32 Bit    Registers := 3     
 	               17 Bit    Registers := 2     
-	               16 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
 	               11 Bit    Registers := 2     
 	                9 Bit    Registers := 1     
-	                8 Bit    Registers := 172   
-	                6 Bit    Registers := 2     
+	                8 Bit    Registers := 233   
+	                6 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 9     
+	                1 Bit    Registers := 10    
 +---Multipliers : 
-	                 8x32  Multipliers := 2     
 	                17x32  Multipliers := 2     
 	                 6x32  Multipliers := 2     
+	                 7x32  Multipliers := 5     
 +---Muxes : 
-	   3 Input    144 Bit        Muxes := 3     
+	   4 Input    144 Bit        Muxes := 2     
+	   2 Input    144 Bit        Muxes := 4     
 	   4 Input    128 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 9     
-	   4 Input     32 Bit        Muxes := 1     
-	  10 Input     32 Bit        Muxes := 6     
-	   4 Input     24 Bit        Muxes := 2     
-	   2 Input     24 Bit        Muxes := 4     
-	  10 Input     24 Bit        Muxes := 4     
-	   4 Input     17 Bit        Muxes := 3     
+	   2 Input     32 Bit        Muxes := 36    
+	   4 Input     32 Bit        Muxes := 3     
+	   3 Input     32 Bit        Muxes := 4     
+	   2 Input     27 Bit        Muxes := 2     
+	   5 Input     17 Bit        Muxes := 1     
+	   4 Input     17 Bit        Muxes := 5     
 	   2 Input     17 Bit        Muxes := 7     
+	   3 Input     17 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 5     
 	   4 Input     16 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 6     
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 31    
 	   4 Input     11 Bit        Muxes := 4     
-	   2 Input      9 Bit        Muxes := 3     
-	   4 Input      9 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 36    
-	   4 Input      8 Bit        Muxes := 20    
-	  10 Input      8 Bit        Muxes := 4     
-	   4 Input      6 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 8     
+	   4 Input      9 Bit        Muxes := 2     
+	   5 Input      9 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 148   
+	   2 Input      8 Bit        Muxes := 38    
+	  10 Input      8 Bit        Muxes := 3     
+	   5 Input      8 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 2     
 	   4 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   6 Input      4 Bit        Muxes := 1     
 	   6 Input      3 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 48    
-	   2 Input      1 Bit        Muxes := 42    
-	   5 Input      1 Bit        Muxes := 9     
-	   3 Input      1 Bit        Muxes := 4     
-	   6 Input      1 Bit        Muxes := 8     
-	  10 Input      1 Bit        Muxes := 2     
-	   7 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 169   
+	   2 Input      1 Bit        Muxes := 257   
+	   7 Input      1 Bit        Muxes := 3     
+	   6 Input      1 Bit        Muxes := 10    
+	  10 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 11    
+	   5 Input      1 Bit        Muxes := 11    
+	   8 Input      1 Bit        Muxes := 1     
 Module inpdt_16 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -312,52 +392,21 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-5545] ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "lstm_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "Sys_Ht" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "O110" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "bias_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "bias_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "bias_bram_addr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "inpdt_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "inpdt_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "weight_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "weight_bram_EN" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "weight_bram_WE2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "weight_bram_addr2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "weight_bram_addr1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "weight_bram_addr2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "weight_bram_WE1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "weight_bram_addr1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "weight_bram_addr1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-DSP Report: Generating DSP iQ_add_to_ct23, operation Mode is: C+A*B.
-DSP Report: operator iQ_add_to_ct23 is absorbed into DSP iQ_add_to_ct23.
-DSP Report: operator iQ_add_to_ct23 is absorbed into DSP iQ_add_to_ct23.
-DSP Report: Generating DSP temp_regA_20, operation Mode is: (D+(A:0x3fffff80))*B.
-DSP Report: operator temp_regA_20 is absorbed into DSP temp_regA_20.
-DSP Report: operator temp_regA_21 is absorbed into DSP temp_regA_20.
-DSP Report: Generating DSP iQ_add_to_ct13, operation Mode is: C+A*B.
-DSP Report: operator iQ_add_to_ct13 is absorbed into DSP iQ_add_to_ct13.
-DSP Report: operator iQ_add_to_ct13 is absorbed into DSP iQ_add_to_ct13.
 DSP Report: Generating DSP temp_regA_10, operation Mode is: (D+(A:0x3fffff80))*B.
 DSP Report: operator temp_regA_10 is absorbed into DSP temp_regA_10.
 DSP Report: operator temp_regA_11 is absorbed into DSP temp_regA_10.
-DSP Report: Generating DSP iQ_mul_to_ht22, operation Mode is: C+A*B.
-DSP Report: operator iQ_mul_to_ht22 is absorbed into DSP iQ_mul_to_ht22.
-DSP Report: operator iQ_mul_to_ht22 is absorbed into DSP iQ_mul_to_ht22.
-DSP Report: Generating DSP iQ_mul_to_ht12, operation Mode is: C+A*B.
-DSP Report: operator iQ_mul_to_ht12 is absorbed into DSP iQ_mul_to_ht12.
-DSP Report: operator iQ_mul_to_ht12 is absorbed into DSP iQ_mul_to_ht12.
-DSP Report: Generating DSP oQ_sum_to_tanh24, operation Mode is: A*(B:0x30).
-DSP Report: operator oQ_sum_to_tanh24 is absorbed into DSP oQ_sum_to_tanh24.
-DSP Report: Generating DSP oQ_sum_to_sig24, operation Mode is: A*(B:0x18).
-DSP Report: operator oQ_sum_to_sig24 is absorbed into DSP oQ_sum_to_sig24.
-DSP Report: Generating DSP oQ_sum_to_tanh14, operation Mode is: A*(B:0x30).
-DSP Report: operator oQ_sum_to_tanh14 is absorbed into DSP oQ_sum_to_tanh14.
-DSP Report: Generating DSP sum_to_sig1_realsum0, operation Mode is: A*(B:0x18).
-DSP Report: operator sum_to_sig1_realsum0 is absorbed into DSP sum_to_sig1_realsum0.
+DSP Report: Generating DSP temp_regA_10, operation Mode is: (D+(A:0x3fffff80))*B.
+DSP Report: operator temp_regA_10 is absorbed into DSP temp_regA_10.
+DSP Report: operator temp_regA_11 is absorbed into DSP temp_regA_10.
+DSP Report: Generating DSP temp_regA_20, operation Mode is: (D+(A:0x3fffff80))*B.
+DSP Report: operator temp_regA_20 is absorbed into DSP temp_regA_20.
+DSP Report: operator temp_regA_21 is absorbed into DSP temp_regA_20.
+DSP Report: Generating DSP p_1_out, operation Mode is: C+A*B.
+DSP Report: operator p_1_out is absorbed into DSP p_1_out.
+DSP Report: operator p_1_out is absorbed into DSP p_1_out.
+DSP Report: Generating DSP p_1_out, operation Mode is: C+A*B.
+DSP Report: operator p_1_out is absorbed into DSP p_1_out.
+DSP Report: operator p_1_out is absorbed into DSP p_1_out.
 RAM Pipeline Warning: Read Address Register Found For RAM WEIGHT_BRAM1/mem_reg. We will not be able to pipeline it. This may degrade performance. 
 RAM Pipeline Warning: Read Address Register Found For RAM WEIGHT_BRAM1/mem_reg. We will not be able to pipeline it. This may degrade performance. 
 INFO: [Synth 8-6430] The Block RAM WEIGHT_BRAM1/mem_reg may get memory collision error if read and write address collide. Use attribute (* rw_addr_collision= "yes" *) to avoid collision 
@@ -373,122 +422,110 @@ INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM B
 RAM Pipeline Warning: Read Address Register Found For RAM WEIGHT_BRAM1/mem_reg. We will not be able to pipeline it. This may degrade performance. 
 RAM Pipeline Warning: Read Address Register Found For RAM WEIGHT_BRAM2/mem_reg. We will not be able to pipeline it. This may degrade performance. 
 RAM Pipeline Warning: Read Address Register Found For RAM BIAS_BRAM/mem_reg. We will not be able to pipeline it. This may degrade performance. 
-INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[133]' (LD) to 'inpdt_X2_reg[134]'
-INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[142]' (LD) to 'inpdt_X2_reg[143]'
-INFO: [Synth 8-3886] merging instance 'inpdt_element_select_reg[0]' (FDCE) to 'inpdt_element_select_reg[5]'
-INFO: [Synth 8-3886] merging instance 'inpdt_element_select_reg[1]' (FDCE) to 'inpdt_element_select_reg[5]'
-INFO: [Synth 8-3886] merging instance 'inpdt_element_select_reg[2]' (FDCE) to 'inpdt_element_select_reg[5]'
-INFO: [Synth 8-3886] merging instance 'inpdt_element_select_reg[3]' (FDCE) to 'inpdt_element_select_reg[5]'
-INFO: [Synth 8-3886] merging instance 'inpdt_element_select_reg[4]' (FDCE) to 'inpdt_element_select_reg[5]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inpdt_element_select_reg[5] )
-INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[133]' (LD) to 'inpdt_X1_reg[134]'
-INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[142]' (LD) to 'inpdt_X1_reg[143]'
-INFO: [Synth 8-3886] merging instance 'inpdt_R_reg2_reg[20]' (FDCE) to 'inpdt_R_reg2_reg[21]'
-INFO: [Synth 8-3886] merging instance 'inpdt_R_reg2_reg[21]' (FDCE) to 'inpdt_R_reg2_reg[22]'
-INFO: [Synth 8-3886] merging instance 'inpdt_R_reg2_reg[22]' (FDCE) to 'inpdt_R_reg2_reg[23]'
-INFO: [Synth 8-3886] merging instance 'inpdt_R_reg1_reg[20]' (FDCE) to 'inpdt_R_reg1_reg[21]'
-INFO: [Synth 8-3886] merging instance 'inpdt_R_reg1_reg[21]' (FDCE) to 'inpdt_R_reg1_reg[22]'
-INFO: [Synth 8-3886] merging instance 'inpdt_R_reg1_reg[22]' (FDCE) to 'inpdt_R_reg1_reg[23]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh2_reg[26]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh2_reg[27]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh2_reg[28]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh2_reg[29]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh2_reg[30]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh2_reg[31]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh1_reg[26]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh1_reg[27]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh1_reg[28]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh1_reg[29]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh1_reg[30]' (LD) to 'iQ_ct_to_tanh1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_ct_to_tanh1_reg[31]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[17]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[18]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[19]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[20]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[21]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[22]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[23]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[24]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[25]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[26]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[27]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[28]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[29]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[30]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht2_reg[31]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[17]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[18]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[19]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[20]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[21]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[22]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[23]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[24]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[25]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[26]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[27]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[28]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[29]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[30]' (LD) to 'iQ_mul_to_ht1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_mul_to_ht1_reg[31]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'comb_ctrl_reg[3]' (FDCE) to 'comb_ctrl_reg[4]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[7]' (LDC) to 'inpdt_X2_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[16]' (LDC) to 'inpdt_X2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[25]' (LDC) to 'inpdt_X2_reg[26]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[34]' (LDC) to 'inpdt_X2_reg[35]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[43]' (LDC) to 'inpdt_X2_reg[44]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[52]' (LDC) to 'inpdt_X2_reg[53]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[61]' (LDC) to 'inpdt_X2_reg[62]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[70]' (LDC) to 'inpdt_X2_reg[71]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[79]' (LDC) to 'inpdt_X2_reg[80]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[88]' (LDC) to 'inpdt_X2_reg[89]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[97]' (LDC) to 'inpdt_X2_reg[98]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[106]' (LDC) to 'inpdt_X2_reg[107]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[115]' (LDC) to 'inpdt_X2_reg[116]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[124]' (LDC) to 'inpdt_X2_reg[125]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[133]' (LDC) to 'inpdt_X2_reg[134]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[142]' (LDC) to 'inpdt_X2_reg[143]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[7]' (LDC) to 'inpdt_X1_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[16]' (LDC) to 'inpdt_X1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[25]' (LDC) to 'inpdt_X1_reg[26]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[34]' (LDC) to 'inpdt_X1_reg[35]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[43]' (LDC) to 'inpdt_X1_reg[44]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[52]' (LDC) to 'inpdt_X1_reg[53]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[61]' (LDC) to 'inpdt_X1_reg[62]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[70]' (LDC) to 'inpdt_X1_reg[71]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[79]' (LDC) to 'inpdt_X1_reg[80]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[88]' (LDC) to 'inpdt_X1_reg[89]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[97]' (LDC) to 'inpdt_X1_reg[98]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[106]' (LDC) to 'inpdt_X1_reg[107]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[115]' (LDC) to 'inpdt_X1_reg[116]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[124]' (LDC) to 'inpdt_X1_reg[125]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[133]' (LDC) to 'inpdt_X1_reg[134]'
+INFO: [Synth 8-3886] merging instance 'inpdt_X1_reg[142]' (LDC) to 'inpdt_X1_reg[143]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\comb_ctrl_reg[4] )
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[18]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[19]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[20]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[21]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[22]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[23]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[24]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[25]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[26]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[27]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[28]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[29]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[30]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct2_reg[31]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[18]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[19]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[20]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[21]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[22]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[23]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[24]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[25]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[26]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[27]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[28]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[29]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3886] merging instance 'iQ_add_to_ct1_reg[30]' (LD) to 'iQ_add_to_ct1_reg[31]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\iQ_add_to_ct1_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (oInit_done_reg)
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_tanh2_reg[20]' (LD) to 'iQ_sum_to_tanh2_reg[21]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_tanh2_reg[21]' (LD) to 'iQ_sum_to_tanh2_reg[22]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_tanh2_reg[22]' (LD) to 'iQ_sum_to_tanh2_reg[23]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_sig2_reg[20]' (LD) to 'iQ_sum_to_sig2_reg[21]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_sig2_reg[21]' (LD) to 'iQ_sum_to_sig2_reg[22]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_sig2_reg[22]' (LD) to 'iQ_sum_to_sig2_reg[23]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_tanh1_reg[20]' (LD) to 'iQ_sum_to_tanh1_reg[21]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_tanh1_reg[21]' (LD) to 'iQ_sum_to_tanh1_reg[22]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_tanh1_reg[22]' (LD) to 'iQ_sum_to_tanh1_reg[23]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_sig1_reg[20]' (LD) to 'iQ_sum_to_sig1_reg[21]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_sig1_reg[21]' (LD) to 'iQ_sum_to_sig1_reg[22]'
-INFO: [Synth 8-3886] merging instance 'iQ_sum_to_sig1_reg[22]' (LD) to 'iQ_sum_to_sig1_reg[23]'
-WARNING: [Synth 8-3332] Sequential element (iQ_add_to_ct1_reg[31]) is unused and will be removed from module LSTM.
-INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[135]' (LD) to 'inpdt_X1_reg[135]'
-INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[136]' (LD) to 'inpdt_X1_reg[136]'
-INFO: [Synth 8-3886] merging instance 'inpdt_X2_reg[137]' (LD) to 'inpdt_X1_reg[137]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[62][0]' (FDCE) to 'Br_Ht_temp_reg[62][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[62][1]' (FDCE) to 'Br_Ht_temp_reg[62][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[62][2]' (FDCE) to 'Br_Ht_temp_reg[62][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[62][3]' (FDCE) to 'Br_Ht_temp_reg[62][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[62][4]' (FDCE) to 'Br_Ht_temp_reg[62][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[62][5]' (FDCE) to 'Br_Ht_temp_reg[62][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[62][6]' (FDCE) to 'Br_Ht_temp_reg[62][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[61][0]' (FDCE) to 'Br_Ht_temp_reg[61][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[61][1]' (FDCE) to 'Br_Ht_temp_reg[61][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[61][2]' (FDCE) to 'Br_Ht_temp_reg[61][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[61][3]' (FDCE) to 'Br_Ht_temp_reg[61][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[61][4]' (FDCE) to 'Br_Ht_temp_reg[61][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[61][5]' (FDCE) to 'Br_Ht_temp_reg[61][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[61][6]' (FDCE) to 'Br_Ht_temp_reg[61][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[60][0]' (FDCE) to 'Br_Ht_temp_reg[60][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[60][1]' (FDCE) to 'Br_Ht_temp_reg[60][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[60][2]' (FDCE) to 'Br_Ht_temp_reg[60][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[60][3]' (FDCE) to 'Br_Ht_temp_reg[60][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[60][4]' (FDCE) to 'Br_Ht_temp_reg[60][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[60][5]' (FDCE) to 'Br_Ht_temp_reg[60][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[60][6]' (FDCE) to 'Br_Ht_temp_reg[60][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[59][0]' (FDCE) to 'Br_Ht_temp_reg[59][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[59][1]' (FDCE) to 'Br_Ht_temp_reg[59][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[59][2]' (FDCE) to 'Br_Ht_temp_reg[59][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[59][3]' (FDCE) to 'Br_Ht_temp_reg[59][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[59][4]' (FDCE) to 'Br_Ht_temp_reg[59][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[59][5]' (FDCE) to 'Br_Ht_temp_reg[59][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[59][6]' (FDCE) to 'Br_Ht_temp_reg[59][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[58][0]' (FDCE) to 'Br_Ht_temp_reg[58][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[58][1]' (FDCE) to 'Br_Ht_temp_reg[58][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[58][2]' (FDCE) to 'Br_Ht_temp_reg[58][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[58][3]' (FDCE) to 'Br_Ht_temp_reg[58][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[58][4]' (FDCE) to 'Br_Ht_temp_reg[58][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[58][5]' (FDCE) to 'Br_Ht_temp_reg[58][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[58][6]' (FDCE) to 'Br_Ht_temp_reg[58][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[57][0]' (FDCE) to 'Br_Ht_temp_reg[57][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[57][1]' (FDCE) to 'Br_Ht_temp_reg[57][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[57][2]' (FDCE) to 'Br_Ht_temp_reg[57][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[57][3]' (FDCE) to 'Br_Ht_temp_reg[57][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[57][4]' (FDCE) to 'Br_Ht_temp_reg[57][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[57][5]' (FDCE) to 'Br_Ht_temp_reg[57][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[57][6]' (FDCE) to 'Br_Ht_temp_reg[57][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[56][0]' (FDCE) to 'Br_Ht_temp_reg[56][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[56][1]' (FDCE) to 'Br_Ht_temp_reg[56][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[56][2]' (FDCE) to 'Br_Ht_temp_reg[56][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[56][3]' (FDCE) to 'Br_Ht_temp_reg[56][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[56][4]' (FDCE) to 'Br_Ht_temp_reg[56][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[56][5]' (FDCE) to 'Br_Ht_temp_reg[56][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[56][6]' (FDCE) to 'Br_Ht_temp_reg[56][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[55][0]' (FDCE) to 'Br_Ht_temp_reg[55][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[55][1]' (FDCE) to 'Br_Ht_temp_reg[55][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[55][2]' (FDCE) to 'Br_Ht_temp_reg[55][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[55][3]' (FDCE) to 'Br_Ht_temp_reg[55][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[55][4]' (FDCE) to 'Br_Ht_temp_reg[55][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[55][5]' (FDCE) to 'Br_Ht_temp_reg[55][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[55][6]' (FDCE) to 'Br_Ht_temp_reg[55][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[54][0]' (FDCE) to 'Br_Ht_temp_reg[54][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[54][1]' (FDCE) to 'Br_Ht_temp_reg[54][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[54][2]' (FDCE) to 'Br_Ht_temp_reg[54][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[54][3]' (FDCE) to 'Br_Ht_temp_reg[54][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[54][4]' (FDCE) to 'Br_Ht_temp_reg[54][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[54][5]' (FDCE) to 'Br_Ht_temp_reg[54][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[54][6]' (FDCE) to 'Br_Ht_temp_reg[54][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[53][0]' (FDCE) to 'Br_Ht_temp_reg[53][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[53][1]' (FDCE) to 'Br_Ht_temp_reg[53][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[53][2]' (FDCE) to 'Br_Ht_temp_reg[53][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[53][3]' (FDCE) to 'Br_Ht_temp_reg[53][7]'
+INFO: [Synth 8-3886] merging instance 'Br_Ht_temp_reg[53][4]' (FDCE) to 'Br_Ht_temp_reg[53][7]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-3332] Sequential element (inpdt_X1_reg[135]) is unused and will be removed from module LSTM.
-WARNING: [Synth 8-3332] Sequential element (inpdt_X1_reg[136]) is unused and will be removed from module LSTM.
-WARNING: [Synth 8-3332] Sequential element (inpdt_X1_reg[137]) is unused and will be removed from module LSTM.
-WARNING: [Synth 8-3332] Sequential element (inpdt_X1_reg[138]) is unused and will be removed from module LSTM.
-WARNING: [Synth 8-3332] Sequential element (inpdt_X1_reg[139]) is unused and will be removed from module LSTM.
-WARNING: [Synth 8-3332] Sequential element (inpdt_X1_reg[140]) is unused and will be removed from module LSTM.
-WARNING: [Synth 8-3332] Sequential element (inpdt_X1_reg[141]) is unused and will be removed from module LSTM.
-WARNING: [Synth 8-3332] Sequential element (inpdt_X1_reg[143]) is unused and will be removed from module LSTM.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:44 . Memory (MB): peak = 773.043 ; gain = 439.203
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 824.164 ; gain = 490.285
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -500,10 +537,10 @@ ROM:
 +------------+------------------+---------------+----------------+
 |sigmoid_LUT | dout             | 256x8         | LUT            | 
 |tanh_LUT    | dout             | 256x8         | LUT            | 
-|LSTM        | u_tanh_LUT2/dout | 256x8         | LUT            | 
-|LSTM        | u_sig_LUT2/dout  | 256x8         | LUT            | 
 |LSTM        | u_tanh_LUT1/dout | 256x8         | LUT            | 
 |LSTM        | u_sig_LUT1/dout  | 256x8         | LUT            | 
+|LSTM        | u_tanh_LUT2/dout | 256x8         | LUT            | 
+|LSTM        | u_sig_LUT2/dout  | 256x8         | LUT            | 
 +------------+------------------+---------------+----------------+
 
 
@@ -522,16 +559,11 @@ DSP: Preliminary Mapping  Report (see note below)
 +------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name | DSP Mapping          | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|LSTM        | C+A*B                | 24     | 8      | 32     | -      | 25     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 |LSTM        | (D+(A:0x3fffff80))*B | 8      | 9      | -      | 9      | 26     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
-|LSTM        | C+A*B                | 24     | 8      | 32     | -      | 25     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|LSTM        | (D+(A:0x3fffff80))*B | 8      | 9      | -      | 9      | 26     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
 |LSTM        | (D+(A:0x3fffff80))*B | 8      | 9      | -      | 9      | 26     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
 |LSTM        | C+A*B                | 24     | 17     | 41     | -      | 25     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 |LSTM        | C+A*B                | 24     | 17     | 41     | -      | 25     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-|LSTM        | A*(B:0x30)           | 24     | 6      | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|LSTM        | A*(B:0x18)           | 24     | 5      | -      | -      | 29     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|LSTM        | A*(B:0x30)           | 24     | 6      | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|LSTM        | A*(B:0x18)           | 24     | 5      | -      | -      | 29     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 +------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
@@ -555,14 +587,11 @@ INFO: [Synth 8-6837] The timing for the instance i_1/WEIGHT_BRAM2/mem_reg_5 (imp
 INFO: [Synth 8-6837] The timing for the instance i_1/WEIGHT_BRAM2/mem_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-6837] The timing for the instance i_1/WEIGHT_BRAM2/mem_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-6837] The timing for the instance i_2/BIAS_BRAM/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:632]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:631]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:630]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:629]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:628]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:627]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:630]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:627]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:593]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:593]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:596]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:596]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:593]
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -574,7 +603,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:45 . Memory (MB): peak = 773.043 ; gain = 439.203
+Finished Timing Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 824.164 ; gain = 490.285
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -601,14 +630,11 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:632]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:631]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:630]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:629]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:628]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:627]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:630]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v:627]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:593]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:593]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:596]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:596]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v:593]
 INFO: [Synth 8-6837] The timing for the instance WEIGHT_BRAM1/mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-6837] The timing for the instance WEIGHT_BRAM1/mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-6837] The timing for the instance WEIGHT_BRAM1/mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
@@ -627,7 +653,7 @@ INFO: [Synth 8-6837] The timing for the instance WEIGHT_BRAM2/mem_reg_6 (impleme
 INFO: [Synth 8-6837] The timing for the instance WEIGHT_BRAM2/mem_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-6837] The timing for the instance BIAS_BRAM/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:49 ; elapsed = 00:00:49 . Memory (MB): peak = 784.980 ; gain = 451.141
+Finished Technology Mapping : Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 824.805 ; gain = 490.926
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -653,7 +679,7 @@ INFO: [Synth 8-6064] Net \WEIGHT_BRAM1/WE_captured  is driving 23 big block pins
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:52 ; elapsed = 00:00:51 . Memory (MB): peak = 784.980 ; gain = 451.141
+Finished IO Insertion : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 824.805 ; gain = 490.926
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -666,7 +692,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:52 ; elapsed = 00:00:51 . Memory (MB): peak = 784.980 ; gain = 451.141
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 824.805 ; gain = 490.926
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -678,25 +704,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:52 ; elapsed = 00:00:51 . Memory (MB): peak = 784.980 ; gain = 451.141
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 824.805 ; gain = 490.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:52 ; elapsed = 00:00:51 . Memory (MB): peak = 784.980 ; gain = 451.141
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 824.805 ; gain = 490.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:52 ; elapsed = 00:00:52 . Memory (MB): peak = 784.980 ; gain = 451.141
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 824.805 ; gain = 490.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:52 ; elapsed = 00:00:52 . Memory (MB): peak = 784.980 ; gain = 451.141
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 824.805 ; gain = 490.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -712,64 +738,64 @@ Report Cell Usage:
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |BUFG     |     3|
-|2     |CARRY4   |   889|
-|3     |DSP48E1  |    10|
-|4     |LUT1     |   103|
-|5     |LUT2     |  1443|
-|6     |LUT3     |   634|
-|7     |LUT4     |  1415|
-|8     |LUT5     |   386|
-|9     |LUT6     |  2791|
-|10    |MUXF7    |    46|
-|11    |MUXF8    |    20|
+|1     |BUFG     |     1|
+|2     |CARRY4   |  1165|
+|3     |DSP48E1  |     5|
+|4     |LUT1     |   260|
+|5     |LUT2     |  2316|
+|6     |LUT3     |  1339|
+|7     |LUT4     |  2177|
+|8     |LUT5     |   937|
+|9     |LUT6     |  2515|
+|10    |MUXF7    |   123|
+|11    |MUXF8    |    36|
 |12    |RAMB18E1 |     3|
 |13    |RAMB36E1 |    14|
-|14    |FDCE     |  2056|
-|15    |FDPE     |    25|
+|14    |FDCE     |  2081|
+|15    |FDPE     |    23|
 |16    |FDRE     |   341|
-|17    |LD       |   244|
-|18    |IBUF     |  1225|
-|19    |OBUF     |  1154|
+|17    |LDC      |   256|
+|18    |IBUF     |  1553|
+|19    |OBUF     |  1153|
 +------+---------+------+
 
 Report Instance Areas: 
 +------+---------------+----------------+------+
 |      |Instance       |Module          |Cells |
 +------+---------------+----------------+------+
-|1     |top            |                | 12802|
-|2     |  BIAS_BRAM    |SRAM_16x512     |    84|
+|1     |top            |                | 16298|
+|2     |  BIAS_BRAM    |SRAM_16x512     |    36|
 |3     |  WEIGHT_BRAM1 |SRAM_128x2048   |   161|
 |4     |  WEIGHT_BRAM2 |SRAM_128x2048_0 |   161|
-|5     |  u_sig_LUT1   |sigmoid_LUT     |    56|
-|6     |  u_sig_LUT2   |sigmoid_LUT_1   |    56|
-|7     |  u_tanh_LUT1  |tanh_LUT        |    49|
-|8     |  u_tanh_LUT2  |tanh_LUT_2      |    49|
+|5     |  u_sig_LUT1   |sigmoid_LUT     |   239|
+|6     |  u_sig_LUT2   |sigmoid_LUT_1   |    93|
+|7     |  u_tanh_LUT1  |tanh_LUT        |   374|
+|8     |  u_tanh_LUT2  |tanh_LUT_2      |   133|
 +------+---------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:52 ; elapsed = 00:00:52 . Memory (MB): peak = 784.980 ; gain = 451.141
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 824.805 ; gain = 490.926
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 30 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:53 ; elapsed = 00:00:52 . Memory (MB): peak = 784.980 ; gain = 451.141
-Synthesis Optimization Complete : Time (s): cpu = 00:00:53 ; elapsed = 00:00:52 . Memory (MB): peak = 784.980 ; gain = 451.141
+Synthesis finished with 0 errors, 0 critical warnings and 9 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 824.805 ; gain = 490.926
+Synthesis Optimization Complete : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 824.805 ; gain = 490.926
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 1226 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 1602 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-101] Netlist 'LSTM' is not ideal for floorplanning, since the cellview 'LSTM' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 784.980 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 824.805 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 244 instances were transformed.
-  LD => LDCE: 244 instances
+  A total of 256 instances were transformed.
+  LDC => LDCE: 256 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-234 Infos, 31 Warnings, 0 Critical Warnings and 0 Errors encountered.
+286 Infos, 10 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:00 ; elapsed = 00:01:03 . Memory (MB): peak = 784.980 ; gain = 464.289
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 784.980 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 824.805 ; gain = 503.926
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 824.805 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.runs/synth_1/LSTM.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file LSTM_utilization_synth.rpt -pb LSTM_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May  5 19:27:40 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat May 11 19:27:32 2019...

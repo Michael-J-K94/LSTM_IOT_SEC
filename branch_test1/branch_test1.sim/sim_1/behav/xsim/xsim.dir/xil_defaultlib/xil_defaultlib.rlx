@@ -1,0 +1,17 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/branch_test1.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v,1557575501,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_context_memory.v,,br_bias_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_context_memory.v,1557569193,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v,,br_context_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v,1557569873,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v,,br_input_data_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_lstm_tb.v,1557576098,verilog,,,,lstm_tb_br,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v,1557569870,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v,,br_output_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v,1557573048,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v,,br_weight_memory,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v,1557554237,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v,,SRAM_128x2048,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v,1557554237,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v,,SRAM_16x512,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v,1557554237,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v,,inpdt_16,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v,1557583560,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v,,LSTM,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v,1557554237,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v,,sigmoid_LUT,,,,,,,,
+C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v,1557554237,verilog,,C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_lstm_tb.v,,tanh_LUT,,,,,,,,

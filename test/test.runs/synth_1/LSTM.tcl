@@ -28,12 +28,12 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_cache_permissions disable [current_project]
 read_verilog -library xil_defaultlib {
-  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/SRAM_128x2048.v
-  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/SRAM_16x512.v
-  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/inpdt.v
-  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/sigmoid_LUT.v
-  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/tanh_LUT.v
-  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/area_LSTM_cell/lstm_5.5_SUN.v
+  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v
+  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v
+  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v
+  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v
+  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v
+  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
