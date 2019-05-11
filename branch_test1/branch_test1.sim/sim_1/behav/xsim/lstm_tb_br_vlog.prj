@@ -8,7 +8,7 @@ verilog xil_defaultlib  \
 "../../../../../src/tb/branch/branch_output_memory.v" \
 "../../../../../src/tb/branch/branch_weight_memory.v" \
 "../../../../../src/verilog/inpdt.v" \
-"../../../../../src/verilog/lstm_5.11_branch_implementation.v" \
+"../../../../../src/verilog/backups/lstm_5.11_branch_implementation.v" \
 "../../../../../src/verilog/sigmoid_LUT.v" \
 "../../../../../src/verilog/tanh_LUT.v" \
 "../../../../../src/tb/branch/branch_lstm_tb.v" \

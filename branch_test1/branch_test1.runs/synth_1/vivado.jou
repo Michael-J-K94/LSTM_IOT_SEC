@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun May 12 02:45:27 2019
+# Process ID: 17844
+# Current directory: C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/branch_test1.runs/synth_1
+# Command line: vivado.exe -log LSTM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source LSTM.tcl
+# Log file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/branch_test1.runs/synth_1/LSTM.vds
+# Journal file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/branch_test1.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source LSTM.tcl -notrace

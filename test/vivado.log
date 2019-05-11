@@ -2,21 +2,28 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sat May 11 19:22:47 2019
-# Process ID: 9500
+# Start of session at: Sun May 12 00:15:01 2019
+# Process ID: 18952
 # Current directory: C:/Users/ECE/Desktop/LSTM_IOT_SEC/test
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20612 C:\Users\ECE\Desktop\LSTM_IOT_SEC\test\test.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11656 C:\Users\ECE\Desktop\LSTM_IOT_SEC\test\test.xpr
 # Log file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/vivado.log
 # Journal file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/test\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
-open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 758.766 ; gain = 142.910
+open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 829.719 ; gain = 222.199
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v] -no_script -reset -force -quiet
+remove_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v
+add_files -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation.v
+update_compile_order -fileset sources_1
 update_compile_order -fileset sources_1
 launch_simulation
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
@@ -29,6 +36,8 @@ INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
 "xvlog --incr --relax -prj lstm_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM
 INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
@@ -38,8 +47,38 @@ Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 8224dc01d9
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation.v" Line 23. Module LSTM doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v" Line 5. Module SRAM_16x512 doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.inpdt_16
+Compiling module xil_defaultlib.SRAM_128x2048
+Compiling module xil_defaultlib.SRAM_16x512
+Compiling module xil_defaultlib.sigmoid_LUT
+Compiling module xil_defaultlib.tanh_LUT
+Compiling module xil_defaultlib.LSTM
+Compiling module xil_defaultlib.weight_memory
+Compiling module xil_defaultlib.bias_memory
+Compiling module xil_defaultlib.context_memory
+Compiling module xil_defaultlib.input_data_memory
+Compiling module xil_defaultlib.output_memory
+Compiling module xil_defaultlib.lstm_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot lstm_tb_behav
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sun May 12 00:17:18 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2018.3/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sun May 12 00:17:18 2019...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 859.961 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
@@ -61,7 +100,7 @@ source lstm_tb.tcl
 # run 1000ns
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'lstm_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 919.875 ; gain = 112.277
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 949.887 ; gain = 89.926
 run all
 test          0 is passed
 
@@ -84,418 +123,88 @@ test          8 is passed
 test          9 is passed
 
 $finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+test          3 is passed
+
+test          4 is passed
+
+test          5 is passed
+
+test          6 is passed
+
+test          7 is passed
+
+test          8 is passed
+
+test          9 is passed
+
+$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+test          3 is passed
+
+test          4 is passed
+
+test          5 is passed
+
+test          6 is passed
+
+test          7 is passed
+
+test          8 is passed
+
+test          9 is passed
+
+$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
 reset_run synth_1
 WARNING: [Vivado 12-1017] Problems encountered:
 1. Failed to delete one or more files in run directory C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.runs/synth_1
 
 launch_runs synth_1 -jobs 4
-[Sat May 11 19:25:57 2019] Launched synth_1...
+[Sun May 12 01:43:41 2019] Launched synth_1...
 Run output will be captured here: C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xa7a12tcpg238-2I
+INFO: [Netlist 29-17] Analyzing 1435 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'LSTM' is not ideal for floorplanning, since the cellview 'LSTM' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xa7a12tcpg238-2I
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1315.215 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 1429.090 ; gain = 389.012
+report_utilization -name utilization_1
+report_methodology -name ultrafast_methodology_1 -checks {PDRC-204 PDRC-190 TIMING-43 TIMING-42 TIMING-41 TIMING-40 TIMING-39 TIMING-38 TIMING-37 TIMING-36 TIMING-35 TIMING-34 TIMING-33 TIMING-32 TIMING-31 TIMING-30 TIMING-29 TIMING-28 TIMING-27 TIMING-26 TIMING-25 TIMING-24 TIMING-23 TIMING-22 TIMING-21 TIMING-20 TIMING-19 TIMING-18 TIMING-17 TIMING-16 TIMING-15 TIMING-14 TIMING-13 TIMING-12 TIMING-11 TIMING-10 TIMING-9 TIMING-8 TIMING-7 TIMING-6 TIMING-5 TIMING-4 TIMING-3 TIMING-2 TIMING-1 XDCV-2 XDCV-1 XDCH-2 XDCH-1 XDCC-8 XDCC-7 XDCC-6 XDCC-5 XDCC-4 XDCC-3 XDCC-2 XDCC-1 XDCB-5 XDCB-4 XDCB-3 XDCB-2 XDCB-1 CLKC-54 CLKC-53 CLKC-9 CLKC-5 CLKC-38 CLKC-37 CLKC-36 CLKC-35 CLKC-4 CLKC-18 CLKC-3 CLKC-2 CLKC-1 REQP-1959 LUTAR-1 HPDR-1 NTCN-1 CKLD-2 CKLD-1 DPIR-1 CKBF-1 SYNTH-14 SYNTH-13 SYNTH-12 SYNTH-11 SYNTH-10 SYNTH-9 SYNTH-16 SYNTH-15 SYNTH-6 SYNTH-5 SYNTH-4}
+Command: report_methodology -name ultrafast_methodology_1 -checks {PDRC-204 PDRC-190 TIMING-43 TIMING-42 TIMING-41 TIMING-40 TIMING-39 TIMING-38 TIMING-37 TIMING-36 TIMING-35 TIMING-34 TIMING-33 TIMING-32 TIMING-31 TIMING-30 TIMING-29 TIMING-28 TIMING-27 TIMING-26 TIMING-25 TIMING-24 TIMING-23 TIMING-22 TIMING-21 TIMING-20 TIMING-19 TIMING-18 TIMING-17 TIMING-16 TIMING-15 TIMING-14 TIMING-13 TIMING-12 TIMING-11 TIMING-10 TIMING-9 TIMING-8 TIMING-7 TIMING-6 TIMING-5 TIMING-4 TIMING-3 TIMING-2 TIMING-1 XDCV-2 XDCV-1 XDCH-2 XDCH-1 XDCC-8 XDCC-7 XDCC-6 XDCC-5 XDCC-4 XDCC-3 XDCC-2 XDCC-1 XDCB-5 XDCB-4 XDCB-3 XDCB-2 XDCB-1 CLKC-54 CLKC-53 CLKC-9 CLKC-5 CLKC-38 CLKC-37 CLKC-36 CLKC-35 CLKC-4 CLKC-18 CLKC-3 CLKC-2 CLKC-1 REQP-1959 LUTAR-1 HPDR-1 NTCN-1 CKLD-2 CKLD-1 DPIR-1 CKBF-1 SYNTH-14 SYNTH-13 SYNTH-12 SYNTH-11 SYNTH-10 SYNTH-9 SYNTH-16 SYNTH-15 SYNTH-6 SYNTH-5 SYNTH-4}
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2062.504 ; gain = 102.758
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj lstm_tb_vlog.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-Vivado Simulator 2018.3
-Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 8224dc01d95045b7a1ee04e9c69bfe41 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot lstm_tb_behav xil_defaultlib.lstm_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "lstm_tb_behav -key {Behavioral:sim_1:Functional:lstm_tb} -tclbatch {lstm_tb.tcl} -view {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Vivado Simulator 2018.3
-Time resolution is 1 ps
-open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg
-source lstm_tb.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'lstm_tb_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1008.809 ; gain = 0.000
-run 10 us
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 10 us
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-relaunch_sim
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj lstm_tb_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_128x2048
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_16x512
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module bias_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/context_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module context_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module inpdt_16
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module input_data_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module LSTM
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module output_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sigmoid_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tanh_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module weight_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module lstm_tb
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-Vivado Simulator 2018.3
-Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 8224dc01d95045b7a1ee04e9c69bfe41 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot lstm_tb_behav xil_defaultlib.lstm_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v" Line 5. Module SRAM_16x512 doesn't have a timescale but at least one module in design has a timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.inpdt_16
-Compiling module xil_defaultlib.SRAM_128x2048
-Compiling module xil_defaultlib.SRAM_16x512
-Compiling module xil_defaultlib.sigmoid_LUT
-Compiling module xil_defaultlib.tanh_LUT
-Compiling module xil_defaultlib.LSTM
-Compiling module xil_defaultlib.weight_memory
-Compiling module xil_defaultlib.bias_memory
-Compiling module xil_defaultlib.context_memory
-Compiling module xil_defaultlib.input_data_memory
-Compiling module xil_defaultlib.output_memory
-Compiling module xil_defaultlib.lstm_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot lstm_tb_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
-Vivado Simulator 2018.3
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1021.320 ; gain = 0.000
-run all
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run all
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 10 us
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 10 us
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run 10 us
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-restart
-INFO: [Simtcl 6-17] Simulation restarted
-run all
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/lstm_tb_behav.wcfg}
-relaunch_sim
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj lstm_tb_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_128x2048
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_16x512
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module bias_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/context_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module context_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module inpdt_16
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module input_data_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module LSTM
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module output_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sigmoid_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tanh_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module weight_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module lstm_tb
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/test/test.sim/sim_1/behav/xsim'
-Vivado Simulator 2018.3
-Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 8224dc01d95045b7a1ee04e9c69bfe41 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot lstm_tb_behav xil_defaultlib.lstm_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v" Line 5. Module SRAM_16x512 doesn't have a timescale but at least one module in design has a timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.inpdt_16
-Compiling module xil_defaultlib.SRAM_128x2048
-Compiling module xil_defaultlib.SRAM_16x512
-Compiling module xil_defaultlib.sigmoid_LUT
-Compiling module xil_defaultlib.tanh_LUT
-Compiling module xil_defaultlib.LSTM
-Compiling module xil_defaultlib.weight_memory
-Compiling module xil_defaultlib.bias_memory
-Compiling module xil_defaultlib.context_memory
-Compiling module xil_defaultlib.input_data_memory
-Compiling module xil_defaultlib.output_memory
-Compiling module xil_defaultlib.lstm_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot lstm_tb_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
-Vivado Simulator 2018.3
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1021.320 ; gain = 0.000
-run all
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-$finish called at time : 8925 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" Line 239
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 2098.977 ; gain = 0.000
 exit
-INFO: [Common 17-206] Exiting Vivado at Sat May 11 23:21:37 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun May 12 02:09:07 2019...

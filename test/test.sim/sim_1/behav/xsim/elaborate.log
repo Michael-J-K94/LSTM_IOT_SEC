@@ -5,6 +5,7 @@ Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation.v" Line 23. Module LSTM doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
 WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v" Line 5. Module SRAM_16x512 doesn't have a timescale but at least one module in design has a timescale.

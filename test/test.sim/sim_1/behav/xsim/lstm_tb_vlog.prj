@@ -6,7 +6,7 @@ verilog xil_defaultlib  \
 "../../../../../src/tb/syscall/context_memory.v" \
 "../../../../../src/verilog/inpdt.v" \
 "../../../../../src/tb/syscall/input_data_memory.v" \
-"../../../../../src/verilog/lstm_5.11_branch_implementation.v" \
+"../../../../../src/verilog/backups/lstm_5.11_branch_implementation.v" \
 "../../../../../src/tb/syscall/output_memory.v" \
 "../../../../../src/verilog/sigmoid_LUT.v" \
 "../../../../../src/verilog/tanh_LUT.v" \

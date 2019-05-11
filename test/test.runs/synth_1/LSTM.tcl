@@ -33,7 +33,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v
   C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v
   C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v
-  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v
+  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

@@ -74,7 +74,7 @@ module LSTM#(
 	localparam comb_IDLE = 5'd0, S_BQS = 5'd1, S_BQT = 5'd2, S_MAQ_BQS = 5'd3, S_TMQ = 5'd4;
 	localparam B_BQS = 5'd5, B_BQT = 5'd6, B_MAQ = 5'd7, B_TMQ = 5'd8;
 	
-	localparam BR_W_ADDR = 11'd1024;
+	localparam BR_W_ADDR = 11'd80;
 	localparam BR_B_ADDR = 9'd16;
 
 	integer i;
@@ -626,8 +626,8 @@ module LSTM#(
 			weight_bram_EN_buff <= weight_bram_EN;
 			bias_bram_EN_buff <= bias_bram_EN;
 			
-			/*if(weight_bram_EN_buff)*/ weight_buffer <= {weight_bram_Rdata1 , weight_bram_Rdata2};
-			/*if(bias_bram_EN_buff)*/ bias_buffer <= bias_bram_Rdata;
+			if(weight_bram_EN_buff) weight_buffer <= {weight_bram_Rdata1 , weight_bram_Rdata2};
+			if(bias_bram_EN_buff) bias_buffer <= bias_bram_Rdata;
 			
 			if(iInit_valid) begin
 				init_data_buff1 <= iInit_data;

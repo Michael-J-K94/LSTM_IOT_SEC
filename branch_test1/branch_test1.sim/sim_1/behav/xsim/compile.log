@@ -14,7 +14,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/s
 INFO: [VRFC 10-311] analyzing module br_weight_memory
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module inpdt_16
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module LSTM
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sigmoid_LUT

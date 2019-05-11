@@ -1,24 +1,2 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_128x2048
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_16x512
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module bias_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/context_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module context_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module inpdt_16
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module input_data_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.11_branch_implementation.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module LSTM
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module output_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sigmoid_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tanh_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module weight_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/lstm_tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module lstm_tb
