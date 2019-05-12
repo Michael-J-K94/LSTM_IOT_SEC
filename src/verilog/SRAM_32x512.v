@@ -2,23 +2,23 @@
 // Description:
 // Author: Michael Kim
 
-module SRAM_16x512
+module SRAM_32x512
 (
 input CLK,
 input EN_M,
 input WE,
 input [8:0] ADDR,
 input [8:0] ADDR_WRITE,
-input [15:0] DIN,
+input [31:0] DIN,
 
-output [15:0] DOUT
+output [31:0] DOUT
 );
 
 reg [8:0] ADDR_WRITE_captured;
-reg [15:0] DIN_captured;
+reg [31:0] DIN_captured;
 reg WE_captured;
 reg [8:0] ADDR_captured;
-reg [15:0] mem [0:511];
+reg [31:0] mem [0:511];
     
 	
 	

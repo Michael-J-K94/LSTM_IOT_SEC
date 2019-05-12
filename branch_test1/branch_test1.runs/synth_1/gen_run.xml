@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xa7a12tcpg238-2I" LaunchTime="1557596724">
   <File Type="PA-TCL" Name="LSTM.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="LSTM_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="LSTM_reports.tcl"/>
   <File Type="RDS-RDS" Name="LSTM.vds"/>
   <File Type="RDS-UTIL" Name="LSTM_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="LSTM_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="LSTM.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="LSTM_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="LSTM_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../src/verilog/SRAM_128x2048.v">
@@ -72,9 +69,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

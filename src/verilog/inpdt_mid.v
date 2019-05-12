@@ -2,7 +2,7 @@
 // Description:
 // Author: Michael Kim
 
-module inpdt_16
+module inpdt_16_mid
 (
 	input [143:0] iData_XH,	// 16*8b
 	input [143:0] iData_W,	// 16*8b

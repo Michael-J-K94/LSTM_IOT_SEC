@@ -29,7 +29,7 @@ module LSTM#(
 
 	parameter ZERO_DATA = 8'd128,
 	parameter ZERO_STATE = 8'd128,
-	parameter ZERO_W = 8'd128,			
+	parameter ZERO_W = 8'd128,			// 9bit ??????????????? 
 	parameter ZERO_B = 8'd0,
 	
 	parameter SCALE_SIGMOID = 10'd24,
@@ -52,6 +52,10 @@ module LSTM#(
 	input iInit_valid,
 	input [7:0] iInit_data,
 	input [2:0] iInit_type,
+	
+	input iLoad_valid,	// load ct/ht valid
+	input [511:0] iBr_Ct_load,
+	input [511:0] iBr_Ht_load,
 
 	input iNext_valid,	// top valid & ready. 
 	input iType,		//
@@ -64,17 +68,14 @@ module LSTM#(
 	output reg [63:0] oSys_Ht
 );
 
-	localparam IDLE = 3'd0, SYSTEM = 3'd1, BRANCH = 3'd2, INITIALIZE_W_B = 3'd3, CTXT_CONVERT = 3'd4, ERROR = 3'd7;
+	localparam IDLE = 3'd0, SYSTEM = 3'd1, BRANCH = 3'd2, INITIALIZE_W_B = 3'd3, ERROR = 3'd4;
 	localparam SYS_type = 1'b1, BR_type = 1'b0; 	
-	localparam Ct_type = 1'b1, Ht_type = 1'b0;
 	
 	localparam comb_IDLE = 5'd0, S_BQS = 5'd1, S_BQT = 5'd2, S_MAQ_BQS = 5'd3, S_TMQ = 5'd4;
 	localparam B_BQS = 5'd5, B_BQT = 5'd6, B_MAQ = 5'd7, B_TMQ = 5'd8;
-
-	localparam CTXT_W_ADDR = 11'd16;
-	localparam CTXT_B_ADDR = 9'd16;	
-	localparam BR_W_ADDR = 11'd80;
-	localparam BR_B_ADDR = 9'd80;
+	
+	localparam BR_W_ADDR = 11'd48;
+	localparam BR_B_ADDR = 9'd48;
 
 	integer i;
 
@@ -84,7 +85,6 @@ module LSTM#(
 ////////
 	reg [1:0] lstm_state;
 	reg [31:0] counter;
-	reg [31:0] ctxt_counter;
 	reg lstm_done;
 	reg init_valid_buff;
 
@@ -112,27 +112,24 @@ module LSTM#(
 
 	reg [31:0] inpdt_R_reg1;		// Can Be Used as signed
 	reg [31:0] inpdt_R_reg2;	
-	
-	reg [31:0] inpdt_Rtemp_reg1;
-	reg [31:0] inpdt_Rtemp_reg2;
 
 
 //////////////////
 // inpdt IN/OUT //
-//////////////////	
+//////////////////
+	reg [1:0] inpdt_X_select;
+	
 	reg inpdt_EN;
 	reg [143:0] inpdt_X1;
 	reg [143:0] inpdt_X2;
 	reg [143:0] inpdt_W1;
 	reg [143:0] inpdt_W2;
-		
+	
+	reg [8:0] TEMP_inpdt_W1 [0:15];
+	
 	wire [20:0] inpdt_R_wire1;		// Comes Out as Signed
 	wire [20:0] inpdt_R_wire2;
-	
-	wire [19:0] inpdt_Rmid1_wire1;
-	wire [19:0] inpdt_Rmid2_wire1;
-	wire [19:0] inpdt_Rmid1_wire2;
-	wire [19:0] inpdt_Rmid2_wire2;
+
 
 /////////////////
 // Weight BRAM //
@@ -160,9 +157,9 @@ module LSTM#(
 
 	reg [8:0] bias_bram_addr;
 	reg bias_bram_WE;
-	reg [15:0] bias_bram_Wdata;
-	wire [15:0] bias_bram_Rdata;
-	reg [15:0] bias_buffer;	
+	reg [31:0] bias_bram_Wdata;
+	wire [31:0] bias_bram_Rdata;
+	reg [31:0] bias_buffer;	
 
 
 //////////////////
@@ -255,16 +252,7 @@ module LSTM#(
 	wire [7:0] B_sat_ht_TMQ1;
 	// wire [7:0] B_sat_ht_TMQ2;
 
-	reg [31:0] Ctxt_real_inpdt_sum1;
-	reg [31:0] Ctxt_real_inpdt_sum2;	
-	reg [31:0] Ctxt_real_bias1;
-	reg [31:0] Ctxt_real_bias2;	
-	reg [31:0] Ctxt_unsat1;
-	reg [31:0] Ctxt_unsat2;
-	wire [7:0] Ctxt_sat1;
-	wire [7:0] Ctxt_sat2;	
-	
-	
+
 //////////////////
 // Sig/Tanh LUT //
 //////////////////
@@ -284,7 +272,6 @@ module LSTM#(
 ////////////////////////
 	reg [4:0] comb_ctrl;
 	reg [5:0] tanh_Ct_select;
-	reg ctxt_type;
 
 	
 	
@@ -319,8 +306,6 @@ module LSTM#(
 		.iData_XH(inpdt_X1),
 		.iData_W(inpdt_W1),
 		.iEn(inpdt_EN),
-		.oResult_mid1(inpdt_Rmid1_wire1),
-		.oResult_mid2(inpdt_Rmid2_wire1),
 		.oResult(inpdt_R_wire1)
 	);
 
@@ -328,8 +313,6 @@ module LSTM#(
 		.iData_XH(inpdt_X2),
 		.iData_W(inpdt_W2),
 		.iEn(inpdt_EN),
-		.oResult_mid1(inpdt_Rmid1_wire2),
-		.oResult_mid2(inpdt_Rmid2_wire2),		
 		.oResult(inpdt_R_wire2)
 	);
 	
@@ -348,7 +331,6 @@ module LSTM#(
 				inpdt_X2[72-9*(i+1)+:9] = $signed({1'b0,Sys_Ht[i]} - {1'b0,ZERO_DATA});
 			end			
 		end
-		
 		else if(lstm_state == BRANCH) begin
 			if( ((counter-2)%16)%4 == 1 ) begin
 				for(i=0; i<16; i=i+1) begin
@@ -392,24 +374,7 @@ module LSTM#(
 				end
 			end					
 		end	
-		
-		else if(lstm_state == CTXT_CONVERT) begin							
-			for(i=0; i<8; i=i+1) begin
-				inpdt_X1[144-9*(i+1)+:9] = $signed({1'b0, Sys_Ct[i]}) - $signed({1'b0,ZERO_STATE});
-			end
-			for(i=8; i<16; i=i+1) begin
-				inpdt_X1[144-9*(i+1)+:9] = $signed({1'b0, Sys_Ht[i]}) - $signed({1'b0,ZERO_DATA});
-			end
-			
-			for(i=0; i<8; i=i+1) begin
-				inpdt_X2[144-9*(i+1)+:9] = $signed({1'b0, Sys_Ct[i]}) - $signed({1'b0,ZERO_STATE});
-			end
-			for(i=8; i<16; i=i+1) begin
-				inpdt_X2[144-9*(i+1)+:9] = $signed({1'b0, Sys_Ht[i]}) - $signed({1'b0,ZERO_DATA});
-			end			
-		end
-		
-		else begin	// Default
+		else begin
 			inpdt_X1 = 'd0;
 			inpdt_X2 = 'd0;
 		end
@@ -477,7 +442,7 @@ module LSTM#(
 		.DOUT(weight_bram_Rdata2)	
 	);
 	
-	SRAM_16x512 BIAS_BRAM(
+	SRAM_32x512 BIAS_BRAM(
 		.CLK(clk),
 		.EN_M(bias_bram_EN),
 		.WE(bias_bram_WE),
@@ -529,7 +494,6 @@ module LSTM#(
 			init_valid_buff <= 'd0;
 			lstm_done <= 1'b1;
 			counter <= 'd0;
-			ctxt_counter <= 'd0;
 		end
 		else begin		
 			init_valid_buff <= iInit_valid;
@@ -556,8 +520,8 @@ module LSTM#(
 				
 				SYSTEM: begin
 					if(counter == 26) begin 
-						lstm_state <= CTXT_CONVERT;
-						//lstm_done <= 1'b1;
+						lstm_state <= IDLE;
+						lstm_done <= 1'b1;
 						counter <= 'd0;					
 					end
 					else begin					
@@ -584,17 +548,6 @@ module LSTM#(
 						lstm_state <= IDLE;
 						lstm_done <= 1'b1;
 						counter <= 'd0;
-					end
-				end
-				
-				CTXT_CONVERT: begin
-					if(ctxt_counter == 67) begin
-						lstm_state <= IDLE;
-						lstm_done <= 1'b1;
-						ctxt_counter <= 'd0;
-					end
-					else begin
-						ctxt_counter <= ctxt_counter + 1;
 					end
 				end
 
@@ -644,10 +597,9 @@ module LSTM#(
 			temp_regB_2 <= 'd0;
 			temp_regC_2 <= 'd0;
 			inpdt_R_reg1 <= 'd0;
-			inpdt_R_reg2 <= 'd0;		
-			inpdt_Rtemp_reg1 <= 'd0;
-			inpdt_Rtemp_reg2 <= 'd0;
+			inpdt_R_reg2 <= 'd0;				
 
+			inpdt_X_select <= 'd0;
 			inpdt_EN <= 'd0;
 
 			weight_bram_EN <= 'd0;			
@@ -669,14 +621,13 @@ module LSTM#(
 		
 			comb_ctrl <= comb_IDLE;
 			tanh_Ct_select <= 'd0;
-			ctxt_type <= Ct_type;
 		end
 		else begin
 			weight_bram_EN_buff <= weight_bram_EN;
 			bias_bram_EN_buff <= bias_bram_EN;
 			
-			/*if(weight_bram_EN_buff)*/ weight_buffer <= {weight_bram_Rdata1 , weight_bram_Rdata2};
-			/*if(bias_bram_EN_buff)*/ bias_buffer <= bias_bram_Rdata;
+			if(weight_bram_EN_buff) weight_buffer <= {weight_bram_Rdata1 , weight_bram_Rdata2};
+			if(bias_bram_EN_buff) bias_buffer <= bias_bram_Rdata;
 			
 			if(iInit_valid) begin
 				init_data_buff1 <= iInit_data;
@@ -687,7 +638,13 @@ module LSTM#(
 			case(lstm_state)
 			
 				IDLE: begin
-				
+					if(iLoad_valid) begin
+						for(i=0; i<64; i=i+1) begin
+							Br_Ct[i] <= iBr_Ct_load[8*i+:8];
+							Br_Ht[i] <= iBr_Ht_load[8*i+:8];							
+						end
+					end
+					
 					for(i=0; i<16; i=i+1) begin
 						init_weight_buff[i] <= 'd0;
 					end
@@ -701,6 +658,7 @@ module LSTM#(
 					inpdt_R_reg1 <= 'd0;
 					inpdt_R_reg2 <= 'd0;				
 
+					inpdt_X_select <= 'd0;
 					inpdt_EN <= 'd0;
 
 					weight_bram_EN <= 'd0;			
@@ -800,6 +758,7 @@ module LSTM#(
 						if( !(counter==0) && (counter%2 == 0) ) begin
 							bias_bram_EN <= 1'b1;
 							bias_bram_WE <= 1'b1;
+							bias_bram_Wdata[31:16] = 'd0;
 							bias_bram_Wdata[15:8] = init_weight_buff[14];
 							bias_bram_Wdata[7:0] = init_weight_buff[15];
 							case(counter%8) 
@@ -893,6 +852,7 @@ module LSTM#(
 						if(!(counter==0)) begin
 							bias_bram_EN <= 1'b1;
 							bias_bram_WE <= 1'b1;
+							bias_bram_Wdata[31:16] = 'd0;
 							bias_bram_Wdata[15:8] = 8'd0;
 							bias_bram_Wdata[7:0] = init_weight_buff[15];
 							
@@ -1179,66 +1139,7 @@ module LSTM#(
 						end
 					end										
 				end
-
-				// *****************************************************************************//	
-				//									CTXT_CONVERT								//
-				// *****************************************************************************//	
-				CTXT_CONVERT: begin
-				
-					//**** 1. WEIGHT BRAM CTRL ****//	
-					if(ctxt_counter == 0) begin
-						weight_bram_EN <= 1'b1;
-						weight_bram_addr1 <= CTXT_W_ADDR;
-						weight_bram_addr2 <= CTXT_W_ADDR;
-					end
-					else if( (1<=ctxt_counter) && (ctxt_counter<=63) ) begin
-						weight_bram_addr1 <= weight_bram_addr1 + 1;
-						weight_bram_addr2 <= weight_bram_addr2 + 1;
-					end
-					else begin
-						weight_bram_EN <= 1'b0;
-					end
-					
-					//**** 2. BIAS BRAM CTRL ****//
-					if(ctxt_counter == 1) begin
-						bias_bram_EN <= 1'b1;
-						bias_bram_addr <= CTXT_B_ADDR;
-					end
-					else if( (2<=ctxt_counter) && (ctxt_counter<=64) ) begin
-						bias_bram_addr <= bias_bram_addr + 1;
-					end
-					else begin
-						bias_bram_EN <= 1'b0;
-					end
-					
-					//**** 3. INPDT CTRL ****//
-					if( (2<=ctxt_counter) && (ctxt_counter<=65) ) begin
-						inpdt_EN <= 1'b1;
-					end
-					else begin
-						inpdt_EN <= 1'b0;
-					end
-				
-					//**** 4. Register CTRL ****//
-					// inpdt_R_reg1 & inpdt_Rtemp_reg1
-					if( (3<=ctxt_counter) && (ctxt_counter<=66) ) begin				// ???????????????????????????????????????????????????????????
-						inpdt_R_reg1 <= $signed(inpdt_Rmid1_wire1);
-						inpdt_Rtemp_reg1 <= $signed(inpdt_Rmid2_wire1);
-						
-						inpdt_R_reg2 <= $signed(inpdt_Rmid1_wire2);
-						inpdt_Rtemp_reg2 <= $signed(inpdt_Rmid2_wire2);
-					end
-					// Br_Ct & Br_Ht
-					if( (4<=ctxt_counter) && (ctxt_counter<=35) ) begin
-						Br_Ct[2*(ctxt_counter-4)] <= Ctxt_sat1;
-						Br_Ct[2*(ctxt_counter-4)+1] <= Ctxt_sat2;
-					end
-					else if( (36<=ctxt_counter) && (ctxt_counter<=67) ) begin
-						Br_Ht[2*(ctxt_counter-36)] <= Ctxt_sat1;
-						Br_Ht[2*(ctxt_counter-36)+1] <= Ctxt_sat2;
-					end
-				end	
-					
+		
 		
 				default: begin
 				
@@ -1322,7 +1223,7 @@ module LSTM#(
 		endcase
 	end
 
-	
+
 	always@(*) begin
 	
 		//************ S_BQS || S_MAQ_BQS ************//	
@@ -1482,42 +1383,6 @@ module LSTM#(
 			B_unsat_Z_ht_TMQ1 = 'd0;
 		end
 	end
-
-	//************ CTXT Quantization ************//
-	always(*) begin
-		if(lstm_state == CTXT_CONVERT) begin
-			if(ctxt_type == Ct_type) begin
-				Ctxt_real_inpdt_sum1 = $signed(inpdt_R_reg1)*$signed(SCALE_STATE)/($signed(SCALE_STATE)*$signed(SCALE_W))
-				+ $signed(inpdt_Rtemp_reg1)*$signed(SCALE_STATE)/($signed(SCALE_DATA)*$signed(SCALE_W));
-				Ctxt_real_bias1 = ($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_STATE)/$signed(SCALE_B);
-				Ctxt_unsat1 = $signed(Ctxt_real_inpdt_sum1) + $signed(Ctxt_real_bias1) + $signed({1'b0,ZERO_STATE});
-				
-				Ctxt_real_inpdt_sum2 = $signed(inpdt_R_reg2)*$signed(SCALE_STATE)/($signed(SCALE_STATE)*$signed(SCALE_W))
-				+ $signed(inpdt_Rtemp_reg2)*$signed(SCALE_STATE)/($signed(SCALE_DATA)*$signed(SCALE_W));
-				Ctxt_real_bias2 = ($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_STATE)/$signed(SCALE_B);
-				Ctxt_unsat2 = $signed(Ctxt_real_inpdt_sum2) + $signed(Ctxt_real_bias2) + $signed({1'b0,ZERO_STATE});				
-			end
-			else begin
-				Ctxt_real_inpdt_sum1 = $signed(inpdt_R_reg1)*$signed(SCALE_DATA)/($signed(SCALE_STATE)*$signed(SCALE_W))
-				+ $signed(inpdt_Rtemp_reg1)*$signed(SCALE_DATA)/($signed(SCALE_DATA)*$signed(SCALE_W));
-				Ctxt_real_bias1 = ($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_STATE)/$signed(SCALE_B);
-				Ctxt_unsat1 = $signed(Ctxt_real_inpdt_sum1) + $signed(Ctxt_real_bias1) + $signed({1'b0,ZERO_DATA});
-				
-				Ctxt_real_inpdt_sum2 = $signed(inpdt_R_reg2)*$signed(SCALE_DATA)/($signed(SCALE_STATE)*$signed(SCALE_W))
-				+ $signed(inpdt_Rtemp_reg2)*$signed(SCALE_DATA)/($signed(SCALE_DATA)*$signed(SCALE_W));
-				Ctxt_real_bias2 = ($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_STATE)/$signed(SCALE_B);
-				Ctxt_unsat2 = $signed(Ctxt_real_inpdt_sum2) + $signed(Ctxt_real_bias2) + $signed({1'b0,ZERO_DATA});					
-			end
-		end
-		else begin
-			Ctxt_real_inpdt_sum1 = 'd0;
-			Ctxt_real_inpdt_sum2 = 'd0;	
-			Ctxt_real_bias1 = 'd0;
-			Ctxt_real_bias2 = 'd0;	
-			Ctxt_unsat1 = 'd0;
-			Ctxt_unsat2 = 'd0;			
-		end
-	end
 	
 	assign S_sat_BQS1 = (S_unsat_BQS1[31]) ? 8'd0 : (|S_unsat_BQS1[30:8] == 1) ? 8'd255 : S_unsat_BQS1[7:0];
 	assign S_sat_BQS2 = (S_unsat_BQS2[31]) ? 8'd0 : (|S_unsat_BQS2[30:8] == 1) ? 8'd255 : S_unsat_BQS2[7:0];
@@ -1535,8 +1400,5 @@ module LSTM#(
 	assign B_sat_MAQ1 = (B_unsat_MAQ1[31]) ? 8'd0 : (|B_unsat_MAQ1[30:8] == 1) ? 8'd255 : B_unsat_MAQ1[7:0];
 	assign B_sat_ct_TMQ1 = (B_unsat_ct_TMQ1[31]) ? 8'd0 : (|B_unsat_ct_TMQ1[30:8] == 1) ? 8'd255 : B_unsat_ct_TMQ1[7:0];
 	assign B_sat_ht_TMQ1 = (B_unsat_Z_ht_TMQ1[31]) ? 8'd0 : (|B_unsat_Z_ht_TMQ1[30:8] == 1) ? 8'd255 : B_unsat_Z_ht_TMQ1[7:0];	
-
-	assign Ctxt_sat1 = (Ctxt_unsat1[31]) ? 8'd0 : (|Ctxt_unsat1[30:8] == 1) ? 8'd255 : Ctxt_unsat1[7:0];
-	assign Ctxt_sat2 = (Ctxt_unsat2[31]) ? 8'd0 : (|Ctxt_unsat2[30:8] == 1) ? 8'd255 : Ctxt_unsat2[7:0];
 	
 endmodule
