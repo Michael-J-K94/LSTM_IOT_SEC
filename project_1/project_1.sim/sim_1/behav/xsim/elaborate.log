@@ -4,4 +4,31 @@ Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 94fb33c951
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v" Line 5. Module SRAM_32x512 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.inpdt_16_mid
+Compiling module xil_defaultlib.SRAM_128x2048
+Compiling module xil_defaultlib.SRAM_32x512
+Compiling module xil_defaultlib.SRAM_512x128
+Compiling module xil_defaultlib.sigmoid_LUT
+Compiling module xil_defaultlib.tanh_LUT
+Compiling module xil_defaultlib.LSTM_default
+Compiling module xil_defaultlib.weight_memory
+Compiling module xil_defaultlib.bias_memory
+Compiling module xil_defaultlib.br_weight_memory
+Compiling module xil_defaultlib.br_bias_memory
+Compiling module xil_defaultlib.input_data_memory
+Compiling module xil_defaultlib.output_memory
+Compiling module xil_defaultlib.br_input_data_memory
+Compiling module xil_defaultlib.br_output_memory
+Compiling module xil_defaultlib.lstm_tb_ctxt_convert
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot lstm_tb_ctxt_convert_behav

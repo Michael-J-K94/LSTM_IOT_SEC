@@ -2,10 +2,10 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Mon May 13 21:59:05 2019
-# Process ID: 17768
+# Start of session at: Tue May 14 02:55:50 2019
+# Process ID: 22628
 # Current directory: C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24000 C:\Users\ECE\Desktop\LSTM_IOT_SEC\project_1\project_1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17504 C:\Users\ECE\Desktop\LSTM_IOT_SEC\project_1\project_1.xpr
 # Log file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/vivado.log
 # Journal file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1\vivado.jou
 #-----------------------------------------------------------
@@ -16,3 +16,23 @@ launch_simulation
 open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
 source lstm_tb_ctxt_convert.tcl
 run all
+restart
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+restart
+run all
+restart
+restart
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+relaunch_sim
+relaunch_sim
+relaunch_sim
+run 350 us
+relaunch_sim
+run 350 us
+close_sim

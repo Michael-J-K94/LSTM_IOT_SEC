@@ -820,12 +820,12 @@ module LSTM#(
 						if( !(counter==0) && (counter%2 == 0) ) begin
 							bias_bram_EN <= 1'b1;
 							bias_bram_WE <= 1'b1;
-							bias_bram_Wdata[31:0] = 'd0;
-							bias_bram_Wdata[15:8] = init_weight_buff[14];
-							bias_bram_Wdata[7:0] = init_weight_buff[15];
+							bias_bram_Wdata[31:0] <= 'd0;
+							bias_bram_Wdata[15:8] <= init_weight_buff[14];
+							bias_bram_Wdata[7:0] <= init_weight_buff[15];
 							case(counter%8) 
 								2: begin
-									if(counter == 2) bias_bram_addr <= bias_bram_addr + 1;
+									if(counter == 2) bias_bram_addr <= 1;
 									else bias_bram_addr <= bias_bram_addr + 2;
 								end
 								4: begin
@@ -914,9 +914,9 @@ module LSTM#(
 						if(!(counter==0)) begin
 							bias_bram_EN <= 1'b1;
 							bias_bram_WE <= 1'b1;
-							bias_bram_Wdata[31:0] = 'd0;
-							bias_bram_Wdata[15:8] = 8'd0;
-							bias_bram_Wdata[7:0] = init_weight_buff[15];
+							bias_bram_Wdata[31:0] <= 'd0;
+							bias_bram_Wdata[15:8] <= 8'd0;
+							bias_bram_Wdata[7:0] <= init_weight_buff[15];
 							
 							case(counter%4) 
 								1: begin 												// i

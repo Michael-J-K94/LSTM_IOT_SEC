@@ -108,45 +108,84 @@ module softmax#(
 	);	
 	
 */
+
 	SRAM_512x4096 BR_WEIGHT_BRAM(
-		.CLK(clk),
-		.EN_M(br_weight_bram_EN),
-		.WE(br_weight_bram_WE),
-		.ADDR(br_weight_bram_addr),
-		.ADDR_WRITE(br_weight_bram_addr),
-		.DIN(br_weight_bram_Wdata),
-		.DOUT(br_weight_bram_Rdata)	
+		.addra(br_weight_bram_addr),
+		.clka(clk),
+		.dina(br_weight_bram_Wdata),
+		.douta(br_weight_bram_Rdata),
+		.ena(br_weight_bram_EN),
+		.wea(br_weight_bram_WE)	
 	);
-	
+
 	SRAM_8x4096 BR_BIAS_BRAM(
-		.CLK(clk),
-		.EN_M(br_bias_bram_EN),
-		.WE(br_bias_bram_WE),
-		.ADDR(br_bias_bram_addr),
-		.ADDR_WRITE(br_bias_bram_addr),		
-		.DIN(br_bias_bram_Wdata),
-		.DOUT(br_bias_bram_Rdata)	
-	);	
-	
+		.addra(br_bias_bram_addr),
+		.clka(clk),
+		.dina(br_bias_bram_Wdata),
+		.douta(br_bias_bram_Rdata),
+		.ena(br_bias_bram_EN),
+		.wea(br_bias_bram_WE)	
+	);
+
 	SRAM_64x243 SYS_WEIGHT_BRAM(
-		.CLK(clk),
-		.EN_M(sys_weight_bram_EN),
-		.WE(sys_weight_bram_WE),
-		.ADDR(sys_weight_bram_addr),
-		.ADDR_WRITE(sys_weight_bram_addr),
-		.DIN(sys_weight_bram_Wdata),
-		.DOUT(sys_weight_bram_Rdata)	
+		.addra(sys_weight_bram_addr),
+		.clka(clk),
+		.dina(sys_weight_bram_Wdata),
+		.douta(sys_weight_bram_Rdata),
+		.ena(sys_weight_bram_EN),
+		.wea(sys_weight_bram_WE)	
 	);
 	
 	SRAM_8x243 SYS_BIAS_BRAM(
-		.CLK(clk),
-		.EN_M(sys_bias_bram_EN),
-		.WE(sys_bias_bram_WE),
-		.ADDR(sys_bias_bram_addr),
-		.ADDR_WRITE(sys_bias_bram_addr),		
-		.DIN(sys_bias_bram_Wdata),
-		.DOUT(sys_bias_bram_Rdata)	
-	);		
+		.addra(sys_bias_bram_addr),
+		.clka(clk),
+		.dina(sys_bias_bram_Wdata),
+		.douta(sys_bias_bram_Rdata),
+		.ena(sys_bias_bram_EN),
+		.wea(sys_bias_bram_WE)	
+	);	
+
+
+
+	// SRAM_512x4096 BR_WEIGHT_BRAM(
+		// .CLK(clk),
+		// .EN_M(br_weight_bram_EN),
+		// .WE(br_weight_bram_WE),
+		// .ADDR(br_weight_bram_addr),
+		// .ADDR_WRITE(br_weight_bram_addr),
+		// .DIN(br_weight_bram_Wdata),
+		// .DOUT(br_weight_bram_Rdata)	
+	// );
+	
+	// SRAM_8x4096 BR_BIAS_BRAM(
+		// .CLK(clk),
+		// .EN_M(br_bias_bram_EN),
+		// .WE(br_bias_bram_WE),
+		// .ADDR(br_bias_bram_addr),
+		// .ADDR_WRITE(br_bias_bram_addr),		
+		// .DIN(br_bias_bram_Wdata),
+		// .DOUT(br_bias_bram_Rdata)	
+	// );	
+	
+	// SRAM_64x243 SYS_WEIGHT_BRAM(
+		// .CLK(clk),
+		// .EN_M(sys_weight_bram_EN),
+		// .WE(sys_weight_bram_WE),
+		// .ADDR(sys_weight_bram_addr),
+		// .ADDR_WRITE(sys_weight_bram_addr),
+		// .DIN(sys_weight_bram_Wdata),
+		// .DOUT(sys_weight_bram_Rdata)	
+	// );
+	
+	// SRAM_8x243 SYS_BIAS_BRAM(
+		// .CLK(clk),
+		// .EN_M(sys_bias_bram_EN),
+		// .WE(sys_bias_bram_WE),
+		// .ADDR(sys_bias_bram_addr),
+		// .ADDR_WRITE(sys_bias_bram_addr),		
+		// .DIN(sys_bias_bram_Wdata),
+		// .DOUT(sys_bias_bram_Rdata)	
+	// );		
 	
 	
 // *****************************************************************************//

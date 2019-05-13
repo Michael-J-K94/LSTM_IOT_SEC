@@ -1,0 +1,53 @@
+
+*** Running vivado
+    with args -log softmax.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source softmax.tcl
+
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source softmax.tcl -notrace
+Command: synth_design -top softmax -part xa7a12tcpg238-2I
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xa7a12t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xa7a12t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 24860 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 431.992 ; gain = 98.336
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'softmax' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:5]
+	Parameter SCALE_DATA bound to: 10'b0010000000 
+	Parameter SCALE_STATE bound to: 10'b0010000000 
+	Parameter SCALE_W bound to: 10'b0010000000 
+	Parameter SCALE_B bound to: 10'b0100000000 
+	Parameter ZERO_DATA bound to: 8'b10000000 
+	Parameter ZERO_STATE bound to: 8'b10000000 
+	Parameter ZERO_W bound to: 8'b10000000 
+	Parameter ZERO_B bound to: 8'b00000000 
+	Parameter SCALE_SIGMOID bound to: 10'b0000011000 
+	Parameter SCALE_TANH bound to: 10'b0000110000 
+	Parameter ZERO_SIGMOID bound to: 8'b10000000 
+	Parameter ZERO_TANH bound to: 8'b10000000 
+	Parameter OUT_SCALE_SIGMOID bound to: 10'b0100000000 
+	Parameter OUT_SCALE_TANH bound to: 10'b0010000000 
+	Parameter OUT_ZERO_SIGMOID bound to: 8'b00000000 
+	Parameter OUT_ZERO_TANH bound to: 8'b10000000 
+	Parameter THRESHOLD bound to: 24'b000000000000111111111111 
+	Parameter IDLE bound to: 2'b00 
+	Parameter RUN bound to: 2'b01 
+	Parameter SYS_type bound to: 1'b1 
+	Parameter BR_type bound to: 1'b0 
+ERROR: [Synth 8-439] module 'SRAM_512x4096' not found [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:112]
+ERROR: [Synth 8-6156] failed synthesizing module 'softmax' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:5]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 488.309 ; gain = 154.652
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+3 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Tue May 14 01:19:06 2019...

@@ -2,10 +2,10 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Mon May 13 21:59:05 2019
-# Process ID: 17768
+# Start of session at: Tue May 14 02:55:50 2019
+# Process ID: 22628
 # Current directory: C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24000 C:\Users\ECE\Desktop\LSTM_IOT_SEC\project_1\project_1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17504 C:\Users\ECE\Desktop\LSTM_IOT_SEC\project_1\project_1.xpr
 # Log file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/vivado.log
 # Journal file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1\vivado.jou
 #-----------------------------------------------------------
@@ -14,9 +14,10 @@ open_project C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.xpr
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
-open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 761.480 ; gain = 159.938
+INFO: [IP_Flow 19-17exit
+INFO: [Common 17-206] Exiting Vivado at Tue May 14 02:56:30 2019...
+do IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 759.645 ; gain = 188.195
 update_compile_order -fileset sources_1
 launch_simulation
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
@@ -27,7 +28,7 @@ INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
 "xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
 Vivado Simulator 2018.3
@@ -37,7 +38,7 @@ Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
 INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
@@ -59,7 +60,7 @@ source lstm_tb_ctxt_convert.tcl
 # run 1000ns
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'lstm_tb_ctxt_convert_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 1078.961 ; gain = 310.402
+launch_simulation: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1011.453 ; gain = 248.738
 run all
 test          0 is passed
 
@@ -81,10 +82,531 @@ test          8 is passed
 
 test          9 is passed
 
+test          0 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x95959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595
+
+test          1 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x339d8abb7ed5a0807c8180629aa684b975807e7d8d82739d808b7c90b580838280779687c77f8c819d85df8a6fa59181818f808d90dcd99a4d744e7679927d84
+
+test          2 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0xc69870b03188d54c8880426795888ec680d8724f8bc8d3807680877f8445dfca669386ac8062cda4895a82bf8550809475a44eda868080827f7764d99857de42
+
+$finish called at time : 358445 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
 test          0 is passed
 
 test          1 is passed
 
 test          2 is passed
 
-$finish called at time : 385355 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
+test          3 is passed
+
+test          4 is passed
+
+test          5 is passed
+
+test          6 is passed
+
+test          7 is passed
+
+test          8 is passed
+
+test          9 is passed
+
+test          0 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x95959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595
+
+test          1 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x339d8abb7ed5a0807c8180629aa684b975807e7d8d82739d808b7c90b580838280779687c77f8c819d85df8a6fa59181818f808d90dcd99a4d744e7679927d84
+
+test          2 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0xc69870b03188d54c8880426795888ec680d8724f8bc8d3807680877f8445dfca669386ac8062cda4895a82bf8550809475a44eda868080827f7764d99857de42
+
+$finish called at time : 358445 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+test          3 is passed
+
+test          4 is passed
+
+test          5 is passed
+
+test          6 is passed
+
+test          7 is passed
+
+test          8 is passed
+
+test          9 is passed
+
+test          0 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x95959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595
+
+test          1 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x339d8abb7ed5a0807c8180629aa684b975807e7d8d82739d808b7c90b580838280779687c77f8c819d85df8a6fa59181818f808d90dcd99a4d744e7679927d84
+
+test          2 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0xc69870b03188d54c8880426795888ec680d8724f8bc8d3807680877f8445dfca669386ac8062cda4895a82bf8550809475a44eda868080827f7764d99857de42
+
+$finish called at time : 358445 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+test          3 is passed
+
+test          4 is passed
+
+test          5 is passed
+
+test          6 is passed
+
+test          7 is passed
+
+test          8 is passed
+
+test          9 is passed
+
+test          0 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x95959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595
+
+test          1 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x339d8abb7ed5a0807c8180629aa684b975807e7d8d82739d808b7c90b580838280779687c77f8c819d85df8a6fa59181818f808d90dcd99a4d744e7679927d84
+
+test          2 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0xc69870b03188d54c8880426795888ec680d8724f8bc8d3807680877f8445dfca669386ac8062cda4895a82bf8550809475a44eda868080827f7764d99857de42
+
+$finish called at time : 358445 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb_ctxt_convert' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_128x2048
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_32x512
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_512x128
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_output_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_weight_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt_mid.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inpdt_16_mid
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module output_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid_LUT
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh_LUT
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module weight_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_tb_ctxt_convert
+WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:353]
+WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:354]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 94fb33c9514f4a1b864ca541008e68a6 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot lstm_tb_ctxt_convert_behav xil_defaultlib.lstm_tb_ctxt_convert xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v" Line 5. Module SRAM_32x512 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.inpdt_16_mid
+Compiling module xil_defaultlib.SRAM_128x2048
+Compiling module xil_defaultlib.SRAM_32x512
+Compiling module xil_defaultlib.SRAM_512x128
+Compiling module xil_defaultlib.sigmoid_LUT
+Compiling module xil_defaultlib.tanh_LUT
+Compiling module xil_defaultlib.LSTM_default
+Compiling module xil_defaultlib.weight_memory
+Compiling module xil_defaultlib.bias_memory
+Compiling module xil_defaultlib.br_weight_memory
+Compiling module xil_defaultlib.br_bias_memory
+Compiling module xil_defaultlib.input_data_memory
+Compiling module xil_defaultlib.output_memory
+Compiling module xil_defaultlib.br_input_data_memory
+Compiling module xil_defaultlib.br_output_memory
+Compiling module xil_defaultlib.lstm_tb_ctxt_convert
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot lstm_tb_ctxt_convert_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:22 . Memory (MB): peak = 1471.785 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '22' seconds
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:22 . Memory (MB): peak = 1471.785 ; gain = 0.000
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:29 . Memory (MB): peak = 1471.785 ; gain = 0.000
+run all
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+test          3 is passed
+
+test          4 is passed
+
+test          5 is passed
+
+test          6 is passed
+
+test          7 is passed
+
+test          8 is passed
+
+test          9 is passed
+
+test          0 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x95959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595959595
+
+test          1 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0x339d8abb7ed5a0807c8180629aa684b975807e7d8d82739d808b7c90b580838280779687c77f8c819d85df8a6fa59181818f808d90dcd99a4d744e7679927d84
+
+test          2 is failed
+result is 0x80808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080
+answer is 0xc69870b03188d54c8880426795888ec680d8724f8bc8d3807680877f8445dfca669386ac8062cda4895a82bf8550809475a44eda868080827f7764d99857de42
+
+$finish called at time : 358445 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb_ctxt_convert' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_128x2048
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_32x512
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_512x128
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_output_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_weight_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt_mid.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inpdt_16_mid
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM
+ERROR: [VRFC 10-3161] cannot assign to memory 'br_Wbram_WE' directly [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v:812]
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v:812]
+ERROR: [VRFC 10-1523] unpacked value/target cannot be used in assignment [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v:812]
+ERROR: [VRFC 10-2865] module 'LSTM' ignored due to previous errors [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v:15]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb_ctxt_convert' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_128x2048
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_32x512
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_512x128
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_output_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_weight_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt_mid.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inpdt_16_mid
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM
+ERROR: [VRFC 10-3161] cannot assign to memory 'br_Wbram_WE' directly [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v:813]
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v:813]
+ERROR: [VRFC 10-1523] unpacked value/target cannot be used in assignment [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v:813]
+ERROR: [VRFC 10-2865] module 'LSTM' ignored due to previous errors [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v:15]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb_ctxt_convert' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_128x2048
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_32x512
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_512x128
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_output_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_weight_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt_mid.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inpdt_16_mid
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module output_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid_LUT
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh_LUT
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module weight_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_tb_ctxt_convert
+WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:353]
+WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:354]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 94fb33c9514f4a1b864ca541008e68a6 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot lstm_tb_ctxt_convert_behav xil_defaultlib.lstm_tb_ctxt_convert xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v" Line 5. Module SRAM_32x512 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.inpdt_16_mid
+Compiling module xil_defaultlib.SRAM_128x2048
+Compiling module xil_defaultlib.SRAM_32x512
+Compiling module xil_defaultlib.SRAM_512x128
+Compiling module xil_defaultlib.sigmoid_LUT
+Compiling module xil_defaultlib.tanh_LUT
+Compiling module xil_defaultlib.LSTM_default
+Compiling module xil_defaultlib.weight_memory
+Compiling module xil_defaultlib.bias_memory
+Compiling module xil_defaultlib.br_weight_memory
+Compiling module xil_defaultlib.br_bias_memory
+Compiling module xil_defaultlib.input_data_memory
+Compiling module xil_defaultlib.output_memory
+Compiling module xil_defaultlib.br_input_data_memory
+Compiling module xil_defaultlib.br_output_memory
+Compiling module xil_defaultlib.lstm_tb_ctxt_convert
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot lstm_tb_ctxt_convert_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:15 . Memory (MB): peak = 1471.785 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '15' seconds
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:15 . Memory (MB): peak = 1471.785 ; gain = 0.000
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1471.785 ; gain = 0.000
+run 350 us
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+test          3 is passed
+
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb_ctxt_convert' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_128x2048
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_32x512
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SRAM_512x128
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_bias_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_output_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module br_weight_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt_mid.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inpdt_16_mid
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module output_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid_LUT
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh_LUT
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module weight_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_tb_ctxt_convert
+WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:353]
+WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:354]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 94fb33c9514f4a1b864ca541008e68a6 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot lstm_tb_ctxt_convert_behav xil_defaultlib.lstm_tb_ctxt_convert xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v" Line 5. Module SRAM_128x2048 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v" Line 5. Module SRAM_32x512 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" Line 5. Module SRAM_512x128 doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.inpdt_16_mid
+Compiling module xil_defaultlib.SRAM_128x2048
+Compiling module xil_defaultlib.SRAM_32x512
+Compiling module xil_defaultlib.SRAM_512x128
+Compiling module xil_defaultlib.sigmoid_LUT
+Compiling module xil_defaultlib.tanh_LUT
+Compiling module xil_defaultlib.LSTM_default
+Compiling module xil_defaultlib.weight_memory
+Compiling module xil_defaultlib.bias_memory
+Compiling module xil_defaultlib.br_weight_memory
+Compiling module xil_defaultlib.br_bias_memory
+Compiling module xil_defaultlib.input_data_memory
+Compiling module xil_defaultlib.output_memory
+Compiling module xil_defaultlib.br_input_data_memory
+Compiling module xil_defaultlib.br_output_memory
+Compiling module xil_defaultlib.lstm_tb_ctxt_convert
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot lstm_tb_ctxt_convert_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:22 . Memory (MB): peak = 1861.395 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '22' seconds
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:22 . Memory (MB): peak = 1861.395 ; gain = 0.000
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:29 . Memory (MB): peak = 1861.395 ; gain = 0.074
+run 350 us
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+test          3 is passed
+
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue May 14 03:10:12 2019...
