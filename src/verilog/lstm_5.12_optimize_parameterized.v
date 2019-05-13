@@ -51,6 +51,9 @@ module LSTM#(
 	input [511:0] iData,
 	
 	output reg oLstm_done,	// lstm done & ready to do next task. 
+	
+	output reg oLstm_valid,	
+	output reg oLstm_type,
 	output reg [511:0] oBr_Ct,	// Wire actually
 	output reg [511:0] oBr_Ht,
 	output reg [63:0] oSys_Ct,
@@ -84,8 +87,6 @@ module LSTM#(
 	reg lstm_done;
 	reg init_valid_buff;
 
-	reg [7:0] init_data_buff1;
-	reg [7:0] init_data_buff2;	
 	reg [7:0] init_weight_buff [0:15];
 
 ////////
@@ -134,7 +135,6 @@ module LSTM#(
 // Weight BRAM //
 /////////////////
 	reg weight_bram_EN;
-	reg weight_bram_EN_buff;
 
 	reg [10:0] weight_bram_addr1;	
 	reg [10:0] weight_bram_addr2;	
@@ -152,7 +152,6 @@ module LSTM#(
 // BIAS BRAM //
 ///////////////
 	reg bias_bram_EN;
-	reg bias_bram_EN_buff;
 
 	reg [8:0] bias_bram_addr;
 	reg bias_bram_WE;
@@ -165,10 +164,10 @@ module LSTM#(
 // Quantization //
 //////////////////
 /***** Quantization MEANS Saturating & 8bit Quantizing (After scale/zero operation) *****/
-	generate
-		for(q=0; q<
+	// generate
+		// for(q=0; q<
 
-	endgenerate
+	// endgenerate
 
 	reg [31:0] S_real_inpdt_sumBQS1; 
 	reg [31:0] S_real_inpdt_sumBQS2; 
@@ -452,35 +451,35 @@ module LSTM#(
 // Brams //
 ///////////
 
-	SRAM_128x2048 WEIGHT_BRAM1(
-		.addra(weight_bram_addr1),
-		.clka(clk),
-		.dina(weight_bram_Wdata1),
-		.douta(weight_bram_Rdata1),
-		.ena(weight_bram_EN),
-		.wea(weight_bram_WE1)	
-	);
+	// SRAM_128x2048 WEIGHT_BRAM1(
+		// .addra(weight_bram_addr1),
+		// .clka(clk),
+		// .dina(weight_bram_Wdata1),
+		// .douta(weight_bram_Rdata1),
+		// .ena(weight_bram_EN),
+		// .wea(weight_bram_WE1)	
+	// );
 
-	SRAM_128x2048 WEIGHT_BRAM2(
-		.addra(weight_bram_addr2),
-		.clka(clk),
-		.dina(weight_bram_Wdata2),
-		.douta(weight_bram_Rdata2),
-		.ena(weight_bram_EN),
-		.wea(weight_bram_WE2)	
-	);
+	// SRAM_128x2048 WEIGHT_BRAM2(
+		// .addra(weight_bram_addr2),
+		// .clka(clk),
+		// .dina(weight_bram_Wdata2),
+		// .douta(weight_bram_Rdata2),
+		// .ena(weight_bram_EN),
+		// .wea(weight_bram_WE2)	
+	// );
 	
-	SRAM_32x512 BIAS_BRAM(
-		.addra(bias_bram_addr),
-		.clka(clk),
-		.dina(bias_bram_Wdata),
-		.douta(bias_bram_Rdata),
-		.ena(bias_bram_EN),
-		.wea(bias_bram_WE)	
-	);
+	// SRAM_32x512 BIAS_BRAM(
+		// .addra(bias_bram_addr),
+		// .clka(clk),
+		// .dina(bias_bram_Wdata),
+		// .douta(bias_bram_Rdata),
+		// .ena(bias_bram_EN),
+		// .wea(bias_bram_WE)	
+	// );
 
 
-/*	****SIMULATED BRAM MODULE**** 
+	// ****SIMULATED BRAM MODULE**** 
 
 	SRAM_128x2048 WEIGHT_BRAM1(
 		.CLK(clk),
@@ -511,7 +510,7 @@ module LSTM#(
 		.DIN(bias_bram_Wdata),
 		.DOUT(bias_bram_Rdata)	
 	);
-*/
+
 
 
 //////////////////
@@ -555,12 +554,15 @@ module LSTM#(
 			lstm_done <= 1'b1;
 			counter <= 'd0;
 			ctxt_counter <= 'd0;
+			oLstm_type <= SYS_type;
+			oLstm_valid <= 1'b0;
 		end
 		else begin		
 			init_valid_buff <= iInit_valid;
 			case(lstm_state)
 			
 				IDLE: begin
+					oLstm_valid <= 1'b0;
 					if(iInit_valid) begin
 						lstm_state <= INITIALIZE_W_B;
 						lstm_done <= 1'b0;
@@ -594,6 +596,10 @@ module LSTM#(
 					if(counter == 1028 ) begin
 						lstm_state <= IDLE;
 						lstm_done <= 1'b1;
+						
+						oLstm_type <= BR_type;
+						oLstm_valid <= 1'b1;
+						
 						counter <= 'd0;
 					end
 					else begin					
@@ -608,6 +614,9 @@ module LSTM#(
 					else begin
 						lstm_state <= IDLE;
 						lstm_done <= 1'b1;
+						
+						oLstm_valid <= 1'b0;
+						
 						counter <= 'd0;
 					end
 				end
@@ -616,6 +625,10 @@ module LSTM#(
 					if(ctxt_counter == 35) begin
 						lstm_state <= IDLE;
 						lstm_done <= 1'b1;
+						
+						oLstm_type <= SYS_type;
+						oLstm_valid <= 1'b1;
+						
 						ctxt_counter <= 'd0;
 					end
 					else begin
@@ -625,7 +638,10 @@ module LSTM#(
 
 				ERROR: begin
 					lstm_state <= ERROR;
-					lstm_done <= 1'b0;			
+					lstm_done <= 1'b0;	
+					
+					oLstm_valid <= 1'b0;
+					
 					counter <= 'd0;							
 				end	
 
@@ -645,8 +661,6 @@ module LSTM#(
 	always@(posedge clk or negedge resetn) begin
 		if(!resetn) begin
 
-			init_data_buff1 <= 'd0;
-			init_data_buff2 <= 'd0;
 			for(i=0; i<16; i=i+1) begin
 				init_weight_buff[i] <= 'd0;
 			end
@@ -676,7 +690,6 @@ module LSTM#(
 			inpdt_EN <= 'd0;
 
 			weight_bram_EN <= 'd0;			
-			weight_bram_EN_buff <= 'd0;
 			weight_bram_addr1 <= 'd0;
 			weight_bram_addr2 <= 'd0;
 			weight_bram_WE1 <= 'd0;
@@ -686,7 +699,6 @@ module LSTM#(
 			weight_buffer <= 'd0;
 
 			bias_bram_EN <= 'd0;
-			bias_bram_EN_buff <= 'd0;
 			bias_bram_addr <= 'd0;
 			bias_bram_WE <= 'd0;
 			bias_bram_Wdata <= 'd0;
@@ -697,16 +709,9 @@ module LSTM#(
 			ctxt_type <= Ct_type;
 		end
 		else begin
-			weight_bram_EN_buff <= weight_bram_EN;
-			bias_bram_EN_buff <= bias_bram_EN;
 			
 			/*if(weight_bram_EN_buff)*/ weight_buffer <= {weight_bram_Rdata1 , weight_bram_Rdata2};
 			/*if(bias_bram_EN_buff)*/ bias_buffer <= bias_bram_Rdata;
-			
-			if(iInit_valid) begin
-				init_data_buff1 <= iInit_data;
-				init_data_buff2 <= init_data_buff1;
-			end
 
 			//** CTRL by lstm_state **//
 			case(lstm_state)

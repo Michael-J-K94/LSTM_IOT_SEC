@@ -51,11 +51,11 @@ module lstm_tb_br();
     localparam // iInit_dataeter_type
         syscall_w = 3'd0,
         syscall_b = 3'd1,
-        syscall_context = 3'd2,
+        //syscall_context = 3'd2,
         idle = 3'd7,
 		
-		branch_w = 3'd3,
-		branch_b = 3'd4,
+		branch_w = 3'd2,
+		branch_b = 3'd3,
 		branch_context = 3'd5; 
 	
 	
@@ -67,9 +67,9 @@ module lstm_tb_br();
 		.iInit_data(iInit_data),
 		.iInit_type(iInit_type),
 		
-		.iLoad_valid(1'b0),	// load ct/ht valid
-		.iBr_Ct_load('d100),
-		.iBr_Ht_load('d100),
+		//.iLoad_valid(1'b0),	// load ct/ht valid
+		//.iBr_Ct_load('d100),
+		//.iBr_Ht_load('d100),
 
 		.iNext_valid(iNext_valid),	// top valid & ready. 
 		.iType(1'b0),		//
@@ -257,11 +257,11 @@ module lstm_tb_br();
                 .ready(ready_mem_bias),
                 .data(b_data)
             );
-    br_context_memory c_mem(
-                .readM(clk & read_context),
-                .ready(ready_mem_context),
-                .data(context_data)
-            );
+    // br_context_memory c_mem(
+                // .readM(clk & read_context),
+                // .ready(ready_mem_context),
+                // .data(context_data)
+            // );
     br_input_data_memory i_mem(
                 .address(input_mem_address),
                 .data(input_data)

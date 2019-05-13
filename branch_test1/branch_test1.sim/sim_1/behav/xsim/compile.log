@@ -4,17 +4,15 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/s
 INFO: [VRFC 10-311] analyzing module SRAM_32x512
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module br_bias_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_context_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module br_context_memory
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module br_input_data_memory
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module br_output_memory
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module br_weight_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module inpdt_16
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation_bias_fixed.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/implementation test.5.13/inpdt_mid.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inpdt_16_mid
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/implementation test.5.13/lstm_5.12_convert_verified.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module LSTM
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sigmoid_LUT

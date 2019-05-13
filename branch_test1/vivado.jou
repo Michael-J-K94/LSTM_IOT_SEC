@@ -2,45 +2,232 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun May 12 12:05:59 2019
-# Process ID: 4240
+# Start of session at: Mon May 13 17:48:00 2019
+# Process ID: 5244
 # Current directory: C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23204 C:\Users\ECE\Desktop\LSTM_IOT_SEC\branch_test1\branch_test1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5304 C:\Users\ECE\Desktop\LSTM_IOT_SEC\branch_test1\branch_test1.xpr
 # Log file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/vivado.log
 # Journal file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/branch_test1.xpr
 update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation_bias_fixed.v]
+update_compile_order -fileset sources_1
+add_files -norecurse {{C:/Users/ECE/Desktop/implementation test.5.13/lstm_5.12_convert_verified.v}}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse {{C:/Users/ECE/Desktop/implementation test.5.13/inpdt_mid.v}}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation
 launch_simulation
 open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/lstm_tb_br_behav.wcfg
 source lstm_tb_br.tcl
 run all
-relaunch_sim
+export_ip_user_files -of_objects  [get_files {{C:/Users/ECE/Desktop/implementation test.5.13/lstm_5.12_convert_verified.v}}] -no_script -reset -force -quiet
+remove_files  {{C:/Users/ECE/Desktop/implementation test.5.13/lstm_5.12_convert_verified.v}}
 update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files {{C:/Users/ECE/Desktop/implementation test.5.13/inpdt_mid.v}}] -no_script -reset -force -quiet
+remove_files  {{C:/Users/ECE/Desktop/implementation test.5.13/inpdt_mid.v}}
+create_project project_1 C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1 -part xa7a12tcpg238-2I
+add_files -norecurse {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_128x2048.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.12_convert_verified.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt_mid.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_context_memory.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_lstm_tb.v}
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/lstm_tb_br_behav.wcfg}
+current_project branch_test1
+close_sim
+close_project
+launch_simulation
+source lstm_tb_br.tcl
 run all
-export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation.v] -no_script -reset -force -quiet
-remove_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation.v
+restart
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+add_files -fileset sim_1 -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+set_property xsim.view C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg [get_filesets sim_1]
+restart
+run all
+restart
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+restart
+run 353 us
+set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.12_convert_verified.v]
 update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation_bias_fixed.v
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation_bias_fixed.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation_bias_fixed.v
 add_files -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation_bias_fixed.v
 update_compile_order -fileset sources_1
-export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v] -no_script -reset -force -quiet
-remove_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_16x512.v
 update_compile_order -fileset sources_1
-add_files -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_32x512.v
+add_files -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v
+update_compile_order -fileset sources_1
+restart
+close_sim
+launch_simulation
+open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+source lstm_tb_br.tcl
+run all
+set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation_bias_fixed.v]
+set_property is_enabled true [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.12_convert_verified.v]
 update_compile_order -fileset sources_1
 close_sim
 launch_simulation
-open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/lstm_tb_br_behav.wcfg
+open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
 source lstm_tb_br.tcl
-run all
+run 353 us
+restart
+run 353 us
+restart
+run 353 us
+restart
+restart
+run 353 us
+restart
+restart
+run 353 us
+restart
+run 353 us
+restart
+run 353 us
+restart
+run 353 us
+restart
+restart
+run 353 us
+restart
+run 353 us
+run 353 us
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+restart
+run 353 us
+restart
+run 353 us
 relaunch_sim
-close_sim
+restart
+run 353 us
+restart
+run 353 us
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+restart
+run 353 us
+restart
+run 353 us
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_lstm_tb.v]
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+set_property SOURCE_SET {} [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v]
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v
+update_compile_order -fileset sim_1
+set_property SOURCE_SET {} [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v}
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v
+update_compile_order -fileset sim_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+restart
+run all
 launch_simulation
-open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/lstm_tb_br_behav.wcfg
-source lstm_tb_br.tcl
-run all
-save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/branch_test1/lstm_tb_br_behav.wcfg}
+open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+source lstm_tb_ctxt_convert.tcl
+run 200 us
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+restart
+run 200 us
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+restart
+run 200 us
+run 200 us
+run 200 us
+restart
+run 400 us
+restart
+restart
+run 400 us
+relaunch_sim
+restart
+run 400 us
+restart
+run 400 us
+relaunch_sim
+run 400 us
+relaunch_sim
+restart
+run 400 us
+run 100 us
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+relaunch_sim
+relaunch_sim
+relaunch_sim
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+relaunch_sim
+restart
+run 350 us
+relaunch_sim
+relaunch_sim
 relaunch_sim
 run all
+restart
+run all
+relaunch_sim
+run all
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.12_convert_verified.v] -no_script -reset -force -quiet
+remove_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.12_convert_verified.v
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+add_files -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.13_convert_verified.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v
+update_compile_order -fileset sim_1
+relaunch_sim
+update_compile_order -fileset sim_1
+run all
+close_sim
 close_sim
