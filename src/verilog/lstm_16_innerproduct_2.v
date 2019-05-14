@@ -373,14 +373,14 @@ module LSTM#(
 				inpdt_X[0][144-9*(i+1)+:9] = $signed({1'b0,iData[64-8*(i+1)+:8]}) - $signed({1'b0,ZERO_DATA});			
 			end
 			for(i=8; i<16; i=i+1) begin
-				inpdt_X[0][144-9*(i+1)+:9] = $signed({1'b0,Sys_Ht[i]}) - $signed({1'b0,ZERO_DATA});
+				inpdt_X[0][144-9*(i+1)+:9] = $signed({1'b0,Sys_Ht[i-8]}) - $signed({1'b0,ZERO_DATA});
 			end
 
 			for(i=0; i<8; i=i+1) begin
 				inpdt_X[1][144-9*(i+1)+:9] = $signed({1'b0,iData[64-8*(i+1)+:8]}) - $signed({1'b0,ZERO_DATA});
 			end
 			for(i=8; i<16; i=i+1) begin
-				inpdt_X[1][144-9*(i+1)+:9] = $signed({1'b0,Sys_Ht[i]} - {1'b0,ZERO_DATA});
+				inpdt_X[1][144-9*(i+1)+:9] = $signed({1'b0,Sys_Ht[i-8]} - {1'b0,ZERO_DATA});
 			end		
 			
 			
