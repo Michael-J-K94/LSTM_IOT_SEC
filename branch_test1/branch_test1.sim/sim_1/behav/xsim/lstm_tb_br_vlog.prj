@@ -1,15 +1,9 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../../src/verilog/SRAM_128x2048.v" \
-"../../../../../src/verilog/SRAM_32x512.v" \
 "../../../../../src/tb/branch/branch_bias_memory.v" \
 "../../../../../src/tb/branch/branch_input_data_memory.v" \
 "../../../../../src/tb/branch/branch_output_memory.v" \
 "../../../../../src/tb/branch/branch_weight_memory.v" \
-"../../../../../../implementation test.5.13/inpdt_mid.v" \
-"../../../../../../implementation test.5.13/lstm_5.12_convert_verified.v" \
-"../../../../../src/verilog/sigmoid_LUT.v" \
-"../../../../../src/verilog/tanh_LUT.v" \
 "../../../../../src/tb/branch/branch_lstm_tb.v" \
 
 # compile glbl module

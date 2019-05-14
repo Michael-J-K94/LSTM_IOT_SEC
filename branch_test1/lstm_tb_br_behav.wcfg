@@ -11,19 +11,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="342050500000fs"></ZoomStartTime>
-      <ZoomEndTime time="342514000001fs"></ZoomEndTime>
-      <Cursor1Time time="342255000000fs"></Cursor1Time>
+      <ZoomStartTime time="342156500000fs"></ZoomStartTime>
+      <ZoomEndTime time="342867500001fs"></ZoomEndTime>
+      <Cursor1Time time="342345000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="246"></NameColumnWidth>
-      <ValueColumnWidth column_width="145"></ValueColumnWidth>
+      <ValueColumnWidth column_width="156"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="35" />
+   <WVObjectSize size="43" />
    <wvobject fp_name="group222" type="group">
       <obj_property name="label">TB</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/lstm_tb_br/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -160,10 +159,6 @@
          <obj_property name="ElementShortName">syscall_b[2:0]</obj_property>
          <obj_property name="ObjectShortName">syscall_b[2:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/lstm_tb_br/syscall_context" type="array">
-         <obj_property name="ElementShortName">syscall_context[2:0]</obj_property>
-         <obj_property name="ObjectShortName">syscall_context[2:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/lstm_tb_br/idle" type="array">
          <obj_property name="ElementShortName">idle[2:0]</obj_property>
          <obj_property name="ObjectShortName">idle[2:0]</obj_property>
@@ -174,6 +169,12 @@
    <wvobject fp_name="group264" type="group">
       <obj_property name="label">W1</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lstm_tb_br/UUT/iInit_type" type="array">
+         <obj_property name="ElementShortName">iInit_type[2:0]</obj_property>
+         <obj_property name="ObjectShortName">iInit_type[2:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
       <wvobject fp_name="/lstm_tb_br/UUT/weight_bram_Wdata1" type="array">
          <obj_property name="ElementShortName">weight_bram_Wdata1[127:0]</obj_property>
          <obj_property name="ObjectShortName">weight_bram_Wdata1[127:0]</obj_property>
@@ -188,7 +189,6 @@
       <wvobject fp_name="/lstm_tb_br/UUT/init_weight_buff" type="array">
          <obj_property name="ElementShortName">init_weight_buff[0:15][7:0]</obj_property>
          <obj_property name="ObjectShortName">init_weight_buff[0:15][7:0]</obj_property>
-         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/CLK" type="logic">
          <obj_property name="ElementShortName">CLK</obj_property>
@@ -225,6 +225,174 @@
          <obj_property name="label">mem</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[0]" type="array">
+            <obj_property name="ElementShortName">[0][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1]" type="array">
+            <obj_property name="ElementShortName">[1][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[2]" type="array">
+            <obj_property name="ElementShortName">[2][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[3]" type="array">
+            <obj_property name="ElementShortName">[3][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[4]" type="array">
+            <obj_property name="ElementShortName">[4][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[4][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[5]" type="array">
+            <obj_property name="ElementShortName">[5][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[5][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[6]" type="array">
+            <obj_property name="ElementShortName">[6][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[6][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[15]" type="array">
+            <obj_property name="ElementShortName">[15][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[15][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[16]" type="array">
+            <obj_property name="ElementShortName">[16][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[16][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[17]" type="array">
+            <obj_property name="ElementShortName">[17][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[17][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[18]" type="array">
+            <obj_property name="ElementShortName">[18][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[18][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[19]" type="array">
+            <obj_property name="ElementShortName">[19][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[19][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[20]" type="array">
+            <obj_property name="ElementShortName">[20][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[20][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[21]" type="array">
+            <obj_property name="ElementShortName">[21][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[21][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[22]" type="array">
+            <obj_property name="ElementShortName">[22][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[22][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[23]" type="array">
+            <obj_property name="ElementShortName">[23][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[23][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[46]" type="array">
+            <obj_property name="ElementShortName">[46][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[46][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[47]" type="array">
+            <obj_property name="ElementShortName">[47][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[47][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[48]" type="array">
+            <obj_property name="ElementShortName">[48][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[48][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[49]" type="array">
+            <obj_property name="ElementShortName">[49][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[49][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[50]" type="array">
+            <obj_property name="ElementShortName">[50][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[50][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[51]" type="array">
+            <obj_property name="ElementShortName">[51][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[51][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[52]" type="array">
+            <obj_property name="ElementShortName">[52][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[52][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[53]" type="array">
+            <obj_property name="ElementShortName">[53][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[53][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[54]" type="array">
+            <obj_property name="ElementShortName">[54][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[54][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[55]" type="array">
+            <obj_property name="ElementShortName">[55][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[55][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[56]" type="array">
+            <obj_property name="ElementShortName">[56][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[56][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[57]" type="array">
+            <obj_property name="ElementShortName">[57][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[57][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[58]" type="array">
+            <obj_property name="ElementShortName">[58][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[58][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[59]" type="array">
+            <obj_property name="ElementShortName">[59][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[59][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[60]" type="array">
+            <obj_property name="ElementShortName">[60][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[60][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[61]" type="array">
+            <obj_property name="ElementShortName">[61][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[61][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[62]" type="array">
+            <obj_property name="ElementShortName">[62][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[62][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[63]" type="array">
+            <obj_property name="ElementShortName">[63][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[63][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[64]" type="array">
+            <obj_property name="ElementShortName">[64][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[64][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[65]" type="array">
+            <obj_property name="ElementShortName">[65][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[65][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[66]" type="array">
+            <obj_property name="ElementShortName">[66][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[66][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[67]" type="array">
+            <obj_property name="ElementShortName">[67][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[67][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[68]" type="array">
+            <obj_property name="ElementShortName">[68][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[68][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[69]" type="array">
+            <obj_property name="ElementShortName">[69][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[69][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[70]" type="array">
+            <obj_property name="ElementShortName">[70][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[70][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[71]" type="array">
+            <obj_property name="ElementShortName">[71][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[71][127:0]</obj_property>
+         </wvobject>
          <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[78]" type="array">
             <obj_property name="ElementShortName">[78][127:0]</obj_property>
             <obj_property name="ObjectShortName">[78][127:0]</obj_property>
@@ -285,103 +453,51 @@
             <obj_property name="ElementShortName">[92][127:0]</obj_property>
             <obj_property name="ObjectShortName">[92][127:0]</obj_property>
          </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1023]" type="array">
-            <obj_property name="ElementShortName">[1023][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1023][127:0]</obj_property>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[554]" type="array">
+            <obj_property name="ElementShortName">[554][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[554][127:0]</obj_property>
          </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1024]" type="array">
-            <obj_property name="ElementShortName">[1024][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1024][127:0]</obj_property>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[555]" type="array">
+            <obj_property name="ElementShortName">[555][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[555][127:0]</obj_property>
          </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1025]" type="array">
-            <obj_property name="ElementShortName">[1025][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1025][127:0]</obj_property>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[556]" type="array">
+            <obj_property name="ElementShortName">[556][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[556][127:0]</obj_property>
          </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1026]" type="array">
-            <obj_property name="ElementShortName">[1026][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1026][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1027]" type="array">
-            <obj_property name="ElementShortName">[1027][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1027][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1028]" type="array">
-            <obj_property name="ElementShortName">[1028][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1028][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1029]" type="array">
-            <obj_property name="ElementShortName">[1029][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1029][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1030]" type="array">
-            <obj_property name="ElementShortName">[1030][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1030][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1031]" type="array">
-            <obj_property name="ElementShortName">[1031][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1031][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1032]" type="array">
-            <obj_property name="ElementShortName">[1032][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1032][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1033]" type="array">
-            <obj_property name="ElementShortName">[1033][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1033][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1034]" type="array">
-            <obj_property name="ElementShortName">[1034][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1034][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1035]" type="array">
-            <obj_property name="ElementShortName">[1035][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1035][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1036]" type="array">
-            <obj_property name="ElementShortName">[1036][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1036][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1037]" type="array">
-            <obj_property name="ElementShortName">[1037][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1037][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1038]" type="array">
-            <obj_property name="ElementShortName">[1038][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1038][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1039]" type="array">
-            <obj_property name="ElementShortName">[1039][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1039][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1040]" type="array">
-            <obj_property name="ElementShortName">[1040][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1040][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1041]" type="array">
-            <obj_property name="ElementShortName">[1041][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1041][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1042]" type="array">
-            <obj_property name="ElementShortName">[1042][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1042][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1043]" type="array">
-            <obj_property name="ElementShortName">[1043][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[1043][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[2045]" type="array">
-            <obj_property name="ElementShortName">[2045][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[2045][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[2046]" type="array">
-            <obj_property name="ElementShortName">[2046][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[2046][127:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[2047]" type="array">
-            <obj_property name="ElementShortName">[2047][127:0]</obj_property>
-            <obj_property name="ObjectShortName">[2047][127:0]</obj_property>
+         <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[557]" type="array">
+            <obj_property name="ElementShortName">[557][127:0]</obj_property>
+            <obj_property name="ObjectShortName">[557][127:0]</obj_property>
          </wvobject>
       </wvobject>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1058]" type="array">
+      <obj_property name="ElementShortName">[1058][127:0]</obj_property>
+      <obj_property name="ObjectShortName">[1058][127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1059]" type="array">
+      <obj_property name="ElementShortName">[1059][127:0]</obj_property>
+      <obj_property name="ObjectShortName">[1059][127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1060]" type="array">
+      <obj_property name="ElementShortName">[1060][127:0]</obj_property>
+      <obj_property name="ObjectShortName">[1060][127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1061]" type="array">
+      <obj_property name="ElementShortName">[1061][127:0]</obj_property>
+      <obj_property name="ObjectShortName">[1061][127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1062]" type="array">
+      <obj_property name="ElementShortName">[1062][127:0]</obj_property>
+      <obj_property name="ObjectShortName">[1062][127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1063]" type="array">
+      <obj_property name="ElementShortName">[1063][127:0]</obj_property>
+      <obj_property name="ObjectShortName">[1063][127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb_br/UUT/WEIGHT_BRAM1/mem[1064]" type="array">
+      <obj_property name="ElementShortName">[1064][127:0]</obj_property>
+      <obj_property name="ObjectShortName">[1064][127:0]</obj_property>
    </wvobject>
    <wvobject fp_name="group347" type="group">
       <obj_property name="label">W2</obj_property>
@@ -1716,6 +1832,8 @@
       <obj_property name="ElementShortName">counter[31:0]</obj_property>
       <obj_property name="ObjectShortName">counter[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/lstm_tb_br/UUT/lstm_done" type="logic">
       <obj_property name="ElementShortName">lstm_done</obj_property>
@@ -1729,9 +1847,9 @@
       <obj_property name="ElementShortName">oBr_Ht[511:0]</obj_property>
       <obj_property name="ObjectShortName">oBr_Ht[511:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/lstm_tb_br/UUT/Br_Ht_temp" type="array">
-      <obj_property name="ElementShortName">Br_Ht_temp[0:63][7:0]</obj_property>
-      <obj_property name="ObjectShortName">Br_Ht_temp[0:63][7:0]</obj_property>
+   <wvobject fp_name="/lstm_tb_br/UUT/Br_Ct" type="array">
+      <obj_property name="ElementShortName">Br_Ct[0:63][7:0]</obj_property>
+      <obj_property name="ObjectShortName">Br_Ct[0:63][7:0]</obj_property>
       <obj_property name="CustomSignalColor">#A52A2A</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -1741,18 +1859,18 @@
       <obj_property name="CustomSignalColor">#A52A2A</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/lstm_tb_br/UUT/Br_Ht_temp" type="array">
+      <obj_property name="ElementShortName">Br_Ht_temp[0:63][7:0]</obj_property>
+      <obj_property name="ObjectShortName">Br_Ht_temp[0:63][7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
    <wvobject fp_name="/lstm_tb_br/UUT/comb_ctrl" type="array">
       <obj_property name="ElementShortName">comb_ctrl[4:0]</obj_property>
       <obj_property name="ObjectShortName">comb_ctrl[4:0]</obj_property>
       <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/lstm_tb_br/UUT/Br_Ct" type="array">
-      <obj_property name="ElementShortName">Br_Ct[0:63][7:0]</obj_property>
-      <obj_property name="ObjectShortName">Br_Ct[0:63][7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/lstm_tb_br/UUT/counter" type="array">
       <obj_property name="ElementShortName">counter[31:0]</obj_property>
@@ -1784,6 +1902,8 @@
       <wvobject fp_name="/lstm_tb_br/UUT/weight_buffer" type="array">
          <obj_property name="ElementShortName">weight_buffer[255:0]</obj_property>
          <obj_property name="ObjectShortName">weight_buffer[255:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject fp_name="/lstm_tb_br/UUT/inpdt_W1" type="array">
          <obj_property name="ElementShortName">inpdt_W1[143:0]</obj_property>
@@ -1793,13 +1913,17 @@
          <obj_property name="ElementShortName">inpdt_W2[143:0]</obj_property>
          <obj_property name="ObjectShortName">inpdt_W2[143:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/lstm_tb_br/UUT/inpdt_R_reg1" type="array">
-         <obj_property name="ElementShortName">inpdt_R_reg1[31:0]</obj_property>
-         <obj_property name="ObjectShortName">inpdt_R_reg1[31:0]</obj_property>
+      <wvobject fp_name="/lstm_tb_br/UUT/inpdt_R_wire1" type="array">
+         <obj_property name="ElementShortName">inpdt_R_wire1[20:0]</obj_property>
+         <obj_property name="ObjectShortName">inpdt_R_wire1[20:0]</obj_property>
+         <obj_property name="CustomSignalColor">#808000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject fp_name="/lstm_tb_br/UUT/inpdt_R_reg2" type="array">
-         <obj_property name="ElementShortName">inpdt_R_reg2[31:0]</obj_property>
-         <obj_property name="ObjectShortName">inpdt_R_reg2[31:0]</obj_property>
+      <wvobject fp_name="/lstm_tb_br/UUT/inpdt_R_wire2" type="array">
+         <obj_property name="ElementShortName">inpdt_R_wire2[20:0]</obj_property>
+         <obj_property name="ObjectShortName">inpdt_R_wire2[20:0]</obj_property>
+         <obj_property name="CustomSignalColor">#808000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group811" type="group">
@@ -1859,7 +1983,6 @@
    <wvobject fp_name="group817" type="group">
       <obj_property name="label">bias</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/lstm_tb_br/UUT/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -1922,6 +2045,53 @@
          <obj_property name="ObjectShortName">B_sat_ht_TMQ1[7:0]</obj_property>
       </wvobject>
    </wvobject>
+   <wvobject fp_name="group884" type="group">
+      <obj_property name="label">temp ABC</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/lstm_tb_br/UUT/temp_regA_1" type="array">
+         <obj_property name="ElementShortName">temp_regA_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">temp_regA_1[16:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb_br/UUT/temp_regB_1" type="array">
+         <obj_property name="ElementShortName">temp_regB_1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">temp_regB_1[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb_br/UUT/temp_regC_1" type="array">
+         <obj_property name="ElementShortName">temp_regC_1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">temp_regC_1[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb_br/UUT/temp_regA_2" type="array">
+         <obj_property name="ElementShortName">temp_regA_2[16:0]</obj_property>
+         <obj_property name="ObjectShortName">temp_regA_2[16:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb_br/UUT/temp_regB_2" type="array">
+         <obj_property name="ElementShortName">temp_regB_2[7:0]</obj_property>
+         <obj_property name="ObjectShortName">temp_regB_2[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lstm_tb_br/UUT/temp_regC_2" type="array">
+         <obj_property name="ElementShortName">temp_regC_2[7:0]</obj_property>
+         <obj_property name="ObjectShortName">temp_regC_2[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/lstm_tb_br/UUT/weight_buffer" type="array">
+      <obj_property name="ElementShortName">weight_buffer[255:0]</obj_property>
+      <obj_property name="ObjectShortName">weight_buffer[255:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
    <wvobject fp_name="/lstm_tb_br/UUT/weight_bram_EN" type="logic">
       <obj_property name="ElementShortName">weight_bram_EN</obj_property>
       <obj_property name="ObjectShortName">weight_bram_EN</obj_property>
@@ -1947,9 +2117,5 @@
    <wvobject fp_name="/lstm_tb_br/UUT/weight_bram_Rdata2" type="array">
       <obj_property name="ElementShortName">weight_bram_Rdata2[127:0]</obj_property>
       <obj_property name="ObjectShortName">weight_bram_Rdata2[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/lstm_tb_br/UUT/weight_buffer" type="array">
-      <obj_property name="ElementShortName">weight_buffer[255:0]</obj_property>
-      <obj_property name="ObjectShortName">weight_buffer[255:0]</obj_property>
    </wvobject>
 </wave_config>

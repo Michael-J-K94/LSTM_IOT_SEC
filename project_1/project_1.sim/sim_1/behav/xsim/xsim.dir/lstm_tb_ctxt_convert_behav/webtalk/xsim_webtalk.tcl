@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_ctxt_convert_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Tue May 14 03:10:08 2019" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Tue May 14 20:08:46 2019" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.3 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2405991" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "04a4cabb-b34b-4b99-a4d8-fa0ea045ec43" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "94fb33c9514f4a1b864ca541008e68a6" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "44" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "72" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i5-2500 CPU @ 3.30GHz" -context "user_environment"
@@ -22,11 +22,12 @@ webtalk_add_data -client project -key cpu_speed -value "3293 MHz" -context "user
 webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
 webtalk_add_data -client project -key system_ram -value "8.000 GB" -context "user_environment"
 webtalk_register_client -client xsim
+webtalk_add_data -client xsim -key runall -value "true" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
-webtalk_add_data -client xsim -key runtime -value "351 us" -context "xsim\\usage"
-webtalk_add_data -client xsim -key iteration -value "1" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "0.55_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "28668_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 2840304546 -regid "" -xml C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_ctxt_convert_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_ctxt_convert_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_ctxt_convert_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key runtime -value "358445 ns" -context "xsim\\usage"
+webtalk_add_data -client xsim -key iteration -value "2" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Time -value "0.86_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Memory -value "28804_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 3879514032 -regid "" -xml C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_ctxt_convert_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_ctxt_convert_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_ctxt_convert_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

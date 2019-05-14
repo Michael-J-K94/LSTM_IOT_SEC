@@ -718,7 +718,7 @@ module LSTM#(
 	always@(posedge clk or negedge resetn) begin
 		if(!resetn) begin
 
-			for(i=0; i<16; i=i+1) begin
+			for(i=0; i<64; i=i+1) begin
 				init_weight_buff[i] <= 'd0;
 			end
 			
@@ -761,6 +761,12 @@ module LSTM#(
 			bias_bram_Wdata <= 'd0;
 			bias_buffer <= 'd0;			
 		
+			br_Wbram_EN <= 'd0;
+			for(i=0; i<4; i=i+1) begin
+				br_Wbram_WE[i] <= 'd0;
+			end
+			br_Wbram_addr <= 'd0;		
+		
 			comb_ctrl <= comb_IDLE;
 			tanh_Ct_select <= 'd0;
 			ctxt_type <= Ct_type;
@@ -776,7 +782,7 @@ module LSTM#(
 			
 				IDLE: begin
 				
-					for(i=0; i<16; i=i+1) begin
+					for(i=0; i<64; i=i+1) begin
 						init_weight_buff[i] <= 'd0;
 					end
 
@@ -925,35 +931,97 @@ module LSTM#(
 						if( (counter%64 == 0) && (!(counter==0)) ) begin
 							branch_W_counter <= branch_W_counter + 1;
 							br_Wbram_EN <= 1'b1;
-							br_Wbram_WE[branch_W_counter[1:0]] <= 1'b1;
 							
-							if(branch_W_counter/4 == 0) begin
+							if( (branch_W_counter==0) || (branch_W_counter==2) || (branch_W_counter==4) || (branch_W_counter==6) ) begin
+								br_Wbram_WE[0] <= 1'b1;
+
 								if(counter == 64) br_Wbram_addr <= 1;
 								else begin
-									if(branch_W_counter == 0) br_Wbram_addr <= br_Wbram_addr + 2;
+									if(branch_W_counter==0) br_Wbram_addr <= br_Wbram_addr + 2;
+									else if(branch_W_counter == 2) br_Wbram_addr <= br_Wbram_addr + 1;
+									else if(branch_W_counter == 4) br_Wbram_addr <= br_Wbram_addr - 2;
+									else if(branch_W_counter == 6) br_Wbram_addr <= br_Wbram_addr + 3;
 								end
-							end
-							else if(branch_W_counter/4 == 1) begin
-								if(branch_W_counter == 4) br_Wbram_addr <= br_Wbram_addr + 1;
-							end
-							else if(branch_W_counter/4 == 2) begin
-								if(branch_W_counter == 8) br_Wbram_addr <= br_Wbram_addr - 2;
-							end
-							else begin
-								if(branch_W_counter == 12) br_Wbram_addr <= br_Wbram_addr + 3;
-							end
 
-							for(i=0; i<64; i=i+1) begin
-								br_Wbram_Wdata[branch_W_counter][512-8*(i+1) +: 8] <= init_weight_buff[i];
+								for(i=0; i<64; i=i+1) begin
+									br_Wbram_Wdata[0][512-8*(i+1) +: 8] <= init_weight_buff[i];
+								end
+							
 							end
-						end					
+							else if( (branch_W_counter==1) || (branch_W_counter==3) || (branch_W_counter==5) || (branch_W_counter==7) ) begin
+								br_Wbram_WE[1] <= 1'b1;
+								
+								for(i=0; i<64; i=i+1) begin
+									br_Wbram_Wdata[1][512-8*(i+1) +: 8] <= init_weight_buff[i];
+								end
+								
+							end
+							else if( (branch_W_counter==8) || (branch_W_counter==10) || (branch_W_counter==12) || (branch_W_counter==14) ) begin
+								br_Wbram_WE[2] <= 1'b1;
+								
+								if(branch_W_counter==8) br_Wbram_addr <= br_Wbram_addr - 2;
+								else if(branch_W_counter == 10) br_Wbram_addr <= br_Wbram_addr + 1;
+								else if(branch_W_counter == 12) br_Wbram_addr <= br_Wbram_addr - 2;
+								else if(branch_W_counter == 14) br_Wbram_addr <= br_Wbram_addr + 3;								
+								
+								
+								for(i=0; i<64; i=i+1) begin
+									br_Wbram_Wdata[2][512-8*(i+1) +: 8] <= init_weight_buff[i];
+								end								
+								
+							end
+							else if( (branch_W_counter==9) || (branch_W_counter==11) || (branch_W_counter==13) || (branch_W_counter==15) ) begin
+								br_Wbram_WE[3] <= 1'b1;
+								
+								for(i=0; i<64; i=i+1) begin
+									br_Wbram_Wdata[3][512-8*(i+1) +: 8] <= init_weight_buff[i];
+								end								
+								
+							end							
+						end
 						else begin
 							br_Wbram_EN <= 1'b0;
 							for(i=0; i<4; i=i+1) begin
 								br_Wbram_WE[i] <= 1'b0;
-							end
+							end							
 						end
 					end
+					
+					// if(iInit_type == INIT_B_W) begin
+						// if( (counter%64 == 0) && (!(counter==0)) ) begin
+							// branch_W_counter <= branch_W_counter + 1;
+							// br_Wbram_EN <= 1'b1;
+							// br_Wbram_WE[branch_W_counter[1:0]] <= 1'b1;
+							
+							
+							// if(branch_W_counter/4 == 0) begin
+								// if(counter == 64) br_Wbram_addr <= 1;
+								// else begin
+									// if(branch_W_counter == 0) br_Wbram_addr <= br_Wbram_addr + 2;
+								// end
+							// end
+							// else if(branch_W_counter/4 == 1) begin
+								// if(branch_W_counter == 4) br_Wbram_addr <= br_Wbram_addr + 1;
+							// end
+							// else if(branch_W_counter/4 == 2) begin
+								// if(branch_W_counter == 8) br_Wbram_addr <= br_Wbram_addr - 2;
+							// end
+							// else begin
+								// if(branch_W_counter == 12) br_Wbram_addr <= br_Wbram_addr + 3;
+							// end
+							
+							
+							// for(i=0; i<64; i=i+1) begin
+								// br_Wbram_Wdata[branch_W_counter%4][512-8*(i+1) +: 8] <= init_weight_buff[i];
+							// end
+						// end					
+						// else begin
+							// br_Wbram_EN <= 1'b0;
+							// for(i=0; i<4; i=i+1) begin
+								// br_Wbram_WE[i] <= 1'b0;
+							// end
+						// end
+					// end
 					
 					//****	4. BRANCH BIAS INITIALIZE	****//
 					if(iInit_type == INIT_B_B) begin
@@ -1188,7 +1256,7 @@ module LSTM#(
 						br_Wbram_EN <= 1'b1;
 						br_Wbram_addr <= 'd0;
 					end
-					else if( br_counter <= 128 ) begin
+					else if( br_counter <= 127 ) begin
 						br_Wbram_EN <= 1'b1;
 						br_Wbram_addr <= br_Wbram_addr + 1;
 					end
@@ -1197,22 +1265,17 @@ module LSTM#(
 					end
 					
 					//**** 2. BIAS BRAM CTRL ****//
-					if(	br_counter == 1 ) begin
+					if( (1<=br_counter) && (br_counter<=128) ) begin
 						bias_bram_EN <= 1'b1;
-						bias_bram_addr <= BR_B_ADDR;
-					end
-					else if( br_counter <= 129 ) begin
-						bias_bram_addr <= bias_bram_addr + 1;
+						if(br_counter == 1) bias_bram_addr <= BR_B_ADDR;
+						else bias_bram_addr <= bias_bram_addr + 1;
 					end
 					else begin
 						bias_bram_EN <= 1'b0;
 					end
 				
 					//**** 3. INPDT CTRL ****//
-					if( br_counter == 1 ) begin
-						inpdt_EN <= 1'b1;
-					end
-					else if( br_counter <= 128 ) begin
+					if( (1<=br_counter) && (br_counter<=128) ) begin
 						inpdt_EN <= 1'b1;
 					end
 					else begin
@@ -1240,7 +1303,7 @@ module LSTM#(
 					end
 					else if( (br_counter%4 == 0) && (!(br_counter==0)) ) begin
 						temp_regA_1 <= ($signed({1'b0,Br_Ct[ 2*((br_counter/4)-1) ]}) - $signed({1'b0,ZERO_STATE}))*($signed({1'b0,temp_regA_1[7:0]}) - $signed({1'b0,OUT_ZERO_SIGMOID}));
-						temp_regA_2 <= ($signed({1'b0,Br_Ct[ 2*((br_counter/4)-1) + 1 ]}) - $signed({1'b0,ZERO_STATE}))*($signed({1'b0,temp_regA_1[7:0]}) - $signed({1'b0,OUT_ZERO_SIGMOID}));						
+						temp_regA_2 <= ($signed({1'b0,Br_Ct[ 2*((br_counter/4)-1) + 1 ]}) - $signed({1'b0,ZERO_STATE}))*($signed({1'b0,temp_regA_2[7:0]}) - $signed({1'b0,OUT_ZERO_SIGMOID}));						
 					end
 					else if( (br_counter%4 == 2) && (!(br_counter==2)) ) begin
 						temp_regA_1[16:8] <= 'd0;
@@ -1271,17 +1334,23 @@ module LSTM#(
 							Br_Ht_temp[ 2*((br_counter/4)-1) + 1 ] <= B_sat_ht_TMQ2;				
 						end
 						else begin
-							for(i=0; i<63; i=i+1) begin
+							for(i=0; i<62; i=i+1) begin
 								Br_Ht[i] <= Br_Ht_temp[i];
 							end
-							Br_Ht[63] <= B_sat_ht_TMQ1;
+							Br_Ht[62] <= B_sat_ht_TMQ1;
+							Br_Ht[63] <= B_sat_ht_TMQ2;
 						end					
 					end
 
 					//**** 5. Combinational CTRL ****//		
 					if( br_counter%4 == 2 ) begin
-						comb_ctrl <= B_TMQ_BQS;
-						tanh_Ct_select <= ((br_counter/4)-1);
+						if(br_counter == 2) begin
+							comb_ctrl <= B_BQS;
+						end
+						else begin
+							comb_ctrl <= B_TMQ_BQS;
+							tanh_Ct_select <= ((br_counter/4)-1);
+						end
 					end
 					else if( br_counter%4 == 3 ) begin
 						comb_ctrl <= B_BQS;
@@ -1548,18 +1617,19 @@ module LSTM#(
 		
 		//************ B_BQS ************//		
 		if(comb_ctrl == B_BQS) begin
-			B_real_inpdt_sumBQS1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp1_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp2_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp3_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			// B_real_inpdt_sumBQS1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
+			// +$signed( $signed(inpdt_Rtemp1_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
+			// +$signed( $signed(inpdt_Rtemp2_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
+			// +$signed( $signed(inpdt_Rtemp3_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+
+			B_real_inpdt_sumBQS1 = $signed( ( $signed(inpdt_R_reg1) + $signed(inpdt_Rtemp1_reg1) + $signed(inpdt_Rtemp2_reg1) + $signed(inpdt_Rtemp3_reg1) )
+			*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
 			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );							// Sumation of X & H
 			B_real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
 			B_unsat_BQS1 = $signed(B_real_inpdt_sumBQS1) + $signed(B_real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
 			
-			B_real_inpdt_sumBQS2 = $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp1_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp2_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp3_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			B_real_inpdt_sumBQS2 = $signed( ( $signed(inpdt_R_reg2) + $signed(inpdt_Rtemp1_reg2) + $signed(inpdt_Rtemp2_reg2) + $signed(inpdt_Rtemp3_reg2) )
+			*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
 			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );							// Sumation of X & H
 			B_real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
 			B_unsat_BQS2 = $signed(B_real_inpdt_sumBQS2) + $signed(B_real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});		
@@ -1584,21 +1654,17 @@ module LSTM#(
 			B_unsat_Z_ht_TMQ2 = 'd0;			
 		end
 		else if(comb_ctrl == B_MAQ_BQS) begin
-			B_real_inpdt_sumBQS1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp1_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp2_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp3_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			B_real_inpdt_sumBQS1 = $signed( ( $signed(inpdt_R_reg1) + $signed(inpdt_Rtemp1_reg1) + $signed(inpdt_Rtemp2_reg1) + $signed(inpdt_Rtemp3_reg1) )
+			*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
 			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );							// Sumation of X & H
 			B_real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
 			B_unsat_BQS1 = $signed(B_real_inpdt_sumBQS1) + $signed(B_real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
 			
-			B_real_inpdt_sumBQS2 = $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp1_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp2_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp3_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			B_real_inpdt_sumBQS2 = $signed( ( $signed(inpdt_R_reg2) + $signed(inpdt_Rtemp1_reg2) + $signed(inpdt_Rtemp2_reg2) + $signed(inpdt_Rtemp3_reg2) )
+			*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
 			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );							// Sumation of X & H
 			B_real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
-			B_unsat_BQS2 = $signed(B_real_inpdt_sumBQS2) + $signed(B_real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});		
+			B_unsat_BQS2 = $signed(B_real_inpdt_sumBQS2) + $signed(B_real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});	
 
 
 			B_real_ctf_MAQ1 = $signed(temp_regA_1)/$signed(OUT_SCALE_SIGMOID);
@@ -1625,29 +1691,25 @@ module LSTM#(
 			
 		end
 		else if(comb_ctrl == B_TMQ_BQS) begin
-			B_real_inpdt_sumBQS1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp1_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp2_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp3_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			B_real_inpdt_sumBQS1 = $signed( ( $signed(inpdt_R_reg1) + $signed(inpdt_Rtemp1_reg1) + $signed(inpdt_Rtemp2_reg1) + $signed(inpdt_Rtemp3_reg1) )
+			*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
 			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );							// Sumation of X & H
 			B_real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
 			B_unsat_BQS1 = $signed(B_real_inpdt_sumBQS1) + $signed(B_real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
 			
-			B_real_inpdt_sumBQS2 = $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp1_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp2_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
-			+$signed( $signed(inpdt_Rtemp3_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			B_real_inpdt_sumBQS2 = $signed( ( $signed(inpdt_R_reg2) + $signed(inpdt_Rtemp1_reg2) + $signed(inpdt_Rtemp2_reg2) + $signed(inpdt_Rtemp3_reg2) )
+			*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
 			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );							// Sumation of X & H
 			B_real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
-			B_unsat_BQS2 = $signed(B_real_inpdt_sumBQS2) + $signed(B_real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});					
+			B_unsat_BQS2 = $signed(B_real_inpdt_sumBQS2) + $signed(B_real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});				
 
 
-			B_unsat_ct_TMQ1 = (($signed({1'b0,Br_Ct[tanh_Ct_select]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});		
+			B_unsat_ct_TMQ1 = (($signed({1'b0,Br_Ct[2*tanh_Ct_select]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});		
 			B_unscale_ht_TMQ1 = ($signed({1'b0,temp_regA_1})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT1})-{1'b0,ZERO_TANH});
 			B_unsat_ht_TMQ1 = ($signed(B_unscale_ht_TMQ1)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
 			B_unsat_Z_ht_TMQ1 = $signed(B_unsat_ht_TMQ1) + $signed({1'b0,ZERO_DATA});
 			
-			B_unsat_ct_TMQ2 = (($signed({1'b0,Br_Ct[tanh_Ct_select + 1]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});		
+			B_unsat_ct_TMQ2 = (($signed({1'b0,Br_Ct[2*tanh_Ct_select + 1]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});		
 			B_unscale_ht_TMQ2 = ($signed({1'b0,temp_regA_2})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT2})-{1'b0,ZERO_TANH});
 			B_unsat_ht_TMQ2 = ($signed(B_unscale_ht_TMQ2)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
 			B_unsat_Z_ht_TMQ2 = $signed(B_unsat_ht_TMQ2) + $signed({1'b0,ZERO_DATA});			
@@ -1692,15 +1754,31 @@ module LSTM#(
 		
 		//************ B_BQT ************//	
 		if(comb_ctrl == B_BQT) begin
-			B_real_inpdt_sumBQT1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			// B_real_inpdt_sumBQT1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
+			// +$signed( $signed(inpdt_Rtemp1_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
+			// +$signed( $signed(inpdt_Rtemp2_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) )
+			// +$signed( $signed(inpdt_Rtemp3_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			
+			B_real_inpdt_sumBQT1 = $signed( ( $signed(inpdt_R_reg1) + $signed(inpdt_Rtemp1_reg1) + $signed(inpdt_Rtemp2_reg1) + $signed(inpdt_Rtemp3_reg1) )
+			*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
 			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );								// Sumation of X & H
-			B_real_biasBQT1 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
+			B_real_biasBQT1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
 			B_unsat_BQT1 = $signed(B_real_inpdt_sumBQT1) + $signed(B_real_biasBQT1) + $signed({1'b0,ZERO_TANH});
+			
+			B_real_inpdt_sumBQT2 = $signed( ( $signed(inpdt_R_reg2) + $signed(inpdt_Rtemp1_reg2) + $signed(inpdt_Rtemp2_reg2) + $signed(inpdt_Rtemp3_reg2) )
+			*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );								// Sumation of X & H
+			B_real_biasBQT2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
+			B_unsat_BQT2 = $signed(B_real_inpdt_sumBQT2) + $signed(B_real_biasBQT2) + $signed({1'b0,ZERO_TANH});			
+			
 		end
 		else begin
 			B_real_inpdt_sumBQT1 = 'd0;
 			B_real_biasBQT1 = 'd0;
 			B_unsat_BQT1 = 'd0;
+			B_real_inpdt_sumBQT2 = 'd0;
+			B_real_biasBQT2 = 'd0;
+			B_unsat_BQT2 = 'd0;			
 		end
 		
 	end
