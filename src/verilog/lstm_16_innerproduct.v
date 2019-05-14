@@ -491,79 +491,100 @@ module LSTM#(
 // Brams //
 ///////////
 
-	// SRAM_128x2048 WEIGHT_BRAM1(
-		// .addra(weight_bram_addr1),
-		// .clka(clk),
-		// .dina(weight_bram_Wdata1),
-		// .douta(weight_bram_Rdata1),
-		// .ena(weight_bram_EN),
-		// .wea(weight_bram_WE1)	
-	// );
-
-	// SRAM_128x2048 WEIGHT_BRAM2(
-		// .addra(weight_bram_addr2),
-		// .clka(clk),
-		// .dina(weight_bram_Wdata2),
-		// .douta(weight_bram_Rdata2),
-		// .ena(weight_bram_EN),
-		// .wea(weight_bram_WE2)	
-	// );
-	
-	// SRAM_32x512 BIAS_BRAM(
-		// .addra(bias_bram_addr),
-		// .clka(clk),
-		// .dina(bias_bram_Wdata),
-		// .douta(bias_bram_Rdata),
-		// .ena(bias_bram_EN),
-		// .wea(bias_bram_WE)	
-	// );
-
-
-	// ****SIMULATED BRAM MODULE**** 
-
 	SRAM_128x2048 WEIGHT_BRAM1(
-		.CLK(clk),
-		.EN_M(weight_bram_EN),
-		.WE(weight_bram_WE1),
-		.ADDR(weight_bram_addr1),
-		.ADDR_WRITE(weight_bram_addr1),
-		.DIN(weight_bram_Wdata1),
-		.DOUT(weight_bram_Rdata1)	
+		.addra(weight_bram_addr1),
+		.clka(clk),
+		.dina(weight_bram_Wdata1),
+		.douta(weight_bram_Rdata1),
+		.ena(weight_bram_EN),
+		.wea(weight_bram_WE1)	
 	);
 
 	SRAM_128x2048 WEIGHT_BRAM2(
-		.CLK(clk),
-		.EN_M(weight_bram_EN),
-		.WE(weight_bram_WE2),
-		.ADDR(weight_bram_addr2),
-		.ADDR_WRITE(weight_bram_addr2),
-		.DIN(weight_bram_Wdata2),
-		.DOUT(weight_bram_Rdata2)	
+		.addra(weight_bram_addr2),
+		.clka(clk),
+		.dina(weight_bram_Wdata2),
+		.douta(weight_bram_Rdata2),
+		.ena(weight_bram_EN),
+		.wea(weight_bram_WE2)	
 	);
 	
 	SRAM_32x512 BIAS_BRAM(
-		.CLK(clk),
-		.EN_M(bias_bram_EN),
-		.WE(bias_bram_WE),
-		.ADDR(bias_bram_addr),
-		.ADDR_WRITE(bias_bram_addr),		
-		.DIN(bias_bram_Wdata),
-		.DOUT(bias_bram_Rdata)	
+		.addra(bias_bram_addr),
+		.clka(clk),
+		.dina(bias_bram_Wdata),
+		.douta(bias_bram_Rdata),
+		.ena(bias_bram_EN),
+		.wea(bias_bram_WE)	
 	);
 
 	generate
 	for(q=0; q<4; q=q+1) begin : Branch_Wbram
+		// SRAM_512x128 u_Branch_Wbram(
+			// .CLK(clk),
+			// .EN_M(br_Wbram_EN),
+			// .WE(br_Wbram_WE[q]),
+			// .ADDR(br_Wbram_addr),
+			// .ADDR_WRITE(br_Wbram_addr),
+			// .DIN(br_Wbram_Wdata[q]),
+			// .DOUT(br_Wbram_Rdata[q])						
+		// );	
 		SRAM_512x128 u_Branch_Wbram(
-			.CLK(clk),
-			.EN_M(br_Wbram_EN),
-			.WE(br_Wbram_WE[q]),
-			.ADDR(br_Wbram_addr),
-			.ADDR_WRITE(br_Wbram_addr),
-			.DIN(br_Wbram_Wdata[q]),
-			.DOUT(br_Wbram_Rdata[q])						
-		);	
+			.addra(br_Wbram_addr),
+			.clka(clk),
+			.dina(br_Wbram_Wdata[q]),
+			.douta(br_Wbram_Rdata[q]),
+			.ena(br_Wbram_EN),
+			.wea(br_Wbram_WE[q])	
+		);		
 	end	
 	endgenerate
+	
+	// ****SIMULATED BRAM MODULE**** 
+
+	// SRAM_128x2048 WEIGHT_BRAM1(
+		// .CLK(clk),
+		// .EN_M(weight_bram_EN),
+		// .WE(weight_bram_WE1),
+		// .ADDR(weight_bram_addr1),
+		// .ADDR_WRITE(weight_bram_addr1),
+		// .DIN(weight_bram_Wdata1),
+		// .DOUT(weight_bram_Rdata1)	
+	// );
+
+	// SRAM_128x2048 WEIGHT_BRAM2(
+		// .CLK(clk),
+		// .EN_M(weight_bram_EN),
+		// .WE(weight_bram_WE2),
+		// .ADDR(weight_bram_addr2),
+		// .ADDR_WRITE(weight_bram_addr2),
+		// .DIN(weight_bram_Wdata2),
+		// .DOUT(weight_bram_Rdata2)	
+	// );
+	
+	// SRAM_32x512 BIAS_BRAM(
+		// .CLK(clk),
+		// .EN_M(bias_bram_EN),
+		// .WE(bias_bram_WE),
+		// .ADDR(bias_bram_addr),
+		// .ADDR_WRITE(bias_bram_addr),		
+		// .DIN(bias_bram_Wdata),
+		// .DOUT(bias_bram_Rdata)	
+	// );
+
+	// generate
+	// for(q=0; q<4; q=q+1) begin : Branch_Wbram
+		// SRAM_512x128 u_Branch_Wbram(
+			// .CLK(clk),
+			// .EN_M(br_Wbram_EN),
+			// .WE(br_Wbram_WE[q]),
+			// .ADDR(br_Wbram_addr),
+			// .ADDR_WRITE(br_Wbram_addr),
+			// .DIN(br_Wbram_Wdata[q]),
+			// .DOUT(br_Wbram_Rdata[q])						
+		// );	
+	// end	
+	// endgenerate
 
 
 
