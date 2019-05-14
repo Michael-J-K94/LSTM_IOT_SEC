@@ -77,13 +77,13 @@ module softmax#(
 
 	reg sys_weight_bram_EN;
 	reg sys_weight_bram_WE;
-	reg [7:0] sys_weight_bram_addr;
+	reg [8:0] sys_weight_bram_addr;
 	reg [63:0] sys_weight_bram_Wdata;
 	reg [63:0] sys_weight_bram_Rdata;	
 
 	reg sys_bias_bram_EN;
 	reg sys_bias_bram_WE;
-	reg [7:0] sys_bias_bram_addr;
+	reg [8:0] sys_bias_bram_addr;
 	reg [7:0] sys_bias_bram_Wdata;
 	reg [7:0] sys_bias_bram_Rdata;
 
@@ -127,7 +127,7 @@ module softmax#(
 		.wea(br_bias_bram_WE)	
 	);
 
-	SRAM_64x243 SYS_WEIGHT_BRAM(
+	SRAM_64x283 SYS_WEIGHT_BRAM(
 		.addra(sys_weight_bram_addr),
 		.clka(clk),
 		.dina(sys_weight_bram_Wdata),
@@ -136,7 +136,7 @@ module softmax#(
 		.wea(sys_weight_bram_WE)	
 	);
 	
-	SRAM_8x243 SYS_BIAS_BRAM(
+	SRAM_8x283 SYS_BIAS_BRAM(
 		.addra(sys_bias_bram_addr),
 		.clka(clk),
 		.dina(sys_bias_bram_Wdata),
@@ -347,10 +347,10 @@ module softmax#(
 
 					if(counter == 0) begin
 						sys_weight_bram_EN <= 1'b1;
-						sys_weight_bram_addr <= Fifo_captured[7:0];
+						sys_weight_bram_addr <= Fifo_captured[8:0];
 						
 						sys_bias_bram_EN <= 1'b1;
-						sys_bias_bram_addr <= Fifo_captured[7:0];						
+						sys_bias_bram_addr <= Fifo_captured[8:0];						
 					end
 					else if( (2<=counter) && (counter<=9) ) begin
 						cal_temp_reg <= $signed(cal_temp_reg) + 128*( $signed({1'b0, Sys_Ht_captured[counter-2]}) - $signed({1'b0,ZERO_DATA}) )		// ?????????????????????? QUANTIZATION ??????
