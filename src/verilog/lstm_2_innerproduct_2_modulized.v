@@ -168,106 +168,106 @@ module LSTM#(
 //////////////////
 /***** Quantization MEANS Saturating & 8bit Quantizing (After scale/zero operation) *****/
 
-	reg [31:0] S_real_inpdt_sumBQS1; 
-	reg [31:0] S_real_inpdt_sumBQS2; 
-	reg [31:0] S_real_biasBQS1;			
-	reg [31:0] S_real_biasBQS2;			
-	reg [31:0] S_unsat_BQS1;
-	reg [31:0] S_unsat_BQS2;
+	// reg [31:0] S_real_inpdt_sumBQS1; 
+	// reg [31:0] S_real_inpdt_sumBQS2; 
+	// reg [31:0] S_real_biasBQS1;			
+	// reg [31:0] S_real_biasBQS2;			
+	// reg [31:0] S_unsat_BQS1;
+	// reg [31:0] S_unsat_BQS2;
 	wire [7:0] S_sat_BQS1;
 	wire [7:0] S_sat_BQS2;
 	
-	reg [31:0] S_real_inpdt_sumBQT1; 
-	reg [31:0] S_real_inpdt_sumBQT2; 
-	reg [31:0] S_real_biasBQT1;			
-	reg [31:0] S_real_biasBQT2;			
-	reg [31:0] S_unsat_BQT1;
-	reg [31:0] S_unsat_BQT2;
+	// reg [31:0] S_real_inpdt_sumBQT1; 
+	// reg [31:0] S_real_inpdt_sumBQT2; 
+	// reg [31:0] S_real_biasBQT1;			
+	// reg [31:0] S_real_biasBQT2;			
+	// reg [31:0] S_unsat_BQT1;
+	// reg [31:0] S_unsat_BQT2;
 	wire [7:0] S_sat_BQT1;
 	wire [7:0] S_sat_BQT2;
 	
-	reg [31:0] S_real_ctf_MAQ1;
-	reg [31:0] S_real_ctf_MAQ2;
-	reg [31:0] S_real_ig_MAQ1;
-	reg [31:0] S_real_ig_MAQ2;
-	reg [31:0] S_real_sum_MAQ1;
-	reg [31:0] S_real_sum_MAQ2;
-	reg [31:0] S_unsat_MAQ1;
-	reg [31:0] S_unsat_MAQ2;
+	// reg [31:0] S_real_ctf_MAQ1;
+	// reg [31:0] S_real_ctf_MAQ2;
+	// reg [31:0] S_real_ig_MAQ1;
+	// reg [31:0] S_real_ig_MAQ2;
+	// reg [31:0] S_real_sum_MAQ1;
+	// reg [31:0] S_real_sum_MAQ2;
+	// reg [31:0] S_unsat_MAQ1;
+	// reg [31:0] S_unsat_MAQ2;
 	wire [7:0] S_sat_MAQ1;
 	wire [7:0] S_sat_MAQ2;
 	
-	reg [31:0] S_unsat_ct_TMQ1;
-	reg [31:0] S_unsat_ct_TMQ2;
+	// reg [31:0] S_unsat_ct_TMQ1;
+	// reg [31:0] S_unsat_ct_TMQ2;
 	wire [7:0] S_sat_ct_TMQ1;
 	wire [7:0] S_sat_ct_TMQ2;
-	reg [31:0] S_unscale_ht_TMQ1;
-	reg [31:0] S_unscale_ht_TMQ2;
-	reg [31:0] S_unsat_ht_TMQ1;	
-	reg [31:0] S_unsat_ht_TMQ2;	
-	reg [31:0] S_unsat_Z_ht_TMQ1;
-	reg [31:0] S_unsat_Z_ht_TMQ2;
+	// reg [31:0] S_unscale_ht_TMQ1;
+	// reg [31:0] S_unscale_ht_TMQ2;
+	// reg [31:0] S_unsat_ht_TMQ1;	
+	// reg [31:0] S_unsat_ht_TMQ2;	
+	// reg [31:0] S_unsat_Z_ht_TMQ1;
+	// reg [31:0] S_unsat_Z_ht_TMQ2;
 	wire [7:0] S_sat_ht_TMQ1;
 	wire [7:0] S_sat_ht_TMQ2;
 
 
-	reg [31:0] B_real_inpdt_sumBQS1; 
+	// reg [31:0] B_real_inpdt_sumBQS1; 
 	//reg [31:0] B_real_inpdt_sumBQS2; 
-	reg [31:0] B_real_biasBQS1;			
+	// reg [31:0] B_real_biasBQS1;			
 	//reg [31:0] B_real_biasBQS2;			
-	reg [31:0] B_unsat_BQS1;
+	// reg [31:0] B_unsat_BQS1;
 	// reg [31:0] B_unsat_BQS2;
 	wire [7:0] B_sat_BQS1;
 	// wire [7:0] B_sat_BQS2;
 	
-	reg [31:0] B_real_inpdt_sumBQT1; 
+	// reg [31:0] B_real_inpdt_sumBQT1; 
 	// reg [31:0] B_real_inpdt_sumBQT2; 
-	reg [31:0] B_real_biasBQT1;			
+	// reg [31:0] B_real_biasBQT1;			
 	// reg [31:0] B_real_biasBQT2;			
-	reg [31:0] B_unsat_BQT1;
+	// reg [31:0] B_unsat_BQT1;
 	// reg [31:0] B_unsat_BQT2;
 	wire [7:0] B_sat_BQT1;
 	// wire [7:0] B_sat_BQT2;
 	
-	reg [31:0] B_real_ctf_MAQ1;
+	// reg [31:0] B_real_ctf_MAQ1;
 	// reg [31:0] B_real_ctf_MAQ2;
-	reg [31:0] B_real_ig_MAQ1;
+	// reg [31:0] B_real_ig_MAQ1;
 	// reg [31:0] B_real_ig_MAQ2;
-	reg [31:0] B_real_sum_MAQ1;
+	// reg [31:0] B_real_sum_MAQ1;
 	// reg [31:0] B_real_sum_MAQ2;
-	reg [31:0] B_unsat_MAQ1;
+	// reg [31:0] B_unsat_MAQ1;
 	// reg [31:0] B_unsat_MAQ2;
 	wire [7:0] B_sat_MAQ1;
 	// wire [7:0] B_sat_MAQ2;
 	
-	reg [31:0] B_unsat_ct_TMQ1;
+	// reg [31:0] B_unsat_ct_TMQ1;
 	// reg [31:0] B_unsat_ct_TMQ2;
 	wire [7:0] B_sat_ct_TMQ1;
 	// wire [7:0] B_sat_ct_TMQ2;
-	reg [31:0] B_unscale_ht_TMQ1;
+	// reg [31:0] B_unscale_ht_TMQ1;
 	// reg [31:0] B_unscale_ht_TMQ2;
-	reg [31:0] B_unsat_ht_TMQ1;	
+	// reg [31:0] B_unsat_ht_TMQ1;	
 	// reg [31:0] B_unsat_ht_TMQ2;	
-	reg [31:0] B_unsat_Z_ht_TMQ1;
+	// reg [31:0] B_unsat_Z_ht_TMQ1;
 	// reg [31:0] B_unsat_Z_ht_TMQ2;
 	wire [7:0] B_sat_ht_TMQ1;
 	// wire [7:0] B_sat_ht_TMQ2;
 
-	reg [31:0] Ct_real_inpdt_sum1;
-	reg [31:0] Ct_real_inpdt_sum2;	
-	reg [31:0] Ct_real_bias1;
-	reg [31:0] Ct_real_bias2;	
-	reg [31:0] Ct_unsat1;
-	reg [31:0] Ct_unsat2;
+	// reg [31:0] Ct_real_inpdt_sum1;
+	// reg [31:0] Ct_real_inpdt_sum2;	
+	// reg [31:0] Ct_real_bias1;
+	// reg [31:0] Ct_real_bias2;	
+	// reg [31:0] Ct_unsat1;
+	// reg [31:0] Ct_unsat2;
 	wire [7:0] Ct_sat1;
 	wire [7:0] Ct_sat2;	
 
-	reg [31:0] Ht_real_inpdt_sum1;
-	reg [31:0] Ht_real_inpdt_sum2;	
-	reg [31:0] Ht_real_bias1;
-	reg [31:0] Ht_real_bias2;	
-	reg [31:0] Ht_unsat1;
-	reg [31:0] Ht_unsat2;
+	// reg [31:0] Ht_real_inpdt_sum1;
+	// reg [31:0] Ht_real_inpdt_sum2;	
+	// reg [31:0] Ht_real_bias1;
+	// reg [31:0] Ht_real_bias2;	
+	// reg [31:0] Ht_unsat1;
+	// reg [31:0] Ht_unsat2;
 	wire [7:0] Ht_sat1;
 	wire [7:0] Ht_sat2;		
 	
@@ -300,6 +300,122 @@ module LSTM#(
 //								Instantiation									//
 // *****************************************************************************//	
 // *****************************************************************************//
+	S_BQS S_BQS_1(
+		.comb_ctrl(comb_ctrl),
+		.inpdt_R_reg(inpdt_R_reg1),
+		.bias_buffer(bias_buffer[15:8]),
+		.S_sat_BQS(S_sat_BQS1)	
+	);
+	S_BQS S_BQS_2(
+		.comb_ctrl(comb_ctrl),
+		.inpdt_R_reg(inpdt_R_reg2),
+		.bias_buffer(bias_buffer[7:0]),
+		.S_sat_BQS(S_sat_BQS2)		
+	);	
+
+	S_BQT S_BQT_1(
+		.comb_ctrl(comb_ctrl),
+		.inpdt_R_reg(inpdt_R_reg1),
+		.bias_buffer(bias_buffer[15:8]),
+		.S_sat_BQT(S_sat_BQT1)				
+	);	
+	S_BQT S_BQT_2(
+		.comb_ctrl(comb_ctrl),
+		.inpdt_R_reg(inpdt_R_reg2),
+		.bias_buffer(bias_buffer[7:0]),
+		.S_sat_BQT(S_sat_BQT2)				
+	);
+	
+	S_MAQ S_MAQ_1(
+		.comb_ctrl(comb_ctrl),
+		.temp_regA(temp_regA_1),
+		.temp_regB(temp_regB_1),
+		.temp_regC(temp_regC_1),
+		.S_sat_MAQ(S_sat_MAQ1)
+	);
+	S_MAQ S_MAQ_2(
+		.comb_ctrl(comb_ctrl),
+		.temp_regA(temp_regA_2),
+		.temp_regB(temp_regB_2),
+		.temp_regC(temp_regC_2),
+		.S_sat_MAQ(S_sat_MAQ2)
+	);
+	
+	S_TMQ S_TMQ_1(
+		.comb_ctrl(comb_ctrl),
+		.Sys_Ct(Sys_Ct[2*tanh_Ct_select]),
+		.temp_regA(temp_regA_1),
+		.oTanh_LUT(oTanh_LUT1),
+		.S_sat_ct_TMQ(S_sat_ct_TMQ1),
+		.S_sat_ht_TMQ(S_sat_ht_TMQ1)
+	);
+	S_TMQ S_TMQ_2(
+		.comb_ctrl(comb_ctrl),
+		.Sys_Ct(Sys_Ct[2*tanh_Ct_select+1]),
+		.temp_regA(temp_regA_2),
+		.oTanh_LUT(oTanh_LUT2),
+		.S_sat_ct_TMQ(S_sat_ct_TMQ2),		
+		.S_sat_ht_TMQ(S_sat_ht_TMQ2)
+	);	
+//////////////////
+
+	CONVERT_Ct CONVERT_Ct_1(
+		.lstm_state(lstm_state),
+		.inpdt_R_reg(inpdt_R_reg1),
+		.bias_buffer(bias_buffer[31:24]),
+		.Ct_sat(Ct_sat1)
+	);
+	CONVERT_Ct CONVERT_Ct_2(
+		.lstm_state(lstm_state),
+		.inpdt_R_reg(inpdt_Rtemp1_reg1),
+		.bias_buffer(bias_buffer[23:16]),
+		.Ct_sat(Ct_sat2)
+	);
+	
+	CONVERT_Ht CONVERT_Ht_1(
+		.lstm_state(lstm_state),
+		.inpdt_R_reg(inpdt_R_reg2),
+		.bias_buffer(bias_buffer[15:8]),
+		.Ht_sat(Ht_sat1)
+	);
+	CONVERT_Ht CONVERT_Ht_2(
+		.lstm_state(lstm_state),
+		.inpdt_R_reg(inpdt_Rtemp1_reg2),
+		.bias_buffer(bias_buffer[7:0]),
+		.Ht_sat(Ht_sat2)
+	);	
+
+//////////////////	
+	B_BQS B_BQS_1(
+		.comb_ctrl(comb_ctrl),
+		.inpdt_R_reg(inpdt_R_reg1),
+		.bias_buffer(bias_buffer[7:0]),
+		.B_sat_BQS(B_sat_BQS1)
+	);
+
+	B_BQT B_BQT_1(
+		.comb_ctrl(comb_ctrl),
+		.inpdt_R_reg(inpdt_R_reg1),
+		.bias_buffer(bias_buffer[7:0]),
+		.B_sat_BQT(B_sat_BQT1)
+	);
+	
+	B_MAQ B_MAQ_1(
+		.comb_ctrl(comb_ctrl),
+		.temp_regA(temp_regA_1),
+		.temp_regB(temp_regB_1),
+		.temp_regC(temp_regC_1),
+		.B_sat_MAQ(B_sat_MAQ1)
+	);
+
+	B_TMQ B_TMQ_1(
+		.comb_ctrl(comb_ctrl),
+		.Br_Ct(Br_Ct[tanh_Ct_select]),
+		.temp_regA(temp_regA_1),
+		.oTanh_LUT(oTanh_LUT1),
+		.B_sat_ct_TMQ(B_sat_ct_TMQ1),
+		.B_sat_ht_TMQ(B_sat_ht_TMQ1)
+	);
 
 // output oBr_Ct / oBr_Ht ALLOCATION
 	always@(*) begin
@@ -1432,220 +1548,220 @@ module LSTM#(
 	end
 
 	
-	always@(*) begin
+	// always@(*) begin
 	
-		//************ S_BQS || S_MAQ_BQS ************//	
-		if(comb_ctrl == S_BQS) begin
-			//S_real_inpdt_sumBQS1 = $signed( $signed(($signed(inpdt_R_reg1)*SCALE_SIGMOID))/(SCALE_W*SCALE_DATA) );
-			S_real_inpdt_sumBQS1 = $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
-			S_real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
-			S_unsat_BQS1 = $signed(S_real_inpdt_sumBQS1) + $signed(S_real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
+		// ************ S_BQS || S_MAQ_BQS ************//	
+		// if(comb_ctrl == S_BQS) begin
+			// S_real_inpdt_sumBQS1 = $signed( $signed(($signed(inpdt_R_reg1)*SCALE_SIGMOID))/(SCALE_W*SCALE_DATA) );
+			// S_real_inpdt_sumBQS1 = $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
+			// S_real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
+			// S_unsat_BQS1 = $signed(S_real_inpdt_sumBQS1) + $signed(S_real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
 			
-			//S_real_inpdt_sumBQS2 = ($signed(inpdt_R_reg2)*SCALE_SIGMOID)/(SCALE_W*SCALE_DATA);
-			S_real_inpdt_sumBQS2 = $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
-			S_real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
-			S_unsat_BQS2 = $signed(S_real_inpdt_sumBQS2) + $signed(S_real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});
+			// S_real_inpdt_sumBQS2 = ($signed(inpdt_R_reg2)*SCALE_SIGMOID)/(SCALE_W*SCALE_DATA);
+			// S_real_inpdt_sumBQS2 = $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
+			// S_real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
+			// S_unsat_BQS2 = $signed(S_real_inpdt_sumBQS2) + $signed(S_real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});
 			
-			S_real_ctf_MAQ1 = 'd0;
-			S_real_ctf_MAQ2 = 'd0;
-			S_real_ig_MAQ1 = 'd0;
-			S_real_ig_MAQ2 = 'd0;
-			S_real_sum_MAQ1 = 'd0;
-			S_real_sum_MAQ2 = 'd0;
-			S_unsat_MAQ1 = 'd0;
-			S_unsat_MAQ2 = 'd0;				
-		end
-		else if(comb_ctrl == S_MAQ_BQS) begin
-			S_real_inpdt_sumBQS1 = $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
-			S_real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
-			S_unsat_BQS1 = $signed(S_real_inpdt_sumBQS1) + $signed(S_real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
+			// S_real_ctf_MAQ1 = 'd0;
+			// S_real_ctf_MAQ2 = 'd0;
+			// S_real_ig_MAQ1 = 'd0;
+			// S_real_ig_MAQ2 = 'd0;
+			// S_real_sum_MAQ1 = 'd0;
+			// S_real_sum_MAQ2 = 'd0;
+			// S_unsat_MAQ1 = 'd0;
+			// S_unsat_MAQ2 = 'd0;				
+		// end
+		// else if(comb_ctrl == S_MAQ_BQS) begin
+			// S_real_inpdt_sumBQS1 = $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
+			// S_real_biasBQS1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
+			// S_unsat_BQS1 = $signed(S_real_inpdt_sumBQS1) + $signed(S_real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
 
-			S_real_inpdt_sumBQS2 = $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
-			S_real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
-			S_unsat_BQS2 = $signed(S_real_inpdt_sumBQS2) + $signed(S_real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});
+			// S_real_inpdt_sumBQS2 = $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA));
+			// S_real_biasBQS2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
+			// S_unsat_BQS2 = $signed(S_real_inpdt_sumBQS2) + $signed(S_real_biasBQS2) + $signed({1'b0,ZERO_SIGMOID});
 			
-			S_real_ctf_MAQ1 = $signed(temp_regA_1)/$signed(OUT_SCALE_SIGMOID);
-			S_real_ig_MAQ1 = (($signed({1'b0,temp_regB_1})-$signed({1'b0,OUT_ZERO_SIGMOID})) * ($signed({1'b0,temp_regC_1})-$signed({1'b0,OUT_ZERO_TANH}))
-			*$signed(SCALE_STATE))/($signed(OUT_SCALE_SIGMOID)*$signed(OUT_SCALE_TANH));
-			S_real_sum_MAQ1 = $signed(S_real_ctf_MAQ1) + $signed(S_real_ig_MAQ1);
-			S_unsat_MAQ1 = $signed(S_real_sum_MAQ1) + $signed({1'b0,ZERO_STATE});
+			// S_real_ctf_MAQ1 = $signed(temp_regA_1)/$signed(OUT_SCALE_SIGMOID);
+			// S_real_ig_MAQ1 = (($signed({1'b0,temp_regB_1})-$signed({1'b0,OUT_ZERO_SIGMOID})) * ($signed({1'b0,temp_regC_1})-$signed({1'b0,OUT_ZERO_TANH}))
+			// *$signed(SCALE_STATE))/($signed(OUT_SCALE_SIGMOID)*$signed(OUT_SCALE_TANH));
+			// S_real_sum_MAQ1 = $signed(S_real_ctf_MAQ1) + $signed(S_real_ig_MAQ1);
+			// S_unsat_MAQ1 = $signed(S_real_sum_MAQ1) + $signed({1'b0,ZERO_STATE});
 			
-			S_real_ctf_MAQ2 = $signed(temp_regA_2)/$signed(OUT_SCALE_SIGMOID);
-			S_real_ig_MAQ2 = (($signed({1'b0,temp_regB_2})-$signed({1'b0,OUT_ZERO_SIGMOID})) * ($signed({1'b0,temp_regC_2})-$signed({1'b0,OUT_ZERO_TANH}))
-			*$signed(SCALE_STATE))/($signed(OUT_SCALE_SIGMOID)*$signed(OUT_SCALE_TANH));
-			S_real_sum_MAQ2 = $signed(S_real_ctf_MAQ2) + $signed(S_real_ig_MAQ2);
-			S_unsat_MAQ2 = $signed(S_real_sum_MAQ2) + $signed({1'b0,ZERO_STATE});			
-		end
-		else begin
-			S_real_inpdt_sumBQS1 = 'd0; 
-			S_real_inpdt_sumBQS2 = 'd0; 
-			S_real_biasBQS1 = 'd0;			
-			S_real_biasBQS2 = 'd0;			
-			S_unsat_BQS1 = 'd0;
-			S_unsat_BQS2 = 'd0;		
+			// S_real_ctf_MAQ2 = $signed(temp_regA_2)/$signed(OUT_SCALE_SIGMOID);
+			// S_real_ig_MAQ2 = (($signed({1'b0,temp_regB_2})-$signed({1'b0,OUT_ZERO_SIGMOID})) * ($signed({1'b0,temp_regC_2})-$signed({1'b0,OUT_ZERO_TANH}))
+			// *$signed(SCALE_STATE))/($signed(OUT_SCALE_SIGMOID)*$signed(OUT_SCALE_TANH));
+			// S_real_sum_MAQ2 = $signed(S_real_ctf_MAQ2) + $signed(S_real_ig_MAQ2);
+			// S_unsat_MAQ2 = $signed(S_real_sum_MAQ2) + $signed({1'b0,ZERO_STATE});			
+		// end
+		// else begin
+			// S_real_inpdt_sumBQS1 = 'd0; 
+			// S_real_inpdt_sumBQS2 = 'd0; 
+			// S_real_biasBQS1 = 'd0;			
+			// S_real_biasBQS2 = 'd0;			
+			// S_unsat_BQS1 = 'd0;
+			// S_unsat_BQS2 = 'd0;		
 			
-			S_real_ctf_MAQ1 = 'd0;
-			S_real_ctf_MAQ2 = 'd0;
-			S_real_ig_MAQ1 = 'd0;
-			S_real_ig_MAQ2 = 'd0;
-			S_real_sum_MAQ1 = 'd0;
-			S_real_sum_MAQ2 = 'd0;
-			S_unsat_MAQ1 = 'd0;
-			S_unsat_MAQ2 = 'd0;				
-		end
+			// S_real_ctf_MAQ1 = 'd0;
+			// S_real_ctf_MAQ2 = 'd0;
+			// S_real_ig_MAQ1 = 'd0;
+			// S_real_ig_MAQ2 = 'd0;
+			// S_real_sum_MAQ1 = 'd0;
+			// S_real_sum_MAQ2 = 'd0;
+			// S_unsat_MAQ1 = 'd0;
+			// S_unsat_MAQ2 = 'd0;				
+		// end
 		
-		//************ S_BQT ************//			
-		if(comb_ctrl == S_BQT) begin
-			S_real_inpdt_sumBQT1 =  $signed(inpdt_R_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA));
-			S_real_biasBQT1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
-			S_unsat_BQT1 = $signed(S_real_inpdt_sumBQT1) + $signed(S_real_biasBQT1) + $signed({1'b0,ZERO_TANH});
+		// ************ S_BQT ************//			
+		// if(comb_ctrl == S_BQT) begin
+			// S_real_inpdt_sumBQT1 =  $signed(inpdt_R_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA));
+			// S_real_biasBQT1 = (($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
+			// S_unsat_BQT1 = $signed(S_real_inpdt_sumBQT1) + $signed(S_real_biasBQT1) + $signed({1'b0,ZERO_TANH});
 			
-			S_real_inpdt_sumBQT2 = $signed(inpdt_R_reg2)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA));
-			S_real_biasBQT2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
-			S_unsat_BQT2 = $signed(S_real_inpdt_sumBQT2) + $signed(S_real_biasBQT2) + $signed({1'b0,ZERO_TANH});
-		end
-		else begin
-			S_real_inpdt_sumBQT1 = 'd0; 
-			S_real_inpdt_sumBQT2 = 'd0; 
-			S_real_biasBQT1 = 'd0;			
-			S_real_biasBQT2 = 'd0;			
-			S_unsat_BQT1 = 'd0;
-			S_unsat_BQT2 = 'd0;		
-		end
+			// S_real_inpdt_sumBQT2 = $signed(inpdt_R_reg2)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA));
+			// S_real_biasBQT2 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
+			// S_unsat_BQT2 = $signed(S_real_inpdt_sumBQT2) + $signed(S_real_biasBQT2) + $signed({1'b0,ZERO_TANH});
+		// end
+		// else begin
+			// S_real_inpdt_sumBQT1 = 'd0; 
+			// S_real_inpdt_sumBQT2 = 'd0; 
+			// S_real_biasBQT1 = 'd0;			
+			// S_real_biasBQT2 = 'd0;			
+			// S_unsat_BQT1 = 'd0;
+			// S_unsat_BQT2 = 'd0;		
+		// end
 
-		//************ S_TMQ ************//						
-		if(comb_ctrl == S_TMQ) begin
-			S_unsat_ct_TMQ1 = (($signed({1'b0,Sys_Ct[2*tanh_Ct_select]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});			
-			S_unscale_ht_TMQ1 = ($signed({1'b0,temp_regA_1})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT1})-{1'b0,ZERO_TANH});
-			S_unsat_ht_TMQ1 = ($signed(S_unscale_ht_TMQ1)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
-			S_unsat_Z_ht_TMQ1 = $signed(S_unsat_ht_TMQ1) + $signed({1'b0,ZERO_DATA});
+		// ************ S_TMQ ************//						
+		// if(comb_ctrl == S_TMQ) begin
+			// S_unsat_ct_TMQ1 = (($signed({1'b0,Sys_Ct[2*tanh_Ct_select]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});			
+			// S_unscale_ht_TMQ1 = ($signed({1'b0,temp_regA_1})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT1})-{1'b0,ZERO_TANH});
+			// S_unsat_ht_TMQ1 = ($signed(S_unscale_ht_TMQ1)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
+			// S_unsat_Z_ht_TMQ1 = $signed(S_unsat_ht_TMQ1) + $signed({1'b0,ZERO_DATA});
 			
-			S_unsat_ct_TMQ2 = (($signed({1'b0,Sys_Ct[2*tanh_Ct_select+1]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});			
-			S_unscale_ht_TMQ2 = ($signed({1'b0,temp_regA_2})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT2})-{1'b0,ZERO_TANH});
-			S_unsat_ht_TMQ2 = ($signed(S_unscale_ht_TMQ2)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
-			S_unsat_Z_ht_TMQ2 = $signed(S_unsat_ht_TMQ2) + $signed({1'b0,ZERO_DATA});			
-		end
-		else begin
-			S_unsat_ct_TMQ1 = 'd0;
-			S_unsat_ct_TMQ2 = 'd0;
-			S_unscale_ht_TMQ1 = 'd0;
-			S_unscale_ht_TMQ2 = 'd0;
-			S_unsat_ht_TMQ1 = 'd0;	
-			S_unsat_ht_TMQ2 = 'd0;	
-			S_unsat_Z_ht_TMQ1 = 'd0;
-			S_unsat_Z_ht_TMQ2 = 'd0;			
-		end
+			// S_unsat_ct_TMQ2 = (($signed({1'b0,Sys_Ct[2*tanh_Ct_select+1]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});			
+			// S_unscale_ht_TMQ2 = ($signed({1'b0,temp_regA_2})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT2})-{1'b0,ZERO_TANH});
+			// S_unsat_ht_TMQ2 = ($signed(S_unscale_ht_TMQ2)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
+			// S_unsat_Z_ht_TMQ2 = $signed(S_unsat_ht_TMQ2) + $signed({1'b0,ZERO_DATA});			
+		// end
+		// else begin
+			// S_unsat_ct_TMQ1 = 'd0;
+			// S_unsat_ct_TMQ2 = 'd0;
+			// S_unscale_ht_TMQ1 = 'd0;
+			// S_unscale_ht_TMQ2 = 'd0;
+			// S_unsat_ht_TMQ1 = 'd0;	
+			// S_unsat_ht_TMQ2 = 'd0;	
+			// S_unsat_Z_ht_TMQ1 = 'd0;
+			// S_unsat_Z_ht_TMQ2 = 'd0;			
+		// end
 		
-		//************ B_BQS ************//		
-		if(comb_ctrl == B_BQS) begin
-			B_real_inpdt_sumBQS1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
-			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );							// Sumation of X & H
-			B_real_biasBQS1 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
-			B_unsat_BQS1 = $signed(B_real_inpdt_sumBQS1) + $signed(B_real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
-		end
-		else begin
-			B_real_inpdt_sumBQS1 = 'd0;
-			B_real_biasBQS1 = 'd0;
-			B_unsat_BQS1 = 'd0;
-		end
+		// ************ B_BQS ************//		
+		// if(comb_ctrl == B_BQS) begin
+			// B_real_inpdt_sumBQS1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			// + $signed( $signed(inpdt_R_reg2)*$signed(SCALE_SIGMOID)/($signed(SCALE_W)*$signed(SCALE_DATA)) );							// Sumation of X & H
+			// B_real_biasBQS1 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_SIGMOID))/$signed(SCALE_B);
+			// B_unsat_BQS1 = $signed(B_real_inpdt_sumBQS1) + $signed(B_real_biasBQS1) + $signed({1'b0,ZERO_SIGMOID});
+		// end
+		// else begin
+			// B_real_inpdt_sumBQS1 = 'd0;
+			// B_real_biasBQS1 = 'd0;
+			// B_unsat_BQS1 = 'd0;
+		// end
 		
-		//************ B_BQT ************//	
-		if(comb_ctrl == B_BQT) begin
-			B_real_inpdt_sumBQT1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
-			//+ $signed( $signed(inpdt_R_reg2)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );								// Sumation of X & H
-			B_real_biasBQT1 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
-			B_unsat_BQT1 = $signed(B_real_inpdt_sumBQT1) + $signed(B_real_biasBQT1) + $signed({1'b0,ZERO_TANH});
-		end
-		else begin
-			B_real_inpdt_sumBQT1 = 'd0;
-			B_real_biasBQT1 = 'd0;
-			B_unsat_BQT1 = 'd0;
-		end
+		// ************ B_BQT ************//	
+		// if(comb_ctrl == B_BQT) begin
+			// B_real_inpdt_sumBQT1 = $signed( $signed(inpdt_R_reg1)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );
+			// + $signed( $signed(inpdt_R_reg2)*$signed(SCALE_TANH)/($signed(SCALE_W)*$signed(SCALE_DATA)) );								// Sumation of X & H
+			// B_real_biasBQT1 = (($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_TANH))/$signed(SCALE_B);
+			// B_unsat_BQT1 = $signed(B_real_inpdt_sumBQT1) + $signed(B_real_biasBQT1) + $signed({1'b0,ZERO_TANH});
+		// end
+		// else begin
+			// B_real_inpdt_sumBQT1 = 'd0;
+			// B_real_biasBQT1 = 'd0;
+			// B_unsat_BQT1 = 'd0;
+		// end
 		
-		//************ B_MAQ ************//		
-		if(comb_ctrl == B_MAQ) begin
-			B_real_ctf_MAQ1 = $signed(temp_regA_1)/$signed(OUT_SCALE_SIGMOID);
-			B_real_ig_MAQ1 = (($signed({1'b0,temp_regB_1})-$signed({1'b0,OUT_ZERO_SIGMOID})) * ($signed({1'b0,temp_regC_1})-$signed({1'b0,OUT_ZERO_TANH}))
-			*$signed(SCALE_STATE))/($signed(OUT_SCALE_SIGMOID)*$signed(OUT_SCALE_TANH));
-			B_real_sum_MAQ1 = $signed(B_real_ctf_MAQ1) + $signed(B_real_ig_MAQ1);
-			B_unsat_MAQ1 = $signed(B_real_sum_MAQ1) + $signed({1'b0,ZERO_STATE});
-		end
-		else begin
-			B_real_ctf_MAQ1 = 'd0;
-			B_real_ig_MAQ1 = 'd0;
-			B_real_sum_MAQ1 = 'd0;
-			B_unsat_MAQ1 = 'd0;
-		end
+		// ************ B_MAQ ************//		
+		// if(comb_ctrl == B_MAQ) begin
+			// B_real_ctf_MAQ1 = $signed(temp_regA_1)/$signed(OUT_SCALE_SIGMOID);
+			// B_real_ig_MAQ1 = (($signed({1'b0,temp_regB_1})-$signed({1'b0,OUT_ZERO_SIGMOID})) * ($signed({1'b0,temp_regC_1})-$signed({1'b0,OUT_ZERO_TANH}))
+			// *$signed(SCALE_STATE))/($signed(OUT_SCALE_SIGMOID)*$signed(OUT_SCALE_TANH));
+			// B_real_sum_MAQ1 = $signed(B_real_ctf_MAQ1) + $signed(B_real_ig_MAQ1);
+			// B_unsat_MAQ1 = $signed(B_real_sum_MAQ1) + $signed({1'b0,ZERO_STATE});
+		// end
+		// else begin
+			// B_real_ctf_MAQ1 = 'd0;
+			// B_real_ig_MAQ1 = 'd0;
+			// B_real_sum_MAQ1 = 'd0;
+			// B_unsat_MAQ1 = 'd0;
+		// end
 		
-		//************ B_TMQ ************//		
-		if(comb_ctrl == B_TMQ) begin
-			B_unsat_ct_TMQ1 = (($signed({1'b0,Br_Ct[tanh_Ct_select]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});		
-			B_unscale_ht_TMQ1 = ($signed({1'b0,temp_regA_1})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT1})-{1'b0,ZERO_TANH});
-			B_unsat_ht_TMQ1 = ($signed(B_unscale_ht_TMQ1)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
-			B_unsat_Z_ht_TMQ1 = $signed(B_unsat_ht_TMQ1) + $signed({1'b0,ZERO_DATA});
-		end
-		else begin
-			B_unsat_ct_TMQ1 = 'd0;
-			B_unscale_ht_TMQ1 = 'd0;
-			B_unsat_ht_TMQ1 = 'd0;
-			B_unsat_Z_ht_TMQ1 = 'd0;
-		end
-	end
+		// ************ B_TMQ ************//		
+		// if(comb_ctrl == B_TMQ) begin
+			// B_unsat_ct_TMQ1 = (($signed({1'b0,Br_Ct[tanh_Ct_select]})-$signed({1'b0,ZERO_STATE}))*$signed(SCALE_TANH))/$signed(SCALE_STATE) + $signed({1'b0,ZERO_TANH});		
+			// B_unscale_ht_TMQ1 = ($signed({1'b0,temp_regA_1})-$signed({1'b0,OUT_ZERO_SIGMOID}))*($signed({1'b0,oTanh_LUT1})-{1'b0,ZERO_TANH});
+			// B_unsat_ht_TMQ1 = ($signed(B_unscale_ht_TMQ1)*$signed(SCALE_DATA))/($signed(OUT_SCALE_TANH)*$signed(OUT_SCALE_SIGMOID));
+			// B_unsat_Z_ht_TMQ1 = $signed(B_unsat_ht_TMQ1) + $signed({1'b0,ZERO_DATA});
+		// end
+		// else begin
+			// B_unsat_ct_TMQ1 = 'd0;
+			// B_unscale_ht_TMQ1 = 'd0;
+			// B_unsat_ht_TMQ1 = 'd0;
+			// B_unsat_Z_ht_TMQ1 = 'd0;
+		// end
+	// end
 
-	//************ CTXT Quantization ************//
-	always@(*) begin
-		if(lstm_state == CTXT_CONVERT) begin
-			Ct_real_inpdt_sum1 = $signed(inpdt_R_reg1)/($signed(SCALE_W));
-			Ct_real_inpdt_sum2 = $signed(inpdt_Rtemp_reg1)/($signed(SCALE_W));
-			Ct_real_bias1 = ($signed({1'b0,bias_buffer[31:24]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_STATE)/$signed(SCALE_B);
-			Ct_real_bias2 = ($signed({1'b0,bias_buffer[23:16]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_STATE)/$signed(SCALE_B);
-			Ct_unsat1 = $signed(Ct_real_inpdt_sum1) + $signed(Ct_real_bias1) + $signed({1'b0,ZERO_STATE});
-			Ct_unsat2 = $signed(Ct_real_inpdt_sum2) + $signed(Ct_real_bias2) + $signed({1'b0,ZERO_STATE});				
+	// ************ CTXT Quantization ************//
+	// always@(*) begin
+		// if(lstm_state == CTXT_CONVERT) begin
+			// Ct_real_inpdt_sum1 = $signed(inpdt_R_reg1)/($signed(SCALE_W));
+			// Ct_real_inpdt_sum2 = $signed(inpdt_Rtemp_reg1)/($signed(SCALE_W));
+			// Ct_real_bias1 = ($signed({1'b0,bias_buffer[31:24]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_STATE)/$signed(SCALE_B);
+			// Ct_real_bias2 = ($signed({1'b0,bias_buffer[23:16]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_STATE)/$signed(SCALE_B);
+			// Ct_unsat1 = $signed(Ct_real_inpdt_sum1) + $signed(Ct_real_bias1) + $signed({1'b0,ZERO_STATE});
+			// Ct_unsat2 = $signed(Ct_real_inpdt_sum2) + $signed(Ct_real_bias2) + $signed({1'b0,ZERO_STATE});				
 
-			Ht_real_inpdt_sum1 = $signed(inpdt_R_reg2)/($signed(SCALE_W));
-			Ht_real_inpdt_sum2 = $signed(inpdt_Rtemp_reg2)/($signed(SCALE_W));
-			Ht_real_bias1 = ($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_DATA)/$signed(SCALE_B);		
-			Ht_real_bias2 = ($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_DATA)/$signed(SCALE_B);
-			Ht_unsat1 = $signed(Ht_real_inpdt_sum1) + $signed(Ht_real_bias1) + $signed({1'b0,ZERO_DATA});	
-			Ht_unsat2 = $signed(Ht_real_inpdt_sum2) + $signed(Ht_real_bias2) + $signed({1'b0,ZERO_DATA});
-		end
-		else begin
-			Ct_real_inpdt_sum1 = 'd0;
-			Ct_real_inpdt_sum2 = 'd0;	
-			Ct_real_bias1 = 'd0;
-			Ct_real_bias2 = 'd0;	
-			Ct_unsat1 = 'd0;
-			Ct_unsat2 = 'd0;	
+			// Ht_real_inpdt_sum1 = $signed(inpdt_R_reg2)/($signed(SCALE_W));
+			// Ht_real_inpdt_sum2 = $signed(inpdt_Rtemp_reg2)/($signed(SCALE_W));
+			// Ht_real_bias1 = ($signed({1'b0,bias_buffer[15:8]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_DATA)/$signed(SCALE_B);		
+			// Ht_real_bias2 = ($signed({1'b0,bias_buffer[7:0]})-$signed({1'b0,ZERO_B}))*$signed(SCALE_DATA)/$signed(SCALE_B);
+			// Ht_unsat1 = $signed(Ht_real_inpdt_sum1) + $signed(Ht_real_bias1) + $signed({1'b0,ZERO_DATA});	
+			// Ht_unsat2 = $signed(Ht_real_inpdt_sum2) + $signed(Ht_real_bias2) + $signed({1'b0,ZERO_DATA});
+		// end
+		// else begin
+			// Ct_real_inpdt_sum1 = 'd0;
+			// Ct_real_inpdt_sum2 = 'd0;	
+			// Ct_real_bias1 = 'd0;
+			// Ct_real_bias2 = 'd0;	
+			// Ct_unsat1 = 'd0;
+			// Ct_unsat2 = 'd0;	
 
-			Ht_real_inpdt_sum1 = 'd0;
-			Ht_real_inpdt_sum2 = 'd0;	
-			Ht_real_bias1 = 'd0;
-			Ht_real_bias2 = 'd0;	
-			Ht_unsat1 = 'd0;
-			Ht_unsat2 = 'd0;				
-		end
-	end
+			// Ht_real_inpdt_sum1 = 'd0;
+			// Ht_real_inpdt_sum2 = 'd0;	
+			// Ht_real_bias1 = 'd0;
+			// Ht_real_bias2 = 'd0;	
+			// Ht_unsat1 = 'd0;
+			// Ht_unsat2 = 'd0;				
+		// end
+	// end
 	
-	assign S_sat_BQS1 = (S_unsat_BQS1[31]) ? 8'd0 : (|S_unsat_BQS1[30:8] == 1) ? 8'd255 : S_unsat_BQS1[7:0];
-	assign S_sat_BQS2 = (S_unsat_BQS2[31]) ? 8'd0 : (|S_unsat_BQS2[30:8] == 1) ? 8'd255 : S_unsat_BQS2[7:0];
-	assign S_sat_BQT1 = (S_unsat_BQT1[31]) ? 8'd0 : (|S_unsat_BQT1[30:8] == 1) ? 8'd255 : S_unsat_BQT1[7:0];
-	assign S_sat_BQT2 = (S_unsat_BQT2[31]) ? 8'd0 : (|S_unsat_BQT2[30:8] == 1) ? 8'd255 : S_unsat_BQT2[7:0];
-	assign S_sat_MAQ1 = (S_unsat_MAQ1[31]) ? 8'd0 : (|S_unsat_MAQ1[30:8] == 1) ? 8'd255 : S_unsat_MAQ1[7:0];
-	assign S_sat_MAQ2 = (S_unsat_MAQ2[31]) ? 8'd0 : (|S_unsat_MAQ2[30:8] == 1) ? 8'd255 : S_unsat_MAQ2[7:0];
-	assign S_sat_ct_TMQ1 = (S_unsat_ct_TMQ1[31]) ? 8'd0 : (|S_unsat_ct_TMQ1[30:8] == 1) ? 8'd255 : S_unsat_ct_TMQ1[7:0];
-	assign S_sat_ct_TMQ2 = (S_unsat_ct_TMQ2[31]) ? 8'd0 : (|S_unsat_ct_TMQ2[30:8] == 1) ? 8'd255 : S_unsat_ct_TMQ2[7:0];
-	assign S_sat_ht_TMQ1 = (S_unsat_Z_ht_TMQ1[31]) ? 8'd0 : (|S_unsat_Z_ht_TMQ1[30:8] == 1) ? 8'd255 : S_unsat_Z_ht_TMQ1[7:0];
-	assign S_sat_ht_TMQ2 = (S_unsat_Z_ht_TMQ2[31]) ? 8'd0 : (|S_unsat_Z_ht_TMQ2[30:8] == 1) ? 8'd255 : S_unsat_Z_ht_TMQ2[7:0];
+	// assign S_sat_BQS1 = (S_unsat_BQS1[31]) ? 8'd0 : (|S_unsat_BQS1[30:8] == 1) ? 8'd255 : S_unsat_BQS1[7:0];
+	// assign S_sat_BQS2 = (S_unsat_BQS2[31]) ? 8'd0 : (|S_unsat_BQS2[30:8] == 1) ? 8'd255 : S_unsat_BQS2[7:0];
+	// assign S_sat_BQT1 = (S_unsat_BQT1[31]) ? 8'd0 : (|S_unsat_BQT1[30:8] == 1) ? 8'd255 : S_unsat_BQT1[7:0];
+	// assign S_sat_BQT2 = (S_unsat_BQT2[31]) ? 8'd0 : (|S_unsat_BQT2[30:8] == 1) ? 8'd255 : S_unsat_BQT2[7:0];
+	// assign S_sat_MAQ1 = (S_unsat_MAQ1[31]) ? 8'd0 : (|S_unsat_MAQ1[30:8] == 1) ? 8'd255 : S_unsat_MAQ1[7:0];
+	// assign S_sat_MAQ2 = (S_unsat_MAQ2[31]) ? 8'd0 : (|S_unsat_MAQ2[30:8] == 1) ? 8'd255 : S_unsat_MAQ2[7:0];
+	// assign S_sat_ct_TMQ1 = (S_unsat_ct_TMQ1[31]) ? 8'd0 : (|S_unsat_ct_TMQ1[30:8] == 1) ? 8'd255 : S_unsat_ct_TMQ1[7:0];
+	// assign S_sat_ct_TMQ2 = (S_unsat_ct_TMQ2[31]) ? 8'd0 : (|S_unsat_ct_TMQ2[30:8] == 1) ? 8'd255 : S_unsat_ct_TMQ2[7:0];
+	// assign S_sat_ht_TMQ1 = (S_unsat_Z_ht_TMQ1[31]) ? 8'd0 : (|S_unsat_Z_ht_TMQ1[30:8] == 1) ? 8'd255 : S_unsat_Z_ht_TMQ1[7:0];
+	// assign S_sat_ht_TMQ2 = (S_unsat_Z_ht_TMQ2[31]) ? 8'd0 : (|S_unsat_Z_ht_TMQ2[30:8] == 1) ? 8'd255 : S_unsat_Z_ht_TMQ2[7:0];
 	
-	assign B_sat_BQS1 = (B_unsat_BQS1[31]) ? 8'd0 : (|B_unsat_BQS1[30:8] == 1) ? 8'd255 : B_unsat_BQS1[7:0];
-	assign B_sat_BQT1 = (B_unsat_BQT1[31]) ? 8'd0 : (|B_unsat_BQT1[30:8] == 1) ? 8'd255 : B_unsat_BQT1[7:0];
-	assign B_sat_MAQ1 = (B_unsat_MAQ1[31]) ? 8'd0 : (|B_unsat_MAQ1[30:8] == 1) ? 8'd255 : B_unsat_MAQ1[7:0];
-	assign B_sat_ct_TMQ1 = (B_unsat_ct_TMQ1[31]) ? 8'd0 : (|B_unsat_ct_TMQ1[30:8] == 1) ? 8'd255 : B_unsat_ct_TMQ1[7:0];
-	assign B_sat_ht_TMQ1 = (B_unsat_Z_ht_TMQ1[31]) ? 8'd0 : (|B_unsat_Z_ht_TMQ1[30:8] == 1) ? 8'd255 : B_unsat_Z_ht_TMQ1[7:0];	
+	// assign B_sat_BQS1 = (B_unsat_BQS1[31]) ? 8'd0 : (|B_unsat_BQS1[30:8] == 1) ? 8'd255 : B_unsat_BQS1[7:0];
+	// assign B_sat_BQT1 = (B_unsat_BQT1[31]) ? 8'd0 : (|B_unsat_BQT1[30:8] == 1) ? 8'd255 : B_unsat_BQT1[7:0];
+	// assign B_sat_MAQ1 = (B_unsat_MAQ1[31]) ? 8'd0 : (|B_unsat_MAQ1[30:8] == 1) ? 8'd255 : B_unsat_MAQ1[7:0];
+	// assign B_sat_ct_TMQ1 = (B_unsat_ct_TMQ1[31]) ? 8'd0 : (|B_unsat_ct_TMQ1[30:8] == 1) ? 8'd255 : B_unsat_ct_TMQ1[7:0];
+	// assign B_sat_ht_TMQ1 = (B_unsat_Z_ht_TMQ1[31]) ? 8'd0 : (|B_unsat_Z_ht_TMQ1[30:8] == 1) ? 8'd255 : B_unsat_Z_ht_TMQ1[7:0];	
 
-	assign Ct_sat1 = (Ct_unsat1[31]) ? 8'd0 : (|Ct_unsat1[30:8] == 1) ? 8'd255 : Ct_unsat1[7:0];
-	assign Ct_sat2 = (Ct_unsat2[31]) ? 8'd0 : (|Ct_unsat2[30:8] == 1) ? 8'd255 : Ct_unsat2[7:0];
-	assign Ht_sat1 = (Ht_unsat1[31]) ? 8'd0 : (|Ht_unsat1[30:8] == 1) ? 8'd255 : Ht_unsat1[7:0];
-	assign Ht_sat2 = (Ht_unsat2[31]) ? 8'd0 : (|Ht_unsat2[30:8] == 1) ? 8'd255 : Ht_unsat2[7:0];
+	// assign Ct_sat1 = (Ct_unsat1[31]) ? 8'd0 : (|Ct_unsat1[30:8] == 1) ? 8'd255 : Ct_unsat1[7:0];
+	// assign Ct_sat2 = (Ct_unsat2[31]) ? 8'd0 : (|Ct_unsat2[30:8] == 1) ? 8'd255 : Ct_unsat2[7:0];
+	// assign Ht_sat1 = (Ht_unsat1[31]) ? 8'd0 : (|Ht_unsat1[30:8] == 1) ? 8'd255 : Ht_unsat1[7:0];
+	// assign Ht_sat2 = (Ht_unsat2[31]) ? 8'd0 : (|Ht_unsat2[30:8] == 1) ? 8'd255 : Ht_unsat2[7:0];
 	
 endmodule

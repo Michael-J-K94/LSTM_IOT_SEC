@@ -64,3 +64,28 @@ relaunch_sim
 run all
 relaunch_sim
 run all
+add_files -norecurse {{C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/CONVERT_Ht.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/B_TMQ.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/S_BQS.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/CONVERT_Ct.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/B_BQT.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/B_BQS.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/S_MAQ.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/S_TMQ.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/B_MAQ.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/S_BQT.v}}
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+source lstm_tb_ctxt_convert.tcl
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQS.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQT.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_MAQ.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_TMQ.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ct.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ht.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQS.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQT.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_MAQ.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_TMQ.v] -no_script -reset -force -quiet
+remove_files  {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQS.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQT.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_MAQ.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_TMQ.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ct.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ht.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQS.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQT.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_MAQ.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_TMQ.v}
+add_files -norecurse {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2_modulized.v {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/CONVERT_Ht_2.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/S_BQT_2.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/S_TMQ_2.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/B_TMQ_2.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/B_MAQ_2.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/B_BQS_2.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/B_BQT_2.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/CONVERT_Ct_2.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/S_BQS_2.v} {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/S_MAQ_2.v}}
+set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2_modulized.v]
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+source lstm_tb_ctxt_convert.tcl
+run all

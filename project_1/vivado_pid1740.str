@@ -2957,3 +2957,264 @@ selectButton(PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN_ALL, "simulati
 // TclEventType: WAVEFORM_MODEL_EVENT
 // TclEventType: WAVEFORM_UPDATE_WAVEFORM
 // TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 1537 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // ax
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 17 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 58); // B (D, cp)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 59); // B (D, cp)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Disabled Sources]", 65); // B (D, cp)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Add Sources]", 2, false); // u (Q, cp)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cp): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton (j, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a (C, c)
+String[] filenames16706 = {"C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/B_BQS.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/B_BQT.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/B_MAQ.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/B_TMQ.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/CONVERT_Ct.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/CONVERT_Ht.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/S_BQS.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/S_BQT.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/S_MAQ.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules/S_TMQ.v"};
+setFileChooser(filenames16706);
+selectButton("FINISH", "Finish"); // JButton (j, c)
+// 'h' command handler elapsed time: 6 seconds
+dismissDialog("Add Sources"); // c (cp)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (Q, cp)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (Q, cp)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // af (al, cp)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// bx (cp):  Close : addNotify
+selectButton("PAResourceQtoS.SimulationRun_SIMULATION_ALREADY_RUNNING_DO_YOU_Yes", "Yes"); // JButton (C, I)
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+// e (cp):  Run Simulation : addNotify
+dismissDialog("Close"); // bx (cp)
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// Tcl Message: launch_simulation 
+// Tcl Message: "xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj" 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim' 
+// Tcl Message: Compiling module xil_defaultlib.br_bias_memory Compiling module xil_defaultlib.input_data_memory Compiling module xil_defaultlib.output_memory Compiling module xil_defaultlib.br_input_data_memory Compiling module xil_defaultlib.br_output_memory Compiling module xil_defaultlib.lstm_tb_ctxt_convert Compiling module xil_defaultlib.glbl 
+// Tcl Message: Built simulation snapshot lstm_tb_ctxt_convert_behav 
+// Tcl Message: run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:22 . Memory (MB): peak = 1271.484 ; gain = 0.000 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '23' seconds 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "lstm_tb_ctxt_convert_behav -key {Behavioral:sim_1:Functional:lstm_tb_ctxt_convert} -tclbatch {lstm_tb_ctxt_convert.tcl} -view {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2018.3 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// Elapsed time: 28 seconds
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // v
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// Waveform: addNotify
+// Waveform: addNotify
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Tcl Message: open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg 
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,078 MB. GUI used memory: 68 MB. Current time: 5/16/19, 3:36:24 AM KST
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source lstm_tb_ctxt_convert.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 1000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'lstm_tb_ctxt_convert_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:30 . Memory (MB): peak = 1271.484 ; gain = 0.000 
+// 'd' command handler elapsed time: 34 seconds
+dismissDialog("Run Simulation"); // e (cp)
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Elapsed time: 1478 seconds
+selectTab((HResource) null, (HResource) null, "Sources", 1); // aI (aF, cp)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1); // B (D, cp)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, B_BQS.v]", 2, false); // B (D, cp)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, S_TMQ.v]", 11, false, true, false, false, false, false); // B (D, cp) - Shift Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, B_BQT.v]", 3, false, false, false, false, true, false); // B (D, cp) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // af (al, cp)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cp): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aE)
+dismissDialog("Remove Sources"); // aE (cp)
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQS.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQT.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_MAQ.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_TMQ.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ct.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ht.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQS.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQT.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_MAQ.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_TMQ.v] -no_script -reset -force -quiet 
+// aE (cp): Remove Sources: addNotify
+// bx (aE):  Remove Sources : addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQS.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQT.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_MAQ.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_TMQ.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ct.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ht.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQS.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQT.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_MAQ.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_TMQ.v} 
+dismissDialog("Remove Sources"); // bx (aE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, LSTM (lstm_16_innerproduct_2_modulized.v)]", 1, true); // B (D, cp) - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Add Sources]", 2, false); // u (Q, cp)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cp): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton (j, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a (C, c)
+String[] filenames29306 = {"C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/B_BQS_2.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/B_BQT_2.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/B_MAQ_2.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/B_TMQ_2.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/CONVERT_Ct_2.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/CONVERT_Ht_2.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/S_BQS_2.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/S_BQT_2.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/S_MAQ_2.v", "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Quantization Modules_2/S_TMQ_2.v"};
+setFileChooser(filenames29306);
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a (C, c)
+setFileChooser("C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2_modulized.v");
+selectButton("FINISH", "Finish"); // JButton (j, c)
+// 'h' command handler elapsed time: 17 seconds
+dismissDialog("Add Sources"); // c (cp)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, LSTM (lstm_16_innerproduct_2_modulized.v)]", 1, true); // B (D, cp) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, LSTM (lstm_16_innerproduct_2_modulized.v)]", 1, true, false, false, false, true, false); // B (D, cp) - Popup Trigger - Node
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // af (al, cp)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cp): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (aE)
+dismissDialog("Remove Sources"); // aE (cp)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, LSTM (lstm_16_innerproduct_2_modulized.v)]", 1, true, false, false, false, true, false); // B (D, cp) - Popup Trigger - Node
+selectMenuItem(PAResourceCommand.PACommandNames_SRC_DISABLE, "Disable File"); // af (al, cp)
+// Run Command: PAResourceCommand.PACommandNames_SRC_DISABLE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2_modulized.v] 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 56 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (Q, cp)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // af (al, cp)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// bx (cp):  Close : addNotify
+selectButton("PAResourceQtoS.SimulationRun_SIMULATION_ALREADY_RUNNING_DO_YOU_Yes", "Yes"); // JButton (C, I)
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+// e (cp):  Run Simulation : addNotify
+dismissDialog("Close"); // bx (cp)
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// Tcl Message: launch_simulation 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim' 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Compiling module xil_defaultlib.br_bias_memory Compiling module xil_defaultlib.input_data_memory Compiling module xil_defaultlib.output_memory Compiling module xil_defaultlib.br_input_data_memory Compiling module xil_defaultlib.br_output_memory Compiling module xil_defaultlib.lstm_tb_ctxt_convert Compiling module xil_defaultlib.glbl Built simulation snapshot lstm_tb_ctxt_convert_behav 
+// Tcl Message: run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:15 . Memory (MB): peak = 1271.484 ; gain = 0.000 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '16' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "lstm_tb_ctxt_convert_behav -key {Behavioral:sim_1:Functional:lstm_tb_ctxt_convert} -tclbatch {lstm_tb_ctxt_convert.tcl} -view {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2018.3 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// Tcl Message: Time resolution is 1 ps 
+// Elapsed time: 20 seconds
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // v
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// Waveform: addNotify
+// Waveform: addNotify
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,078 MB. GUI used memory: 69 MB. Current time: 5/16/19, 4:03:09 AM KST
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg 
+// Tcl Message: source lstm_tb_ctxt_convert.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 1000ns 
+// Tcl Message: Block Memory Generator module lstm_tb_ctxt_convert.UUT.WEIGHT_BRAM1.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior. Block Memory Generator module lstm_tb_ctxt_convert.UUT.WEIGHT_BRAM2.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior. Block Memory Generator module lstm_tb_ctxt_convert.UUT.BIAS_BRAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior. 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'lstm_tb_ctxt_convert_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1271.484 ; gain = 0.000 
+// 'd' command handler elapsed time: 24 seconds
+dismissDialog("Run Simulation"); // e (cp)
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+selectButton(PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN_ALL, "simulation_live_run_all"); // B (f, cp)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN_ALL
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// Tcl Message: run all 
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: test          0 is passed  test          1 is passed  test          2 is passed  test          3 is passed  test          4 is passed  test          5 is passed  test          6 is passed  test          7 is passed  test          8 is passed  test          9 is passed  test          0 is passed  test          1 is passed  test          2 is passed  $finish called at time : 385355 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404 
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT

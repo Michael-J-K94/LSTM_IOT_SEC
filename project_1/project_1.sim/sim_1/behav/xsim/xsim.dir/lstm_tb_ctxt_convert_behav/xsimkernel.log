@@ -1,4 +1,4 @@
-Running: xsim.dir/lstm_tb_ctxt_convert_behav/xsimk.exe -simmode gui -wdb lstm_tb_ctxt_convert_behav.wdb -simrunnum 0 -socket 51678
+Running: xsim.dir/lstm_tb_ctxt_convert_behav/xsimk.exe -simmode gui -wdb lstm_tb_ctxt_convert_behav.wdb -simrunnum 0 -socket 51842
 Design successfully loaded
-Design Loading Memory Usage: 10836 KB (Peak: 10836 KB)
-Design Loading CPU Usage: 93 ms
+Design Loading Memory Usage: 10016 KB (Peak: 10016 KB)
+Design Loading CPU Usage: 78 ms
