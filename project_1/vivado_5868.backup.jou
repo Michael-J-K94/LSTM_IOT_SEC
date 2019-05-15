@@ -1,0 +1,72 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed May 15 02:02:24 2019
+# Process ID: 5868
+# Current directory: C:/Users/User/Desktop/LSTM_IOT_SEC/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13708 C:\Users\User\Desktop\LSTM_IOT_SEC\project_1\project_1.xpr
+# Log file: C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/vivado.log
+# Journal file: C:/Users/User/Desktop/LSTM_IOT_SEC/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v] -no_script -reset -force -quiet
+remove_files  {C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v}
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name SRAM_128x2048 -dir c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {SRAM_128x2048} CONFIG.Write_Width_A {128} CONFIG.Write_Depth_A {2048} CONFIG.Read_Width_A {128} CONFIG.Write_Width_B {128} CONFIG.Read_Width_B {128} CONFIG.Register_PortA_Output_of_Memory_Primitives {false}] [get_ips SRAM_128x2048]
+generate_target {instantiation_template} [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci]
+update_compile_order -fileset sources_1
+generate_target all [get_files  c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci]
+catch { config_ip_cache -export [get_ips -all SRAM_128x2048] }
+export_ip_user_files -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci]
+launch_runs -jobs 4 SRAM_128x2048_synth_1
+export_simulation -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci] -directory C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files -ipstatic_source_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name SRAM_512x128 -dir c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {SRAM_512x128} CONFIG.Write_Width_A {512} CONFIG.Write_Depth_A {128} CONFIG.Read_Width_A {512} CONFIG.Write_Width_B {512} CONFIG.Read_Width_B {512} CONFIG.Register_PortA_Output_of_Memory_Primitives {false}] [get_ips SRAM_512x128]
+generate_target {instantiation_template} [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci]
+generate_target all [get_files  c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci]
+catch { config_ip_cache -export [get_ips -all SRAM_512x128] }
+export_ip_user_files -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci]
+launch_runs -jobs 4 SRAM_512x128_synth_1
+export_simulation -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci] -directory C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files -ipstatic_source_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name SRAM_32x512 -dir c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {SRAM_32x512} CONFIG.Write_Width_A {32} CONFIG.Write_Depth_A {512} CONFIG.Read_Width_A {32} CONFIG.Write_Width_B {32} CONFIG.Read_Width_B {32} CONFIG.Register_PortA_Output_of_Memory_Primitives {false}] [get_ips SRAM_32x512]
+generate_target {instantiation_template} [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci]
+generate_target all [get_files  c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci]
+catch { config_ip_cache -export [get_ips -all SRAM_32x512] }
+export_ip_user_files -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci]
+launch_runs -jobs 4 SRAM_32x512_synth_1
+export_simulation -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci] -directory C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files -ipstatic_source_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+add_files -norecurse {C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+source lstm_tb_ctxt_convert.tcl
+run all
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top LSTM [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+set_property is_enabled false [get_files  {C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct.v}]
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+open_wave_config C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+source lstm_tb_ctxt_convert.tcl
+run all
+relaunch_sim
+run all
+close_sim

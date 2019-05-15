@@ -1,6 +1,5 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../project_1.srcs/sources_1/ip/SRAM_512x128/sim/SRAM_512x128.v" \
 "../../../../project_1.srcs/sources_1/ip/SRAM_32x512/sim/SRAM_32x512.v" \
 "../../../../project_1.srcs/sources_1/ip/SRAM_128x2048/sim/SRAM_128x2048.v" \
 "../../../../../src/tb/syscall/bias_memory.v" \
@@ -10,7 +9,7 @@ verilog xil_defaultlib  \
 "../../../../../src/tb/branch/branch_weight_memory.v" \
 "../../../../../src/verilog/inpdt_mid.v" \
 "../../../../../src/tb/syscall/input_data_memory.v" \
-"../../../../../src/verilog/lstm_16_innerproduct_2.v" \
+"../../../../../src/verilog/lstm_2_innerproduct_2.v" \
 "../../../../../src/tb/syscall/output_memory.v" \
 "../../../../../src/verilog/sigmoid_LUT.v" \
 "../../../../../src/verilog/tanh_LUT.v" \

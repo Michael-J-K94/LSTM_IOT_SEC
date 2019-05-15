@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="SRAM_32x512_synth_1" LaunchPart="xa7a12tcpg238-2I" LaunchTime="1557853548">
   <File Type="PA-TCL" Name="SRAM_32x512.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="SRAM_32x512_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="SRAM_32x512_reports.tcl"/>
   <File Type="RDS-RDS" Name="SRAM_32x512.vds"/>
   <File Type="RDS-UTIL" Name="SRAM_32x512_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="SRAM_32x512_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="SRAM_32x512.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="SRAM_32x512_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="SRAM_32x512_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/SRAM_32x512">
     <File Path="$PSRCDIR/sources_1/ip/SRAM_32x512/SRAM_32x512.xci">
       <FileInfo>
@@ -42,9 +39,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>
