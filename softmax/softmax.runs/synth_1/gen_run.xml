@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7s100fgga484-2" LaunchTime="1557920025">
+  <File Type="PA-TCL" Name="softmax.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="softmax_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="softmax_reports.tcl"/>
+  <File Type="RDS-RDS" Name="softmax.vds"/>
+  <File Type="RDS-UTIL" Name="softmax_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="softmax_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="softmax.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="softmax_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="softmax_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../src/verilog/Softmax.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="softmax"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="SRAM_64x283"/>
+  <BlockFileSet Type="BlockSrcs" Name="SRAM_512x4096"/>
+  <BlockFileSet Type="BlockSrcs" Name="SRAM_8x4096"/>
+  <BlockFileSet Type="BlockSrcs" Name="SRAM_8x283"/>
+</GenRun>

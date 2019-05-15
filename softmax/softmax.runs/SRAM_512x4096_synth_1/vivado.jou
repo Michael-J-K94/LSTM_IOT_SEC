@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed May 15 20:06:02 2019
+# Process ID: 500
+# Current directory: C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/SRAM_512x4096_synth_1
+# Command line: vivado.exe -log SRAM_512x4096.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SRAM_512x4096.tcl
+# Log file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/SRAM_512x4096_synth_1/SRAM_512x4096.vds
+# Journal file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/SRAM_512x4096_synth_1\vivado.jou
+#-----------------------------------------------------------
+source SRAM_512x4096.tcl -notrace

@@ -2,147 +2,89 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Wed May 15 02:02:24 2019
-# Process ID: 5868
-# Current directory: C:/Users/User/Desktop/LSTM_IOT_SEC/project_1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13708 C:\Users\User\Desktop\LSTM_IOT_SEC\project_1\project_1.xpr
-# Log file: C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/vivado.log
-# Journal file: C:/Users/User/Desktop/LSTM_IOT_SEC/project_1\vivado.jou
+# Start of session at: Wed May 15 20:34:07 2019
+# Process ID: 9476
+# Current directory: C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12664 C:\Users\ECE\Desktop\LSTM_IOT_SEC\project_1\project_1.xpr
+# Log file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/vivado.log
+# Journal file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.xpr
-INFO: [Project 1-313] Project file moved from 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1' since last save.
-CRITICAL WARNING: [Project 1-311] Could not find the file 'C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v', nor could it be found using path 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v'.
-CRITICAL WARNING: [Project 1-311] Could not find the file 'C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v', nor could it be found using path 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v'.
-CRITICAL WARNING: [Project 1-311] Could not find the file 'C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.13_convert_verified.v', nor could it be found using path 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.13_convert_verified.v'.
+open_project C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1' since last save.
+CRITICAL WARNING: [Project 1-311] Could not find the file 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.13_convert_verified.v', nor could it be found using path 'C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.13_convert_verified.v'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.3/data/ip'.
-open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 699.785 ; gain = 121.711
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 753.078 ; gain = 174.707
 update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-export_ip_user_files -of_objects  [get_files C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v] -no_script -reset -force -quiet
-export_ip_user_files -of_objects  [get_files C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v] -no_script -reset -force -quiet
-remove_files  {C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/inpdt.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_5.12_optimize_parameterized.v}
-INFO: [Device 21-403] Loading part xa7a12tcpg238-2I
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name SRAM_128x2048 -dir c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip
-set_property -dict [list CONFIG.Component_Name {SRAM_128x2048} CONFIG.Write_Width_A {128} CONFIG.Write_Depth_A {2048} CONFIG.Read_Width_A {128} CONFIG.Write_Width_B {128} CONFIG.Read_Width_B {128} CONFIG.Register_PortA_Output_of_Memory_Primitives {false}] [get_ips SRAM_128x2048]
-WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'SRAM_128x2048' to 'SRAM_128x2048' is not allowed and is ignored.
-generate_target {instantiation_template} [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'SRAM_128x2048'...
-update_compile_order -fileset sources_1
-generate_target all [get_files  c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci]
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'SRAM_128x2048'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'SRAM_128x2048'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'SRAM_128x2048'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'SRAM_128x2048'...
-catch { config_ip_cache -export [get_ips -all SRAM_128x2048] }
-export_ip_user_files -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci]
-launch_runs -jobs 4 SRAM_128x2048_synth_1
-[Wed May 15 02:04:48 2019] Launched SRAM_128x2048_synth_1...
-Run output will be captured here: C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.runs/SRAM_128x2048_synth_1/runme.log
-export_simulation -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/SRAM_128x2048.xci] -directory C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files -ipstatic_source_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name SRAM_512x128 -dir c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip
-set_property -dict [list CONFIG.Component_Name {SRAM_512x128} CONFIG.Write_Width_A {512} CONFIG.Write_Depth_A {128} CONFIG.Read_Width_A {512} CONFIG.Write_Width_B {512} CONFIG.Read_Width_B {512} CONFIG.Register_PortA_Output_of_Memory_Primitives {false}] [get_ips SRAM_512x128]
-WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'SRAM_512x128' to 'SRAM_512x128' is not allowed and is ignored.
-generate_target {instantiation_template} [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'SRAM_512x128'...
-generate_target all [get_files  c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci]
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'SRAM_512x128'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'SRAM_512x128'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'SRAM_512x128'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'SRAM_512x128'...
-catch { config_ip_cache -export [get_ips -all SRAM_512x128] }
-export_ip_user_files -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci]
-launch_runs -jobs 4 SRAM_512x128_synth_1
-[Wed May 15 02:05:18 2019] Launched SRAM_512x128_synth_1...
-Run output will be captured here: C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.runs/SRAM_512x128_synth_1/runme.log
-export_simulation -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/SRAM_512x128.xci] -directory C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files -ipstatic_source_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name SRAM_32x512 -dir c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip
-set_property -dict [list CONFIG.Component_Name {SRAM_32x512} CONFIG.Write_Width_A {32} CONFIG.Write_Depth_A {512} CONFIG.Read_Width_A {32} CONFIG.Write_Width_B {32} CONFIG.Read_Width_B {32} CONFIG.Register_PortA_Output_of_Memory_Primitives {false}] [get_ips SRAM_32x512]
-WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'SRAM_32x512' to 'SRAM_32x512' is not allowed and is ignored.
-generate_target {instantiation_template} [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'SRAM_32x512'...
-generate_target all [get_files  c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci]
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'SRAM_32x512'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'SRAM_32x512'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'SRAM_32x512'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'SRAM_32x512'...
-catch { config_ip_cache -export [get_ips -all SRAM_32x512] }
-export_ip_user_files -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci]
-launch_runs -jobs 4 SRAM_32x512_synth_1
-[Wed May 15 02:05:48 2019] Launched SRAM_32x512_synth_1...
-Run output will be captured here: C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.runs/SRAM_32x512_synth_1/runme.log
-export_simulation -of_objects [get_files c:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/SRAM_32x512.xci] -directory C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files -ipstatic_source_dir C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/modelsim} {questa=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/questa} {riviera=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-add_files -norecurse {C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct.v}
-update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation_bias_fixed.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.13_convert_verified.v] -no_script -reset -force -quiet
+remove_files  {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.11_branch_implementation_bias_fixed.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/backups/lstm_5.13_convert_verified.v}
+add_files -norecurse {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct.v}
+WARNING: [filemgmt 56-12] File 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v' cannot be added to the project because it already exists in the project, skipping this file
 update_compile_order -fileset sources_1
 launch_simulation
 INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
 INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
 INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb_ctxt_convert' in fileset 'sim_1'...
 INFO: [USF-XSim-97] Finding global include files...
 INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
 "xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/sim/SRAM_32x512.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/sim/SRAM_32x512.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module SRAM_32x512
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/sim/SRAM_128x2048.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/sim/SRAM_128x2048.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module SRAM_128x2048
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/SRAM_512x128.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module SRAM_512x128
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module bias_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module br_bias_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module br_input_data_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module br_output_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module br_weight_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/inpdt_mid.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/inpdt_mid.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module inpdt_16_mid
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module input_data_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module LSTM
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module output_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sigmoid_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module tanh_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module weight_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module lstm_tb_ctxt_convert
-WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:353]
-WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:354]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:353]
+WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:354]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module glbl
-INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
 Vivado Simulator 2018.3
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 94fb33c9514f4a1b864ca541008e68a6 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot lstm_tb_ctxt_convert_behav xil_defaultlib.lstm_tb_ctxt_convert xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 94fb33c9514f4a1b864ca541008e68a6 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot lstm_tb_ctxt_convert_behav xil_defaultlib.lstm_tb_ctxt_convert xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -176,16 +118,354 @@ Compiling module xil_defaultlib.br_output_memory
 Compiling module xil_defaultlib.lstm_tb_ctxt_convert
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot lstm_tb_ctxt_convert_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:24 . Memory (MB): peak = 978.934 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '24' seconds
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_ctxt_convert_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/lstm_tb_ctxt_convert_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Wed May 15 20:40:40 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2018.3/doc/webtalk_introduction.html.
+webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 84.461 ; gain = 0.000
+INFO: [Common 17-206] Exiting Webtalk at Wed May 15 20:40:40 2019...
+run_program: Time (s): cpu = 00:00:04 ; elapsed = 00:01:30 . Memory (MB): peak = 813.750 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '91' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
-   with args "lstm_tb_ctxt_convert_behav -key {Behavioral:sim_1:Functional:lstm_tb_ctxt_convert} -tclbatch {lstm_tb_ctxt_convert.tcl} -view {C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg} -log {simulate.log}"
+   with args "lstm_tb_ctxt_convert_behav -key {Behavioral:sim_1:Functional:lstm_tb_ctxt_convert} -tclbatch {lstm_tb_ctxt_convert.tcl} -view {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg} -log {simulate.log}"
 INFO: [USF-XSim-8] Loading simulator feature
 Vivado Simulator 2018.3
 Time resolution is 1 ps
-open_wave_config C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[2] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[3] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[4] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[5] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[6] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[7] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[8] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[9] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[10] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[11] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[12] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[13] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[14] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[15] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[16] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[17] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[18] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[19] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[20] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[21] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[22] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[23] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[24] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[25] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[26] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[27] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[28] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[29] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[30] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[31] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[32] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[33] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[34] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[35] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[36] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[37] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[38] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[39] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[40] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[41] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[42] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[43] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[44] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[45] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[46] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[47] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[48] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[49] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[50] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[51] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[52] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[53] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[54] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[55] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[56] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[57] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[58] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[59] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[60] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[61] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[62] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[63] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[64] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[65] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[66] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[67] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[68] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[69] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[70] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[71] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[72] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[73] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[74] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[75] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[76] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[77] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[78] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[79] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[80] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[81] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1066] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1067] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1068] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1069] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1070] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1071] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1072] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1073] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1074] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1075] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1076] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1077] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[1] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[2] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[3] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[4] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[5] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[6] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[7] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[8] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[9] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[10] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[11] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[12] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[13] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[14] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[15] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[16] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[17] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[18] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[19] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[20] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[21] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[22] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[23] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[24] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[25] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[26] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[27] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[28] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[29] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[30] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[31] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[32] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[33] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[34] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[35] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[36] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[37] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[38] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[39] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[40] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[41] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[42] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[43] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[44] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[45] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[46] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[47] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[48] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[49] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[50] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[51] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[52] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[53] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[54] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[55] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[56] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[57] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[58] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[59] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[60] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[173] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[174] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[175] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[176] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[177] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[178] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[179] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/branch_W_counter was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_EN was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_addr was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_WE was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_Rdata was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_Wdata was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[1] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[2] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[3] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[4] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[5] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[6] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[7] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[8] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[9] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[1] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[2] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[3] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[4] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[5] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[6] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[7] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[8] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[9] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[1] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[2] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[3] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[4] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[5] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[6] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[7] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[8] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[9] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[1] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[2] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[3] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[4] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[5] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[6] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[7] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[8] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[9] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_counter was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_X[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_W[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_X was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_W was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_Rdata[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_Rdata[1] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_Rdata[2] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_Rdata[3] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_EN was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/br_Wbram_addr was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[0] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[1] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[2] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[3] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[4] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[5] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[6] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[7] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[8] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[9] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[10] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[11] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[12] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[13] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[14] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/inpdt_R_wire[15] was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/B_real_inpdt_sumBQS2 was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/B_real_biasBQS2 was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/B_unsat_BQS2 was not found in the design.
+WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/B_sat_BQS2 was not found in the design.
+source lstm_tb_ctxt_convert.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Block Memory Generator module lstm_tb_ctxt_convert.UUT.WEIGHT_BRAM1.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module lstm_tb_ctxt_convert.UUT.WEIGHT_BRAM2.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module lstm_tb_ctxt_convert.UUT.BIAS_BRAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+xsim: Time (s): cpu = 00:00:07 ; elapsed = 00:00:21 . Memory (MB): peak = 1069.070 ; gain = 255.320
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'lstm_tb_ctxt_convert_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:13 ; elapsed = 00:02:03 . Memory (MB): peak = 1069.070 ; gain = 255.320
+run all
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+test          3 is passed
+
+test          4 is passed
+
+test          5 is passed
+
+test          6 is passed
+
+test          7 is passed
+
+test          8 is passed
+
+test          9 is passed
+
+test          0 is passed
+
+test          1 is passed
+
+test          2 is passed
+
+$finish called at time : 385355 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
+set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v]
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct.v}]
+update_compile_order -fileset sources_1
+set_property is_enabled true [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v]
+set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v]
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1136.430 ; gain = 0.000
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb_ctxt_convert' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 94fb33c9514f4a1b864ca541008e68a6 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot lstm_tb_ctxt_convert_behav xil_defaultlib.lstm_tb_ctxt_convert xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "lstm_tb_ctxt_convert_behav -key {Behavioral:sim_1:Functional:lstm_tb_ctxt_convert} -tclbatch {lstm_tb_ctxt_convert.tcl} -view {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
 WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[0] was not found in the design.
 WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1] was not found in the design.
 WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[2] was not found in the design.
@@ -443,7 +723,7 @@ Block Memory Generator module lstm_tb_ctxt_convert.UUT.WEIGHT_BRAM2.inst.native_
 Block Memory Generator module lstm_tb_ctxt_convert.UUT.BIAS_BRAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'lstm_tb_ctxt_convert_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:31 . Memory (MB): peak = 1232.695 ; gain = 253.762
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1136.430 ; gain = 0.000
 run all
 test          0 is passed
 
@@ -471,494 +751,4 @@ test          1 is passed
 
 test          2 is passed
 
-$finish called at time : 385355 ns : File "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
-set_property top LSTM [current_fileset]
-set_property is_enabled false [get_files  {C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct_2.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct.v C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_2_innerproduct.v}]
-update_compile_order -fileset sources_1
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb_ctxt_convert' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/sim/SRAM_512x128.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_512x128
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module LSTM
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-Vivado Simulator 2018.3
-Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 94fb33c9514f4a1b864ca541008e68a6 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot lstm_tb_ctxt_convert_behav xil_defaultlib.lstm_tb_ctxt_convert xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-WARNING: [VRFC 10-3091] actual bit length 11 differs from formal bit length 7 for port 'addra' [C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v:579]
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.inpdt_16_mid
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2(C_FAMILY="art...
-Compiling module xil_defaultlib.SRAM_128x2048
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2(C_FAMILY="art...
-Compiling module xil_defaultlib.SRAM_32x512
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2(C_FAMILY="art...
-Compiling module xil_defaultlib.SRAM_512x128
-Compiling module xil_defaultlib.sigmoid_LUT
-Compiling module xil_defaultlib.tanh_LUT
-Compiling module xil_defaultlib.LSTM_default
-Compiling module xil_defaultlib.weight_memory
-Compiling module xil_defaultlib.bias_memory
-Compiling module xil_defaultlib.br_weight_memory
-Compiling module xil_defaultlib.br_bias_memory
-Compiling module xil_defaultlib.input_data_memory
-Compiling module xil_defaultlib.output_memory
-Compiling module xil_defaultlib.br_input_data_memory
-Compiling module xil_defaultlib.br_output_memory
-Compiling module xil_defaultlib.lstm_tb_ctxt_convert
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot lstm_tb_ctxt_convert_behav
-run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 1325.820 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '21' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "lstm_tb_ctxt_convert_behav -key {Behavioral:sim_1:Functional:lstm_tb_ctxt_convert} -tclbatch {lstm_tb_ctxt_convert.tcl} -view {C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Vivado Simulator 2018.3
-Time resolution is 1 ps
-open_wave_config C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[0] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[2] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[3] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[4] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[5] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[6] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[7] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[8] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[9] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[10] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[11] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[12] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[13] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[14] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[15] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[16] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[17] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[18] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[19] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[20] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[21] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[22] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[23] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[24] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[25] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[26] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[27] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[28] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[29] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[30] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[31] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[32] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[33] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[34] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[35] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[36] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[37] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[38] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[39] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[40] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[41] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[42] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[43] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[44] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[45] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[46] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[47] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[48] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[49] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[50] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[51] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[52] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[53] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[54] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[55] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[56] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[57] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[58] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[59] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[60] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[61] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[62] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[63] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[64] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[65] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[66] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[67] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[68] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[69] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[70] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[71] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[72] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[73] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[74] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[75] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[76] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[77] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[78] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[79] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[80] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[81] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1066] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1067] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1068] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1069] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1070] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1071] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1072] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1073] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1074] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1075] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1076] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/WEIGHT_BRAM1/mem[1077] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[0] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[1] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[2] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[3] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[4] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[5] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[6] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[7] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[8] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[9] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[10] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[11] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[12] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[13] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[14] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[15] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[16] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[17] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[18] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[19] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[20] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[21] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[22] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[23] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[24] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[25] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[26] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[27] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[28] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[29] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[30] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[31] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[32] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[33] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[34] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[35] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[36] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[37] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[38] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[39] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[40] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[41] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[42] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[43] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[44] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[45] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[46] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[47] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[48] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[49] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[50] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[51] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[52] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[53] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[54] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[55] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[56] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[57] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[58] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[59] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[60] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[173] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[174] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[175] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[176] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[177] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[178] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/BIAS_BRAM/mem[179] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[0] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[1] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[2] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[3] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[4] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[5] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[6] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[7] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[8] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[0].u_Branch_Wbram /mem[9] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[0] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[1] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[2] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[3] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[4] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[5] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[6] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[7] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[8] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[1].u_Branch_Wbram /mem[9] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[0] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[1] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[2] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[3] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[4] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[5] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[6] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[7] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[8] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[2].u_Branch_Wbram /mem[9] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[0] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[1] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[2] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[3] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[4] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[5] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[6] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[7] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[8] was not found in the design.
-WARNING: Simulation object /lstm_tb_ctxt_convert/UUT/\Branch_Wbram[3].u_Branch_Wbram /mem[9] was not found in the design.
-source lstm_tb_ctxt_convert.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.WEIGHT_BRAM1.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.WEIGHT_BRAM2.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.BIAS_BRAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.Branch_Wbram[0].u_Branch_Wbram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.Branch_Wbram[1].u_Branch_Wbram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.Branch_Wbram[2].u_Branch_Wbram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.Branch_Wbram[3].u_Branch_Wbram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'lstm_tb_ctxt_convert_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:26 . Memory (MB): peak = 1325.820 ; gain = 0.000
-run all
-test          0 is failed
-result is 0x8080808080808080
-answer is 0x9595959595959595
-
-test          1 is failed
-result is 0x8080808080808080
-answer is 0xaa6d8ea586b6b17d
-
-test          2 is failed
-result is 0x8080808080808080
-answer is 0x9d9a89a688d5cd7e
-
-test          3 is failed
-result is 0x8080808080808080
-answer is 0xc19c5d9bb6c0bda2
-
-test          4 is failed
-result is 0x8080808080808080
-answer is 0x89bd5badc6ceb7ab
-
-test          5 is failed
-result is 0x8080808080808080
-answer is 0xb6b273b4bbc8cda9
-
-test          6 is failed
-result is 0x8080808080808080
-answer is 0xce4f5ea5aebabf9b
-
-test          7 is failed
-result is 0x8080808080808080
-answer is 0x973b99b498bfdeb8
-
-test          8 is failed
-result is 0x8080808080808080
-answer is 0xb9b9a499a5a7dcc0
-
-test          9 is failed
-result is 0x8080808080808080
-answer is 0x79a5c584af9bc197
-
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-$finish called at time : 358445 ns : File "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
-relaunch_sim
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-7] Finding pre-compiled libraries...
-INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-54] Inspecting design source files for 'lstm_tb_ctxt_convert' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-"xvlog --incr --relax -prj lstm_tb_ctxt_convert_vlog.prj"
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_512x128/sim/SRAM_512x128.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_512x128
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_32x512/sim/SRAM_32x512.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_32x512
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.srcs/sources_1/ip/SRAM_128x2048/sim/SRAM_128x2048.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module SRAM_128x2048
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/syscall/bias_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module bias_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_bias_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module br_bias_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_input_data_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module br_input_data_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_output_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module br_output_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/branch/branch_weight_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module br_weight_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/inpdt_mid.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module inpdt_16_mid
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/syscall/input_data_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module input_data_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module LSTM
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/syscall/output_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module output_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/sigmoid_LUT.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sigmoid_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/tanh_LUT.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tanh_LUT
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/syscall/weight_memory.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module weight_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module lstm_tb_ctxt_convert
-WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:353]
-WARNING: [VRFC 10-986] literal value truncated to fit in 512 bits [C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v:354]
-INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
-INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/LSTM_IOT_SEC/project_1/project_1.sim/sim_1/behav/xsim'
-Vivado Simulator 2018.3
-Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 94fb33c9514f4a1b864ca541008e68a6 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot lstm_tb_ctxt_convert_behav xil_defaultlib.lstm_tb_ctxt_convert xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-WARNING: [VRFC 10-3091] actual bit length 11 differs from formal bit length 7 for port 'addra' [C:/Users/User/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v:579]
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.inpdt_16_mid
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2(C_FAMILY="art...
-Compiling module xil_defaultlib.SRAM_128x2048
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2(C_FAMILY="art...
-Compiling module xil_defaultlib.SRAM_32x512
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2(C_FAMILY="art...
-Compiling module xil_defaultlib.SRAM_512x128
-Compiling module xil_defaultlib.sigmoid_LUT
-Compiling module xil_defaultlib.tanh_LUT
-Compiling module xil_defaultlib.LSTM_default
-Compiling module xil_defaultlib.weight_memory
-Compiling module xil_defaultlib.bias_memory
-Compiling module xil_defaultlib.br_weight_memory
-Compiling module xil_defaultlib.br_bias_memory
-Compiling module xil_defaultlib.input_data_memory
-Compiling module xil_defaultlib.output_memory
-Compiling module xil_defaultlib.br_input_data_memory
-Compiling module xil_defaultlib.br_output_memory
-Compiling module xil_defaultlib.lstm_tb_ctxt_convert
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot lstm_tb_ctxt_convert_behav
-run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:14 . Memory (MB): peak = 1486.793 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '14' seconds
-launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:14 . Memory (MB): peak = 1486.793 ; gain = 0.000
-Vivado Simulator 2018.3
-Time resolution is 1 ps
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.WEIGHT_BRAM1.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.WEIGHT_BRAM2.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.BIAS_BRAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.Branch_Wbram[0].u_Branch_Wbram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.Branch_Wbram[1].u_Branch_Wbram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.Branch_Wbram[2].u_Branch_Wbram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module lstm_tb_ctxt_convert.UUT.Branch_Wbram[3].u_Branch_Wbram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:20 . Memory (MB): peak = 1486.793 ; gain = 0.000
-run all
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-test          3 is passed
-
-test          4 is passed
-
-test          5 is passed
-
-test          6 is passed
-
-test          7 is passed
-
-test          8 is passed
-
-test          9 is passed
-
-test          0 is passed
-
-test          1 is passed
-
-test          2 is passed
-
-$finish called at time : 358445 ns : File "C:/Users/User/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-exit
-INFO: [Common 17-206] Exiting Vivado at Wed May 15 02:13:25 2019...
+$finish called at time : 385355 ns : File "C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/tb/overall/lstm_tb_ctxt_convert_5.13.v" Line 404

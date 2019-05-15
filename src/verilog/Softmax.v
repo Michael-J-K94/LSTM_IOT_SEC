@@ -73,41 +73,20 @@ module softmax#(
 	reg br_bias_bram_WE;
 	reg [11:0] br_bias_bram_addr;
 	reg [7:0] br_bias_bram_Wdata;
-	reg [7:0] br_bias_bram_Rdata;
+	wire [7:0] br_bias_bram_Rdata;
 
 	reg sys_weight_bram_EN;
 	reg sys_weight_bram_WE;
 	reg [8:0] sys_weight_bram_addr;
 	reg [63:0] sys_weight_bram_Wdata;
-	reg [63:0] sys_weight_bram_Rdata;	
+	wire [63:0] sys_weight_bram_Rdata;	
 
 	reg sys_bias_bram_EN;
 	reg sys_bias_bram_WE;
 	reg [8:0] sys_bias_bram_addr;
 	reg [7:0] sys_bias_bram_Wdata;
-	reg [7:0] sys_bias_bram_Rdata;
+	wire [7:0] sys_bias_bram_Rdata;
 
-
-/*
-	SRAM_128x2048 WEIGHT_BRAM1(
-		.addra(br_weight_bram_addr),
-		.clka(clk),
-		.dina(br_weight_bram_Wdata),
-		.douta(br_weight_bram_Rdata),
-		.ena(br_weight_bram_EN),
-		.wea(br_weight_bram_WE)	
-	);
-	
-	SRAM_32x512 BIAS_BRAM(
-		.addra(br_bias_bram_addr),
-		.clka(clk),
-		.dina(br_bias_bram_Wdata),
-		.douta(br_bias_bram_Rdata),
-		.ena(br_bias_bram_EN),
-		.wea(br_bias_bram_WE)	
-	);	
-	
-*/
 
 	SRAM_512x4096 BR_WEIGHT_BRAM(
 		.addra(br_weight_bram_addr),

@@ -1,0 +1,512 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed May 15 20:33:48 2019
+# Process ID: 9256
+# Current directory: C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1
+# Command line: vivado.exe -log softmax.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source softmax.tcl
+# Log file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/softmax.vds
+# Journal file: C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source softmax.tcl -notrace
+Command: synth_design -top softmax -part xc7s100fgga484-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s100'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s100'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11472 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 471.066 ; gain = 103.789
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'softmax' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:5]
+	Parameter SCALE_DATA bound to: 10'b0010000000 
+	Parameter SCALE_STATE bound to: 10'b0010000000 
+	Parameter SCALE_W bound to: 10'b0010000000 
+	Parameter SCALE_B bound to: 10'b0100000000 
+	Parameter ZERO_DATA bound to: 8'b10000000 
+	Parameter ZERO_STATE bound to: 8'b10000000 
+	Parameter ZERO_W bound to: 8'b10000000 
+	Parameter ZERO_B bound to: 8'b00000000 
+	Parameter SCALE_SIGMOID bound to: 10'b0000011000 
+	Parameter SCALE_TANH bound to: 10'b0000110000 
+	Parameter ZERO_SIGMOID bound to: 8'b10000000 
+	Parameter ZERO_TANH bound to: 8'b10000000 
+	Parameter OUT_SCALE_SIGMOID bound to: 10'b0100000000 
+	Parameter OUT_SCALE_TANH bound to: 10'b0010000000 
+	Parameter OUT_ZERO_SIGMOID bound to: 8'b00000000 
+	Parameter OUT_ZERO_TANH bound to: 8'b10000000 
+	Parameter THRESHOLD bound to: 24'b000000000000111111111111 
+	Parameter IDLE bound to: 2'b00 
+	Parameter RUN bound to: 2'b01 
+	Parameter SYS_type bound to: 1'b1 
+	Parameter BR_type bound to: 1'b0 
+INFO: [Synth 8-6157] synthesizing module 'SRAM_512x4096' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/.Xil/Vivado-9256-ECE-B02/realtime/SRAM_512x4096_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'SRAM_512x4096' (1#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/.Xil/Vivado-9256-ECE-B02/realtime/SRAM_512x4096_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'SRAM_8x4096' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/.Xil/Vivado-9256-ECE-B02/realtime/SRAM_8x4096_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'SRAM_8x4096' (2#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/.Xil/Vivado-9256-ECE-B02/realtime/SRAM_8x4096_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'SRAM_64x283' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/.Xil/Vivado-9256-ECE-B02/realtime/SRAM_64x283_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'SRAM_64x283' (3#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/.Xil/Vivado-9256-ECE-B02/realtime/SRAM_64x283_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'SRAM_8x283' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/.Xil/Vivado-9256-ECE-B02/realtime/SRAM_8x283_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'SRAM_8x283' (4#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/.Xil/Vivado-9256-ECE-B02/realtime/SRAM_8x283_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'softmax' (5#1) [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:5]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 527.758 ; gain = 160.480
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 527.758 ; gain = 160.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 527.758 ; gain = 160.480
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7s100fgga484-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.srcs/sources_1/ip/SRAM_512x4096_2/SRAM_512x4096/SRAM_512x4096_in_context.xdc] for cell 'BR_WEIGHT_BRAM'
+Finished Parsing XDC File [c:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.srcs/sources_1/ip/SRAM_512x4096_2/SRAM_512x4096/SRAM_512x4096_in_context.xdc] for cell 'BR_WEIGHT_BRAM'
+Parsing XDC File [c:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.srcs/sources_1/ip/SRAM_8x4096_1/SRAM_8x4096/SRAM_8x4096_in_context.xdc] for cell 'BR_BIAS_BRAM'
+Finished Parsing XDC File [c:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.srcs/sources_1/ip/SRAM_8x4096_1/SRAM_8x4096/SRAM_8x4096_in_context.xdc] for cell 'BR_BIAS_BRAM'
+Parsing XDC File [c:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.srcs/sources_1/ip/SRAM_64x283/SRAM_64x283/SRAM_64x283_in_context.xdc] for cell 'SYS_WEIGHT_BRAM'
+Finished Parsing XDC File [c:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.srcs/sources_1/ip/SRAM_64x283/SRAM_64x283/SRAM_64x283_in_context.xdc] for cell 'SYS_WEIGHT_BRAM'
+Parsing XDC File [c:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.srcs/sources_1/ip/SRAM_8x283/SRAM_8x283/SRAM_8x283_in_context.xdc] for cell 'SYS_BIAS_BRAM'
+Finished Parsing XDC File [c:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.srcs/sources_1/ip/SRAM_8x283/SRAM_8x283/SRAM_8x283_in_context.xdc] for cell 'SYS_BIAS_BRAM'
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 859.070 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 859.070 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 859.070 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 859.082 ; gain = 491.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s100fgga484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 859.082 ; gain = 491.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for BR_WEIGHT_BRAM. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for BR_BIAS_BRAM. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for SYS_WEIGHT_BRAM. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for SYS_BIAS_BRAM. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 859.082 ; gain = 491.805
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'sys_bias_bram_addr_reg[8:0]' into 'sys_weight_bram_addr_reg[8:0]' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:119]
+INFO: [Synth 8-4471] merging register 'br_bias_bram_addr_reg[11:0]' into 'br_weight_bram_addr_reg[11:0]' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:101]
+INFO: [Synth 8-4471] merging register 'sys_bias_bram_EN_reg' into 'sys_weight_bram_EN_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:123]
+INFO: [Synth 8-4471] merging register 'br_bias_bram_EN_reg' into 'br_weight_bram_EN_reg' [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:105]
+INFO: [Synth 8-5546] ROM "softmax_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "softmax_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "br_weight_bram_EN" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:370]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/Softmax.v:336]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 859.082 ; gain = 491.805
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 6     
+	   2 Input     24 Bit       Adders := 4     
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	              512 Bit    Registers := 1     
+	               64 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	               13 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 74    
+	                7 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input     24 Bit        Muxes := 6     
+	   2 Input     18 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 46    
+	   3 Input      1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module softmax 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 6     
+	   2 Input     24 Bit       Adders := 4     
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	              512 Bit    Registers := 1     
+	               64 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	               13 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 74    
+	                7 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input     24 Bit        Muxes := 6     
+	   2 Input     18 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 46    
+	   3 Input      1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 160 (col length:80)
+BRAMs: 240 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "softmax_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "softmax_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "br_weight_bram_EN" won't be mapped to RAM because it is too sparse
+DSP Report: Generating DSP cal_temp_reg5, operation Mode is: A*B.
+DSP Report: operator cal_temp_reg5 is absorbed into DSP cal_temp_reg5.
+DSP Report: operator cal_temp_reg5 is absorbed into DSP cal_temp_reg5.
+DSP Report: Generating DSP cal_temp_reg5, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator cal_temp_reg5 is absorbed into DSP cal_temp_reg5.
+DSP Report: operator cal_temp_reg5 is absorbed into DSP cal_temp_reg5.
+DSP Report: Generating DSP cal_temp_reg5, operation Mode is: A*B.
+DSP Report: operator cal_temp_reg5 is absorbed into DSP cal_temp_reg5.
+DSP Report: operator cal_temp_reg5 is absorbed into DSP cal_temp_reg5.
+DSP Report: Generating DSP cal_temp_reg5, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator cal_temp_reg5 is absorbed into DSP cal_temp_reg5.
+DSP Report: operator cal_temp_reg5 is absorbed into DSP cal_temp_reg5.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[32] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[33] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[34] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[35] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[36] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[37] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[38] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[39] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[40] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[41] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[42] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[43] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[44] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[46] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[47] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[48] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[49] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[50] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[51] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[52] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[53] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[54] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[56] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[57] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[58] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[59] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[60] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[61] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[62] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sys_weight_bram_Wdata_reg[63] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sys_weight_bram_WE_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[32] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[33] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\br_weight_bram_Wdata_reg[34] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 859.082 ; gain = 491.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|softmax     | A*B            | 18     | 9      | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|softmax     | (PCIN>>17)+A*B | 15     | 9      | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|softmax     | A*B            | 18     | 9      | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|softmax     | (PCIN>>17)+A*B | 15     | 9      | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:42 . Memory (MB): peak = 901.422 ; gain = 534.145
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:43 . Memory (MB): peak = 902.313 ; gain = 535.035
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:43 . Memory (MB): peak = 925.570 ; gain = 558.293
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:44 . Memory (MB): peak = 925.570 ; gain = 558.293
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:44 . Memory (MB): peak = 925.570 ; gain = 558.293
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:44 . Memory (MB): peak = 925.570 ; gain = 558.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:44 . Memory (MB): peak = 925.570 ; gain = 558.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:45 . Memory (MB): peak = 925.570 ; gain = 558.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:45 . Memory (MB): peak = 925.570 ; gain = 558.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |SRAM_512x4096 |         1|
+|2     |SRAM_8x4096   |         1|
+|3     |SRAM_64x283   |         1|
+|4     |SRAM_8x283    |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |SRAM_512x4096 |     1|
+|2     |SRAM_64x283   |     1|
+|3     |SRAM_8x283    |     1|
+|4     |SRAM_8x4096   |     1|
+|5     |BUFG          |     1|
+|6     |CARRY4        |    41|
+|7     |DSP48E1       |     4|
+|8     |LUT1          |    33|
+|9     |LUT2          |    33|
+|10    |LUT3          |    13|
+|11    |LUT4          |    46|
+|12    |LUT5          |    36|
+|13    |LUT6          |   271|
+|14    |MUXF7         |    86|
+|15    |MUXF8         |    32|
+|16    |FDCE          |   649|
+|17    |FDPE          |     2|
+|18    |IBUF          |   594|
+|19    |OBUF          |     1|
++------+--------------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |  2434|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:45 . Memory (MB): peak = 925.570 ; gain = 558.293
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 925.570 ; gain = 226.969
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:45 . Memory (MB): peak = 925.570 ; gain = 558.293
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'softmax' is not ideal for floorplanning, since the cellview 'softmax' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 925.570 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+134 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:48 . Memory (MB): peak = 925.570 ; gain = 570.324
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 925.570 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/ECE/Desktop/LSTM_IOT_SEC/softmax/softmax.runs/synth_1/softmax.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file softmax_utilization_synth.rpt -pb softmax_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed May 15 20:34:47 2019...
