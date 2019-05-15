@@ -2,3 +2,6 @@ Running: xsim.dir/lstm_tb_ctxt_convert_behav/xsimk.exe -simmode gui -wdb lstm_tb
 Design successfully loaded
 Design Loading Memory Usage: 10016 KB (Peak: 10016 KB)
 Design Loading CPU Usage: 78 ms
+Simulation completed
+Simulation Memory Usage: 29284 KB (Peak: 29284 KB)
+Simulation CPU Usage: 890 ms
