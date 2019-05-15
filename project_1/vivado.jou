@@ -44,3 +44,23 @@ restart
 restart
 run all
 save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+save_wave_config {C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg}
+set_property is_enabled false [get_files  C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2.v]
+update_compile_order -fileset sources_1
+add_files -norecurse {C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_TMQ.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_MAQ.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ht.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQS.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_BQT.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/lstm_16_innerproduct_2_modulized.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQT.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/B_MAQ.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/CONVERT_Ct.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_BQS.v C:/Users/ECE/Desktop/LSTM_IOT_SEC/src/verilog/S_TMQ.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
+source lstm_tb_ctxt_convert.tcl
+run all
+relaunch_sim
+run all
+relaunch_sim
+run all
