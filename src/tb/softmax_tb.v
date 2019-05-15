@@ -46,9 +46,12 @@ module softmax_tb();
 		for(i=0; i<64; i=i+1) begin
 			br_ht_set[0][512-8*(i+1)+:8] = 8'h80;
 		end		
-		sys_ht_set[1] = 64'h20ac_fd8e_104c_8b9a;
-		sys_ht_set[2] = 64'hd8b0_a0c8_1407_d6af;
+		sys_ht_set[0] = 64'h20ac_fd8e_104c_8b9a;
+		sys_ht_set[1] = 64'hd8b0_a0c8_1407_d6af;
 	
+		for(i=0; i<8; i=i+1) begin
+			br_ht_set[0][64*i+:64] = 
+		end
 	
 	end
 
@@ -86,7 +89,7 @@ module softmax_tb();
 		#(5*CLK_PERIOD + 0.01)
 
 	///////////////////////
-		// lstm sys done.
+		// 처음에 lstm에서 sys_ht가 나옴. (1번째 system call은 softmax에게 안감).
 		lstm_valid = 1'b1;
 		lstm_type = SYS_type;
 		sys_ht = sys_ht_set[1];
@@ -94,6 +97,7 @@ module softmax_tb();
 		lstm_valid = 1'b0;
 
 	///////////////////////
+		// 이때, 방금 lstm_done을 보고, top에서 FIFO에서 값을 뿌려줌. 이 때, 처음으로 softmax는 branch를 받음. 얘는 br_new로 무시함. 
 		#(CLK_PERIOD)
 		fifo_valid = 1'b1;
 		fifo_data = fifo_data_set[0];
@@ -101,10 +105,12 @@ module softmax_tb();
 		fifo_valid = 1'b0;
 
 	///////////////////////
+		// 한참 뒤에 lstm_done과 함께, 1st sys에 대한 1st branch가 처리됨. 이에 lstm에서는 valid와 함께 br_ht를 줌.
 		#(128*CLK_PERIOD)
 		lstm_valid = 1'b1;
 		lstm_type = BR_type;
 		br_ht = 
+		#(CLK_PERIOD)
 		
 		
 		#(100*CLK_PERIOD)		

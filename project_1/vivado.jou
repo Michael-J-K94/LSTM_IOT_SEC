@@ -36,3 +36,4 @@ launch_simulation
 open_wave_config C:/Users/ECE/Desktop/LSTM_IOT_SEC/project_1/lstm_tb_br_behav.wcfg
 source lstm_tb_ctxt_convert.tcl
 run all
+close_sim

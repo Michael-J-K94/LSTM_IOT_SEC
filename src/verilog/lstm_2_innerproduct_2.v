@@ -50,6 +50,9 @@ module LSTM#(
 	input [511:0] iData,
 	
 	output reg oLstm_done,	// lstm done & ready to do next task. 
+
+	output reg oLstm_valid,	
+	output reg oLstm_type,	
 	output reg [511:0] oBr_Ct,	// Wire actually
 	output reg [511:0] oBr_Ht,
 	output reg [63:0] oSys_Ct,
@@ -553,12 +556,16 @@ module LSTM#(
 			lstm_done <= 1'b1;
 			counter <= 'd0;
 			ctxt_counter <= 'd0;
+			
+			oLstm_type <= SYS_type;
+			oLstm_valid <= 1'b0;
 		end
 		else begin		
 			init_valid_buff <= iInit_valid;
 			case(lstm_state)
 			
 				IDLE: begin
+					oLstm_valid <= 1'b0;
 					if(iInit_valid) begin
 						lstm_state <= INITIALIZE_W_B;
 						lstm_done <= 1'b0;
@@ -592,6 +599,10 @@ module LSTM#(
 					if(counter == 1028 ) begin
 						lstm_state <= IDLE;
 						lstm_done <= 1'b1;
+						
+						oLstm_type <= BR_type;
+						oLstm_valid <= 1'b1;						
+						
 						counter <= 'd0;
 					end
 					else begin					
@@ -606,6 +617,9 @@ module LSTM#(
 					else begin
 						lstm_state <= IDLE;
 						lstm_done <= 1'b1;
+						
+						oLstm_valid <= 1'b0;
+						
 						counter <= 'd0;
 					end
 				end
@@ -614,6 +628,10 @@ module LSTM#(
 					if(ctxt_counter == 35) begin
 						lstm_state <= IDLE;
 						lstm_done <= 1'b1;
+
+						oLstm_type <= SYS_type;
+						oLstm_valid <= 1'b1;						
+						
 						ctxt_counter <= 'd0;
 					end
 					else begin
@@ -624,6 +642,9 @@ module LSTM#(
 				ERROR: begin
 					lstm_state <= ERROR;
 					lstm_done <= 1'b0;			
+					
+					oLstm_valid <= 1'b0;					
+					
 					counter <= 'd0;							
 				end	
 
